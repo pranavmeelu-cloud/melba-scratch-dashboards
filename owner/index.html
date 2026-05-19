@@ -31,7 +31,7 @@ a.open:hover{text-decoration:underline}
 <div class="subtitle">Bookmark this page · full group dashboards listed most recent first</div>
 <div class="intro">Each row links to that day's full group dashboard (all four entities, full cost breakdown). Margin pills are colour-coded vs each entity's target — VS/VL/QS ≥20% · SB ≥15%.</div>
 <table id="hist">
-  <thead><tr><th>Date</th><th>Group Revenue</th><th>VS</th><th>SB</th><th>VL</th><th>QS</th><th></th></tr></thead>
+  <thead><tr><th>Date</th><th>Group Revenue</th><th>Group Surplus</th><th>Margin</th><th>VS</th><th>SB</th><th>VL</th><th>QS</th><th></th></tr></thead>
   <tbody></tbody>
 </table>
 
@@ -41,10 +41,10 @@ const HISTORY_DATA = [
     date: "2026-05-18",
     label: "Mon 18 May 2026",
     group_revenue: 13876.51,
-    vs: { margin: -17.81 },
-    sb: { margin: 7.21 },
-    vl: { margin: 5.59 },
-    qs: { margin: 4.47 },
+    vs: { margin: -17.81, surplus: -447.95 },
+    sb: { margin:   7.21, surplus:  605.56 },
+    vl: { margin:   5.59, surplus:  136.42 },
+    qs: { margin:   4.47, surplus:   23.62 },
     file: "Melba-Scratch Group Dashboard - Monday 18 May 2026.html"
   }
 ];
@@ -56,9 +56,20 @@ function tierClass(m, t){
   if(m >= 0)    return "tier-orange";
   return "tier-red";
 }
-function fmt$(v){
-  if(!v) return "—";
-  return "$" + Math.abs(v).toLocaleString('en-NZ',{minimumFractionDigits:2,maximumFractionDigits:2});
+function groupTierClass(m){
+  // Group margin uses a blended target of ~18%
+  if(m >= 28)  return "tier-deep";
+  if(m >= 18)  return "tier-green";
+  if(m >= 13)  return "tier-amber";
+  if(m >= 0)   return "tier-orange";
+  return "tier-red";
+}
+function fmtMoney(v){
+  var abs = Math.abs(v).toLocaleString('en-NZ',{minimumFractionDigits:2,maximumFractionDigits:2});
+  return (v < 0 ? "−$" : "+$") + abs;
+}
+function surplusColour(v){
+  return v >= 0 ? "#4ade80" : "#f87171";
 }
 function pill(label, m, t){
   if(m === null || m === undefined) return `<span class="mpill tier-amber">${label} —</span>`;
@@ -67,10 +78,14 @@ function pill(label, m, t){
 
 const tb = document.querySelector("#hist tbody");
 HISTORY_DATA.forEach(r => {
+  const groupSurplus = (r.vs.surplus || 0) + (r.sb.surplus || 0) + (r.vl.surplus || 0) + (r.qs.surplus || 0);
+  const groupMargin  = r.group_revenue ? (groupSurplus / r.group_revenue * 100) : 0;
   const tr = document.createElement("tr");
   tr.innerHTML =
     `<td>${r.label}</td>` +
-    `<td>${fmt$(r.group_revenue)}</td>` +
+    `<td>$${r.group_revenue.toLocaleString('en-NZ',{minimumFractionDigits:2,maximumFractionDigits:2})}</td>` +
+    `<td style="color:${surplusColour(groupSurplus)};font-weight:600">${fmtMoney(groupSurplus)}</td>` +
+    `<td><span class="mpill ${groupTierClass(groupMargin)}">${groupMargin.toFixed(1)}%</span></td>` +
     `<td>${pill("VS", r.vs.margin, 20)}</td>` +
     `<td>${pill("SB", r.sb.margin, 15)}</td>` +
     `<td>${pill("VL", r.vl.margin, 20)}</td>` +
