@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Queen Street — Team Dashboard · Wed 20 May 2026</title>
+<style>
+:root{--bg:#0f1419;--card:#1a1f2e;--card2:#232938;--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--purple:#a78bfa;--orange:#f97316;--teal:#34d399;--fuchsia:#e879f9;--text:#e2e8f0;--muted:#94a3b8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;font-size:14px;padding:16px;max-width:1100px;margin:0 auto}
+h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
+.subtitle{color:var(--muted);font-size:.9rem;margin-bottom:16px}
+.pill{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.75rem;background:#2a1e3a;color:#c084fc;margin-left:8px;font-weight:500}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+.kpi{background:var(--card);border-radius:10px;padding:14px;border:1px solid #2a3547}
+.kpi-label{color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.kpi-val{font-size:1.4rem;font-weight:700}
+.kpi-sub{color:var(--muted);font-size:.75rem;margin-top:2px}
+.surplus-card{border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #fbbf24;background:linear-gradient(135deg,#262010,#1a1f2e)}
+.sval{font-size:2.4rem;font-weight:800;color:#fbbf24}
+.sn{color:var(--muted);font-size:.85rem;margin-top:4px}
+.section{background:var(--card);border-radius:10px;padding:14px;margin-bottom:12px;border:1px solid #2a3547}
+.section h3{font-size:.95rem;margin-bottom:12px;color:var(--text)}
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:.82rem}
+.bar-label{width:230px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-track{flex:1;height:18px;background:#0f1419;border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px}
+.bar-val{width:90px;flex-shrink:0;text-align:right;color:var(--muted);font-size:.8rem}
+table{width:100%;border-collapse:collapse;font-size:.8rem;margin-bottom:4px}
+th{background:#0f1419;padding:6px 8px;text-align:left;color:var(--muted);font-weight:500;border-bottom:1px solid #2a3547}
+td{padding:5px 8px;border-bottom:1px solid #1e2535}
+tr:last-child td{border:none}
+.note{background:#1c1a0d;border:1px solid var(--amber);border-radius:6px;padding:8px 10px;margin-bottom:10px;font-size:.8rem;color:var(--amber)}
+.commentary{background:var(--card2);border-radius:8px;padding:12px;font-size:.85rem;line-height:1.5;color:var(--text);margin-top:8px}
+</style>
+</head>
+<body>
+<h1>Queen Street — Team Dashboard <span class="pill">Team View</span></h1>
+<div class="subtitle">Wednesday 20 May 2026 · All $ incl GST</div>
+
+<div class="kpi-row">
+  <div class="kpi"><div class="kpi-label">Total Revenue</div><div class="kpi-val" style="color:var(--green)">$797.00</div><div class="kpi-sub">Café only</div></div>
+  <div class="kpi"><div class="kpi-label">Total COGS</div><div class="kpi-val" style="color:var(--red)">$126.33</div><div class="kpi-sub">Five Elements only</div></div>
+  <div class="kpi"><div class="kpi-label">Wages</div><div class="kpi-val" style="color:var(--amber)">$348.30</div><div class="kpi-sub">2 staff · 12.82h</div></div>
+  <div class="kpi"><div class="kpi-label">Remaining Op Costs</div><div class="kpi-val" style="color:var(--orange)">$197.26</div></div>
+</div>
+
+<div class="surplus-card">
+  <div style="color:#fbbf24;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Daily Result</div>
+  <div class="sval">+15.70%</div>
+  <div class="sn">of revenue · Target ≥20% · best day of the week so far</div>
+  <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)">
+    <div style="font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:10px">To reach 20% — today's adjustments needed</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:3px">COGS should have been</div>
+        <div style="font-size:1.15rem;font-weight:700;color:#fbbf24">≤$101.29</div>
+        <div style="font-size:10px;color:var(--muted)">−$25.04 vs actual $126.33</div>
+      </div>
+      <div>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:3px">Wages should have been</div>
+        <div style="font-size:1.15rem;font-weight:700;color:#60a5fa">≤$335.78</div>
+        <div style="font-size:10px;color:var(--muted)">−$12.52 vs actual $348.30</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section"><h3>Revenue Breakdown — $797.00</h3>
+  <div class="bar-row"><div class="bar-label">Café</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--green)"></div></div><div class="bar-val">$797.00</div></div>
+</div>
+
+<div class="section"><h3>COGS Breakdown — $126.33 total</h3>
+  <div class="bar-row"><div class="bar-label">Five Elements ÷5/wk</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--purple)"></div></div><div class="bar-val">$126.33</div></div>
+  <h3 style="margin-top:14px;margin-bottom:8px;font-size:.85rem;color:var(--muted)">Five Elements — $126.33 (Inv #11481 · $631.65 full · 1/5 weekly share — day 3/5)</h3>
+  <table><tr><th>Description</th><th>Full Invoice</th><th>Daily (÷5)</th></tr>
+    <tr><td>Weekly coffee order #11481 — 18 May 2026</td><td>$631.65</td><td>$126.33</td></tr></table>
+  <div class="note" style="margin-top:10px">Bidfood (Little Melba account) empty · No Hubdoc PDFs for QS today.</div>
+</div>
+
+<div class="section"><h3>Wages — 2 Staff · 12.82h</h3>
+  <div style="font-size:.75rem;color:var(--muted);margin-bottom:8px">Hours per team member · sorted highest → lowest</div>
+  <div class="bar-row"><div class="bar-label">Mana Cervela</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--blue)"></div></div><div class="bar-val">8.55h</div></div>
+  <div class="bar-row"><div class="bar-label">Klara keil</div><div class="bar-track"><div class="bar-fill" style="width:49.9%;background:var(--blue)"></div></div><div class="bar-val">4.27h</div></div>
+  <div style="font-size:.72rem;color:var(--muted);margin-top:4px">Blue=FOH · All staff under Little Melba label = QS allocation</div>
+</div>
+
+<div class="commentary"><strong>QS — Wed 20 May 2026:</strong> Café $797 is the strongest day this week (Mon $528, Tue $637). Mana + Klara covering the floor (12.82h combined). Result lands at +15.70% — encouraging momentum, just 4pp shy of the 20% target. Small tightening on either COGS or wages would close the gap.</div>
+</body>
+</html>
