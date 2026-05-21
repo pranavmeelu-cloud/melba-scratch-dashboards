@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vulcan Lane — Team Dashboard · Thu 21 May 2026</title>
+<style>
+:root{--bg:#0f1419;--card:#1a1f2e;--card2:#232938;--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--purple:#a78bfa;--orange:#f97316;--teal:#34d399;--text:#e2e8f0;--muted:#94a3b8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;font-size:14px;padding:16px;max-width:1100px;margin:0 auto}
+h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
+.subtitle{color:var(--muted);font-size:.9rem;margin-bottom:16px}
+.pill{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.75rem;background:#2a1e3a;color:#c084fc;margin-left:8px;font-weight:500}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+.kpi{background:var(--card);border-radius:10px;padding:14px;border:1px solid #2a3547}
+.kpi-label{color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.kpi-val{font-size:1.4rem;font-weight:700}
+.kpi-sub{color:var(--muted);font-size:.75rem;margin-top:2px}
+.surplus-card{border-radius:12px;padding:20px;margin-bottom:16px}
+.sval{font-size:2.4rem;font-weight:800}
+.sn{color:var(--muted);font-size:.85rem;margin-top:4px}
+.section{background:var(--card);border-radius:10px;padding:14px;margin-bottom:12px;border:1px solid #2a3547}
+.section h3{font-size:.95rem;margin-bottom:12px;color:var(--text)}
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:.82rem}
+.bar-label{width:230px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-track{flex:1;height:18px;background:#0f1419;border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px}
+.bar-val{width:90px;flex-shrink:0;text-align:right;color:var(--muted);font-size:.8rem}
+table{width:100%;border-collapse:collapse;font-size:.8rem;margin-bottom:4px}
+th{background:#0f1419;padding:6px 8px;text-align:left;color:var(--muted);font-weight:500;border-bottom:1px solid #2a3547}
+td{padding:5px 8px;border-bottom:1px solid #1e2535}
+tr:last-child td{border:none}
+.commentary{background:var(--card2);border-radius:8px;padding:12px;font-size:.85rem;line-height:1.5;color:var(--text);margin-top:8px}
+.fcast-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.fcast-card{background:var(--card);border-radius:10px;padding:14px;border:1px solid #2a3547}
+.fcast-card.adj{border:1px solid rgba(251,191,36,.4)}
+.fcast-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.fcast-title{font-weight:600;font-size:.95rem}
+.adj-badge{font-size:.7rem;padding:2px 8px;border-radius:10px;background:rgba(251,191,36,.15);color:var(--amber);border:1px solid rgba(251,191,36,.4)}
+.fcast-row{display:flex;justify-content:space-between;padding:3px 0;font-size:.85rem}
+.fcast-row .lbl{color:var(--muted)}
+</style>
+</head>
+<body>
+<h1>Vulcan Lane — Team Dashboard <span class="pill">Team View</span></h1>
+<div class="subtitle">Thursday 21 May 2026 · All $ incl GST</div>
+
+<div class="kpi-row">
+  <div class="kpi"><div class="kpi-label">Total Revenue</div><div class="kpi-val" style="color:var(--green)">$3,089.53</div><div class="kpi-sub">Café only</div></div>
+  <div class="kpi"><div class="kpi-label">Total COGS</div><div class="kpi-val" style="color:var(--red)">$365.74</div><div class="kpi-sub">FE + Betscharts + LaundryCorp</div></div>
+  <div class="kpi"><div class="kpi-label">Wages</div><div class="kpi-val" style="color:var(--amber)">$1,150.70</div><div class="kpi-sub">5 staff · 40.25h</div></div>
+  <div class="kpi"><div class="kpi-label">Op Costs</div><div class="kpi-val" style="color:var(--orange)">$1,133.06</div></div>
+</div>
+
+<div class="surplus-card" style="border:1px solid #f97316;background:linear-gradient(135deg,#261a08,#1a1f2e)">
+  <div style="color:#f97316;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Daily Result</div>
+  <div class="sval" style="color:#f97316">14.2%</div>
+  <div class="sn">of revenue · Target ≥20% · Café soft vs last Thursday ($3,727)</div>
+  <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)">
+    <div style="font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:10px">To reach 20% — today's adjustments needed</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:3px">COGS should have been</div>
+        <div style="font-size:1.15rem;font-weight:700;color:#fbbf24">≤$236</div>
+        <div style="font-size:10px;color:var(--muted)">−$130 vs actual $366</div>
+      </div>
+      <div>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:3px">Wages should have been</div>
+        <div style="font-size:1.15rem;font-weight:700;color:#60a5fa">≤$1,086</div>
+        <div style="font-size:10px;color:var(--muted)">−$65 vs actual $1,151</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section"><h3>Revenue Breakdown — $3,089.53</h3>
+  <div class="bar-row"><div class="bar-label">Café (POS)</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--green)"></div></div><div class="bar-val">$3,089.53</div></div>
+</div>
+
+<div class="section"><h3>COGS Breakdown — $365.74</h3>
+  <div class="bar-row"><div class="bar-label">Five Elements ÷7/wk</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--purple)"></div></div><div class="bar-val">$260.79</div></div>
+  <div class="bar-row"><div class="bar-label">Betscharts ÷7/wk (NEW)</div><div class="bar-track"><div class="bar-fill" style="width:37.7%;background:var(--red)"></div></div><div class="bar-val">$98.24</div></div>
+  <div class="bar-row"><div class="bar-label">LaundryCorp ÷7/wk</div><div class="bar-track"><div class="bar-fill" style="width:2.6%;background:var(--teal)"></div></div><div class="bar-val">$6.71</div></div>
+  <h3 style="margin-top:14px;margin-bottom:8px;font-size:.85rem;color:var(--muted)">Betscharts — $687.71 weekly (Order F53873045) · bacon &amp; pork bratwurst · $98.24/day share</h3>
+</div>
+
+<div class="section"><h3>Wages — 5 staff · 40.25h</h3>
+  <div class="bar-row"><div class="bar-label">Eden Wharerau</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#60a5fa"></div></div><div class="bar-val">9.43h</div></div>
+  <div class="bar-row"><div class="bar-label">Mei fung Woo</div><div class="bar-track"><div class="bar-fill" style="width:89.1%;background:#60a5fa"></div></div><div class="bar-val">8.40h</div></div>
+  <div class="bar-row"><div class="bar-label">Franz Nicole Uyseco</div><div class="bar-track"><div class="bar-fill" style="width:85.2%;background:#4ade80"></div></div><div class="bar-val">8.03h</div></div>
+  <div class="bar-row"><div class="bar-label">Carlos Araneda</div><div class="bar-track"><div class="bar-fill" style="width:83.5%;background:#4ade80"></div></div><div class="bar-val">7.87h</div></div>
+  <div class="bar-row"><div class="bar-label">Mitch Cain-Treleaven</div><div class="bar-track"><div class="bar-fill" style="width:69.1%;background:#60a5fa"></div></div><div class="bar-val">6.52h</div></div>
+</div>
+
+<div class="commentary"><b>Commentary:</b> Café $3,090 — softer than last Thursday ($3,727). Betscharts weekly meat order ($688 spread ÷7) booked today. Daily result 14.2%, just under the 20% target. Friday's last Fri comparable was $3,340 — small uplift expected.</div>
+
+<div class="section">
+  <h3>Forward Forecast <span class="pill" style="background:#2a1e3a;color:#c084fc">Next 2 trading days</span></h3>
+  <div style="font-size:.75rem;color:var(--muted);margin-bottom:12px">Built from last week's same-day actuals. Target margin ≥20%.</div>
+  <div class="fcast-grid">
+    <div class="fcast-card adj">
+      <div class="fcast-header"><div class="fcast-title">Friday 22 May</div><span class="adj-badge">⚠ Adjustment needed</span></div>
+      <div class="fcast-row"><span class="lbl">Café (last Fri)</span><span>$3,340.06</span></div>
+      <div class="fcast-row" style="border-top:1px solid #2a3547;padding-top:5px;margin-top:5px;font-weight:600"><span>Revenue</span><span>$3,340.06</span></div>
+      <div style="margin-top:10px;padding-top:10px;border-top:1px solid #2a3547">
+        <div class="fcast-row"><span class="lbl">COGS budget (variable)</span><span style="color:var(--amber);font-weight:600">$229.64</span></div>
+        <div style="font-size:.72rem;color:var(--muted);margin-top:2px">Five Elements $261 · Betscharts $98 · LaundryCorp $7 committed this week</div>
+        <div class="fcast-row" style="margin-top:6px"><span class="lbl">Wages target</span><span style="color:var(--blue)">$917</span></div>
+        <div style="font-size:.72rem;color:var(--muted);margin-top:2px">Hours guidance below ↓</div>
+      </div>
+    </div>
+    <div class="fcast-card adj">
+      <div class="fcast-header"><div class="fcast-title">Saturday 23 May</div><span class="adj-badge">⚠ Adjustment needed</span></div>
+      <div class="fcast-row"><span class="lbl">Café (last Sat)</span><span>$4,796.86</span></div>
+      <div class="fcast-row" style="border-top:1px solid #2a3547;padding-top:5px;margin-top:5px;font-weight:600"><span>Revenue</span><span>$4,796.86</span></div>
+      <div style="margin-top:10px;padding-top:10px;border-top:1px solid #2a3547">
+        <div class="fcast-row"><span class="lbl">COGS budget (variable)</span><span style="color:var(--amber);font-weight:600">$769.38</span></div>
+        <div style="font-size:.72rem;color:var(--muted);margin-top:2px">Five Elements $261 · Betscharts $98 · LaundryCorp $7 committed</div>
+        <div class="fcast-row" style="margin-top:6px"><span class="lbl">Wages target</span><span style="color:var(--blue)">$1,286</span></div>
+        <div style="font-size:.72rem;color:var(--muted);margin-top:2px">Hours guidance below ↓</div>
+      </div>
+    </div>
+  </div>
+  <div style="background:rgba(96,165,250,.05);border:1px solid rgba(96,165,250,.2);border-radius:10px;padding:14px;margin-top:12px">
+    <div style="font-size:.85rem;font-weight:600;color:var(--blue);margin-bottom:10px">Suggested Hours — Friday 22 May (from last Fri roster)</div>
+    <table><tr><th>Employee</th><th style="text-align:right">Target hrs</th></tr>
+      <tr><td>Eden Wharerau</td><td style="text-align:right">7.5</td></tr>
+      <tr><td>Franz Nicole Uyseco</td><td style="text-align:right">6.7</td></tr>
+      <tr><td>Mei fung Woo</td><td style="text-align:right">7.0</td></tr>
+      <tr><td>Mitch Cain-Treleaven</td><td style="text-align:right">5.5</td></tr>
+      <tr><td>Carlos Araneda</td><td style="text-align:right">6.6</td></tr>
+    </table>
+    <div style="font-size:.75rem;color:var(--muted);margin-top:10px;font-style:italic">Hours rounded · Generated from prior Friday roster — actual rosters may differ</div>
+  </div>
+</div>
+
+<script>
+const FORECAST_BASE = {
+  last_week: {
+    mon: { vs:{cafe:1806.60,catering:1484.61}, sb:{cafe:2441.80,tvnz:664.60,wholesale:4215.36,catering:1593.07}, vl:{cafe:2429.86} },
+    tue: { vs:{cafe:2407.54,catering:3370.67}, sb:{cafe:3135.09,tvnz:688.00,wholesale:3707.28,catering:1753.30}, vl:{cafe:2988.67} },
+    wed: { vs:{cafe:2962.70,catering:837.25}, sb:{cafe:3125.80,tvnz:724.60,wholesale:3317.38,catering:4747.91}, vl:{cafe:3598.79} },
+    thu: { vs:{cafe:2469.70,catering:1735.17}, sb:{cafe:3562.00,tvnz:550.90,wholesale:3404.34,catering:4852.39}, vl:{cafe:3726.66} },
+    fri: { vs:{cafe:2311.80,catering:500.54}, sb:{cafe:3281.76,tvnz:0,wholesale:3168.79,catering:1582.89}, vl:{cafe:3340.06} },
+    sat: { vl:{cafe:4796.86}, sb:{wholesale:3731.30} },
+    sun: { vl:{cafe:5012.37}, sb:{wholesale:0} }
+  },
+  last_week_wages: {
+    mon: { vs:1776.60, sb:3505.73, vl:1177.33 },
+    tue: { vs:1721.65, sb:3216.04, vl:1001.01 },
+    wed: { vs:1615.23, sb:3168.77, vl:1072.04 },
+    thu: { vs:1802.11, sb:2949.80, vl:1230.84 },
+    fri: { vs:1303.26, sb:2905.50, vl:1037.06 },
+    sat: { vl:1318.09 },
+    sun: { vl:1404.60 }
+  },
+  cogs_benchmarks: {
+    sb:  { cafe:0.25, tvnz:0.22, catering:0.18, wholesale:0.35 },
+    vs:  { cafe:0.26, catering:0.22 },
+    vl:  { cafe:0.25 },
+    qs:  { cafe:0.19 }
+  }
+};
+</script>
+</body>
+</html>
