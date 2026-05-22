@@ -24,24 +24,14 @@ tr:last-child td{border:none}
 .tier-red{color:#f87171;background:#261010;border-color:#f87171}
 a.open{color:var(--blue);text-decoration:none;font-weight:500}
 a.open:hover{text-decoration:underline}
-/* WTD card */
-.wtd-card{background:var(--card);border-radius:10px;padding:16px 18px;border:1px solid #2a3547;margin-bottom:16px}
-.wtd-heading{font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:12px;font-weight:600}
-.wtd-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:14px;margin-bottom:12px}
-.wtd-item{display:flex;flex-direction:column;gap:3px}
-.wtd-lbl{font-size:.7rem;color:var(--muted)}
-.wtd-val{font-size:1.05rem;font-weight:700}
-.wtd-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;padding-top:10px;border-top:1px solid #1e2535}
-.wtd-adj{font-size:.75rem;color:var(--amber);margin-top:10px;padding-top:10px;border-top:1px solid #2a3547}
+tr.wtd-row td{border-bottom:2px solid #3a4f6a;color:var(--muted)}
+tr.wtd-row .mpill{opacity:.95}
 </style>
 </head>
 <body>
 <h1>Melba-Scratch Group — Dashboard History <span class="pill">Owner View</span></h1>
 <div class="subtitle">Bookmark this page · full group dashboards listed most recent first</div>
 <div class="intro">Each row links to that day's full group dashboard (all four entities, full cost breakdown). Margin pills are colour-coded vs each entity's target — VS/VL/QS ≥20% · SB ≥15%.</div>
-
-<div id="wtd-section"></div>
-
 <table id="hist">
   <thead><tr><th>Date</th><th>Group Revenue</th><th>Group Surplus</th><th>Margin</th><th>VS</th><th>SB</th><th>VL</th><th>QS</th><th></th></tr></thead>
   <tbody></tbody>
@@ -122,63 +112,36 @@ function fmtMoney(v){
   var abs = Math.abs(v).toLocaleString('en-NZ',{minimumFractionDigits:2,maximumFractionDigits:2});
   return (v < 0 ? "−$" : "+$") + abs;
 }
-function surplusColour(v){
-  return v >= 0 ? "#4ade80" : "#f87171";
-}
+function surplusColour(v){ return v >= 0 ? "#4ade80" : "#f87171"; }
 function pill(label, m, t){
   if(m === null || m === undefined) return `<span class="mpill tier-amber">${label} —</span>`;
   return `<span class="mpill ${tierClass(m,t)}">${label} ${m.toFixed(1)}%</span>`;
 }
 
-// Render WTD card
+const tb = document.querySelector("#hist tbody");
+
+// WTD row
 (function(){
   const w = WTD_SUMMARY;
-  const dayCount = w.days_included.length;
   const dayNames = {mon:"Mon",tue:"Tue",wed:"Wed",thu:"Thu",fri:"Fri",sat:"Sat",sun:"Sun"};
-  const dayRange = dayCount > 0
-    ? (dayCount === 1 ? dayNames[w.days_included[0]] : dayNames[w.days_included[0]] + " – " + dayNames[w.days_included[dayCount-1]])
-    : "—";
-  const weekLabel = "Week to Date · " + dayRange + " · " + dayCount + (dayCount===1?" day":" days");
-
-  var html = `<div class="wtd-card">
-    <div class="wtd-heading">${weekLabel}</div>
-    <div class="wtd-grid">
-      <div class="wtd-item">
-        <div class="wtd-lbl">Group Revenue</div>
-        <div class="wtd-val">$${w.group_revenue.toLocaleString('en-NZ',{minimumFractionDigits:2,maximumFractionDigits:2})}</div>
-      </div>
-      <div class="wtd-item">
-        <div class="wtd-lbl">Group Surplus</div>
-        <div class="wtd-val" style="color:${surplusColour(w.group_surplus)}">${fmtMoney(w.group_surplus)}</div>
-      </div>
-      <div class="wtd-item">
-        <div class="wtd-lbl">Group Margin</div>
-        <div class="wtd-val"><span class="mpill ${groupTierClass(w.group_margin)}">${w.group_margin.toFixed(1)}%</span></div>
-      </div>
-    </div>
-    <div class="wtd-pills">
-      ${pill("VS", w.vs.margin, 20)}
-      ${pill("SB", w.sb.margin, 15)}
-      ${pill("VL", w.vl.margin, 20)}
-      ${pill("QS", w.qs.margin, 20)}
-      <span style="font-size:.72rem;color:var(--muted);align-self:center;margin-left:4px">WTD margins</span>
-    </div>`;
-
-  if(w.prior_week_adjustments && w.prior_week_adjustments.length > 0){
-    html += `<div class="wtd-adj">`;
-    w.prior_week_adjustments.forEach(function(adj){
-      var entity = adj.entity ? adj.entity.toUpperCase() : "";
-      html += `⚠ Prior-week adjustment (${entity}): ${adj.supplier} invoice dated ${adj.invoice_date} — ${adj.missed_prior_days} prior-week days' cost captured this week<br>`;
-    });
-    html += `</div>`;
-  }
-
-  html += `</div>`;
-  document.getElementById("wtd-section").innerHTML = html;
+  const d = w.days_included;
+  const rangeLabel = d.length > 1 ? dayNames[d[0]] + "–" + dayNames[d[d.length-1]] : (d.length === 1 ? dayNames[d[0]] : "—");
+  const tr = document.createElement("tr");
+  tr.className = "wtd-row";
+  tr.innerHTML =
+    `<td><strong>Week to Date</strong> <span style="font-size:.75rem;color:var(--muted)">${rangeLabel}</span></td>` +
+    `<td>$${w.group_revenue.toLocaleString('en-NZ',{minimumFractionDigits:2,maximumFractionDigits:2})}</td>` +
+    `<td style="color:${surplusColour(w.group_surplus)};font-weight:600">${fmtMoney(w.group_surplus)}</td>` +
+    `<td><span class="mpill ${groupTierClass(w.group_margin)}">${w.group_margin.toFixed(1)}%</span></td>` +
+    `<td>${pill("VS", w.vs.margin, 20)}</td>` +
+    `<td>${pill("SB", w.sb.margin, 15)}</td>` +
+    `<td>${pill("VL", w.vl.margin, 20)}</td>` +
+    `<td>${pill("QS", w.qs.margin, 20)}</td>` +
+    `<td></td>`;
+  tb.appendChild(tr);
 })();
 
-// Render history table
-const tb = document.querySelector("#hist tbody");
+// Daily rows
 HISTORY_DATA.forEach(r => {
   const groupSurplus = (r.vs.surplus || 0) + (r.sb.surplus || 0) + (r.vl.surplus || 0) + (r.qs.surplus || 0);
   const groupMargin  = r.group_revenue ? (groupSurplus / r.group_revenue * 100) : 0;
