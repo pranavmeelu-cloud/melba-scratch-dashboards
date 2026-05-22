@@ -24,18 +24,38 @@ tr:last-child td{border:none}
 .tier-red{color:#f87171;background:#261010;border-color:#f87171}
 a.open{color:var(--blue);text-decoration:none;font-weight:500}
 a.open:hover{text-decoration:underline}
+/* WTD card */
+.wtd-card{background:var(--card);border-radius:10px;padding:16px 18px;border:1px solid #2a3547;margin-bottom:16px}
+.wtd-heading{font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:12px;font-weight:600}
+.wtd-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.wtd-item{display:flex;flex-direction:column;gap:3px}
+.wtd-lbl{font-size:.7rem;color:var(--muted)}
+.wtd-val{font-size:1.05rem;font-weight:700}
+.wtd-adj{font-size:.75rem;color:var(--amber);margin-top:10px;padding-top:10px;border-top:1px solid #2a3547}
 </style>
 </head>
 <body>
 <h1>Queen Street — Dashboard History <span class="pill">Team View</span></h1>
 <div class="subtitle">Bookmark this page · daily team dashboards listed most recent first</div>
 <div class="intro">Each row links to that day's team dashboard. Margin pill is colour-coded vs the 20% daily target.</div>
+
+<div id="wtd-section"></div>
+
 <table id="hist">
   <thead><tr><th>Date</th><th>Revenue</th><th>Margin</th><th></th></tr></thead>
   <tbody></tbody>
 </table>
 
 <script>
+const WTD_SUMMARY = {
+  week_start: "2026-05-18",
+  days_included: ["mon","tue","wed","thu"],
+  revenue: 2717.30,
+  surplus: 223.44,
+  margin: 8.22,
+  prior_week_adjustments: []
+};
+
 const HISTORY_DATA = [
   { date: "2026-05-21", label: "Thu 21 May 2026", revenue: 754.70, margin: 11.26, surplus: 84.97, file: "Queen Street – 2026-05-21 Thursday – Team Dashboard.html" },
   { date: "2026-05-20", label: "Wed 20 May 2026", revenue: 797.00, margin: 15.70, surplus: 125.11, file: "Queen Street – 2026-05-20 Wednesday – Team Dashboard.html" },
@@ -43,6 +63,7 @@ const HISTORY_DATA = [
   { date: "2026-05-18", label: "Mon 18 May 2026", revenue: 528.20, margin: 4.47, surplus: 23.62, file: "Queen Street – 2026-05-18 Monday – Team Dashboard.html" }
 ];
 const THRESHOLD = 20;
+
 function tierClass(m){
   if(m >= THRESHOLD+10) return "tier-deep";
   if(m >= THRESHOLD) return "tier-green";
@@ -51,6 +72,49 @@ function tierClass(m){
   return "tier-red";
 }
 function fmt$(v){ var s=Math.abs(v).toLocaleString('en-NZ',{minimumFractionDigits:2,maximumFractionDigits:2}); return (v<0?"−$":"$")+s; }
+function fmtSurplus(v){ var s=Math.abs(v).toLocaleString('en-NZ',{minimumFractionDigits:2,maximumFractionDigits:2}); return (v<0?"−$":"+$")+s; }
+
+// Render WTD card
+(function(){
+  const w = WTD_SUMMARY;
+  const dayCount = w.days_included.length;
+  const dayNames = {mon:"Mon",tue:"Tue",wed:"Wed",thu:"Thu",fri:"Fri",sat:"Sat",sun:"Sun"};
+  const dayRange = dayCount > 0
+    ? (dayCount === 1 ? dayNames[w.days_included[0]] : dayNames[w.days_included[0]] + " – " + dayNames[w.days_included[dayCount-1]])
+    : "—";
+  const weekLabel = "Week to Date · " + dayRange + " · " + dayCount + (dayCount===1?" day":" days");
+  const surplusColour = w.surplus >= 0 ? "#4ade80" : "#f87171";
+
+  var html = `<div class="wtd-card">
+    <div class="wtd-heading">${weekLabel}</div>
+    <div class="wtd-grid">
+      <div class="wtd-item">
+        <div class="wtd-lbl">Revenue</div>
+        <div class="wtd-val">$${w.revenue.toLocaleString('en-NZ',{minimumFractionDigits:2,maximumFractionDigits:2})}</div>
+      </div>
+      <div class="wtd-item">
+        <div class="wtd-lbl">Surplus</div>
+        <div class="wtd-val" style="color:${surplusColour}">${fmtSurplus(w.surplus)}</div>
+      </div>
+      <div class="wtd-item">
+        <div class="wtd-lbl">Margin</div>
+        <div class="wtd-val"><span class="mpill ${tierClass(w.margin)}">${w.margin.toFixed(1)}%</span></div>
+      </div>
+    </div>`;
+
+  if(w.prior_week_adjustments && w.prior_week_adjustments.length > 0){
+    html += `<div class="wtd-adj">`;
+    w.prior_week_adjustments.forEach(function(adj){
+      html += `⚠ ${adj.supplier} invoice dated ${adj.invoice_date} — ${adj.missed_prior_days} prior-week days' cost included this week<br>`;
+    });
+    html += `</div>`;
+  }
+
+  html += `</div>`;
+  document.getElementById("wtd-section").innerHTML = html;
+})();
+
+// Render history table
 const tb = document.querySelector("#hist tbody");
 HISTORY_DATA.forEach(r => {
   const tr = document.createElement("tr");
