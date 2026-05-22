@@ -38,18 +38,21 @@ tr.wtd-row .mpill{opacity:.95}
 </table>
 
 <script>
-const WTD_SUMMARY = {
-  week_start: "2026-05-18",
-  days_included: ["mon","tue","wed","thu"],
-  group_revenue: 72784.37,
-  group_surplus: 12005.44,
-  group_margin: 16.50,
-  vs: { revenue: 16080.94, surplus: -3601.66, margin: -22.40 },
-  sb: { revenue: 42166.95, surplus: 13865.10, margin: 32.88 },
-  vl: { revenue: 11819.18, surplus: 1518.56, margin: 12.85 },
-  qs: { revenue: 2717.30, surplus: 223.44, margin: 8.22 },
-  prior_week_adjustments: []
-};
+// One entry per week, most recent first. WTD_HISTORY[0] is updated nightly.
+// On Monday a new entry is prepended; the previous week's entry is kept as-is.
+const WTD_HISTORY = [
+  {
+    week_start: "2026-05-18",
+    days_included: ["mon","tue","wed","thu"],
+    group_revenue: 72784.37,
+    group_surplus: 12005.44,
+    group_margin: 16.50,
+    vs: { margin: -22.40 },
+    sb: { margin: 32.88 },
+    vl: { margin: 12.85 },
+    qs: { margin: 8.22 }
+  }
+];
 
 const HISTORY_DATA = [
   {
@@ -118,45 +121,72 @@ function pill(label, m, t){
   return `<span class="mpill ${tierClass(m,t)}">${label} ${m.toFixed(1)}%</span>`;
 }
 
+// Determine ISO week-start (Monday) for a date string
+function weekStartOf(dateStr){
+  const d = new Date(dateStr);
+  const day = d.getDay();
+  const diff = day === 0 ? -6 : 1 - day;
+  const mon = new Date(d);
+  mon.setDate(d.getDate() + diff);
+  return mon.toISOString().slice(0,10);
+}
+
+// Build WTD lookup by week_start
+const wtdMap = {};
+WTD_HISTORY.forEach(w => { wtdMap[w.week_start] = w; });
+
+// Group daily rows by week_start (most recent day determines order)
+const weekMap = {};
+HISTORY_DATA.forEach(r => {
+  const ws = weekStartOf(r.date);
+  if(!weekMap[ws]) weekMap[ws] = [];
+  weekMap[ws].push(r);
+});
+
+// Sorted week starts, most recent first
+const weekStarts = Object.keys(weekMap).sort().reverse();
+
+const dayNames = {mon:"Mon",tue:"Tue",wed:"Wed",thu:"Thu",fri:"Fri",sat:"Sat",sun:"Sun"};
 const tb = document.querySelector("#hist tbody");
 
-// WTD row
-(function(){
-  const w = WTD_SUMMARY;
-  const dayNames = {mon:"Mon",tue:"Tue",wed:"Wed",thu:"Thu",fri:"Fri",sat:"Sat",sun:"Sun"};
-  const d = w.days_included;
-  const rangeLabel = d.length > 1 ? dayNames[d[0]] + "–" + dayNames[d[d.length-1]] : (d.length === 1 ? dayNames[d[0]] : "—");
-  const tr = document.createElement("tr");
-  tr.className = "wtd-row";
-  tr.innerHTML =
-    `<td><strong>Week to Date</strong> <span style="font-size:.75rem;color:var(--muted)">${rangeLabel}</span></td>` +
-    `<td>$${w.group_revenue.toLocaleString('en-NZ',{minimumFractionDigits:2,maximumFractionDigits:2})}</td>` +
-    `<td style="color:${surplusColour(w.group_surplus)};font-weight:600">${fmtMoney(w.group_surplus)}</td>` +
-    `<td><span class="mpill ${groupTierClass(w.group_margin)}">${w.group_margin.toFixed(1)}%</span></td>` +
-    `<td>${pill("VS", w.vs.margin, 20)}</td>` +
-    `<td>${pill("SB", w.sb.margin, 15)}</td>` +
-    `<td>${pill("VL", w.vl.margin, 20)}</td>` +
-    `<td>${pill("QS", w.qs.margin, 20)}</td>` +
-    `<td></td>`;
-  tb.appendChild(tr);
-})();
+weekStarts.forEach(ws => {
+  // WTD row for this week
+  const w = wtdMap[ws];
+  if(w){
+    const d = w.days_included;
+    const rangeLabel = d.length > 1 ? dayNames[d[0]] + "–" + dayNames[d[d.length-1]] : (d.length===1 ? dayNames[d[0]] : "—");
+    const tr = document.createElement("tr");
+    tr.className = "wtd-row";
+    tr.innerHTML =
+      `<td><strong>Week to Date</strong> <span style="font-size:.75rem;color:var(--muted)">${rangeLabel}</span></td>` +
+      `<td>$${w.group_revenue.toLocaleString('en-NZ',{minimumFractionDigits:2,maximumFractionDigits:2})}</td>` +
+      `<td style="color:${surplusColour(w.group_surplus)};font-weight:600">${fmtMoney(w.group_surplus)}</td>` +
+      `<td><span class="mpill ${groupTierClass(w.group_margin)}">${w.group_margin.toFixed(1)}%</span></td>` +
+      `<td>${pill("VS", w.vs.margin, 20)}</td>` +
+      `<td>${pill("SB", w.sb.margin, 15)}</td>` +
+      `<td>${pill("VL", w.vl.margin, 20)}</td>` +
+      `<td>${pill("QS", w.qs.margin, 20)}</td>` +
+      `<td></td>`;
+    tb.appendChild(tr);
+  }
 
-// Daily rows
-HISTORY_DATA.forEach(r => {
-  const groupSurplus = (r.vs.surplus || 0) + (r.sb.surplus || 0) + (r.vl.surplus || 0) + (r.qs.surplus || 0);
-  const groupMargin  = r.group_revenue ? (groupSurplus / r.group_revenue * 100) : 0;
-  const tr = document.createElement("tr");
-  tr.innerHTML =
-    `<td>${r.label}</td>` +
-    `<td>$${r.group_revenue.toLocaleString('en-NZ',{minimumFractionDigits:2,maximumFractionDigits:2})}</td>` +
-    `<td style="color:${surplusColour(groupSurplus)};font-weight:600">${fmtMoney(groupSurplus)}</td>` +
-    `<td><span class="mpill ${groupTierClass(groupMargin)}">${groupMargin.toFixed(1)}%</span></td>` +
-    `<td>${pill("VS", r.vs.margin, 20)}</td>` +
-    `<td>${pill("SB", r.sb.margin, 15)}</td>` +
-    `<td>${pill("VL", r.vl.margin, 20)}</td>` +
-    `<td>${pill("QS", r.qs.margin, 20)}</td>` +
-    `<td><a class="open" href="${r.file}">Open →</a></td>`;
-  tb.appendChild(tr);
+  // Daily rows for this week
+  weekMap[ws].forEach(r => {
+    const groupSurplus = (r.vs.surplus||0)+(r.sb.surplus||0)+(r.vl.surplus||0)+(r.qs.surplus||0);
+    const groupMargin  = r.group_revenue ? (groupSurplus/r.group_revenue*100) : 0;
+    const tr = document.createElement("tr");
+    tr.innerHTML =
+      `<td>${r.label}</td>` +
+      `<td>$${r.group_revenue.toLocaleString('en-NZ',{minimumFractionDigits:2,maximumFractionDigits:2})}</td>` +
+      `<td style="color:${surplusColour(groupSurplus)};font-weight:600">${fmtMoney(groupSurplus)}</td>` +
+      `<td><span class="mpill ${groupTierClass(groupMargin)}">${groupMargin.toFixed(1)}%</span></td>` +
+      `<td>${pill("VS", r.vs.margin, 20)}</td>` +
+      `<td>${pill("SB", r.sb.margin, 15)}</td>` +
+      `<td>${pill("VL", r.vl.margin, 20)}</td>` +
+      `<td>${pill("QS", r.qs.margin, 20)}</td>` +
+      `<td><a class="open" href="${r.file}">Open →</a></td>`;
+    tb.appendChild(tr);
+  });
 });
 </script>
 </body>

@@ -37,14 +37,15 @@ tr.wtd-row td{border-bottom:2px solid #3a4f6a;color:var(--muted)}
 </table>
 
 <script>
-const WTD_SUMMARY = {
-  week_start: "2026-05-18",
-  days_included: ["mon","tue","wed","thu"],
-  revenue: 11819.18,
-  surplus: 1518.56,
-  margin: 12.85,
-  prior_week_adjustments: []
-};
+const WTD_HISTORY = [
+  {
+    week_start: "2026-05-18",
+    days_included: ["mon","tue","wed","thu"],
+    revenue: 11819.18,
+    surplus: 1518.56,
+    margin: 12.85
+  }
+];
 
 const HISTORY_DATA = [
   { date: "2026-05-21", label: "Thu 21 May 2026", revenue: 3089.53, margin: 14.24, surplus: 440.03, file: "Vulcan Lane – 2026-05-21 Thursday – Team Dashboard.html" },
@@ -63,29 +64,48 @@ function tierClass(m){
 }
 function fmt$(v){ var s=Math.abs(v).toLocaleString('en-NZ',{minimumFractionDigits:2,maximumFractionDigits:2}); return (v<0?"−$":"$")+s; }
 
+function weekStartOf(dateStr){
+  const d = new Date(dateStr);
+  const day = d.getDay();
+  const diff = day===0 ? -6 : 1-day;
+  const mon = new Date(d);
+  mon.setDate(d.getDate()+diff);
+  return mon.toISOString().slice(0,10);
+}
+
+const wtdMap = {};
+WTD_HISTORY.forEach(w => { wtdMap[w.week_start] = w; });
+
+const weekMap = {};
+HISTORY_DATA.forEach(r => {
+  const ws = weekStartOf(r.date);
+  if(!weekMap[ws]) weekMap[ws] = [];
+  weekMap[ws].push(r);
+});
+
+const weekStarts = Object.keys(weekMap).sort().reverse();
+const dayNames = {mon:"Mon",tue:"Tue",wed:"Wed",thu:"Thu",fri:"Fri",sat:"Sat",sun:"Sun"};
 const tb = document.querySelector("#hist tbody");
 
-// WTD row
-(function(){
-  const w = WTD_SUMMARY;
-  const dayNames = {mon:"Mon",tue:"Tue",wed:"Wed",thu:"Thu",fri:"Fri",sat:"Sat",sun:"Sun"};
-  const d = w.days_included;
-  const rangeLabel = d.length > 1 ? dayNames[d[0]] + "–" + dayNames[d[d.length-1]] : (d.length === 1 ? dayNames[d[0]] : "—");
-  const tr = document.createElement("tr");
-  tr.className = "wtd-row";
-  tr.innerHTML =
-    `<td><strong>Week to Date</strong> <span style="font-size:.75rem;color:var(--muted)">${rangeLabel}</span></td>` +
-    `<td>${fmt$(w.revenue)}</td>` +
-    `<td><span class="mpill ${tierClass(w.margin)}">${w.margin.toFixed(1)}%</span></td>` +
-    `<td></td>`;
-  tb.appendChild(tr);
-})();
-
-// Daily rows
-HISTORY_DATA.forEach(r => {
-  const tr = document.createElement("tr");
-  tr.innerHTML = `<td>${r.label}</td><td>${fmt$(r.revenue)}</td><td><span class="mpill ${tierClass(r.margin)}">${r.margin.toFixed(1)}%</span></td><td><a class="open" href="${r.file}">Open →</a></td>`;
-  tb.appendChild(tr);
+weekStarts.forEach(ws => {
+  const w = wtdMap[ws];
+  if(w){
+    const d = w.days_included;
+    const rangeLabel = d.length > 1 ? dayNames[d[0]]+"–"+dayNames[d[d.length-1]] : (d.length===1 ? dayNames[d[0]] : "—");
+    const tr = document.createElement("tr");
+    tr.className = "wtd-row";
+    tr.innerHTML =
+      `<td><strong>Week to Date</strong> <span style="font-size:.75rem;color:var(--muted)">${rangeLabel}</span></td>` +
+      `<td>${fmt$(w.revenue)}</td>` +
+      `<td><span class="mpill ${tierClass(w.margin)}">${w.margin.toFixed(1)}%</span></td>` +
+      `<td></td>`;
+    tb.appendChild(tr);
+  }
+  weekMap[ws].forEach(r => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${r.label}</td><td>${fmt$(r.revenue)}</td><td><span class="mpill ${tierClass(r.margin)}">${r.margin.toFixed(1)}%</span></td><td><a class="open" href="${r.file}">Open →</a></td>`;
+    tb.appendChild(tr);
+  });
 });
 </script>
 </body>
