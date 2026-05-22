@@ -30,21 +30,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 .bar-track{flex:1;height:18px;background:#0f1419;border-radius:4px;overflow:hidden}
 .bar-fill{height:100%;border-radius:4px}
 .bar-val{width:90px;flex-shrink:0;text-align:right;color:var(--muted);font-size:.8rem}
-.commentary{background:var(--card2);border-radius:8px;padding:12px;font-size:.85rem;line-height:1.5;color:var(--text);margin-top:8px}
-.forecast-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
-.fc-card{background:var(--card2);border-radius:10px;padding:14px;border:1px solid #2a3547}
-.fc-card.adj{border-color:rgba(251,191,36,.4)}
-.fc-title{font-size:.95rem;font-weight:600;margin-bottom:8px}
-.fc-pill{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.7rem;background:#261a08;color:var(--amber);margin-left:6px}
-.fc-row{display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem}
-.fc-row .lbl{color:var(--muted)}
-.fc-key{font-size:1.2rem;font-weight:700;margin-top:8px}
-.fc-key.amber{color:var(--amber)}
-.fc-key.blue{color:var(--blue)}
-.wages-table{width:100%;border-collapse:collapse;font-size:.85rem;margin-top:8px;background:rgba(96,165,250,.05);border-radius:8px;border:1px solid rgba(96,165,250,.2)}
-.wages-table th{padding:8px;color:var(--muted);text-align:left;border-bottom:1px solid #2a3547;font-weight:500}
-.wages-table td{padding:6px 8px;border-bottom:1px solid #1e2535}
-.wages-table tr:last-child td{border:none}</style>
+.commentary{background:var(--card2);border-radius:8px;padding:12px;font-size:.85rem;line-height:1.5;color:var(--text);margin-top:8px}</style>
 </head>
 <body>
 <h1>Victoria Street <span class='pill'>Team View &middot; All $ incl GST</span></h1>
@@ -52,44 +38,43 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 
 <div class='kpi-row'>
   <div class='kpi'><div class='kpi-label'>Revenue</div><div class='kpi-val' style='color:var(--green)'>$2,006.94</div><div class='kpi-sub'>POS $1,716 + Catering $291</div></div>
-  <div class='kpi'><div class='kpi-label'>COGS</div><div class='kpi-val' style='color:var(--red)'>$255.30</div></div>
+  <div class='kpi'><div class='kpi-label'>COGS</div><div class='kpi-val' style='color:var(--red)'>$295.55</div></div>
   <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$1,302.62</div><div class='kpi-sub'>6 staff &middot; 47.55h</div></div>
-  <div class='kpi'><div class='kpi-label'>Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$586.39</div><div class='kpi-sub'></div></div>
+  <div class='kpi'><div class='kpi-label'>Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$581.14</div><div class='kpi-sub'></div></div>
 </div>
 
 <div class='surplus-card neg'>
   <div style='color:#f87171;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px'>Daily Result</div>
-  <div class='sval' style='color:#f87171'>-6.84%</div>
+  <div class='sval' style='color:#f87171'>-8.59%</div>
   <div class='sn'>of revenue &middot; Target &ge;20%</div>
   <div style='margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)'>
   <div style='font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:10px'>To reach 20% &mdash; today's adjustments needed</div>
   <div style='display:grid;grid-template-columns:1fr 1fr;gap:12px'>
     <div>
       <div style='font-size:11px;color:var(--muted);margin-bottom:3px'>COGS should have been</div>
-      <div style='font-size:1.15rem;font-weight:700;color:#fbbf24'>&le;&minus;$138.08</div>
-      <div style='font-size:10px;color:var(--muted)'>&minus;$393.38 vs actual $255.30</div>
+      <div style='font-size:1.15rem;font-weight:700;color:#fbbf24'>&le;&minus;$123.38</div>
+      <div style='font-size:10px;color:var(--muted)'>&minus;$418.93 vs actual $295.55</div>
     </div>
     <div>
       <div style='font-size:11px;color:var(--muted);margin-bottom:3px'>Wages should have been</div>
-      <div style='font-size:1.15rem;font-weight:700;color:#60a5fa'>&le;$1,105.93</div>
-      <div style='font-size:10px;color:var(--muted)'>&minus;$196.69 vs actual $1,302.62</div>
+      <div style='font-size:1.15rem;font-weight:700;color:#60a5fa'>&le;$1,093.15</div>
+      <div style='font-size:10px;color:var(--muted)'>&minus;$209.47 vs actual $1,302.62</div>
     </div>
   </div>
 </div>
 </div>
 
 <div class='section'><h3>Revenue Breakdown &mdash; $2,006.94</h3>
-  <div class='bar-row'><div class='bar-label'>POS (CafÃ©)</div><div class='bar-track'><div class='bar-fill' style='width:100%;background:var(--green)'></div></div><div class='bar-val'>$1,716.00</div></div>
+  <div class='bar-row'><div class='bar-label'>POS (Caf&eacute;)</div><div class='bar-track'><div class='bar-fill' style='width:100%;background:var(--green)'></div></div><div class='bar-val'>$1,716.00</div></div>
 <div class='bar-row'><div class='bar-label'>Catering</div><div class='bar-track'><div class='bar-fill' style='width:17%;background:var(--blue)'></div></div><div class='bar-val'>$290.94</div></div>
 
 </div>
 
-<div class='section'><h3>COGS Breakdown &mdash; $255.30</h3>
+<div class='section'><h3>COGS Breakdown &mdash; $295.55</h3>
   <div class='bar-row'><div class='bar-label'>Five Elements &divide;5/wk</div><div class='bar-track'><div class='bar-fill' style='width:100%;background:var(--purple)'></div></div><div class='bar-val'>$247.25</div></div>
-<div class='bar-row'><div class='bar-label'>LaundryCorp &divide;5/wk</div><div class='bar-track'><div class='bar-fill' style='width:3.3%;background:var(--teal)'></div></div><div class='bar-val'>$8.05</div></div>
+<div class='bar-row'><div class='bar-label'>LaundryCorp</div><div class='bar-track'><div class='bar-fill' style='width:19.5%;background:var(--teal)'></div></div><div class='bar-val'>$48.30</div></div>
 <div class='bar-row'><div class='bar-label'>Bidfood</div><div class='bar-track'><div class='bar-fill' style='width:0%;background:var(--red)'></div></div><div class='bar-val'>&mdash;</div></div>
 
-  <div style='font-size:.7rem;color:var(--muted);margin-top:6px;font-style:italic'>No new Bidfood/Gilmours deliveries today &mdash; only daily shares from weekly suppliers</div>
 </div>
 
 <div class='section'><h3>Wages &mdash; 6 staff &middot; 47.55h &middot; $1,302.62</h3>
@@ -103,58 +88,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
   <div style='font-size:.7rem;color:var(--muted);margin-top:6px;font-style:italic'>FOH=blue &middot; Kitchen=green &middot; TVNZ=purple &middot; sorted by hours</div>
 </div>
 
-<div class='commentary'><b>Friday commentary:</b> Friday wrapped a tough week for VS &mdash; revenue $2,006.94 with catering quiet at $290.94 and POS $1,716.00 softer than last Fri. No Bidfood delivery today brought a tiny $255 COGS day but wages $1,302.62 outpaced revenue gross profit, producing a small deficit. WTD finishes at &minus;$3,739.03 &mdash; structurally pressured by midweek Bidfood restocks.</div>
-
-<div class='section'><h3>Forward Forecast &mdash; Next 2 Trading Days</h3>
-<div style='font-size:.78rem;color:var(--muted);margin-bottom:10px'>Catering bookings include +15% Friday uplift for late weekend orders. Both days flagged amber (adjustment needed) &mdash; revenue is low against last week's wage base.</div>
-<div class='forecast-grid'>
-  <div class='fc-card adj'>
-  <div class='fc-title'>Mon 25 May<span class='fc-pill'>&#9888; Adjustment needed</span></div>
-  <div class='fc-row'><span class='lbl'>CafÃ© (POS)</span><span>$1,806.60</span></div>
-<div class='fc-row'><span class='lbl'>Catering <span style='color:var(--muted);font-size:.7rem'>(+15% uplift)</span></span><span>$362.53</span></div>
-<div class='fc-row' style='font-weight:600;border-top:1px solid #2a3547;padding-top:4px;margin-top:4px'><span>Forecast Revenue</span><span>$2,169.13</span></div>
-  <div style='margin-top:10px;padding-top:8px;border-top:1px solid #2a3547'>
-    <div style='font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px'>Adjusted COGS Target</div>
-    <div class='fc-key amber'>&minus;$313.35</div>
-    <div style='font-size:.72rem;color:var(--muted);margin-top:2px'>~Five Elements $247.25 &middot; ~LaundryCorp $8.05 &mdash; est. from last week</div>
-  </div>
-  <div style='margin-top:8px;padding-top:8px;border-top:1px solid #2a3547'>
-    <div style='font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px'>Adjusted Wages Target</div>
-    <div class='fc-key blue'>$1,345.19</div>
-  </div>
-  <div style='font-size:.7rem;color:var(--muted);margin-top:4px;font-style:italic'>Stream-weighted target reduced via 2:1 COGS:Wages split &mdash; hours guidance below &darr;</div>
-</div>
-  <div class='fc-card adj'>
-  <div class='fc-title'>Tue 26 May<span class='fc-pill'>&#9888; Adjustment needed</span></div>
-  <div class='fc-row'><span class='lbl'>CafÃ© (POS)</span><span>$2,407.54</span></div>
-<div class='fc-row'><span class='lbl'>Catering <span style='color:var(--muted);font-size:.7rem'>(+15% uplift)</span></span><span>$2,724.55</span></div>
-<div class='fc-row' style='font-weight:600;border-top:1px solid #2a3547;padding-top:4px;margin-top:4px'><span>Forecast Revenue</span><span>$5,132.09</span></div>
-  <div style='margin-top:10px;padding-top:8px;border-top:1px solid #2a3547'>
-    <div style='font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px'>Adjusted COGS Target</div>
-    <div class='fc-key amber'>$1,187.75</div>
-    <div style='font-size:.72rem;color:var(--muted);margin-top:2px'>~Five Elements $247.25 &middot; ~LaundryCorp $8.05 &mdash; est. from last week</div>
-  </div>
-  <div style='margin-top:8px;padding-top:8px;border-top:1px solid #2a3547'>
-    <div style='font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px'>Adjusted Wages Target</div>
-    <div class='fc-key blue'>$1,702.84</div>
-  </div>
-  <div style='font-size:.7rem;color:var(--muted);margin-top:4px;font-style:italic'>Stream-weighted target reduced via 2:1 COGS:Wages split &mdash; hours guidance below &darr;</div>
-</div>
-</div>
-<div style='margin-top:16px'>
-  <div style='font-size:.85rem;color:var(--blue);margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em'>Suggested Hours &mdash; Mon 25 May (using last Mon's roster as proxy)</div>
-  <table class='wages-table'>
-    <thead><tr><th>Employee</th><th>Target hrs</th></tr></thead>
-    <tbody><tr><td>Karol Cartagena</td><td>6.65h</td></tr>
-<tr><td>Aleisha Yee</td><td>5.85h</td></tr>
-<tr><td>Ria Saito</td><td>6.19h</td></tr>
-<tr><td>Horacio Nicolas Soto</td><td>5.12h</td></tr>
-<tr><td>Helen Sherratt</td><td>4.17h</td></tr>
-<tr><td>Jimmy (Mohd Bin Ab Shukur)</td><td>3.93h</td></tr>
-</tbody>
-  </table>
-</div>
-</div>
+<div class='commentary'><b>Friday commentary:</b> Friday saw $2,006.94 revenue with POS $1,716.00 and catering $290.94. COGS $295.55 includes a 2nd LaundryCorp weekly invoice captured today. Daily &minus;$172.37 at -8.59% margin. Week wraps with a structural challenge.</div>
 
 <script>
 const FORECAST_BASE = {
