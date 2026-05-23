@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Victoria Street &mdash; Sat 23 May 2026 &mdash; Team Dashboard</title>
+<style>:root{--bg:#0f1419;--card:#1a1f2e;--card2:#232938;--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--purple:#a78bfa;--orange:#f97316;--teal:#34d399;--fuchsia:#e879f9;--text:#e2e8f0;--muted:#94a3b8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;font-size:14px;padding:16px;max-width:1100px;margin:0 auto}
+h1{font-size:1.4rem;font-weight:700;margin-bottom:4px}
+.subtitle{color:var(--muted);font-size:.85rem;margin-bottom:16px}
+.pill{display:inline-block;padding:2px 8px;border-radius:12px;font-size:.75rem;background:#2a1e3a;color:#c084fc;margin-left:8px}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+.kpi{background:var(--card);border-radius:10px;padding:14px;border:1px solid #2a3547}
+.kpi-label{color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.kpi-val{font-size:1.4rem;font-weight:700}
+.kpi-sub{color:var(--muted);font-size:.75rem;margin-top:2px}
+.surplus-card{border-radius:10px;padding:18px;margin-bottom:16px}
+.sval{font-size:2rem;font-weight:800}
+.sn{color:var(--muted);font-size:.85rem;margin-top:4px}
+.section{background:var(--card);border-radius:10px;padding:14px;margin-bottom:12px;border:1px solid #2a3547}
+.section h3{font-size:.95rem;margin-bottom:12px;color:var(--text)}
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:.82rem}
+.bar-label{width:280px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-track{flex:1;height:18px;background:#0f1419;border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px}
+.bar-val{width:90px;flex-shrink:0;text-align:right;color:var(--muted);font-size:.8rem}
+.note{background:#1c1a0d;border:1px solid var(--amber);border-radius:6px;padding:8px 10px;margin-bottom:10px;font-size:.8rem;color:var(--amber)}
+.commentary{background:var(--card2);border-radius:8px;padding:12px;font-size:.85rem;line-height:1.5;color:var(--text);margin-top:8px}
+.fcard{background:var(--card);border-radius:10px;padding:14px;border:1px solid #2a3547}
+.fcard.adj{border-color:rgba(251,191,36,.4)}
+.fcard.ok{border-color:rgba(74,222,128,.4)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+table.wt{width:100%;border-collapse:collapse;font-size:.85rem;background:rgba(96,165,250,.05);border:1px solid rgba(96,165,250,.2);border-radius:8px;overflow:hidden}
+table.wt th{background:#0f1419;padding:8px 12px;text-align:left;color:var(--muted);font-weight:500;font-size:.78rem}
+table.wt td{padding:8px 12px;border-bottom:1px solid #1e2535}
+table.wt tr:last-child td{border:none}
+</style>
+</head>
+<body>
+<h1>Victoria Street &mdash; Team Dashboard <span class='pill'>Team View</span></h1>
+<div class='subtitle'>Saturday 23 May 2026 &middot; All $ incl GST &middot; <em>Closed Saturday</em></div>
+
+<div class='note'>&#9888; VS closed Saturday &mdash; no POS or catering revenue. One late-captured Goodman Fielder invoice from Fri 22 booked today; fixed daily costs (car loan, electricity) still apply.</div>
+
+<div class='kpi-row'>
+  <div class='kpi'><div class='kpi-label'>Revenue</div><div class='kpi-val' style='color:var(--muted)'>$0.00</div><div class='kpi-sub'>No trade</div></div>
+  <div class='kpi'><div class='kpi-label'>COGS</div><div class='kpi-val' style='color:var(--red)'>$137.82</div><div class='kpi-sub'>Goodman Fielder late from Fri</div></div>
+  <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--muted)'>$0.00</div><div class='kpi-sub'>0 staff &middot; 0h</div></div>
+  <div class='kpi'><div class='kpi-label'>Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$31.38</div></div>
+</div>
+
+<div class='surplus-card' style='border:1px solid var(--red);background:linear-gradient(135deg,#261010,var(--card))'>
+  <div style='color:var(--red);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px'>Daily Result</div>
+  <div class='sval' style='color:var(--red)'>n/a</div>
+  <div class='sn'>No revenue today &middot; daily deficit &minus;$169.20 from fixed costs &amp; late-capture COGS</div>
+</div>
+
+<div class='section'><h3>COGS Breakdown &mdash; $137.82 today</h3>
+  <div class='bar-row'><div class='bar-label'>Goodman Fielder</div><div class='bar-track'><div class='bar-fill' style='width:100%;background:#e879f9'></div></div><div class='bar-val'>$137.82</div></div>
+  <div style="font-size:.7rem;color:var(--amber);margin:-3px 0 7px 288px;padding-left:8px;border-left:2px solid var(--amber)">&#9888; Late capture &middot; full $137.82 (NEW VS supplier) &mdash; invoice #9085591426 dated 22/05/2026 (Fri), captured today</div>
+</div>
+
+<div class='commentary'><b>Saturday commentary:</b> VS closed Saturday (no POS/catering revenue). A new Goodman Fielder invoice ($137.82 dated Fri 22) was caught up via Hubdoc today &mdash; first GF supplier appearance for VS this week. Fixed costs (car loan $29.36, electricity $20.00) still accrue. Caf&eacute; resumes Monday.</div>
+
+<div class='section'><h3>Forward Forecast &mdash; Next 2 Trading Days</h3>
+  <div class='fgrid'>
+    <div class='fcard adj'>
+      <div style='font-weight:600;margin-bottom:8px'>Mon 25 May <span style='font-size:.7rem;color:var(--amber);background:rgba(251,191,36,.1);padding:2px 8px;border-radius:10px;margin-left:6px'>&#9888; Adjustment needed</span></div>
+      <div style='font-size:.78rem;color:var(--muted);margin-bottom:4px'>REVENUE FORECAST</div>
+      <div style='font-size:.85rem;margin-bottom:2px'>POS Caf&eacute;: <b>$1,806.60</b> (last Mon)</div>
+      <div style='font-size:.85rem;margin-bottom:8px'>Catering: <b>$187.65</b> (booked)</div>
+      <div style='font-size:.85rem;margin-bottom:8px'>Total: <b style='color:var(--green)'>$1,994.25</b></div>
+      <div style='border-top:1px solid #2a3547;margin:10px 0;padding-top:10px'>
+        <div style='font-size:.78rem;color:var(--muted);margin-bottom:3px'>COGS BUDGET (variable, adjusted)</div>
+        <div style='font-size:1.1rem;font-weight:700;color:var(--red)'>Target unattainable</div>
+        <div style='font-size:.7rem;color:var(--muted);margin-top:2px'>Even with the wage cut, 20% margin isn't reachable on this revenue level. Adjusted target &minus;$400.62 (negative) before committed shares.</div>
+        <div style='font-size:.7rem;color:var(--muted);margin-top:2px'>~Five Elements $247.25/day &mdash; est. from this week</div>
+      </div>
+      <div style='border-top:1px solid #2a3547;padding-top:10px'>
+        <div style='font-size:.78rem;color:var(--muted);margin-bottom:3px'>WAGES TARGET</div>
+        <div style='font-size:1.1rem;font-weight:700;color:var(--blue)'>$1,320.79</div>
+        <div style='font-size:.7rem;color:var(--muted);margin-top:2px'>&minus;$455.81 vs last Mon est $1,776.60 &mdash; hours guidance below &darr;</div>
+      </div>
+    </div>
+    <div class='fcard ok'>
+      <div style='font-weight:600;margin-bottom:8px'>Tue 26 May <span style='font-size:.7rem;color:var(--green);background:rgba(74,222,128,.1);padding:2px 8px;border-radius:10px;margin-left:6px'>on track &check;</span></div>
+      <div style='font-size:.78rem;color:var(--muted);margin-bottom:4px'>REVENUE FORECAST</div>
+      <div style='font-size:.85rem;margin-bottom:2px'>POS Caf&eacute;: <b>$2,407.54</b> (last Tue)</div>
+      <div style='font-size:.85rem;margin-bottom:8px'>Catering: <b>$4,395.73</b> (booked)</div>
+      <div style='font-size:.85rem;margin-bottom:8px'>Total: <b style='color:var(--green)'>$6,803.27</b></div>
+      <div style='border-top:1px solid #2a3547;margin:10px 0;padding-top:10px'>
+        <div style='font-size:.78rem;color:var(--muted);margin-bottom:3px'>COGS BUDGET (variable)</div>
+        <div style='font-size:1.1rem;font-weight:700;color:var(--amber)'>$1,345.77</div>
+        <div style='font-size:.7rem;color:var(--muted);margin-top:2px'>Stream-weighted target $1,593.02 &minus; ~Five Elements $247.25</div>
+        <div style='font-size:.7rem;color:var(--muted);margin-top:2px'>Expected margin 28.7% &mdash; above 20% target</div>
+      </div>
+      <div style='border-top:1px solid #2a3547;padding-top:10px'>
+        <div style='font-size:.78rem;color:var(--muted);margin-bottom:3px'>WAGES TARGET</div>
+        <div style='font-size:1.1rem;font-weight:700;color:var(--blue)'>$1,721.65</div>
+        <div style='font-size:.7rem;color:var(--muted);margin-top:2px'>Last Tue baseline &mdash; no cut needed</div>
+      </div>
+    </div>
+  </div>
+
+  <div style='margin-top:16px'>
+    <div style='font-size:.85rem;font-weight:600;margin-bottom:8px;color:var(--blue)'>Suggested Hours &mdash; Mon 25 May</div>
+    <table class='wt'><thead><tr><th>Employee</th><th style='text-align:right'>Target hrs</th></tr></thead><tbody>
+      <tr><td>David Easthope</td><td style='text-align:right'>7.48</td></tr>
+      <tr><td>Aleisha Yee</td><td style='text-align:right'>6.49</td></tr>
+      <tr><td>Ria Saito</td><td style='text-align:right'>6.24</td></tr>
+      <tr><td>Kaka</td><td style='text-align:right'>5.77</td></tr>
+      <tr><td>Horacio Nicolas Soto</td><td style='text-align:right'>5.20</td></tr>
+      <tr><td>Jimmy (Mohd Bin Ab Shukur)</td><td style='text-align:right'>4.11</td></tr>
+      <tr><td>Helen Sherratt</td><td style='text-align:right'>1.21</td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<script>
+const FORECAST_BASE = {
+  last_week: {
+    mon: { vs:{cafe:1806.60,catering:1484.61}, sb:{cafe:2441.80,tvnz:664.60,wholesale:4215.36,catering:1593.07}, vl:{cafe:2429.86} },
+    tue: { vs:{cafe:2407.54,catering:3370.67}, sb:{cafe:3135.09,tvnz:688.00,wholesale:3707.28,catering:1753.30}, vl:{cafe:2988.67} },
+    wed: { vs:{cafe:2962.70,catering:837.25}, sb:{cafe:3125.80,tvnz:724.60,wholesale:3317.38,catering:4747.91}, vl:{cafe:3598.79} },
+    thu: { vs:{cafe:2469.70,catering:1735.17}, sb:{cafe:3562.00,tvnz:550.90,wholesale:3404.34,catering:4852.39}, vl:{cafe:3726.66} },
+    fri: { vs:{cafe:2311.80,catering:500.54}, sb:{cafe:3281.76,tvnz:0,wholesale:3168.79,catering:1582.89}, vl:{cafe:3340.06} },
+    sat: { vl:{cafe:4796.86}, sb:{wholesale:3731.30} },
+    sun: { vl:{cafe:5012.37}, sb:{wholesale:0} }
+  },
+  last_week_wages: {
+    mon: { vs:1776.60, sb:3505.73, vl:1177.33 },
+    tue: { vs:1721.65, sb:3216.04, vl:1001.01 },
+    wed: { vs:1615.23, sb:3168.77, vl:1072.04 },
+    thu: { vs:1802.11, sb:2949.80, vl:1230.84 },
+    fri: { vs:1303.26, sb:2905.50, vl:1037.06 },
+    sat: { vl:1318.09 },
+    sun: { vl:1404.60 }
+  },
+  cogs_benchmarks: {
+    sb:  { cafe:0.25, tvnz:0.22, catering:0.18, wholesale:0.35 },
+    vs:  { cafe:0.26, catering:0.22 },
+    vl:  { cafe:0.25 },
+    qs:  { cafe:0.19 }
+  }
+};
+</script>
+</body>
+</html>
