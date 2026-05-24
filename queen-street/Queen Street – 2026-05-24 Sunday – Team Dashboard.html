@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Queen Street &mdash; Sun 24 May 2026 &mdash; Team Dashboard</title>
+<style>:root{--bg:#0f1419;--card:#1a1f2e;--card2:#232938;--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--purple:#a78bfa;--orange:#f97316;--teal:#34d399;--fuchsia:#e879f9;--text:#e2e8f0;--muted:#94a3b8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;font-size:14px;padding:16px;max-width:1100px;margin:0 auto}
+h1{font-size:1.4rem;font-weight:700;margin-bottom:4px}
+.subtitle{color:var(--muted);font-size:.85rem;margin-bottom:16px}
+.pill{display:inline-block;padding:2px 8px;border-radius:12px;font-size:.75rem;background:#1e2a3a;color:var(--blue);margin-left:8px}
+.pill.team{background:#2a1e3a;color:#c084fc}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+.kpi{background:var(--card);border-radius:10px;padding:14px;border:1px solid #2a3547}
+.kpi-label{color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.kpi-val{font-size:1.4rem;font-weight:700}
+.kpi-sub{color:var(--muted);font-size:.75rem;margin-top:2px}
+.surplus-card{border-radius:10px;padding:18px;margin-bottom:16px}
+.sval{font-size:2rem;font-weight:800}
+.sn{color:var(--muted);font-size:.85rem;margin-top:4px}
+.section{background:var(--card);border-radius:10px;padding:14px;margin-bottom:12px;border:1px solid #2a3547}
+.section h3{font-size:.95rem;margin-bottom:12px;color:var(--text)}
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:.82rem}
+.bar-label{width:240px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-track{flex:1;height:18px;background:#0f1419;border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px}
+.bar-val{width:90px;flex-shrink:0;text-align:right;color:var(--muted);font-size:.8rem}
+.bar-wtd{width:90px;flex-shrink:0;text-align:right;color:#6b7280;font-size:.75rem}
+.col-hdrs{display:flex;gap:8px;margin-bottom:4px;font-size:.72rem;color:var(--muted);padding-left:248px}
+.col-hdrs .ch{width:90px;text-align:right}
+.col-hdrs .cw{width:90px;text-align:right}
+.note{background:#1c1a0d;border:1px solid var(--amber);border-radius:6px;padding:8px 10px;margin-bottom:10px;font-size:.8rem;color:var(--amber)}
+.commentary{background:var(--card2);border-radius:8px;padding:12px;font-size:.85rem;line-height:1.5;color:var(--text);margin-top:8px}
+.forecast-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.fcard{background:var(--card);border-radius:10px;padding:14px;border:1px solid #2a3547}
+.fcard.warn{border-color:rgba(251,191,36,.4)}
+.fcard h4{font-size:.9rem;margin-bottom:8px}
+.frow{display:flex;justify-content:space-between;font-size:.8rem;margin:4px 0;color:var(--muted)}
+.frow b{color:var(--text);font-weight:600}</style>
+</head>
+<body>
+<h1>Queen Street (Little Melba) &mdash; Daily Performance</h1>
+<div class='subtitle'>Sunday 24 May 2026 &middot; <span class='pill team'>Team View</span> <span class='pill'>All $ incl GST</span></div>
+
+<div class='note'>&#9888; QS closed Sunday &mdash; no trading.</div>
+
+<div class='kpi-row'>
+  <div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--muted)'>$0.00</div></div>
+  <div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--muted)'>$0.00</div></div>
+  <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--muted)'>$0.00</div></div>
+  <div class='kpi'><div class='kpi-label'>Op Costs</div><div class='kpi-val' style='color:var(--muted)'>$0.00</div></div>
+</div>
+
+<div class='surplus-card' style='border:1px solid var(--muted);background:linear-gradient(135deg,#1a1f2e,#232938)'>
+  <div style='color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px'>Daily Result</div>
+  <div class='sval' style='color:var(--muted)'>Closed</div>
+  <div class='sn'>Closed Sunday &mdash; no figures to report.</div>
+</div>
+
+<div class='commentary'><b>Sunday commentary:</b> QS (Little Melba) closed Sunday &mdash; no trading. Week 1 complete at +$462.88 surplus on $3,503.40 revenue (13.21% margin). Below 20% target but stable Mon-Fri performance. Mon resumes trading.</div>
+</body>
+</html>

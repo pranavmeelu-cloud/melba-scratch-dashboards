@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Melba-Scratch Group Dashboard &mdash; Sun 24 May 2026</title>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js'></script>
+<style>:root{--bg:#0f1419;--card:#1a1f2e;--card2:#232938;--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--purple:#a78bfa;--orange:#f97316;--teal:#34d399;--fuchsia:#e879f9;--text:#e2e8f0;--muted:#94a3b8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;font-size:14px;padding:16px}
+h1{font-size:1.4rem;font-weight:700;margin-bottom:4px}
+.subtitle{color:var(--muted);font-size:.85rem;margin-bottom:16px}
+.pill{display:inline-block;padding:2px 8px;border-radius:12px;font-size:.75rem;background:#1e2a3a;color:var(--blue);margin-left:8px}
+.entity-tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.etab{padding:8px 16px;border-radius:8px;border:1px solid #2a3547;background:var(--card);cursor:pointer;font-size:.85rem;color:var(--text)}
+.etab.active{background:#1e2a3a;border-color:var(--blue);color:var(--blue)}
+.badge{font-size:.65rem;padding:1px 5px;border-radius:6px;margin-left:6px}
+.badge.ok{background:#0d261a;color:var(--green)}
+.badge.partial{background:#261a08;color:var(--orange)}
+.day-tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.dtab{padding:5px 12px;border-radius:6px;border:1px solid #2a3547;background:var(--card2);cursor:pointer;font-size:.8rem;color:var(--text)}
+.dtab.active{background:#1a2a3a;border-color:var(--blue);color:var(--blue)}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+.kpi{background:var(--card);border-radius:10px;padding:14px;border:1px solid #2a3547}
+.kpi-label{color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.kpi-val{font-size:1.4rem;font-weight:700}
+.kpi-sub{color:var(--muted);font-size:.75rem;margin-top:2px}
+.surplus-card{border-radius:10px;padding:18px;margin-bottom:16px}
+.surplus-card.pos{background:linear-gradient(135deg,#0d261a,var(--card));border:1px solid var(--green)}
+.surplus-card.neg{background:linear-gradient(135deg,#261010,var(--card));border:1px solid var(--red)}
+.surplus-card.deep-green{background:linear-gradient(135deg,#0a2e18,var(--card));border:1px solid var(--green)}
+.surplus-card.amber{background:linear-gradient(135deg,#262010,var(--card));border:1px solid var(--amber)}
+.surplus-card.orange{background:linear-gradient(135deg,#261a08,var(--card));border:1px solid var(--orange)}
+.sval{font-size:2rem;font-weight:800}
+.sn{color:var(--muted);font-size:.85rem;margin-top:4px}
+.section{background:var(--card);border-radius:10px;padding:14px;margin-bottom:12px;border:1px solid #2a3547}
+.section h3{font-size:.95rem;margin-bottom:12px;color:var(--text)}
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:.82rem}
+.bar-label{width:240px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-track{flex:1;height:18px;background:#0f1419;border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px}
+.bar-val{width:90px;flex-shrink:0;text-align:right;color:var(--muted);font-size:.8rem}
+.bar-wtd{width:90px;flex-shrink:0;text-align:right;color:#6b7280;font-size:.75rem}
+.col-hdrs{display:flex;gap:8px;margin-bottom:4px;font-size:.72rem;color:var(--muted);padding-left:248px}
+.col-hdrs .ch{width:90px;text-align:right}
+.col-hdrs .cw{width:90px;text-align:right}
+.note{background:#1c1a0d;border:1px solid var(--amber);border-radius:6px;padding:8px 10px;margin-bottom:10px;font-size:.8rem;color:var(--amber)}
+.note.red{background:#1c0d0d;border-color:var(--red);color:var(--red)}
+.commentary{background:var(--card2);border-radius:8px;padding:12px;font-size:.85rem;line-height:1.5;color:var(--text);margin-top:8px}
+.hidden{display:none}
+.entity-pane.hidden{display:none}</style>
+</head>
+<body>
+<h1>Melba-Scratch Group Dashboard</h1>
+<div class='subtitle'>Sunday 24 May 2026 &middot; Week 1 of May (Mon 18 &ndash; Sun 24) &middot; <span class='pill'>All $ incl GST</span> <span class='pill' style='color:var(--purple);background:#2a1f3a'>Owner View</span></div>
+
+<div class='entity-tabs'>
+  <div class='etab' onclick="showEntity('vs',this)">Victoria Street <span class='badge partial'>partial</span></div>
+  <div class='etab' onclick="showEntity('sb',this)">Scratch Bakers <span class='badge ok'>data &#10003;</span></div>
+  <div class='etab active' onclick="showEntity('vl',this)">Vulcan Lane <span class='badge ok'>data &#10003;</span></div>
+  <div class='etab' onclick="showEntity('qs',this)">Queen Street <span class='badge partial'>partial</span></div>
+</div>
+
+<div class='kpi-row'>
+  <div class='kpi'><div class='kpi-label'>Group Revenue (Sun)</div><div class='kpi-val' style='color:var(--green)'>$5,162.00</div><div class='kpi-sub'>VS $0 &middot; SB $612 &middot; VL $4,550 &middot; QS $0</div></div>
+  <div class='kpi'><div class='kpi-label'>Group Surplus (Sun)</div><div class='kpi-val' style='color:var(--red)'>-$228.38</div><div class='kpi-sub'>-4.42% margin</div></div>
+  <div class='kpi'><div class='kpi-label'>Group Revenue (WTD)</div><div class='kpi-val' style='color:var(--green)'>$107,230.31</div><div class='kpi-sub'>Mon&ndash;Sun this week</div></div>
+  <div class='kpi'><div class='kpi-label'>Group Surplus (WTD)</div><div class='kpi-val' style='color:var(--green)'>+$22,519.05</div><div class='kpi-sub'>21.00% margin</div></div>
+</div>
+
+<div style='background:var(--card2);border-radius:8px;padding:10px 12px;margin-bottom:14px;font-size:.78rem;color:var(--muted)'>
+&#9888; <b>Sun 24 May headlines:</b> VS &amp; QS closed Sunday (fixed costs only). SB ran a quiet catering prep day ($612 revenue, $933 wages &rarr; -$554). VL had a solid trade day ($4,550) but three NEW Service Foods invoices captured today drag COGS up by $879 (catch-up Fri/Sat/Sun shares). New supplier flagged: <b>Service Foods Ltd</b> &mdash; meat/dry/produce distributor &mdash; default &div;7 weekly spread, will continue at ~$293/day through Wed next week.
+</div>
+
+<div id='pane-vs' class='entity-pane'>
+  <div class='day-tabs'>
+    <div class='dtab' onclick="showDay('vs','mon',this)">Mon 18</div>
+    <div class='dtab' onclick="showDay('vs','tue',this)">Tue 19</div>
+    <div class='dtab' onclick="showDay('vs','wed',this)">Wed 20</div>
+    <div class='dtab' onclick="showDay('vs','thu',this)">Thu 21</div>
+    <div class='dtab' onclick="showDay('vs','fri',this)">Fri 22</div>
+    <div class='dtab' onclick="showDay('vs','sat',this)">Sat 23</div>
+    <div class='dtab active' onclick="showDay('vs','sun',this)">Sun 24</div>
+    <div class='dtab' onclick="showDay('vs','wtd',this)">WTD</div>
+    <div class='dtab' onclick="showDay('vs','mtd',this)">MTD</div>
+  </div>
+  <div id='vs-mon' class='hidden'>
+  <div class='kpi-row'>
+    <div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--green)'>$2,514.63</div></div>
+    <div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--red)'>$905.16</div></div>
+    <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$1,428.14</div><div class='kpi-sub'>53.29h &middot; 7 staff</div></div>
+    <div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$629.28</div></div>
+  </div>
+  <div class='surplus-card neg'>
+    <div style='color:var(--red);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px'>Daily Surplus / Deficit</div>
+    <div class='sval' style='color:var(--red)'>-$447.95</div>
+    <div class='sn'>-17.81% of revenue &middot; below 20% target</div>
+  </div>
+</div>
+  <div id='vs-tue' class='hidden'>
+  <div class='kpi-row'>
+    <div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--green)'>$4,360.69</div></div>
+    <div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--red)'>$3,002.67</div></div>
+    <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$1,743.95</div><div class='kpi-sub'>64.28h &middot; 8 staff</div></div>
+    <div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$784.58</div></div>
+  </div>
+  <div class='surplus-card neg'>
+    <div style='color:var(--red);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px'>Daily Surplus / Deficit</div>
+    <div class='sval' style='color:var(--red)'>-$1,170.51</div>
+    <div class='sn'>-26.84% of revenue &middot; heavy Bidfood delivery day</div>
+  </div>
+</div>
+  <div id='vs-wed' class='hidden'>
+  <div class='kpi-row'>
+    <div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--green)'>$3,225.89</div></div>
+    <div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--red)'>$2,610.61</div></div>
+    <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$1,558.12</div><div class='kpi-sub'>56.86h &middot; 7 staff</div></div>
+    <div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$576.17</div></div>
+  </div>
+  <div class='surplus-card neg'>
+    <div class='sval' style='color:var(--red)'>-$1,519.01</div>
+    <div class='sn'>-47.09% of revenue</div>
+  </div>
+</div>
+  <div id='vs-thu' class='hidden'>
+  <div class='kpi-row'>
+    <div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--green)'>$5,979.73</div></div>
+    <div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--red)'>$3,682.85</div></div>
+    <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$1,685.08</div><div class='kpi-sub'>62.16h &middot; 8 staff</div></div>
+    <div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$1,075.99</div></div>
+  </div>
+  <div class='surplus-card neg'>
+    <div class='sval' style='color:var(--red)'>-$464.19</div>
+    <div class='sn'>-7.76% of revenue</div>
+  </div>
+</div>
+  <div id='vs-fri' class='hidden'>
+  <div class='kpi-row'>
+    <div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--green)'>$2,006.94</div></div>
+    <div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--red)'>$295.55</div></div>
+    <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$1,302.62</div><div class='kpi-sub'>47.55h &middot; 6 staff</div></div>
+    <div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$581.14</div></div>
+  </div>
+  <div class='surplus-card neg'>
+    <div class='sval' style='color:var(--red)'>-$172.37</div>
+    <div class='sn'>-8.59% of revenue</div>
+  </div>
+</div>
+  <div id='vs-sat' class='hidden'>
+  <div class='note'>&#9888; VS closed Saturday &mdash; no POS trading. Goodman Fielder $137.82 milk delivery (dated 22/05) captured today.</div>
+  <div class='kpi-row'>
+    <div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--muted)'>$0.00</div></div>
+    <div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--red)'>$137.82</div></div>
+    <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--muted)'>$0.00</div></div>
+    <div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$31.38</div></div>
+  </div>
+  <div class='surplus-card neg'>
+    <div class='sval' style='color:var(--red)'>-$169.20</div>
+    <div class='sn'>Closed Saturday &middot; fixed costs only</div>
+  </div>
+</div>
+  <div id='vs-sun'>
+  <div class='note'>&#9888; VS closed Sunday &mdash; no POS trading. Prep wages only (David Easthope, Kitchen). Daily fixed costs apply (electricity, car loan).</div>
+  <div class='kpi-row'>
+    <div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--muted)'>$0.00</div></div>
+    <div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--muted)'>$0.00</div></div>
+    <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$105.05</div><div class='kpi-sub'>3.82h &middot; 1 staff</div></div>
+    <div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$49.36</div></div>
+  </div>
+  <div class='surplus-card neg'>
+    <div style='color:var(--red);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px'>Daily Surplus / Deficit</div>
+    <div class='sval' style='color:var(--red)'>-$154.41</div>
+    <div class='sn'>Closed Sunday &middot; fixed costs only (electricity $20.00, car loan $29.36) plus prep wages</div>
+  </div>
+  <div class='section'>
+    <h3>Wages &mdash; 3.82h &middot; $105.05</h3>
+    <div class='col-hdrs'><span class='ch'>Sun</span><span class='cw'>WTD</span></div>
+    <div class='bar-row'>
+      <div class='bar-label'>David Easthope &middot; 3.82h &middot; $27.50</div>
+      <div class='bar-track'><div class='bar-fill' style='width:100%;background:#4ade80'></div></div>
+      <div class='bar-val'>$105.05</div>
+      <div class='bar-wtd'>$997.43</div>
+    </div>
+    <div style='color:var(--muted);font-size:.72rem;margin-top:6px'>Rate &times; hours, GST-exempt on wages. Sunday prep only.</div>
+  </div>
+  <div class='section'>
+    <h3>Remaining Operational Costs</h3>
+    <div class='bar-row'>
+      <div class='bar-label'>Car loan &middot; fixed daily</div>
+      <div class='bar-track'><div class='bar-fill' style='width:100%;background:#a78bfa'></div></div>
+      <div class='bar-val'>$29.36</div>
+      <div class='bar-wtd'>$205.51</div>
+    </div>
+    <div class='bar-row'>
+      <div class='bar-label'>Electricity &middot; fixed daily</div>
+      <div class='bar-track'><div class='bar-fill' style='width:68%;background:#fbbf24'></div></div>
+      <div class='bar-val'>$20.00</div>
+      <div class='bar-wtd'>$140.00</div>
+    </div>
+    <div style='color:var(--muted);font-size:.72rem;margin-top:6px'>GST/Rent/Royalty/Misc/Merchant all zero (no revenue, no COGS).</div>
+  </div>
+  <div class='commentary'><b>Sunday commentary:</b> VS closed Sunday &mdash; 0 revenue, 0 COGS. Single staff (David Easthope) on Kitchen prep, 3.82h. Fixed daily costs (electricity, car loan) drive the -$154.41 result. WTD closes at -$4,097.64 on $18,087.88 revenue, mainly a heavy COGS week (Bidfood receipts Tue-Thu). Trade resumes Mon.</div>
+</div>
+  <div id='vs-wtd' class='hidden'>
+  <div class='kpi-row'>
+    <div class='kpi'><div class='kpi-label'>WTD Revenue</div><div class='kpi-val' style='color:var(--green)'>$18,087.88</div></div>
+    <div class='kpi'><div class='kpi-label'>WTD COGS</div><div class='kpi-val' style='color:var(--red)'>$10,634.66</div></div>
+    <div class='kpi'><div class='kpi-label'>WTD Wages</div><div class='kpi-val' style='color:var(--amber)'>$7,822.96</div><div class='kpi-sub'>281.67h</div></div>
+    <div class='kpi'><div class='kpi-label'>WTD Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$3,727.89</div></div>
+  </div>
+  <div class='surplus-card neg'>
+    <div style='color:var(--red);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px'>Week to Date Surplus / Deficit</div>
+    <div class='sval' style='color:var(--red)'>-$4,097.64</div>
+    <div class='sn'>-22.65% of revenue &middot; week complete (Sat closed; Sun prep only)</div>
+  </div>
+</div>
+  <div id='vs-mtd' class='hidden'>
+  <div class='surplus-card neg'>
+    <div class='sn'>MTD = current WTD (Week 1 of May rolling)</div>
+    <div class='sval' style='color:var(--red)'>-$4,097.64</div>
+  </div>
+</div>
+</div>
+<div id='pane-sb' class='entity-pane hidden'>
+  <div class='day-tabs'>
+    <div class='dtab' onclick="showDay('sb','mon',this)">Mon 18</div>
+    <div class='dtab' onclick="showDay('sb','tue',this)">Tue 19</div>
+    <div class='dtab' onclick="showDay('sb','wed',this)">Wed 20</div>
+    <div class='dtab' onclick="showDay('sb','thu',this)">Thu 21</div>
+    <div class='dtab' onclick="showDay('sb','fri',this)">Fri 22</div>
+    <div class='dtab' onclick="showDay('sb','sat',this)">Sat 23</div>
+    <div class='dtab active' onclick="showDay('sb','sun',this)">Sun 24</div>
+    <div class='dtab' onclick="showDay('sb','wtd',this)">WTD</div>
+    <div class='dtab' onclick="showDay('sb','mtd',this)">MTD</div>
+  </div>
+  <div id='sb-mon' class='hidden'>
+  <div class='kpi-row'>
+    <div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--green)'>$8,395.35</div></div>
+    <div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--red)'>$2,003.90</div></div>
+    <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$2,982.25</div><div class='kpi-sub'>108.35h &middot; 15 staff</div></div>
+    <div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$2,803.64</div></div>
+  </div>
+  <div class='surplus-card pos'>
+    <div class='sval' style='color:var(--green)'>+$605.56</div>
+    <div class='sn'>7.21% of revenue</div>
+  </div>
+</div>
+  <div id='sb-tue' class='hidden'>
+  <div class='kpi-row'>
+    <div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--green)'>$8,268.55</div></div>
+    <div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--red)'>$334.81</div></div>
+    <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$3,186.93</div><div class='kpi-sub'>113.05h &middot; 15 staff</div></div>
+    <div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$2,491.81</div></div>
+  </div>
+  <div class='surplus-card pos'>
+    <div class='sval' style='color:var(--green)'>+$2,255.00</div>
+    <div class='sn'>27.27% of revenue</div>
+  </div>
+</div>
+  <div id='sb-wed' class='hidden'>
+  <div class='kpi-row'>
+    <div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--green)'>$10,644.92</div></div>
+    <div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--red)'>$424.48</div></div>
+    <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$3,448.31</div><div class='kpi-sub'>122.38h &middot; 15 staff</div></div>
+    <div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$3,180.21</div></div>
+  </div>
+  <div class='surplus-card deep-green'>
+    <div class='sval' style='color:var(--green)'>+$3,591.92</div>
+    <div class='sn'>33.74% of revenue</div>
+  </div>
+</div>
+  <div id='sb-thu' class='hidden'>
+  <div class='kpi-row'>
+    <div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--green)'>$14,858.13</div></div>
+    <div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--red)'>$424.48</div></div>
+    <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$3,463.49</div><div class='kpi-sub'>115.84h &middot; 15 staff</div></div>
+    <div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$3,557.54</div></div>
+  </div>
+  <div class='surplus-card deep-green'>
+    <div class='sval' style='color:var(--green)'>+$7,412.62</div>
+    <div class='sn'>49.89% of revenue</div>
+  </div>
+</div>
+  <div id='sb-fri' class='hidden'>
+  <div class='kpi-row'>
+    <div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--green)'>$14,210.96</div></div>
+    <div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--red)'>$1,377.91</div></div>
+    <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$2,916.72</div><div class='kpi-sub'>102.56h &middot; 14 staff</div></div>
+    <div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$3,403.88</div></div>
+  </div>
+  <div class='surplus-card deep-green'>
+    <div class='sval' style='color:var(--green)'>+$6,512.45</div>
+    <div class='sn'>45.83% of revenue</div>
+  </div>
+</div>
+  <div id='sb-sat' class='hidden'>
+  <div class='note'>&#9888; SB cafe closed Saturday &mdash; catering $497.95 + wholesale $3,119.72 only. Late capture: Produce Company $25.75 (1/5 daily share of INV 3382527 dated 22/05).</div>
+  <div class='kpi-row'>
+    <div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--green)'>$3,617.67</div></div>
+    <div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--red)'>$25.75</div></div>
+    <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--muted)'>$0.00</div></div>
+    <div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$1,799.40</div></div>
+  </div>
+  <div class='surplus-card deep-green'>
+    <div class='sval' style='color:var(--green)'>+$1,792.52</div>
+    <div class='sn'>49.55% of revenue &middot; wholesale-driven Saturday</div>
+  </div>
+</div>
+  <div id='sb-sun'>
+  <div class='note'>&#9888; SB cafe + TVNZ closed Sunday &mdash; catering $497.95 + wholesale $114.31 only. Catering prep team rostered (5 staff).</div>
+  <div class='kpi-row'>
+    <div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--green)'>$612.26</div></div>
+    <div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--red)'>$10.98</div></div>
+    <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$932.58</div><div class='kpi-sub'>31.58h &middot; 5 staff</div></div>
+    <div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$221.54</div></div>
+  </div>
+  <div class='surplus-card neg'>
+    <div style='color:var(--red);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px'>Daily Surplus / Deficit</div>
+    <div class='sval' style='color:var(--red)'>-$553.84</div>
+    <div class='sn'>-90.45% of revenue &middot; catering prep day, low takings &middot; electricity/gas $120 fixed</div>
+  </div>
+
+  <div class='section'>
+    <h3>Revenue breakdown</h3>
+    <div class='col-hdrs'><span class='ch'>Sun</span><span class='cw'>WTD</span></div>
+    <div class='bar-row'>
+      <div class='bar-label'>Catering &middot; today's booking</div>
+      <div class='bar-track'><div class='bar-fill' style='width:100%;background:#4ade80'></div></div>
+      <div class='bar-val'>$497.95</div>
+      <div class='bar-wtd'>$15,431.98</div>
+    </div>
+    <div class='bar-row'>
+      <div class='bar-label'>Wholesale &middot; Scratch Total &minus; Catering</div>
+      <div class='bar-track'><div class='bar-fill' style='width:23%;background:#60a5fa'></div></div>
+      <div class='bar-val'>$114.31</div>
+      <div class='bar-wtd'>$21,073.42</div>
+    </div>
+    <div class='bar-row'>
+      <div class='bar-label'>Cafe &middot; closed Sunday</div>
+      <div class='bar-track'></div>
+      <div class='bar-val'>$0.00</div>
+      <div class='bar-wtd'>$20,362.74</div>
+    </div>
+    <div class='bar-row'>
+      <div class='bar-label'>TVNZ &middot; closed Sunday</div>
+      <div class='bar-track'></div>
+      <div class='bar-val'>$0.00</div>
+      <div class='bar-wtd'>$3,739.70</div>
+    </div>
+  </div>
+
+  <div class='section'>
+    <h3>COGS breakdown &mdash; $10.98 total</h3>
+    <div class='col-hdrs'><span class='ch'>Sun</span><span class='cw'>WTD</span></div>
+    <div class='bar-row'>
+      <div class='bar-label'>Produce Company &middot; INV 3381636</div>
+      <div class='bar-track'><div class='bar-fill' style='width:100%;background:#34d399'></div></div>
+      <div class='bar-val'>$10.98</div>
+      <div class='bar-wtd'>$423.26</div>
+    </div>
+    <div style='font-size:.7rem;color:var(--amber);margin:-3px 0 7px 248px;padding-left:8px;border-left:2px solid var(--amber)'>&#9888; Late capture &middot; $10.98 from 1 invoice dated 23/05 &mdash; captured today (main supplier &mdash; full amount on delivery day, no spread)</div>
+    <div style='color:var(--muted);font-size:.72rem;margin-top:6px'>Other SB suppliers unchanged this WTD: Gilmours $1,669.09 &middot; Five Elements $1,674.05 &middot; Mauri ANZ $269.01 &middot; Goodman Fielder $566.90.</div>
+  </div>
+
+  <div class='section'>
+    <h3>Wages &mdash; 31.58h &middot; $932.58 (5 staff)</h3>
+    <div class='col-hdrs'><span class='ch'>Sun</span><span class='cw'>WTD</span></div>
+    <div class='bar-row'><div class='bar-label'>Harry (Trimandeep Singh) &middot; 8h &middot; $36.00 (1&rarr;8 rule)</div><div class='bar-track'><div class='bar-fill' style='width:100%;background:#4ade80'></div></div><div class='bar-val'>$288.00</div><div class='bar-wtd'>$1,306.44</div></div>
+    <div class='bar-row'><div class='bar-label'>Suparna Faizal &middot; 7h &middot; $27.00</div><div class='bar-track'><div class='bar-fill' style='width:88%;background:#4ade80'></div></div><div class='bar-val'>$189.00</div><div class='bar-wtd'>$968.76</div></div>
+    <div class='bar-row'><div class='bar-label'>Mohd Fahmi (Jimmy SB) &middot; 8h &middot; $24.00 (1&rarr;8 rule)</div><div class='bar-track'><div class='bar-fill' style='width:100%;background:#4ade80'></div></div><div class='bar-val'>$192.00</div><div class='bar-wtd'>$792.00</div></div>
+    <div class='bar-row'><div class='bar-label'>Kanika banth &middot; 4.25h &middot; $34.00</div><div class='bar-track'><div class='bar-fill' style='width:53%;background:#4ade80'></div></div><div class='bar-val'>$144.50</div><div class='bar-wtd'>$1,558.22</div></div>
+    <div class='bar-row'><div class='bar-label'>Jahnevah Numa &middot; 4.33h &middot; $27.50</div><div class='bar-track'><div class='bar-fill' style='width:54%;background:#4ade80'></div></div><div class='bar-val'>$119.08</div><div class='bar-wtd'>$934.47</div></div>
+    <div style='color:var(--muted);font-size:.72rem;margin-top:6px'>All in HQ Kitchen (catering prep). Rates from Pay Rates.xlsx; Harry &amp; Mohd Fahmi clock-in only (1.00h &rarr; 8.00h rule applied).</div>
+  </div>
+
+  <div class='section'>
+    <h3>Remaining Operational Costs &mdash; $221.54</h3>
+    <div class='col-hdrs'><span class='ch'>Sun</span><span class='cw'>WTD</span></div>
+    <div class='bar-row'><div class='bar-label'>Electricity &amp; Gas &middot; fixed daily</div><div class='bar-track'><div class='bar-fill' style='width:100%;background:#fbbf24'></div></div><div class='bar-val'>$120.00</div><div class='bar-wtd'>$840.00</div></div>
+    <div class='bar-row'><div class='bar-label'>GST liability &middot; calc'd</div><div class='bar-track'><div class='bar-fill' style='width:64%;background:#f97316'></div></div><div class='bar-val'>$76.43</div><div class='bar-wtd'>$6,053.58</div></div>
+    <div class='bar-row'><div class='bar-label'>Miscellaneous &middot; 2.5% of revenue</div><div class='bar-track'><div class='bar-fill' style='width:13%;background:#f87171'></div></div><div class='bar-val'>$15.31</div><div class='bar-wtd'>$1,515.18</div></div>
+    <div class='bar-row'><div class='bar-label'>Merchant &middot; 1.6% of revenue</div><div class='bar-track'><div class='bar-fill' style='width:8%;background:#34d399'></div></div><div class='bar-val'>$9.80</div><div class='bar-wtd'>$969.74</div></div>
+    <div class='bar-row'><div class='bar-label'>Rent &middot; Mon-Sat fixed, Sun excluded</div><div class='bar-track'></div><div class='bar-val'>$0.00</div><div class='bar-wtd'>$3,458.04</div></div>
+    <div class='bar-row'><div class='bar-label'>Internal Cafes &middot; none today</div><div class='bar-track'></div><div class='bar-val'>$0.00</div><div class='bar-wtd'>$4,621.48</div></div>
+    <div style='color:var(--muted);font-size:.72rem;margin-top:6px'>GST formula: (Rev &minus; COGS &minus; Rent &minus; Misc &minus; Internal Cafes) &div; 1.15 &times; 0.15 = ($612.26 &minus; $10.98 &minus; $15.31) &div; 1.15 &times; 0.15 = $76.43.</div>
+  </div>
+
+  <div class='commentary'><b>Sunday commentary:</b> SB Sunday is a catering prep day &mdash; cafe + TVNZ closed, only $612.26 in revenue ($497.95 catering, $114.31 wholesale). Catering team of 5 (Harry, Suparna, Mohd Fahmi, Kanika, Jahnevah) prepping for Monday's $1,335 internal cafes order plus a heavy week ahead. Fixed daily electricity/gas ($120) plus wages drive the -$553.84 deficit &mdash; expected for SB Sundays. WTD remains strong at $21,616.23 surplus (35.67% margin) on $60,607.84 revenue. New supplier invoice booked: Produce Company $10.98 (BlinkMF flowers, dated 23/05).</div>
+</div>
+  <div id='sb-wtd' class='hidden'>
+  <div class='kpi-row'>
+    <div class='kpi'><div class='kpi-label'>WTD Revenue</div><div class='kpi-val' style='color:var(--green)'>$60,607.84</div></div>
+    <div class='kpi'><div class='kpi-label'>WTD COGS</div><div class='kpi-val' style='color:var(--red)'>$4,613.29</div></div>
+    <div class='kpi'><div class='kpi-label'>WTD Wages</div><div class='kpi-val' style='color:var(--amber)'>$17,648.02</div><div class='kpi-sub'>656.76h</div></div>
+    <div class='kpi'><div class='kpi-label'>WTD Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$16,730.30</div></div>
+  </div>
+  <div class='surplus-card deep-green'>
+    <div style='color:var(--green);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px'>Week to Date Surplus / Deficit</div>
+    <div class='sval' style='color:var(--green)'>+$21,616.23</div>
+    <div class='sn'>35.67% of revenue &middot; well above 15% target</div>
+  </div>
+</div>
+  <div id='sb-mtd' class='hidden'>
+  <div class='surplus-card deep-green'>
+    <div class='sn'>MTD = current WTD (Week 1 of May rolling)</div>
+    <div class='sval' style='color:var(--green)'>+$21,616.23</div>
+  </div>
+</div>
+</div>
+<div id='pane-vl' class='entity-pane hidden'>
+  <div class='day-tabs'>
+    <div class='dtab' onclick="showDay('vl','mon',this)">Mon 18</div>
+    <div class='dtab' onclick="showDay('vl','tue',this)">Tue 19</div>
+    <div class='dtab' onclick="showDay('vl','wed',this)">Wed 20</div>
+    <div class='dtab' onclick="showDay('vl','thu',this)">Thu 21</div>
+    <div class='dtab' onclick="showDay('vl','fri',this)">Fri 22</div>
+    <div class='dtab' onclick="showDay('vl','sat',this)">Sat 23</div>
+    <div class='dtab active' onclick="showDay('vl','sun',this)">Sun 24</div>
+    <div class='dtab' onclick="showDay('vl','wtd',this)">WTD</div>
+    <div class='dtab' onclick="showDay('vl','mtd',this)">MTD</div>
+  </div>
+  <div id='vl-mon' class='hidden'>
+  <div class='kpi-row'>
+    <div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--green)'>$2,438.33</div></div>
+    <div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--red)'>$260.79</div></div>
+    <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$1,040.69</div><div class='kpi-sub'>35.72h &middot; 5 staff</div></div>
+    <div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$1,000.43</div></div>
+  </div>
+  <div class='surplus-card pos'>
+    <div class='sval' style='color:var(--green)'>+$136.42</div>
+    <div class='sn'>5.59% of revenue</div>
+  </div>
+</div>
+  <div id='vl-tue' class='hidden'>
+  <div class='kpi-row'>
+    <div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--green)'>$3,662.35</div></div>
+    <div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--red)'>$260.79</div></div>
+    <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$1,183.10</div><div class='kpi-sub'>41.27h &middot; 6 staff</div></div>
+    <div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$1,275.47</div></div>
+  </div>
+  <div class='surplus-card deep-green'>
+    <div class='sval' style='color:var(--green)'>+$942.99</div>
+    <div class='sn'>25.75% of revenue</div>
+  </div>
+</div>
+  <div id='vl-wed' class='hidden'>
+  <div class='kpi-row'>
+    <div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--green)'>$2,628.97</div></div>
+    <div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--red)'>$267.50</div></div>
+    <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$1,319.96</div><div class='kpi-sub'>46.10h &middot; 7 staff</div></div>
+    <div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$1,042.39</div></div>
+  </div>
+  <div class='surplus-card amber'>
+    <div class='sval' style='color:var(--amber)'>-$0.88</div>
+    <div class='sn'>-0.03% of revenue</div>
+  </div>
+</div>
+  <div id='vl-thu' class='hidden'>
+  <div class='kpi-row'>
+    <div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--green)'>$3,089.53</div></div>
+    <div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--red)'>$365.74</div></div>
+    <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$1,150.70</div><div class='kpi-sub'>40.25h &middot; 5 staff</div></div>
+    <div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$1,133.06</div></div>
+  </div>
+  <div class='surplus-card pos'>
+    <div class='sval' style='color:var(--green)'>+$440.03</div>
+    <div class='sn'>14.24% of revenue</div>
+  </div>
+</div>
+  <div id='vl-fri' class='hidden'>
+  <div class='kpi-row'>
+    <div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--green)'>$4,006.31</div></div>
+    <div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--red)'>$365.39</div></div>
+    <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$1,319.96</div><div class='kpi-sub'>48.84h &middot; 6 staff</div></div>
+    <div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$1,339.12</div></div>
+  </div>
+  <div class='surplus-card deep-green'>
+    <div class='sval' style='color:var(--green)'>+$981.84</div>
+    <div class='sn'>24.51% of revenue</div>
+  </div>
+</div>
+  <div id='vl-sat' class='hidden'>
+  <div class='kpi-row'>
+    <div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--green)'>$4,655.96</div></div>
+    <div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--red)'>$453.84</div></div>
+    <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$1,171.25</div><div class='kpi-sub'>43.18h &middot; 7 staff</div></div>
+    <div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$1,473.55</div></div>
+  </div>
+  <div class='surplus-card deep-green'>
+    <div class='sval' style='color:var(--green)'>+$1,557.32</div>
+    <div class='sn'>33.45% of revenue</div>
+  </div>
+</div>
+  <div id='vl-sun'>
+  <div class='note'>&#9888; VL Sunday trade &mdash; full day. 6 new Hubdoc invoices booked: 3 Service Foods (NEW supplier, default &div;7 weekly spread) + 2 Goodman Fielder + 1 Five Elements final-day share.</div>
+  <div class='kpi-row'>
+    <div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--green)'>$4,549.74</div></div>
+    <div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--red)'>$1,358.45</div></div>
+    <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$1,379.73</div><div class='kpi-sub'>52.21h &middot; 7 staff</div></div>
+    <div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$1,331.69</div></div>
+  </div>
+  <div class='surplus-card pos'>
+    <div style='color:var(--green);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px'>Daily Surplus / Deficit</div>
+    <div class='sval' style='color:var(--green)'>+$479.87</div>
+    <div class='sn'>10.55% of revenue &middot; below 20% target &middot; heavy Service Foods catch-up booking drags COGS</div>
+  </div>
+
+  <div class='section'>
+    <h3>Revenue breakdown</h3>
+    <div class='col-hdrs'><span class='ch'>Sun</span><span class='cw'>WTD</span></div>
+    <div class='bar-row'>
+      <div class='bar-label'>Cafe &middot; Vulcan Lane POS</div>
+      <div class='bar-track'><div class='bar-fill' style='width:100%;background:#4ade80'></div></div>
+      <div class='bar-val'>$4,549.74</div>
+      <div class='bar-wtd'>$25,031.19</div>
+    </div>
+  </div>
+
+  <div class='section'>
+    <h3>COGS breakdown &mdash; $1,358.45 total</h3>
+    <div class='col-hdrs'><span class='ch'>Sun</span><span class='cw'>WTD</span></div>
+    <div class='bar-row'>
+      <div class='bar-label'>Service Foods &middot; 3 invoices &div;7 catch-up</div>
+      <div class='bar-track'><div class='bar-fill' style='width:100%;background:#a78bfa'></div></div>
+      <div class='bar-val'>$879.03</div>
+      <div class='bar-wtd'>$879.03</div>
+    </div>
+    <div style='font-size:.7rem;color:var(--amber);margin:-3px 0 7px 248px;padding-left:8px;border-left:2px solid var(--amber)'>&#9888; Late capture &middot; $586.02 from 3 invoices dated 22/05 (IN11090240, IN11087414, IN11087415) &mdash; captured today. NEW supplier &mdash; default &div;7 weekly spread; today books Fri+Sat+Sun catch-up (3 daily shares = $293.01 each invoice).</div>
+    <div class='bar-row'>
+      <div class='bar-label'>Five Elements &middot; daily &div;7 share (final day)</div>
+      <div class='bar-track'><div class='bar-fill' style='width:30%;background:#fbbf24'></div></div>
+      <div class='bar-val'>$260.79</div>
+      <div class='bar-wtd'>$1,825.53</div>
+    </div>
+    <div class='bar-row'>
+      <div class='bar-label'>Goodman Fielder &middot; 2 invoices</div>
+      <div class='bar-track'><div class='bar-fill' style='width:23%;background:#34d399'></div></div>
+      <div class='bar-val'>$206.17</div>
+      <div class='bar-wtd'>$478.90</div>
+    </div>
+    <div style='font-size:.7rem;color:var(--amber);margin:-3px 0 7px 248px;padding-left:8px;border-left:2px solid var(--amber)'>&#9888; Late capture &middot; $118.66 from INV 9085605426 dated 23/05 (1 day late). INV 9085612668 ($87.51) is today's delivery. Main supplier &mdash; booked in full on delivery date.</div>
+    <div class='bar-row'>
+      <div class='bar-label'>LaundryCorp &middot; 2 invoices &div;7 share</div>
+      <div class='bar-track'><div class='bar-fill' style='width:1.4%;background:#60a5fa'></div></div>
+      <div class='bar-val'>$12.46</div>
+      <div class='bar-wtd'>$50.80</div>
+    </div>
+    <div style='color:var(--muted);font-size:.72rem;margin-top:6px'>LaundryCorp: INV 01908962 ($6.71, last day of week 1 spread) + INV 01909039 ($5.75, day 3 of 7). Both invoices spread &div;7. Combined daily $12.46.</div>
+  </div>
+
+  <div class='section'>
+    <h3>Wages &mdash; 52.21h &middot; $1,379.73 (7 staff)</h3>
+    <div class='col-hdrs'><span class='ch'>Sun</span><span class='cw'>WTD</span></div>
+    <div class='bar-row'><div class='bar-label'>Franz Nicole Uyseco &middot; 6.93h &middot; $33.00</div><div class='bar-track'><div class='bar-fill' style='width:80%;background:#4ade80'></div></div><div class='bar-val'>$228.69</div><div class='bar-wtd'>$1,218.03</div></div>
+    <div class='bar-row'><div class='bar-label'>Mei fung Woo &middot; 8.67h &middot; $26.00</div><div class='bar-track'><div class='bar-fill' style='width:100%;background:#60a5fa'></div></div><div class='bar-val'>$225.42</div><div class='bar-wtd'>$930.28</div></div>
+    <div class='bar-row'><div class='bar-label'>Eden Wharerau &middot; 8.28h &middot; $27.00</div><div class='bar-track'><div class='bar-fill' style='width:95%;background:#60a5fa'></div></div><div class='bar-val'>$223.56</div><div class='bar-wtd'>$1,184.22</div></div>
+    <div class='bar-row'><div class='bar-label'>Rocio &middot; 7.38h &middot; $27.00</div><div class='bar-track'><div class='bar-fill' style='width:85%;background:#60a5fa'></div></div><div class='bar-val'>$199.26</div><div class='bar-wtd'>$846.72</div></div>
+    <div class='bar-row'><div class='bar-label'>Septya Putri &middot; 7.03h &middot; $24.00</div><div class='bar-track'><div class='bar-fill' style='width:81%;background:#4ade80'></div></div><div class='bar-val'>$168.72</div><div class='bar-wtd'>$168.72</div></div>
+    <div class='bar-row'><div class='bar-label'>Nevaeh Paleaaesina &middot; 7h &middot; $24.00</div><div class='bar-track'><div class='bar-fill' style='width:81%;background:#60a5fa'></div></div><div class='bar-val'>$168.00</div><div class='bar-wtd'>$168.00</div></div>
+    <div class='bar-row'><div class='bar-label'>Surapa Tilokwattanothai &middot; 6.92h &middot; $24.00</div><div class='bar-track'><div class='bar-fill' style='width:80%;background:#4ade80'></div></div><div class='bar-val'>$166.08</div><div class='bar-wtd'>$166.08</div></div>
+    <div style='color:var(--muted);font-size:.72rem;margin-top:6px'>Blue = FOH; Green = Kitchen. Rates from Pay Rates.xlsx; bar widths proportional to hours.</div>
+  </div>
+
+  <div class='section'>
+    <h3>Remaining Operational Costs &mdash; $1,331.69</h3>
+    <div class='col-hdrs'><span class='ch'>Sun</span><span class='cw'>WTD</span></div>
+    <div class='bar-row'><div class='bar-label'>Rent &middot; fixed daily (7 days)</div><div class='bar-track'><div class='bar-fill' style='width:100%;background:#60a5fa'></div></div><div class='bar-val'>$502.05</div><div class='bar-wtd'>$3,514.35</div></div>
+    <div class='bar-row'><div class='bar-label'>GST liability &middot; calc'd</div><div class='bar-track'><div class='bar-fill' style='width:59%;background:#f97316'></div></div><div class='bar-val'>$297.36</div><div class='bar-wtd'>$2,078.04</div></div>
+    <div class='bar-row'><div class='bar-label'>Royalty &middot; 5% of revenue</div><div class='bar-track'><div class='bar-fill' style='width:45%;background:#a78bfa'></div></div><div class='bar-val'>$227.49</div><div class='bar-wtd'>$1,251.57</div></div>
+    <div class='bar-row'><div class='bar-label'>Miscellaneous &middot; 4% of revenue</div><div class='bar-track'><div class='bar-fill' style='width:36%;background:#f87171'></div></div><div class='bar-val'>$181.99</div><div class='bar-wtd'>$1,001.25</div></div>
+    <div class='bar-row'><div class='bar-label'>Merchant &middot; 1.6% of revenue</div><div class='bar-track'><div class='bar-fill' style='width:15%;background:#34d399'></div></div><div class='bar-val'>$72.80</div><div class='bar-wtd'>$400.50</div></div>
+    <div class='bar-row'><div class='bar-label'>Electricity &middot; fixed daily</div><div class='bar-track'><div class='bar-fill' style='width:10%;background:#fbbf24'></div></div><div class='bar-val'>$50.00</div><div class='bar-wtd'>$350.00</div></div>
+    <div style='color:var(--muted);font-size:.72rem;margin-top:6px'>GST formula: ($4,549.74 &minus; $1,358.45 &minus; $227.49 &minus; $502.05 &minus; $181.99) &div; 1.15 &times; 0.15 = $297.36.</div>
+  </div>
+
+  <div class='commentary'><b>Sunday commentary:</b> VL ran a solid Sunday at $4,549.74 (cafe). The $479.87 surplus (10.55%) sits below the 20% target &mdash; mainly because three NEW Service Foods invoices (delivered Friday, captured today) just landed and book three days of catch-up shares ($586.02) on top of today's normal share ($293.01). Without those late captures, today's COGS would be $772.43 instead of $1,358.45, lifting margin to ~24%. Service Foods is a major NZ distributor (meat, dry, chilled, produce) &mdash; default &div;7 weekly spread applied; will continue at $293.01/day Mon-Wed next week. Five Elements ($260.79) is the final day of the weekly spread &mdash; new order expected Mon. WTD closes at +$4,519.75 (18.06% margin) on $25,031.19 revenue, just below 20% target.</div>
+</div>
+  <div id='vl-wtd' class='hidden'>
+  <div class='kpi-row'>
+    <div class='kpi'><div class='kpi-label'>WTD Revenue</div><div class='kpi-val' style='color:var(--green)'>$25,031.19</div></div>
+    <div class='kpi'><div class='kpi-label'>WTD COGS</div><div class='kpi-val' style='color:var(--red)'>$3,332.50</div></div>
+    <div class='kpi'><div class='kpi-label'>WTD Wages</div><div class='kpi-val' style='color:var(--amber)'>$8,565.39</div><div class='kpi-sub'>307.57h</div></div>
+    <div class='kpi'><div class='kpi-label'>WTD Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$8,595.71</div></div>
+  </div>
+  <div class='surplus-card pos'>
+    <div style='color:var(--green);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px'>Week to Date Surplus / Deficit</div>
+    <div class='sval' style='color:var(--green)'>+$4,537.59</div>
+    <div class='sn'>18.13% of revenue &middot; just below 20% target</div>
+  </div>
+</div>
+  <div id='vl-mtd' class='hidden'>
+  <div class='surplus-card pos'>
+    <div class='sn'>MTD = current WTD (Week 1 of May rolling)</div>
+    <div class='sval' style='color:var(--green)'>+$4,537.59</div>
+  </div>
+</div>
+</div>
+<div id='pane-qs' class='entity-pane hidden'>
+  <div class='day-tabs'>
+    <div class='dtab' onclick="showDay('qs','mon',this)">Mon 18</div>
+    <div class='dtab' onclick="showDay('qs','tue',this)">Tue 19</div>
+    <div class='dtab' onclick="showDay('qs','wed',this)">Wed 20</div>
+    <div class='dtab' onclick="showDay('qs','thu',this)">Thu 21</div>
+    <div class='dtab' onclick="showDay('qs','fri',this)">Fri 22</div>
+    <div class='dtab' onclick="showDay('qs','sat',this)">Sat 23</div>
+    <div class='dtab active' onclick="showDay('qs','sun',this)">Sun 24</div>
+    <div class='dtab' onclick="showDay('qs','wtd',this)">WTD</div>
+    <div class='dtab' onclick="showDay('qs','mtd',this)">MTD</div>
+  </div>
+  <div id='qs-mon' class='hidden'><div class='kpi-row'><div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--green)'>$528.20</div></div><div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--red)'>$126.33</div></div><div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$253.08</div><div class='kpi-sub'>8.88h &middot; 1 staff</div></div><div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$125.17</div></div></div><div class='surplus-card pos'><div class='sval' style='color:var(--green)'>+$23.62</div><div class='sn'>4.47% of revenue</div></div></div>
+  <div id='qs-tue' class='hidden'><div class='kpi-row'><div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--green)'>$637.40</div></div><div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--red)'>$126.33</div></div><div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$366.87</div><div class='kpi-sub'>13.12h &middot; 2 staff</div></div><div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$154.46</div></div></div><div class='surplus-card amber'><div class='sval' style='color:var(--amber)'>-$10.26</div><div class='sn'>-1.61% of revenue</div></div></div>
+  <div id='qs-wed' class='hidden'><div class='kpi-row'><div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--green)'>$797.00</div></div><div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--red)'>$126.33</div></div><div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$348.30</div><div class='kpi-sub'>12.82h &middot; 2 staff</div></div><div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$197.26</div></div></div><div class='surplus-card pos'><div class='sval' style='color:var(--green)'>+$125.11</div><div class='sn'>15.70% of revenue</div></div></div>
+  <div id='qs-thu' class='hidden'><div class='kpi-row'><div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--green)'>$754.70</div></div><div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--red)'>$126.33</div></div><div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$357.48</div><div class='kpi-sub'>13.20h &middot; 2 staff</div></div><div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$185.92</div></div></div><div class='surplus-card pos'><div class='sval' style='color:var(--green)'>+$84.97</div><div class='sn'>11.26% of revenue</div></div></div>
+  <div id='qs-fri' class='hidden'><div class='kpi-row'><div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--green)'>$786.10</div></div><div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--red)'>$126.33</div></div><div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$226.01</div><div class='kpi-sub'>7.93h &middot; 1 staff</div></div><div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$194.33</div></div></div><div class='surplus-card pos'><div class='sval' style='color:var(--green)'>+$239.43</div><div class='sn'>30.46% of revenue</div></div></div>
+  <div id='qs-sat' class='hidden'><div class='note'>&#9888; QS (Little Melba) closed Saturday &mdash; no trading.</div><div class='surplus-card pos'><div class='sval' style='color:var(--muted)'>$0.00</div><div class='sn'>Closed Saturday</div></div></div>
+  <div id='qs-sun'>
+  <div class='note'>&#9888; QS (Little Melba) closed Sunday &mdash; no trading. No COGS, wages, or variable op costs.</div>
+  <div class='kpi-row'>
+    <div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--muted)'>$0.00</div></div>
+    <div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--muted)'>$0.00</div></div>
+    <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--muted)'>$0.00</div><div class='kpi-sub'>0 staff</div></div>
+    <div class='kpi'><div class='kpi-label'>Remaining Op Costs</div><div class='kpi-val' style='color:var(--muted)'>$0.00</div></div>
+  </div>
+  <div class='surplus-card pos'>
+    <div style='color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px'>Daily Surplus / Deficit</div>
+    <div class='sval' style='color:var(--muted)'>$0.00</div>
+    <div class='sn'>Closed Sunday</div>
+  </div>
+  <div class='commentary'><b>Sunday commentary:</b> QS closed Sunday. Week complete at $462.88 surplus (13.21%) on $3,503.40 revenue &mdash; below 20% target. Mon resumes trading.</div>
+</div>
+  <div id='qs-wtd' class='hidden'><div class='kpi-row'><div class='kpi'><div class='kpi-label'>WTD Revenue</div><div class='kpi-val' style='color:var(--green)'>$3,503.40</div></div><div class='kpi'><div class='kpi-label'>WTD COGS</div><div class='kpi-val' style='color:var(--red)'>$631.65</div></div><div class='kpi'><div class='kpi-label'>WTD Wages</div><div class='kpi-val' style='color:var(--amber)'>$1,551.74</div><div class='kpi-sub'>55.95h</div></div><div class='kpi'><div class='kpi-label'>WTD Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$857.13</div></div></div><div class='surplus-card amber'><div style='color:var(--amber);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px'>Week to Date Surplus / Deficit</div><div class='sval' style='color:var(--amber)'>+$462.88</div><div class='sn'>13.21% of revenue &middot; below 20% target &middot; week complete</div></div></div>
+  <div id='qs-mtd' class='hidden'><div class='surplus-card amber'><div class='sn'>MTD = current WTD</div><div class='sval' style='color:var(--amber)'>+$462.88</div></div></div>
+</div>
+
+<script>
+function showEntity(e,btn){
+  document.querySelectorAll('.entity-pane').forEach(p=>p.classList.add('hidden'));
+  document.getElementById('pane-'+e).classList.remove('hidden');
+  document.querySelectorAll('.etab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+function showDay(e,d,btn){
+  ['mon','tue','wed','thu','fri','sat','sun','wtd','mtd'].forEach(k=>{
+    var el=document.getElementById(e+'-'+k); if(el) el.classList.add('hidden');
+  });
+  var t=document.getElementById(e+'-'+d); if(t) t.classList.remove('hidden');
+  btn.parentElement.querySelectorAll('.dtab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+</script>
+<script>
+const WTD_SUBTOTALS={vs:{revenue:{pos:10138.08,catering:7949.80},cogs:{bidfood:9188.14,five_elements:1236.25,laundrycorp:72.45,goodman_fielder:137.82},wages:{"Aleisha Yee":{hours:43.35,cost:1213.80},"David Easthope":{hours:36.27,cost:997.43},"Helen Sherratt":{hours:34.78,cost:1043.40},"Horacio Nicolas Soto":{hours:39.22,cost:1176.60},"Jimmy":{hours:25.19,cost:604.56},"Kaka":{hours:24.05,cost:601.25},"Karol Cartagena":{hours:35.88,cost:1004.64},"Ria Saito":{hours:41.49,cost:995.76},"Septya Putri":{hours:7.73,cost:185.52}},op_costs:{gst:654.02,rent:811.04,royalty:904.39,misc:723.53,merchant:289.40,car_loan:205.51,electricity:140.00}},sb:{revenue:{cafe:20362.74,tvnz:3739.70,catering:15431.98,wholesale:21073.42},cogs:{gilmours:1669.09,five_elements:1674.05,mauri_anz:269.01,goodman_fielder:566.90,produce_company:423.26},wages:{"Adi":{hours:43.37,cost:1040.88},"Amelia Hamilton":{hours:9.25,cost:245.13},"Craig Feltis":{hours:31.20,cost:920.41},"Daishea Harris":{hours:12.33,cost:357.57},"Dana Dewi":{hours:31.98,cost:959.40},"Suparna Faizal":{hours:35.88,cost:968.76},"Hannah Grace Davis":{hours:44.53,cost:1224.58},"Hannah Purdy":{hours:43.88,cost:1338.35},"Harry (Trimandeep Singh)":{hours:36.29,cost:1306.44},"Isabella Holmes":{hours:36.36,cost:909.00},"Jahnevah Numa":{hours:33.98,cost:934.47},"Mohd Fahmi (Jimmy SB)":{hours:33.00,cost:792.00},"Kanika banth":{hours:45.83,cost:1558.22},"Leo Grant":{hours:33.76,cost:911.52},"Maria Neider":{hours:37.74,cost:943.50},"Sarai Egan":{hours:39.39,cost:1063.53},"Thomas Moller":{hours:42.92,cost:1158.84},"Tayla George":{hours:4.07,cost:97.68}},op_costs:{gst:6053.58,rent:3458.04,misc:1515.18,merchant:969.74,electricity_gas:840.00,internal_cafes:4621.48}},vl:{revenue:{cafe:25031.19},cogs:{five_elements:1825.53,laundrycorp:50.80,betscharts:98.24,goodman_fielder:478.90,service_foods:879.03},wages:{"Carlos Araneda":{hours:37.83,cost:1059.24},"Eden Wharerau":{hours:43.86,cost:1184.22},"Franz Nicole Uyseco":{hours:36.91,cost:1218.03},"Jimmy":{hours:6.88,cost:165.12},"Klara Melody Keil":{hours:10.20,cost:249.91},"Maddi Roewen":{hours:14.35,cost:358.75},"Mana Cervela":{hours:4.18,cost:119.13},"Mei fung Woo":{hours:35.78,cost:930.28},"Mitch Cain-Treleaven":{hours:29.60,cost:873.21},"Nevaeh Paleaaesina":{hours:7.00,cost:168.00},"Ravinder kaur":{hours:35.67,cost:1057.98},"Rocio":{hours:31.36,cost:846.72},"Septya Putri":{hours:7.03,cost:168.72},"Surapa Tilokwattanothai":{hours:6.92,cost:166.08}},op_costs:{gst:2078.04,rent:3514.35,royalty:1251.57,misc:1001.25,merchant:400.50,electricity:350.00}},qs:{revenue:{cafe:3503.40},cogs:{five_elements:631.65},wages:{"Mana Cervela":{hours:42.30,cost:1205.56},"Rocio Maria Sanchez":{hours:4.70,cost:126.90},"Klara Melody Keil":{hours:8.95,cost:219.28}},op_costs:{gst:310.59,rent:350.34,misc:140.14,merchant:56.06}}};
+</script>
+<script>
+const DAY_DATA={mon:{label:"Mon 18 May",vs:{revenue:{pos:1911.41,catering:603.22,total:2514.63},cogs:{bidfood:{total:657.91},five_elements:{total:247.25},total_cogs:905.16},wages:{total:1428.14,hours:53.29,staff:7},op_costs:{total:629.28,gst:160.46,rent:152.91,royalty:125.73,misc:100.59,merchant:40.23,car_loan:29.36,electricity:20.00},surplus:-447.95},sb:{revenue:{cafe:2262.70,tvnz:866.10,catering:651.36,wholesale:4615.19,total:8395.35},cogs:{gilmours:{total:1669.09},five_elements:{total:334.81},total_cogs:2003.90},wages:{total:2982.25,hours:108.35,staff:15},op_costs:{total:2803.64,gst:576.32,rent:576.34,misc:209.88,merchant:134.33,electricity_gas:120.00,internal_cafes:1186.77},surplus:605.56},vl:{revenue:{cafe:2438.33,total:2438.33},cogs:{five_elements:{total:260.79},total_cogs:260.79},wages:{total:1040.69,hours:35.72,staff:5},op_costs:{total:1000.43,gst:189.92,rent:502.05,royalty:121.92,misc:97.53,merchant:39.01,electricity:50.00},surplus:136.42},qs:{revenue:{cafe:528.20,total:528.20},cogs:{five_elements:{total:126.33},total_cogs:126.33},wages:{total:253.08,hours:8.88,staff:1},op_costs:{total:125.17,gst:42.77,rent:52.82,misc:21.13,merchant:8.45},surplus:23.62}},tue:{label:"Tue 19 May",vs:{revenue:{pos:2113.87,catering:2246.82,total:4360.69},cogs:{bidfood:{total:2755.42},five_elements:{total:247.25},total_cogs:3002.67},wages:{total:1743.95,hours:64.28,staff:8},op_costs:{total:784.58,gst:103.88,rent:169.11,royalty:218.03,misc:174.43,merchant:69.77,car_loan:29.36,electricity:20.00},surplus:-1170.51},sb:{revenue:{cafe:2919.90,tvnz:681.50,catering:1755.58,wholesale:2911.57,total:8268.55},cogs:{gilmours:{total:0},five_elements:{total:334.81},total_cogs:334.81},wages:{total:3186.93,hours:113.05,staff:15},op_costs:{total:2491.81,gst:854.13,rent:576.34,misc:206.71,merchant:132.30,electricity_gas:120.00,internal_cafes:602.33},surplus:2255.00},vl:{revenue:{cafe:3662.35,total:3662.35},cogs:{five_elements:{total:260.79},total_cogs:260.79},wages:{total:1183.10,hours:41.27,staff:6},op_costs:{total:1275.47,gst:335.21,rent:502.05,royalty:183.12,misc:146.49,merchant:58.60,electricity:50.00},surplus:942.99},qs:{revenue:{cafe:637.40,total:637.40},cogs:{five_elements:{total:126.33},total_cogs:126.33},wages:{total:366.87,hours:13.12,staff:2},op_costs:{total:154.46,gst:55.02,rent:63.74,misc:25.50,merchant:10.20},surplus:-10.26}},wed:{label:"Wed 20 May",vs:{revenue:{pos:2048.30,catering:1177.59,total:3225.89},cogs:{bidfood:{total:2347.26},five_elements:{total:247.25},laundrycorp:{total:16.10},total_cogs:2610.61},wages:{total:1558.12,hours:56.86,staff:7},op_costs:{total:576.17,gst:21.01,rent:163.86,royalty:161.29,misc:129.04,merchant:51.61,car_loan:29.36,electricity:20.00},surplus:-1519.01},sb:{revenue:{cafe:3740.24,tvnz:925.00,catering:2590.49,wholesale:3389.19,total:10644.92},cogs:{gilmours:{total:0},five_elements:{total:334.81},mauri_anz:{total:89.67},total_cogs:424.48},wages:{total:3448.31,hours:122.38,staff:15},op_costs:{total:3180.21,gst:1099.58,rent:576.34,misc:266.12,merchant:170.32,electricity_gas:120.00,internal_cafes:947.85},surplus:3591.92},vl:{revenue:{cafe:2628.97,total:2628.97},cogs:{five_elements:{total:260.79},laundrycorp:{total:6.71},total_cogs:267.50},wages:{total:1319.96,hours:46.10,staff:7},op_costs:{total:1042.39,gst:211.67,rent:502.05,royalty:131.45,misc:105.16,merchant:42.06,electricity:50.00},surplus:-0.88},qs:{revenue:{cafe:797.00,total:797.00},cogs:{five_elements:{total:126.33},total_cogs:126.33},wages:{total:348.30,hours:12.82,staff:2},op_costs:{total:197.26,gst:72.93,rent:79.70,misc:31.88,merchant:12.75},surplus:125.11}},thu:{label:"Thu 21 May",vs:{revenue:{pos:2348.50,catering:3631.23,total:5979.73},cogs:{bidfood:{total:3427.55},five_elements:{total:247.25},laundrycorp:{total:8.05},total_cogs:3682.85},wages:{total:1685.08,hours:62.16,staff:8},op_costs:{total:1075.99,gst:204.89,rent:187.88,royalty:298.99,misc:239.19,merchant:95.68,car_loan:29.36,electricity:20.00},surplus:-464.19},sb:{revenue:{cafe:3257.00,tvnz:729.50,catering:7607.94,wholesale:3263.69,total:14858.13},cogs:{gilmours:{total:0},five_elements:{total:334.81},mauri_anz:{total:89.67},total_cogs:424.48},wages:{total:3463.49,hours:115.84,staff:15},op_costs:{total:3557.54,gst:1685.08,rent:576.34,misc:371.45,merchant:237.73,electricity_gas:120.00,internal_cafes:566.94},surplus:7412.62},vl:{revenue:{cafe:3089.53,total:3089.53},cogs:{five_elements:{total:260.79},laundrycorp:{total:6.71},betscharts:{total:98.24},total_cogs:365.74},wages:{total:1150.70,hours:40.25,staff:5},op_costs:{total:1133.06,gst:253.52,rent:502.05,royalty:154.48,misc:123.58,merchant:49.43,electricity:50.00},surplus:440.03},qs:{revenue:{cafe:754.70,total:754.70},cogs:{five_elements:{total:126.33},total_cogs:126.33},wages:{total:357.48,hours:13.20,staff:2},op_costs:{total:185.92,gst:68.18,rent:75.47,misc:30.19,merchant:12.08},surplus:84.97}},fri:{label:"Fri 22 May",vs:{revenue:{pos:1716.00,catering:290.94,total:2006.94},cogs:{bidfood:{total:0},five_elements:{total:247.25},laundrycorp:{total:48.30},total_cogs:295.55},wages:{total:1302.62,hours:47.55,staff:6},op_costs:{total:581.14,gst:181.76,rent:137.28,royalty:100.35,misc:80.28,merchant:32.11,car_loan:29.36,electricity:20.00},surplus:-172.37},sb:{revenue:{cafe:8182.90,tvnz:537.60,catering:1830.71,wholesale:3659.75,total:14210.96},cogs:{gilmours:{total:0},five_elements:{total:334.81},mauri_anz:{total:89.67},goodman_fielder:{total:566.90},produce_company:{total:386.53},total_cogs:1377.91},wages:{total:2916.72,hours:102.56,staff:14},op_costs:{total:3403.88,gst:1466.48,rent:576.34,misc:355.27,merchant:227.38,electricity_gas:120.00,internal_cafes:658.41},surplus:6512.45},vl:{revenue:{cafe:4006.31,total:4006.31},cogs:{five_elements:{total:260.79},laundrycorp:{total:12.46},betscharts:{total:0},goodman_fielder:{total:92.14},total_cogs:365.39},wages:{total:1319.96,hours:48.84,staff:6},op_costs:{total:1339.12,gst:362.40,rent:502.05,royalty:200.32,misc:160.25,merchant:64.10,electricity:50.00},surplus:981.84},qs:{revenue:{cafe:786.10,total:786.10},cogs:{five_elements:{total:126.33},total_cogs:126.33},wages:{total:226.01,hours:7.93,staff:1},op_costs:{total:194.33,gst:71.70,rent:78.61,misc:31.44,merchant:12.58},surplus:239.43}},sat:{label:"Sat 23 May",vs:{revenue:{pos:0,catering:0,total:0},cogs:{goodman_fielder:{total:137.82},total_cogs:137.82},wages:{total:0,hours:0,staff:0},op_costs:{total:31.38,gst:-17.98,rent:0,royalty:0,misc:0,merchant:0,car_loan:29.36,electricity:20.00},surplus:-169.20},sb:{revenue:{cafe:0,tvnz:0,catering:497.95,wholesale:3119.72,total:3617.67},cogs:{produce_company:{total:25.75},total_cogs:25.75},wages:{total:0,hours:0,staff:0},op_costs:{total:1799.40,gst:295.56,rent:576.34,misc:90.44,merchant:57.88,electricity_gas:120.00,internal_cafes:659.18},surplus:1792.52},vl:{revenue:{cafe:4655.96,total:4655.96},cogs:{five_elements:{total:260.79},laundrycorp:{total:12.46},goodman_fielder:{total:180.59},total_cogs:453.84},wages:{total:1171.25,hours:43.18,staff:7},op_costs:{total:1473.55,gst:427.96,rent:502.05,royalty:232.80,misc:186.24,merchant:74.50,electricity:50.00},surplus:1557.32},qs:{revenue:{cafe:0,total:0},cogs:{total_cogs:0},wages:{total:0,hours:0,staff:0},op_costs:{total:0,gst:0,rent:0,misc:0,merchant:0},surplus:0}},sun:{label:"Sun 24 May",vs:{revenue:{pos:0,catering:0,total:0},cogs:{total_cogs:0},wages:{total:105.05,hours:3.82,staff:1},op_costs:{total:49.36,gst:0,rent:0,royalty:0,misc:0,merchant:0,car_loan:29.36,electricity:20.00},surplus:-154.41},sb:{revenue:{cafe:0,tvnz:0,catering:497.95,wholesale:114.31,total:612.26},cogs:{produce_company:{total:10.98},total_cogs:10.98},wages:{total:932.58,hours:31.58,staff:5},op_costs:{total:221.54,gst:76.43,rent:0,misc:15.31,merchant:9.80,electricity_gas:120.00,internal_cafes:0},surplus:-553.84},vl:{revenue:{cafe:4549.74,total:4549.74},cogs:{five_elements:{total:260.79},laundrycorp:{total:12.46},goodman_fielder:{total:206.17},service_foods:{total:879.03},total_cogs:1358.45},wages:{total:1379.73,hours:52.21,staff:7},op_costs:{total:1331.69,gst:297.36,rent:502.05,royalty:227.49,misc:181.99,merchant:72.80,electricity:50.00},surplus:479.87},qs:{revenue:{cafe:0,total:0},cogs:{total_cogs:0},wages:{total:0,hours:0,staff:0},op_costs:{total:0,gst:0,rent:0,misc:0,merchant:0},surplus:0}}};
+</script>
+<script>
+const INVOICE_LOG={week_start:"2026-05-18",entries:[{entity:"sb",supplier:"Goodman Fielder",ref:"9085553949",amount:196.36,date:"2026-05-20",captured:"2026-05-22"},{entity:"sb",supplier:"Goodman Fielder",ref:"9085554568",amount:103.00,date:"2026-05-20",captured:"2026-05-22"},{entity:"sb",supplier:"Goodman Fielder",ref:"9085589444",amount:67.92,date:"2026-05-22",captured:"2026-05-22"},{entity:"sb",supplier:"Goodman Fielder",ref:"9085588629",amount:199.62,date:"2026-05-22",captured:"2026-05-22"},{entity:"sb",supplier:"Produce Company",ref:"3381635",amount:386.53,date:"2026-05-21",captured:"2026-05-22"},{entity:"vs",supplier:"LaundryCorp",ref:"01909016",amount:40.25,date:"2026-05-21",captured:"2026-05-22"},{entity:"vl",supplier:"Goodman Fielder",ref:"9085555822",amount:92.14,date:"2026-05-20",captured:"2026-05-22"},{entity:"vl",supplier:"LaundryCorp",ref:"01909039",amount:40.25,date:"2026-05-22",captured:"2026-05-22"},{entity:"vs",supplier:"Goodman Fielder",ref:"9085591426",amount:137.82,date:"2026-05-22",captured:"2026-05-23"},{entity:"sb",supplier:"Produce Company",ref:"3382527",amount:128.75,date:"2026-05-22",captured:"2026-05-23"},{entity:"vl",supplier:"Goodman Fielder",ref:"9085591429",amount:180.59,date:"2026-05-22",captured:"2026-05-23"},{entity:"sb",supplier:"Produce Company",ref:"3381636",amount:10.98,date:"2026-05-23",captured:"2026-05-24"},{entity:"vl",supplier:"Service Foods",ref:"IN11090240",amount:259.06,date:"2026-05-22",captured:"2026-05-24"},{entity:"vl",supplier:"Service Foods",ref:"IN11087414",amount:975.94,date:"2026-05-22",captured:"2026-05-24"},{entity:"vl",supplier:"Service Foods",ref:"IN11087415",amount:816.05,date:"2026-05-22",captured:"2026-05-24"},{entity:"vl",supplier:"Goodman Fielder",ref:"9085605426",amount:118.66,date:"2026-05-23",captured:"2026-05-24"},{entity:"vl",supplier:"Goodman Fielder",ref:"9085612668",amount:87.51,date:"2026-05-24",captured:"2026-05-24"}],prior_week_adjustments:[{entity:"sb",supplier:"Gilmours",ref:"7043763284",amount:947.97,invoice_date:"2026-05-17",captured:"2026-05-22"},{entity:"sb",supplier:"Gilmours",ref:"4119594981",amount:1274.03,invoice_date:"2026-05-16",captured:"2026-05-22"},{entity:"vs",supplier:"LaundryCorp",ref:"01908936",amount:40.25,invoice_date:"2026-05-20",captured:"2026-05-22"}],active_spreads:[{entity:"vl",supplier:"LaundryCorp",ref:"01909039",total:40.25,daily_share:5.75,divisor:7,delivery_date:"2026-05-22",captured:"2026-05-22",spread_dates:["2026-05-22","2026-05-23","2026-05-24","2026-05-25","2026-05-26","2026-05-27","2026-05-28"],booked_dates:["2026-05-22","2026-05-23","2026-05-24"]},{entity:"sb",supplier:"Produce Company",ref:"3382527",total:128.75,daily_share:25.75,divisor:5,delivery_date:"2026-05-22",captured:"2026-05-23",spread_dates:["2026-05-22","2026-05-25","2026-05-26","2026-05-27","2026-05-28"],booked_dates:["2026-05-22"]},{entity:"vl",supplier:"Service Foods",ref:"IN11090240",total:259.06,daily_share:37.01,divisor:7,delivery_date:"2026-05-22",captured:"2026-05-24",spread_dates:["2026-05-22","2026-05-23","2026-05-24","2026-05-25","2026-05-26","2026-05-27","2026-05-28"],booked_dates:["2026-05-22","2026-05-23","2026-05-24"]},{entity:"vl",supplier:"Service Foods",ref:"IN11087414",total:975.94,daily_share:139.42,divisor:7,delivery_date:"2026-05-22",captured:"2026-05-24",spread_dates:["2026-05-22","2026-05-23","2026-05-24","2026-05-25","2026-05-26","2026-05-27","2026-05-28"],booked_dates:["2026-05-22","2026-05-23","2026-05-24"]},{entity:"vl",supplier:"Service Foods",ref:"IN11087415",total:816.05,daily_share:116.58,divisor:7,delivery_date:"2026-05-22",captured:"2026-05-24",spread_dates:["2026-05-22","2026-05-23","2026-05-24","2026-05-25","2026-05-26","2026-05-27","2026-05-28"],booked_dates:["2026-05-22","2026-05-23","2026-05-24"]}]};
+</script>
+</body>
+</html>

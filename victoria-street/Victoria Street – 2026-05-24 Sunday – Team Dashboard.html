@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Victoria Street &mdash; Sun 24 May 2026 &mdash; Team Dashboard</title>
+<style>:root{--bg:#0f1419;--card:#1a1f2e;--card2:#232938;--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--purple:#a78bfa;--orange:#f97316;--teal:#34d399;--fuchsia:#e879f9;--text:#e2e8f0;--muted:#94a3b8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;font-size:14px;padding:16px;max-width:1100px;margin:0 auto}
+h1{font-size:1.4rem;font-weight:700;margin-bottom:4px}
+.subtitle{color:var(--muted);font-size:.85rem;margin-bottom:16px}
+.pill{display:inline-block;padding:2px 8px;border-radius:12px;font-size:.75rem;background:#1e2a3a;color:var(--blue);margin-left:8px}
+.pill.team{background:#2a1e3a;color:#c084fc}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+.kpi{background:var(--card);border-radius:10px;padding:14px;border:1px solid #2a3547}
+.kpi-label{color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.kpi-val{font-size:1.4rem;font-weight:700}
+.kpi-sub{color:var(--muted);font-size:.75rem;margin-top:2px}
+.surplus-card{border-radius:10px;padding:18px;margin-bottom:16px}
+.sval{font-size:2rem;font-weight:800}
+.sn{color:var(--muted);font-size:.85rem;margin-top:4px}
+.section{background:var(--card);border-radius:10px;padding:14px;margin-bottom:12px;border:1px solid #2a3547}
+.section h3{font-size:.95rem;margin-bottom:12px;color:var(--text)}
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:.82rem}
+.bar-label{width:240px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-track{flex:1;height:18px;background:#0f1419;border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px}
+.bar-val{width:90px;flex-shrink:0;text-align:right;color:var(--muted);font-size:.8rem}
+.bar-wtd{width:90px;flex-shrink:0;text-align:right;color:#6b7280;font-size:.75rem}
+.col-hdrs{display:flex;gap:8px;margin-bottom:4px;font-size:.72rem;color:var(--muted);padding-left:248px}
+.col-hdrs .ch{width:90px;text-align:right}
+.col-hdrs .cw{width:90px;text-align:right}
+.note{background:#1c1a0d;border:1px solid var(--amber);border-radius:6px;padding:8px 10px;margin-bottom:10px;font-size:.8rem;color:var(--amber)}
+.commentary{background:var(--card2);border-radius:8px;padding:12px;font-size:.85rem;line-height:1.5;color:var(--text);margin-top:8px}
+.forecast-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.fcard{background:var(--card);border-radius:10px;padding:14px;border:1px solid #2a3547}
+.fcard.warn{border-color:rgba(251,191,36,.4)}
+.fcard h4{font-size:.9rem;margin-bottom:8px}
+.frow{display:flex;justify-content:space-between;font-size:.8rem;margin:4px 0;color:var(--muted)}
+.frow b{color:var(--text);font-weight:600}</style>
+</head>
+<body>
+<h1>Victoria Street &mdash; Daily Performance</h1>
+<div class='subtitle'>Sunday 24 May 2026 &middot; <span class='pill team'>Team View</span> <span class='pill'>All $ incl GST</span></div>
+
+<div class='note'>&#9888; VS closed Sunday &mdash; no POS trading. Prep wages only (David Easthope, Kitchen). Daily fixed costs apply.</div>
+
+<div class='kpi-row'>
+  <div class='kpi'><div class='kpi-label'>Total Revenue</div><div class='kpi-val' style='color:var(--muted)'>$0.00</div></div>
+  <div class='kpi'><div class='kpi-label'>Total COGS</div><div class='kpi-val' style='color:var(--muted)'>$0.00</div></div>
+  <div class='kpi'><div class='kpi-label'>Wages</div><div class='kpi-val' style='color:var(--amber)'>$105.05</div><div class='kpi-sub'>3.82h &middot; 1 staff</div></div>
+  <div class='kpi'><div class='kpi-label'>Op Costs</div><div class='kpi-val' style='color:var(--orange)'>$49.36</div></div>
+</div>
+
+<!-- Daily Result: revenue is 0 - cannot compute margin. Show closed-state card. -->
+<div class='surplus-card' style='border:1px solid var(--muted);background:linear-gradient(135deg,#1a1f2e,#232938)'>
+  <div style='color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px'>Daily Result</div>
+  <div class='sval' style='color:var(--muted)'>Closed</div>
+  <div class='sn'>of revenue &middot; Target &ge;20% &mdash; No trading Sunday; prep only.</div>
+</div>
+
+<div class='section'>
+  <h3>Wages &mdash; 3.82h &middot; $105.05 (1 staff)</h3>
+  <div class='col-hdrs'><span class='ch'>Sun</span><span class='cw'>WTD</span></div>
+  <div class='bar-row'>
+    <div class='bar-label'>David Easthope &middot; 3.82h</div>
+    <div class='bar-track'><div class='bar-fill' style='width:100%;background:#4ade80'></div></div>
+    <div class='bar-val'>3.82h</div>
+    <div class='bar-wtd'>36.27h</div>
+  </div>
+</div>
+
+<div class='commentary'><b>Sunday commentary:</b> VS closed Sunday &mdash; 0 revenue, 0 COGS. Single team member (David Easthope) on Kitchen prep, 3.82h. Daily fixed costs (electricity , car loan .36) drive the -.41 result. Trade resumes Mon.</div>
+
+<div class='section'>
+  <h3>Forward Forecast &mdash; next 2 trading days</h3>
+  <div class='forecast-grid'>
+    <div class='fcard warn'>
+      <h4>Mon 25 May &nbsp;<span style='color:var(--amber);font-size:.7rem'>&#9888; light catering pipeline</span></h4>
+      <div class='frow'><span>Revenue forecast (cafe + catering)</span><b style='color:var(--green)'>$2,022.40</b></div>
+      <div style='font-size:.72rem;color:var(--muted);margin-top:4px'>Cafe $1,806.60 (last Mon) &middot; Catering $215.80 (today's bookings +15% Fri uplift)</div>
+      <div class='frow' style='margin-top:8px'><span>COGS budget</span><b style='color:var(--amber)'>&le;$517.19</b></div>
+      <div class='frow'><span>Wages estimate</span><b style='color:var(--blue)'>$1,776.60</b></div>
+      <div style='font-size:.7rem;color:var(--muted);margin-top:6px'>Stream-weighted COGS (cafe 26%, catering 22%) less any committed spread shares. Below-target margin likely; chase weekend catering pickups.</div>
+    </div>
+    <div class='fcard'>
+      <h4>Tue 26 May &nbsp;<span style='color:var(--green);font-size:.7rem'>&#10003; strong catering pipeline</span></h4>
+      <div class='frow'><span>Revenue forecast (cafe + catering)</span><b style='color:var(--green)'>$7,462.63</b></div>
+      <div style='font-size:.72rem;color:var(--muted);margin-top:4px'>Cafe $2,407.54 (last Tue) &middot; Catering $5,055.09 (today's bookings +15% Fri uplift)</div>
+      <div class='frow' style='margin-top:8px'><span>COGS budget</span><b style='color:var(--amber)'>&le;$1,738.08</b></div>
+      <div class='frow'><span>Wages estimate</span><b style='color:var(--blue)'>$1,721.65</b></div>
+      <div style='font-size:.7rem;color:var(--muted);margin-top:6px'>Catering-driven surplus day. Maintain strict COGS discipline on Bidfood order.</div>
+    </div>
+  </div>
+</div>
+
+<script>const FORECAST_BASE = {
+  last_week: {
+    mon: { vs:{cafe:1806.60,catering:1484.61}, sb:{cafe:2441.80,tvnz:664.60,wholesale:4215.36,catering:1593.07}, vl:{cafe:2429.86} },
+    tue: { vs:{cafe:2407.54,catering:3370.67}, sb:{cafe:3135.09,tvnz:688.00,wholesale:3707.28,catering:1753.30}, vl:{cafe:2988.67} },
+    wed: { vs:{cafe:2962.70,catering:837.25}, sb:{cafe:3125.80,tvnz:724.60,wholesale:3317.38,catering:4747.91}, vl:{cafe:3598.79} },
+    thu: { vs:{cafe:2469.70,catering:1735.17}, sb:{cafe:3562.00,tvnz:550.90,wholesale:3404.34,catering:4852.39}, vl:{cafe:3726.66} },
+    fri: { vs:{cafe:2311.80,catering:500.54}, sb:{cafe:3281.76,tvnz:0,wholesale:3168.79,catering:1582.89}, vl:{cafe:3340.06} },
+    sat: { vl:{cafe:4796.86}, sb:{wholesale:3731.30} },
+    sun: { vl:{cafe:5012.37}, sb:{wholesale:0} }
+  },
+  last_week_wages: {
+    mon: { vs:1776.60, sb:3505.73, vl:1177.33 },
+    tue: { vs:1721.65, sb:3216.04, vl:1001.01 },
+    wed: { vs:1615.23, sb:3168.77, vl:1072.04 },
+    thu: { vs:1802.11, sb:2949.80, vl:1230.84 },
+    fri: { vs:1303.26, sb:2905.50, vl:1037.06 },
+    sat: { vl:1318.09 },
+    sun: { vl:1404.60 }
+  },
+  cogs_benchmarks: {
+    sb:  { cafe:0.25, tvnz:0.22, catering:0.18, wholesale:0.35 },
+    vs:  { cafe:0.26, catering:0.22 },
+    vl:  { cafe:0.25 },
+    qs:  { cafe:0.19 }
+  }
+};</script>
+</body>
+</html>
