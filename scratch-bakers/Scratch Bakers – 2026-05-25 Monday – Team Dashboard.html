@@ -23,8 +23,8 @@ h1{font-size:1.5rem;margin-bottom:6px;display:flex;align-items:center;gap:10px;f
 .kpi .sub{font-size:.7rem;color:var(--muted);margin-top:2px}
 .section{background:var(--card);border-radius:9px;padding:14px;margin:11px 0;border:1px solid #2a3547}
 .section h3{font-size:.92rem;margin-bottom:10px}
-.surplus{border-radius:10px;padding:16px;margin:11px 0;border:1px solid #f87171;background:linear-gradient(135deg,#261010,#1a1f2e)}
-.sval{font-size:1.7rem;font-weight:700;color:#f87171}
+.surplus{border-radius:10px;padding:16px;margin:11px 0;border:1px solid #fbbf24;background:linear-gradient(135deg,#262010,#1a1f2e)}
+.sval{font-size:1.7rem;font-weight:700;color:#fbbf24}
 .sn{font-size:.78rem;color:var(--muted);margin-top:3px}
 .bar-row{display:grid;grid-template-columns:230px 1fr 110px;align-items:center;gap:10px;margin:5px 0;font-size:.78rem}
 .bar-row .lbl{color:var(--text)}
@@ -34,7 +34,6 @@ h1{font-size:1.5rem;margin-bottom:6px;display:flex;align-items:center;gap:10px;f
 .commentary{background:var(--card);border:1px solid #2a3547;border-radius:9px;padding:14px;margin:11px 0}
 .commentary p{margin:6px 0;font-size:.82rem}
 .commentary .h{font-weight:600;color:var(--blue);margin-bottom:4px;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
-.note{background:rgba(251,191,36,.08);border-left:3px solid var(--amber);padding:7px 11px;border-radius:4px;font-size:.78rem;color:var(--amber);margin:8px 0}
 .forecast-outlook{background:var(--card2);border-radius:10px;padding:14px;border:1px solid #2a3547;margin:11px 0}
 .forecast-day{background:var(--card);border-radius:9px;padding:12px;margin:8px 0;border:1px solid rgba(251,191,36,.4)}
 .forecast-day.constraint{border-color:#2a3547;opacity:.85}
@@ -59,41 +58,39 @@ td.r{text-align:right;font-family:ui-monospace,Menlo,monospace}
 <div class="subtitle">Monday 25 May 2026</div>
 
 <div class="kpis">
-<div class="kpi"><div class="l">Total Revenue</div><div class="v">$4,200.14</div><div class="sub">Café · TVNZ · Catering · Wholesale</div></div>
-<div class="kpi"><div class="l">Total COGS</div><div class="v">$355.60</div><div class="sub">8.5% of revenue</div></div>
+<div class="kpi"><div class="l">Total Revenue</div><div class="v">$7,151.68</div><div class="sub">Café · TVNZ · Catering · Wholesale</div></div>
+<div class="kpi"><div class="l">Total COGS</div><div class="v">$355.60</div><div class="sub">5.0% of revenue</div></div>
 <div class="kpi"><div class="l">Wages</div><div class="v">$2,850.70</div><div class="sub">14 staff · 101.19h</div></div>
-<div class="kpi"><div class="l">Op Costs</div><div class="v">$2,442.30</div></div>
+<div class="kpi"><div class="l">Op Costs</div><div class="v">$2,938.67</div></div>
 </div>
 
 <div class="surplus">
 <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)">Daily Result</div>
-<div class="sval">−34.5%</div>
-<div class="sn">of revenue · Target ≥15% — significant deficit driven by Internal Cafes data anomaly</div>
+<div class="sval">+14.1%</div>
+<div class="sn">of revenue · Target ≥15% — just below target, very close</div>
 <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)">
-<div style="font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:10px">To reach 15% — today's adjustments needed (excludes data anomaly)</div>
+<div style="font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:10px">To reach 15% — today's adjustments needed</div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
 <div>
-<div style="font-size:11px;color:var(--muted);margin-bottom:3px">COGS target (floor 24%)</div>
-<div style="font-size:1.15rem;font-weight:700;color:#fbbf24">≤$1,008</div>
-<div style="font-size:10px;color:var(--muted)">at floor; current $356</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:3px">COGS should have been</div>
+<div style="font-size:1.15rem;font-weight:700;color:#fbbf24">≤$310</div>
+<div style="font-size:10px;color:var(--muted)">−$46 vs actual $356</div>
 </div>
 <div>
 <div style="font-size:11px;color:var(--muted);margin-bottom:3px">Wages should have been</div>
-<div style="font-size:1.15rem;font-weight:700;color:#60a5fa">≤$1,791</div>
-<div style="font-size:10px;color:var(--muted)">−$1,060 vs actual $2,851</div>
+<div style="font-size:1.15rem;font-weight:700;color:#60a5fa">≤$2,828</div>
+<div style="font-size:10px;color:var(--muted)">−$23 vs actual $2,851</div>
 </div>
 </div>
 </div>
 </div>
-
-<div class="note">⚠ Internal Cafes file content today is identical to Scratch Total ($1,335.34) — unusually high. Excluding this anomaly the deficit would be roughly −$113 (~−3% margin). Will reconcile next build.</div>
 
 <div class="section">
 <h3>Revenue Breakdown</h3>
-<div class="bar-row"><div class="lbl">Café</div><div class="barbg"><div class="bar" style="width:100%;background:var(--blue)"></div></div><div class="val">$2,064.70</div></div>
-<div class="bar-row"><div class="lbl">Wholesale</div><div class="barbg"><div class="bar" style="width:48.8%;background:var(--green)"></div></div><div class="val">$1,007.72</div></div>
-<div class="bar-row"><div class="lbl">TVNZ Café</div><div class="barbg"><div class="bar" style="width:38.8%;background:var(--purple)"></div></div><div class="val">$800.10</div></div>
-<div class="bar-row"><div class="lbl">Catering</div><div class="barbg"><div class="bar" style="width:15.9%;background:var(--amber)"></div></div><div class="val">$327.62</div></div>
+<div class="bar-row"><div class="lbl">Wholesale</div><div class="barbg"><div class="bar" style="width:100%;background:var(--green)"></div></div><div class="val">$3,959.26</div></div>
+<div class="bar-row"><div class="lbl">Café</div><div class="barbg"><div class="bar" style="width:52.1%;background:var(--blue)"></div></div><div class="val">$2,064.70</div></div>
+<div class="bar-row"><div class="lbl">TVNZ Café</div><div class="barbg"><div class="bar" style="width:20.2%;background:var(--purple)"></div></div><div class="val">$800.10</div></div>
+<div class="bar-row"><div class="lbl">Catering</div><div class="barbg"><div class="bar" style="width:8.3%;background:var(--amber)"></div></div><div class="val">$327.62</div></div>
 </div>
 
 <div class="section">
@@ -126,9 +123,9 @@ td.r{text-align:right;font-family:ui-monospace,Menlo,monospace}
 
 <div class="commentary">
 <p class="h">Daily Commentary — SB</p>
-<p>SB ran a deficit of −$1,448.46 (−34.5%) on Monday. Revenue of $4,200 was modest (last Monday $8,395) with wholesale ($1,008) and catering ($328) materially below normal.</p>
-<p>The Internal Cafes cost recorded at $1,335.34 (identical to Scratch Total) appears anomalous — typical weekday average is ~$792. Excluding that anomaly the deficit would be roughly −$113 (~−3% margin). Will follow up next build.</p>
-<p>Wages of $2,851 at 101.2h are normal for an early-week Monday. Tue–Fri need to deliver strong catering and wholesale to recover toward 15% weekly margin.</p>
+<p>SB produced a strong +$1,006.71 surplus (+14.1%) on Monday — just shy of the 15% margin target. Revenue of $7,152 was solid, led by wholesale ($3,959) plus café ($2,065), TVNZ ($800) and catering ($328).</p>
+<p>COGS at 5.0% is low because no Bidfood/Gilmours deliveries today (Monday is typical for that). Five Elements daily share and Produce Company spread were the only bookings.</p>
+<p>Wages of $2,851 at 101.2h are normal for an early-week Monday. Week opens on track — Tue–Fri need to maintain pace to push past the 15% weekly target.</p>
 </div>
 
 <div class="section">
@@ -137,13 +134,13 @@ td.r{text-align:right;font-family:ui-monospace,Menlo,monospace}
 <div class="forecast-outlook">
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
 <div><strong>Weekly Outlook</strong> <span class="pill blue" style="margin-left:8px">Standard</span></div>
-<div style="font-size:.75rem;color:var(--muted)">Mode 1 — recovery from Monday deficit</div>
+<div style="font-size:.75rem;color:var(--muted)">Mode 1 — on pace; light catch-up on swing days</div>
 </div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;font-size:.78rem">
 <div><div style="color:var(--muted);font-size:.7rem">Forecast Week Revenue</div><div style="font-weight:600">$45,914.36</div></div>
 <div><div style="color:var(--muted);font-size:.7rem">Week Target Surplus (15%)</div><div style="font-weight:600">$6,887.15</div></div>
-<div><div style="color:var(--muted);font-size:.7rem">WTD Surplus (Mon)</div><div style="font-weight:600;color:var(--red)">−$1,448.46</div></div>
-<div><div style="color:var(--muted);font-size:.7rem">Remaining Surplus Needed</div><div style="font-weight:600;color:var(--amber)">$8,335.61</div></div>
+<div><div style="color:var(--muted);font-size:.7rem">WTD Surplus (Mon)</div><div style="font-weight:600;color:var(--green)">+$1,006.71</div></div>
+<div><div style="color:var(--muted);font-size:.7rem">Remaining Surplus Needed</div><div style="font-weight:600;color:var(--amber)">$5,880.44</div></div>
 </div>
 <div style="margin-top:10px;font-size:.72rem;color:var(--muted)">Tue–Fri: Swing days · Sat: Fixed positive · Sun: Constraint · COGS floor 24%</div>
 </div>
@@ -153,10 +150,10 @@ td.r{text-align:right;font-family:ui-monospace,Menlo,monospace}
 <div class="row">
 <div>Revenue forecast<div class="v">$8,571.61</div></div>
 <div>COGS target (floor 24%)<div class="v amber-txt">$2,057.19</div></div>
-<div>Wages target<div class="v blue-txt">$2,004.82</div></div>
+<div>Wages target<div class="v blue-txt">$2,618.64</div></div>
 <div>Variable COGS budget<div class="v">$1,701.59 <span style="color:var(--muted);font-weight:400">(after −$329.85 Five Elements · −$25.75 Produce)</span></div></div>
 </div>
-<div style="font-size:.7rem;color:var(--muted);margin-top:6px">Last week Tue wages $3,187 → cut ~$1,182. Catering booked $2,059. Hours guidance below ↓</div>
+<div style="font-size:.7rem;color:var(--muted);margin-top:6px">Last week Tue wages $3,187 → cut ~$568. Catering booked $2,059. Hours guidance below ↓</div>
 </div>
 
 <div class="forecast-day">
@@ -164,21 +161,21 @@ td.r{text-align:right;font-family:ui-monospace,Menlo,monospace}
 <div class="row">
 <div>Revenue forecast<div class="v">$8,255.91</div></div>
 <div>COGS target (floor 24%)<div class="v amber-txt">$1,981.42</div></div>
-<div>Wages target<div class="v blue-txt">$1,529.47</div></div>
+<div>Wages target<div class="v blue-txt">$2,143.29</div></div>
 <div>Variable COGS budget<div class="v">$1,625.82</div></div>
 </div>
-<div style="font-size:.7rem;color:var(--muted);margin-top:6px">Last week Wed wages $3,448 → cut ~$1,919. Catering booked $201. Wholesale-heavy day.</div>
+<div style="font-size:.7rem;color:var(--muted);margin-top:6px">Last week Wed wages $3,448 → cut ~$1,305. Catering booked $201.</div>
 </div>
 
 <div class="forecast-day">
-<h4>Thu 28 May <span class="pill amber">Swing · Adjustment needed</span></h4>
+<h4>Thu 28 May <span class="pill amber">Swing · Light adjustment</span></h4>
 <div class="row">
 <div>Revenue forecast<div class="v">$9,036.41</div></div>
 <div>COGS target (floor 24%)<div class="v amber-txt">$2,168.74</div></div>
-<div>Wages target<div class="v blue-txt">$2,332.77</div></div>
+<div>Wages target<div class="v blue-txt">$2,946.59</div></div>
 <div>Variable COGS budget<div class="v">$1,813.14</div></div>
 </div>
-<div style="font-size:.7rem;color:var(--muted);margin-top:6px">Last week Thu wages $3,463 → cut ~$1,131. Catering booked $1,786.</div>
+<div style="font-size:.7rem;color:var(--muted);margin-top:6px">Last week Thu wages $3,463 → cut ~$517. Catering booked $1,786.</div>
 </div>
 
 <div class="forecast-day swing-ok">
@@ -189,7 +186,7 @@ td.r{text-align:right;font-family:ui-monospace,Menlo,monospace}
 <div>Wages target<div class="v blue-txt">$2,916.72</div></div>
 <div>Expected surplus<div class="v" style="color:var(--green)">+$3,351.60</div></div>
 </div>
-<div style="font-size:.7rem;color:var(--muted);margin-top:6px">No adjustment — exceeds swing target $2,219. Strong café day historically.</div>
+<div style="font-size:.7rem;color:var(--muted);margin-top:6px">No adjustment — exceeds swing target $1,605. Strong café day historically.</div>
 </div>
 
 <div class="forecast-day fixed-pos">
@@ -215,25 +212,25 @@ td.r{text-align:right;font-family:ui-monospace,Menlo,monospace}
 </div>
 
 <div class="hours-table">
-<div style="font-size:.78rem;font-weight:600;color:var(--blue);margin-bottom:8px">Suggested Hours — Tue 26 May (wage reduction needed)</div>
+<div style="font-size:.78rem;font-weight:600;color:var(--blue);margin-bottom:8px">Suggested Hours — Tue 26 May (light wage reduction)</div>
 <table>
 <thead><tr><th>Employee</th><th class="r">Target hrs</th></tr></thead>
 <tbody>
-<tr><td>Thomas Moller</td><td class="r">8.0h</td></tr>
-<tr><td>Sarai Egan</td><td class="r">7.5h</td></tr>
-<tr><td>Hannah Purdy</td><td class="r">7.5h</td></tr>
-<tr><td>Hannah Grace Davis</td><td class="r">7.5h</td></tr>
-<tr><td>Kanika banth</td><td class="r">6.5h</td></tr>
-<tr><td>Harry (Trimandeep)</td><td class="r">5.5h</td></tr>
-<tr><td>Craig Feltis</td><td class="r">6.5h</td></tr>
-<tr><td>Adi (Nurwadi)</td><td class="r">7.5h</td></tr>
-<tr><td>Isabella Holmes</td><td class="r">6.5h</td></tr>
-<tr><td>Maria Neider</td><td class="r">6.5h</td></tr>
-<tr><td>Suparna Faizal</td><td class="r">6.5h</td></tr>
-<tr><td>Leo Grant</td><td class="r">3.0h</td></tr>
+<tr><td>Thomas Moller</td><td class="r">8.5h</td></tr>
+<tr><td>Sarai Egan</td><td class="r">8.5h</td></tr>
+<tr><td>Hannah Purdy</td><td class="r">9.0h</td></tr>
+<tr><td>Hannah Grace Davis</td><td class="r">8.5h</td></tr>
+<tr><td>Kanika banth</td><td class="r">8.0h</td></tr>
+<tr><td>Harry (Trimandeep)</td><td class="r">6.5h</td></tr>
+<tr><td>Craig Feltis</td><td class="r">7.5h</td></tr>
+<tr><td>Adi (Nurwadi)</td><td class="r">8.5h</td></tr>
+<tr><td>Isabella Holmes</td><td class="r">7.5h</td></tr>
+<tr><td>Maria Neider</td><td class="r">7.5h</td></tr>
+<tr><td>Suparna Faizal</td><td class="r">7.0h</td></tr>
+<tr><td>Leo Grant</td><td class="r">4.0h</td></tr>
 </tbody>
 </table>
-<div style="font-size:.7rem;color:var(--muted);margin-top:7px">Total target ~79h (last week 113h). Higher-paid roles absorb slightly more reduction.</div>
+<div style="font-size:.7rem;color:var(--muted);margin-top:7px">Total target ~91h (last week 113h). Light reduction since Monday opened ahead of pace.</div>
 </div>
 
 </div>
