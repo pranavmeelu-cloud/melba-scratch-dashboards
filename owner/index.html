@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Melba-Scratch Group â€” Dashboard History</title>
+<title>Melba-Scratch Group — Dashboard History</title>
 <style>
 :root{--bg:#0f1419;--card:#1a1f2e;--card2:#232938;--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--orange:#f97316;--text:#e2e8f0;--muted:#94a3b8}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -29,9 +29,9 @@ tr.wtd-row .mpill{opacity:.95}
 </style>
 </head>
 <body>
-<h1>Melba-Scratch Group â€” Dashboard History <span class="pill">Owner View</span></h1>
-<div class="subtitle">Bookmark this page Â· full group dashboards listed most recent first</div>
-<div class="intro">Each row links to that day's full group dashboard (all four entities, full cost breakdown). Margin pills are colour-coded vs each entity's target â€” VS/VL/QS â‰¥20% Â· SB â‰¥15%.</div>
+<h1>Melba-Scratch Group — Dashboard History <span class="pill">Owner View</span></h1>
+<div class="subtitle">Bookmark this page · full group dashboards listed most recent first</div>
+<div class="intro">Each row links to that day's full group dashboard (all four entities, full cost breakdown). Margin pills are colour-coded vs each entity's target — VS/VL/QS ≥20% · SB ≥15%.</div>
 <table id="hist">
   <thead><tr><th>Date</th><th>Group Revenue</th><th>Group Surplus</th><th>Margin</th><th>VS</th><th>SB</th><th>VL</th><th>QS</th><th></th></tr></thead>
   <tbody></tbody>
@@ -164,11 +164,11 @@ function groupTierClass(m){
 }
 function fmtMoney(v){
   var abs = Math.abs(v).toLocaleString('en-NZ',{minimumFractionDigits:2,maximumFractionDigits:2});
-  return (v < 0 ? "âˆ’$" : "+$") + abs;
+  return (v < 0 ? "−$" : "+$") + abs;
 }
 function surplusColour(v){ return v >= 0 ? "#4ade80" : "#f87171"; }
 function pill(label, m, t){
-  if(m === null || m === undefined) return `<span class="mpill tier-amber">${label} â€”</span>`;
+  if(m === null || m === undefined) return `<span class="mpill tier-amber">${label} —</span>`;
   return `<span class="mpill ${tierClass(m,t)}">${label} ${m.toFixed(1)}%</span>`;
 }
 
@@ -205,7 +205,7 @@ weekStarts.forEach(ws => {
   const w = wtdMap[ws];
   if(w){
     const d = w.days_included;
-    const rangeLabel = d.length > 1 ? dayNames[d[0]] + "â€“" + dayNames[d[d.length-1]] : (d.length===1 ? dayNames[d[0]] : "â€”");
+    const rangeLabel = d.length > 1 ? dayNames[d[0]] + "–" + dayNames[d[d.length-1]] : (d.length===1 ? dayNames[d[0]] : "—");
     const tr = document.createElement("tr");
     tr.className = "wtd-row";
     tr.innerHTML =
@@ -235,7 +235,7 @@ weekStarts.forEach(ws => {
       `<td>${pill("SB", r.sb.margin, 15)}</td>` +
       `<td>${pill("VL", r.vl.margin, 20)}</td>` +
       `<td>${pill("QS", r.qs.margin, 20)}</td>` +
-      `<td><a class="open" href="${r.file}">Open â†’</a></td>`;
+      `<td><a class="open" href="${r.file}">Open →</a></td>`;
     tb.appendChild(tr);
   });
 });
