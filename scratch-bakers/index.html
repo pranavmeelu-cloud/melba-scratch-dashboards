@@ -41,6 +41,13 @@ tr.wtd-row td{border-bottom:2px solid #3a4f6a;color:var(--muted)}
 // On Monday a new entry is prepended; the previous week's entry is kept as-is.
 const WTD_HISTORY = [
   {
+    week_start: "2026-05-25",
+    days_included: ["mon"],
+    revenue: 4200.14,
+    surplus: -1448.46,
+    margin: -34.49
+  },
+  {
     week_start: "2026-05-18",
     days_included: ["mon","tue","wed","thu","fri","sat","sun"],
     revenue: 60607.84,
@@ -50,6 +57,8 @@ const WTD_HISTORY = [
 ];
 
 const HISTORY_DATA = [
+  { date: "2026-05-25", label: "Mon 25 May 2026", revenue: 4200.14, margin: -34.49, surplus: -1448.46, file: "Scratch Bakers – 2026-05-25 Monday – Team Dashboard.html" },
+
   { date: "2026-05-24", label: "Sun 24 May 2026", revenue: 612.26, margin: -90.45, surplus: -553.84, file: "Scratch Bakers – 2026-05-24 Sunday – Team Dashboard.html" },
   { date: "2026-05-23", label: "Sat 23 May 2026", revenue: 3617.67, margin: 49.55, surplus: 1792.52, file: "Scratch Bakers – 2026-05-23 Saturday – Team Dashboard.html" },
   { date: "2026-05-22", label: "Fri 22 May 2026", revenue: 14210.96, margin: 45.83, surplus: 6512.45, file: "Scratch Bakers – 2026-05-22 Friday – Team Dashboard.html" },

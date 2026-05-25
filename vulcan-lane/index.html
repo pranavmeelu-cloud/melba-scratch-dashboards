@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Vulcan Lane — Team Dashboard History</title>
+<title>Vulcan Lane â€” Team Dashboard History</title>
 <style>
 :root{--bg:#0f1419;--card:#1a1f2e;--card2:#232938;--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--orange:#f97316;--text:#e2e8f0;--muted:#94a3b8}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -28,8 +28,8 @@ tr.wtd-row td{border-bottom:2px solid #3a4f6a;color:var(--muted)}
 </style>
 </head>
 <body>
-<h1>Vulcan Lane — Dashboard History <span class="pill">Team View</span></h1>
-<div class="subtitle">Bookmark this page · daily team dashboards listed most recent first</div>
+<h1>Vulcan Lane â€” Dashboard History <span class="pill">Team View</span></h1>
+<div class="subtitle">Bookmark this page Â· daily team dashboards listed most recent first</div>
 <div class="intro">Each row links to that day's team dashboard. Margin pill is colour-coded vs the 20% daily target.</div>
 <table id="hist">
   <thead><tr><th>Date</th><th>Revenue</th><th>Margin</th><th></th></tr></thead>
@@ -38,6 +38,13 @@ tr.wtd-row td{border-bottom:2px solid #3a4f6a;color:var(--muted)}
 
 <script>
 const WTD_HISTORY = [
+  {
+    week_start: "2026-05-25",
+    days_included: ["mon"],
+    revenue: 2972.43,
+    surplus: 390.9,
+    margin: 13.15
+  },
   {
     week_start: "2026-05-18",
     days_included: ["mon","tue","wed","thu","fri","sat","sun"],
@@ -48,13 +55,15 @@ const WTD_HISTORY = [
 ];
 
 const HISTORY_DATA = [
-  { date: "2026-05-24", label: "Sun 24 May 2026", revenue: 4549.74, margin: 10.55, surplus: 479.87, file: "Vulcan Lane – 2026-05-24 Sunday – Team Dashboard.html" },
-  { date: "2026-05-23", label: "Sat 23 May 2026", revenue: 4655.96, margin: 33.45, surplus: 1557.32, file: "Vulcan Lane – 2026-05-23 Saturday – Team Dashboard.html" },
-  { date: "2026-05-22", label: "Fri 22 May 2026", revenue: 4006.31, margin: 24.51, surplus: 981.84, file: "Vulcan Lane – 2026-05-22 Friday – Team Dashboard.html" },
-  { date: "2026-05-21", label: "Thu 21 May 2026", revenue: 3089.53, margin: 14.24, surplus: 440.03, file: "Vulcan Lane – 2026-05-21 Thursday – Team Dashboard.html" },
-  { date: "2026-05-20", label: "Wed 20 May 2026", revenue: 2628.97, margin: -0.03, surplus: -0.88, file: "Vulcan Lane – 2026-05-20 Wednesday – Team Dashboard.html" },
-  { date: "2026-05-19", label: "Tue 19 May 2026", revenue: 3662.35, margin: 25.75, surplus: 942.99, file: "Vulcan Lane – 2026-05-19 Tuesday – Team Dashboard.html" },
-  { date: "2026-05-18", label: "Mon 18 May 2026", revenue: 2438.33, margin: 5.59, surplus: 136.42, file: "Vulcan Lane – 2026-05-18 Monday – Team Dashboard.html" }
+  { date: "2026-05-25", label: "Mon 25 May 2026", revenue: 2972.43, margin: 13.15, surplus: 390.9, file: "Vulcan Lane – 2026-05-25 Monday – Team Dashboard.html" },
+
+  { date: "2026-05-24", label: "Sun 24 May 2026", revenue: 4549.74, margin: 10.55, surplus: 479.87, file: "Vulcan Lane â€“ 2026-05-24 Sunday â€“ Team Dashboard.html" },
+  { date: "2026-05-23", label: "Sat 23 May 2026", revenue: 4655.96, margin: 33.45, surplus: 1557.32, file: "Vulcan Lane â€“ 2026-05-23 Saturday â€“ Team Dashboard.html" },
+  { date: "2026-05-22", label: "Fri 22 May 2026", revenue: 4006.31, margin: 24.51, surplus: 981.84, file: "Vulcan Lane â€“ 2026-05-22 Friday â€“ Team Dashboard.html" },
+  { date: "2026-05-21", label: "Thu 21 May 2026", revenue: 3089.53, margin: 14.24, surplus: 440.03, file: "Vulcan Lane â€“ 2026-05-21 Thursday â€“ Team Dashboard.html" },
+  { date: "2026-05-20", label: "Wed 20 May 2026", revenue: 2628.97, margin: -0.03, surplus: -0.88, file: "Vulcan Lane â€“ 2026-05-20 Wednesday â€“ Team Dashboard.html" },
+  { date: "2026-05-19", label: "Tue 19 May 2026", revenue: 3662.35, margin: 25.75, surplus: 942.99, file: "Vulcan Lane â€“ 2026-05-19 Tuesday â€“ Team Dashboard.html" },
+  { date: "2026-05-18", label: "Mon 18 May 2026", revenue: 2438.33, margin: 5.59, surplus: 136.42, file: "Vulcan Lane â€“ 2026-05-18 Monday â€“ Team Dashboard.html" }
 ];
 const THRESHOLD = 20;
 
@@ -65,7 +74,7 @@ function tierClass(m){
   if(m >= 0) return "tier-orange";
   return "tier-red";
 }
-function fmt$(v){ var s=Math.abs(v).toLocaleString('en-NZ',{minimumFractionDigits:2,maximumFractionDigits:2}); return (v<0?"−$":"$")+s; }
+function fmt$(v){ var s=Math.abs(v).toLocaleString('en-NZ',{minimumFractionDigits:2,maximumFractionDigits:2}); return (v<0?"âˆ’$":"$")+s; }
 
 function weekStartOf(dateStr){
   const d = new Date(dateStr);
@@ -94,7 +103,7 @@ weekStarts.forEach(ws => {
   const w = wtdMap[ws];
   if(w){
     const d = w.days_included;
-    const rangeLabel = d.length > 1 ? dayNames[d[0]]+"–"+dayNames[d[d.length-1]] : (d.length===1 ? dayNames[d[0]] : "—");
+    const rangeLabel = d.length > 1 ? dayNames[d[0]]+"â€“"+dayNames[d[d.length-1]] : (d.length===1 ? dayNames[d[0]] : "â€”");
     const tr = document.createElement("tr");
     tr.className = "wtd-row";
     tr.innerHTML =
@@ -106,7 +115,7 @@ weekStarts.forEach(ws => {
   }
   weekMap[ws].forEach(r => {
     const tr = document.createElement("tr");
-    tr.innerHTML = `<td>${r.label}</td><td>${fmt$(r.revenue)}</td><td><span class="mpill ${tierClass(r.margin)}">${r.margin.toFixed(1)}%</span></td><td><a class="open" href="${r.file}">Open →</a></td>`;
+    tr.innerHTML = `<td>${r.label}</td><td>${fmt$(r.revenue)}</td><td><span class="mpill ${tierClass(r.margin)}">${r.margin.toFixed(1)}%</span></td><td><a class="open" href="${r.file}">Open â†’</a></td>`;
     tb.appendChild(tr);
   });
 });
