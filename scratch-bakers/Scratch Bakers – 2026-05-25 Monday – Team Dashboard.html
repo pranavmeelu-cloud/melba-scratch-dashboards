@@ -34,11 +34,7 @@ h1{font-size:1.5rem;margin-bottom:6px;display:flex;align-items:center;gap:10px;f
 .commentary{background:var(--card);border:1px solid #2a3547;border-radius:9px;padding:14px;margin:11px 0}
 .commentary p{margin:6px 0;font-size:.82rem}
 .commentary .h{font-weight:600;color:var(--blue);margin-bottom:4px;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
-.forecast-outlook{background:var(--card2);border-radius:10px;padding:14px;border:1px solid #2a3547;margin:11px 0}
 .forecast-day{background:var(--card);border-radius:9px;padding:12px;margin:8px 0;border:1px solid rgba(251,191,36,.4)}
-.forecast-day.constraint{border-color:#2a3547;opacity:.85}
-.forecast-day.swing-ok{border-color:rgba(74,222,128,.4)}
-.forecast-day.fixed-pos{border-color:rgba(96,165,250,.4)}
 .forecast-day h4{font-size:.86rem;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
 .forecast-day .row{display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:.78rem;color:var(--muted)}
 .forecast-day .row .v{color:var(--text);font-weight:600;font-family:ui-monospace,Menlo,monospace}
@@ -131,84 +127,24 @@ td.r{text-align:right;font-family:ui-monospace,Menlo,monospace}
 <div class="section">
 <h3>Forward Forecast</h3>
 
-<div class="forecast-outlook">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-<div><strong>Weekly Outlook</strong> <span class="pill blue" style="margin-left:8px">Standard</span></div>
-<div style="font-size:.75rem;color:var(--muted)">Mode 1 — on pace; light catch-up on swing days</div>
-</div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;font-size:.78rem">
-<div><div style="color:var(--muted);font-size:.7rem">Forecast Week Revenue</div><div style="font-weight:600">$45,914.36</div></div>
-<div><div style="color:var(--muted);font-size:.7rem">Week Target Surplus (15%)</div><div style="font-weight:600">$6,887.15</div></div>
-<div><div style="color:var(--muted);font-size:.7rem">WTD Surplus (Mon)</div><div style="font-weight:600;color:var(--green)">+$1,006.71</div></div>
-<div><div style="color:var(--muted);font-size:.7rem">Remaining Surplus Needed</div><div style="font-weight:600;color:var(--amber)">$5,880.44</div></div>
-</div>
-<div style="margin-top:10px;font-size:.72rem;color:var(--muted)">Tue–Fri: Swing days · Sat: Fixed positive · Sun: Constraint · COGS floor 24%</div>
-</div>
-
 <div class="forecast-day">
-<h4>Tue 26 May <span class="pill amber">Swing · Adjustment needed</span></h4>
+<h4>Tue 26 May</h4>
 <div class="row">
 <div>Revenue forecast<div class="v">$8,571.61</div></div>
-<div>COGS target (floor 24%)<div class="v amber-txt">$2,057.19</div></div>
-<div>Wages target<div class="v blue-txt">$2,618.64</div></div>
 <div>Variable COGS budget<div class="v">$1,701.59 <span style="color:var(--muted);font-weight:400">(after −$329.85 Five Elements · −$25.75 Produce)</span></div></div>
+<div>Wages target<div class="v blue-txt">$2,618.64</div></div>
 </div>
-<div style="font-size:.7rem;color:var(--muted);margin-top:6px">Last week Tue wages $3,187 → cut ~$568. Catering booked $2,059. Hours guidance below ↓</div>
+<div style="font-size:.7rem;color:var(--amber);margin-top:6px">⚠ Tight week — COGS and wages budgets are strict today · Hours guidance below ↓</div>
 </div>
 
 <div class="forecast-day">
-<h4>Wed 27 May <span class="pill amber">Swing · Adjustment needed</span></h4>
+<h4>Wed 27 May</h4>
 <div class="row">
 <div>Revenue forecast<div class="v">$8,255.91</div></div>
-<div>COGS target (floor 24%)<div class="v amber-txt">$1,981.42</div></div>
-<div>Wages target<div class="v blue-txt">$2,143.29</div></div>
 <div>Variable COGS budget<div class="v">$1,625.82</div></div>
+<div>Wages target<div class="v blue-txt">$2,143.29</div></div>
 </div>
-<div style="font-size:.7rem;color:var(--muted);margin-top:6px">Last week Wed wages $3,448 → cut ~$1,305. Catering booked $201.</div>
-</div>
-
-<div class="forecast-day">
-<h4>Thu 28 May <span class="pill amber">Swing · Light adjustment</span></h4>
-<div class="row">
-<div>Revenue forecast<div class="v">$9,036.41</div></div>
-<div>COGS target (floor 24%)<div class="v amber-txt">$2,168.74</div></div>
-<div>Wages target<div class="v blue-txt">$2,946.59</div></div>
-<div>Variable COGS budget<div class="v">$1,813.14</div></div>
-</div>
-<div style="font-size:.7rem;color:var(--muted);margin-top:6px">Last week Thu wages $3,463 → cut ~$517. Catering booked $1,786.</div>
-</div>
-
-<div class="forecast-day swing-ok">
-<h4>Fri 29 May <span class="pill green">Swing · On track</span></h4>
-<div class="row">
-<div>Revenue forecast<div class="v">$12,616.26 (Café $8,183 · Wholesale $3,660 · TVNZ $538 · Catering $236)</div></div>
-<div>COGS target (benchmark)<div class="v amber-txt">$3,487.39</div></div>
-<div>Wages target<div class="v blue-txt">$2,916.72</div></div>
-<div>Expected surplus<div class="v" style="color:var(--green)">+$3,351.60</div></div>
-</div>
-<div style="font-size:.7rem;color:var(--muted);margin-top:6px">No adjustment — exceeds swing target $1,605. Strong café day historically.</div>
-</div>
-
-<div class="forecast-day fixed-pos">
-<h4>Sat 30 May <span class="pill blue">Fixed positive</span></h4>
-<div class="row">
-<div>Revenue forecast<div class="v">$3,119.72 (Wholesale only)</div></div>
-<div>COGS estimate<div class="v amber-txt">~$1,091.90</div></div>
-<div>Wages estimate<div class="v blue-txt">$0 (no staff scheduled)</div></div>
-<div>Expected surplus<div class="v" style="color:var(--green)">+$451.22</div></div>
-</div>
-<div style="font-size:.7rem;color:var(--muted);margin-top:6px">Fixed input — wholesale-only day, minimal staffing.</div>
-</div>
-
-<div class="forecast-day constraint">
-<h4>Sun 31 May <span class="pill red">Constraint · Fixed input</span></h4>
-<div class="row">
-<div>Revenue forecast<div class="v">$114.31 (residual wholesale)</div></div>
-<div>COGS estimate<div class="v amber-txt">~$40.01</div></div>
-<div>Wages estimate<div class="v blue-txt">$932.58</div></div>
-<div>Expected surplus<div class="v" style="color:var(--red)">−$992.29</div></div>
-</div>
-<div style="font-size:.7rem;color:var(--muted);margin-top:6px">Catch-up not applied. Sunday operational cost typically exceeds revenue.</div>
+<div style="font-size:.7rem;color:var(--amber);margin-top:6px">⚠ Tight week — COGS and wages budgets are strict today</div>
 </div>
 
 <div class="hours-table">
@@ -230,7 +166,7 @@ td.r{text-align:right;font-family:ui-monospace,Menlo,monospace}
 <tr><td>Leo Grant</td><td class="r">4.0h</td></tr>
 </tbody>
 </table>
-<div style="font-size:.7rem;color:var(--muted);margin-top:7px">Total target ~91h (last week 113h). Light reduction since Monday opened ahead of pace.</div>
+<div style="font-size:.7rem;color:var(--muted);margin-top:7px">Hours sorted highest rate first · full-time staff minimum 7h</div>
 </div>
 
 </div>

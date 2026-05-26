@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Vulcan Lane — 2026-05-25 Monday — Team Dashboard</title>
+<title>Vulcan Lane — 2026-05-26 Tuesday — Team Dashboard</title>
 <style>
 :root{--bg:#0f1419;--card:#1a1f2e;--card2:#232938;--muted:#7c8a9c;--text:#e6edf3;
---green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--purple:#a78bfa;--orange:#f97316;--teal:#34d399}
+--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--purple:#a78bfa;--orange:#f97316;--teal:#34d399;--fuchsia:#e879f9}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.5;padding:18px;font-size:14px}
 .wrap{max-width:1200px;margin:0 auto}
@@ -34,13 +34,17 @@ h1{font-size:1.5rem;margin-bottom:6px;display:flex;align-items:center;gap:10px;f
 .commentary{background:var(--card);border:1px solid #2a3547;border-radius:9px;padding:14px;margin:11px 0}
 .commentary p{margin:6px 0;font-size:.82rem}
 .commentary .h{font-weight:600;color:var(--blue);margin-bottom:4px;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
-.forecast-day{background:var(--card);border-radius:9px;padding:12px;margin:8px 0;border:1px solid rgba(251,191,36,.4)}
-.forecast-day h4{font-size:.86rem;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
+.forecast-day{background:var(--card);border-radius:9px;padding:12px;margin:8px 0;border:1px solid #2a3547}
+.forecast-day h4{font-size:.86rem;margin-bottom:6px}
 .forecast-day .row{display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:.78rem;color:var(--muted)}
 .forecast-day .row .v{color:var(--text);font-weight:600;font-family:ui-monospace,Menlo,monospace}
 .amber-txt{color:var(--amber)}
 .blue-txt{color:var(--blue)}
-.hours-table{background:rgba(96,165,250,.05);border:1px solid rgba(96,165,250,.2);border-radius:8px;padding:12px;margin:10px 0}
+.supp-block{margin:10px 0;padding:9px;background:var(--card2);border-radius:6px}
+.supp-block .supp-head{font-size:.82rem;font-weight:600;margin-bottom:5px}
+.late-note{font-size:.7rem;color:var(--amber);margin:-3px 0 7px 248px;padding-left:8px;border-left:2px solid var(--amber)}
+.note{background:rgba(251,191,36,.08);border-left:3px solid var(--amber);padding:7px 11px;border-radius:4px;font-size:.78rem;color:var(--amber);margin:8px 0}
+.note.red{background:rgba(248,113,113,.08);border-left-color:var(--red);color:var(--red)}
 table{width:100%;font-size:.78rem;border-collapse:collapse}
 th{text-align:left;color:var(--muted);font-weight:500;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;padding:5px 7px;border-bottom:1px solid #2a3547}
 td{padding:4px 7px;border-bottom:1px solid #20283b}
@@ -51,104 +55,100 @@ td.r{text-align:right;font-family:ui-monospace,Menlo,monospace}
 <div class="wrap">
 
 <h1>Vulcan Lane <span class="pill">All $ incl GST</span> <span class="pill blue">Team View</span></h1>
-<div class="subtitle">Monday 25 May 2026</div>
+<div class="subtitle">Tuesday 26 May 2026</div>
 
 <div class="kpis">
-<div class="kpi"><div class="l">Total Revenue</div><div class="v">$2,972.43</div><div class="sub">Café only</div></div>
-<div class="kpi"><div class="l">Total COGS</div><div class="v">$511.57</div><div class="sub">17.2% of revenue</div></div>
-<div class="kpi"><div class="l">Wages</div><div class="v">$982.23</div><div class="sub">5 staff · 36.42h</div></div>
-<div class="kpi"><div class="l">Op Costs</div><div class="v">$1,087.73</div></div>
+<div class="kpi"><div class="l">Total Revenue</div><div class="v">$3,203.35</div><div class="sub">Café only</div></div>
+<div class="kpi"><div class="l">Total COGS</div><div class="v">$624.01</div><div class="sub">19.5% of revenue</div></div>
+<div class="kpi"><div class="l">Wages</div><div class="v">$952.80</div><div class="sub">5 staff · 35.60h</div></div>
+<div class="kpi"><div class="l">Op Costs</div><div class="v">$1,124.95</div></div>
 </div>
 
 <div class="surplus">
 <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)">Daily Result</div>
-<div class="sval">13.2%</div>
-<div class="sn">of revenue · Target ≥20% — solid but below target</div>
+<div class="sval">+15.7%</div>
+<div class="sn">of revenue · Target ≥20% — close to target</div>
 <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)">
 <div style="font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:10px">To reach 20% — today's adjustments needed</div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
 <div>
 <div style="font-size:11px;color:var(--muted);margin-bottom:3px">COGS should have been</div>
-<div style="font-size:1.15rem;font-weight:700;color:#fbbf24">≤$405</div>
-<div style="font-size:10px;color:var(--muted)">−$107 vs actual $512</div>
+<div style="font-size:1.15rem;font-weight:700;color:#fbbf24">≤$546</div>
+<div style="font-size:10px;color:var(--muted)">−$78 vs actual $624</div>
 </div>
 <div>
 <div style="font-size:11px;color:var(--muted);margin-bottom:3px">Wages should have been</div>
-<div style="font-size:1.15rem;font-weight:700;color:#60a5fa">≤$929</div>
-<div style="font-size:10px;color:var(--muted)">−$53 vs actual $982</div>
+<div style="font-size:1.15rem;font-weight:700;color:#60a5fa">−$39 vs actual $953</div>
+<div style="font-size:10px;color:var(--muted)">target ≤$914</div>
 </div>
 </div>
 </div>
 </div>
+
+<div class="note red">⚠ Prior-week adjustment: Goodman Fielder invoice 9085612668 dated 24/05 ($87.51) — logged to prior week, NOT in current WTD.</div>
 
 <div class="section">
 <h3>Revenue Breakdown</h3>
-<div class="bar-row"><div class="lbl">Café</div><div class="barbg"><div class="bar" style="width:100%;background:var(--blue)"></div></div><div class="val">$2,972.43</div></div>
+<div class="bar-row"><div class="lbl">Café</div><div class="barbg"><div class="bar" style="width:100%;background:var(--blue)"></div></div><div class="val">$3,203.35</div></div>
 </div>
 
 <div class="section">
-<h3>COGS Breakdown — $511.57</h3>
+<h3>COGS Breakdown — $624.01</h3>
 <div class="bar-row"><div class="lbl">Service Foods (3 spreads ÷7)</div><div class="barbg"><div class="bar" style="width:100%;background:var(--orange)"></div></div><div class="val">$293.01</div></div>
 <div class="bar-row"><div class="lbl">Five Elements (÷7 weekly $1,442.72)</div><div class="barbg"><div class="bar" style="width:70.3%;background:var(--purple)"></div></div><div class="val">$206.10</div></div>
+<div class="bar-row"><div class="lbl">Goodman Fielder (today's delivery, late)</div><div class="barbg"><div class="bar" style="width:38.4%;background:var(--red)"></div></div><div class="val">$112.44</div></div>
+<div class="late-note">⚠ Late capture · $112.44 invoice 9085630425 dated 25/05 — captured today</div>
 <div class="bar-row"><div class="lbl">LaundryCorp (2 invoices ÷7)</div><div class="barbg"><div class="bar" style="width:4.3%;background:var(--teal)"></div></div><div class="val">$12.46</div></div>
 <div class="bar-row"><div class="lbl">Bidfood</div><div class="barbg"></div><div class="val">$0.00</div></div>
-<div style="font-size:.75rem;color:var(--muted);margin-top:8px">Service Foods: 3 active spreads (IN11090240 $37.01, IN11087414 $139.42, IN11087415 $116.58) — all from 22/05 delivery, ÷7 daily through 28/05. After 28/05, daily Service Foods drops to $0. LaundryCorp = $5.75 carry (#01909039) + $6.71 new today (#01909083).</div>
+<div class="supp-block">
+<div class="supp-head">Service Foods — 3 active spreads from 22/05 ÷7 daily ($293.01/day through 28/05)</div>
+<table><thead><tr><th>Ref</th><th class="r">Full</th><th class="r">Daily ÷7</th></tr></thead><tbody>
+<tr><td>IN11090240</td><td class="r">$259.06</td><td class="r">$37.01</td></tr>
+<tr><td>IN11087414</td><td class="r">$975.94</td><td class="r">$139.42</td></tr>
+<tr><td>IN11087415</td><td class="r">$816.05</td><td class="r">$116.58</td></tr>
+</tbody></table>
+</div>
+<div class="supp-block"><div class="supp-head">Goodman Fielder #9085630425 dated 25/05: milk, butter, almond milk — $112.44</div></div>
 </div>
 
 <div class="section">
-<h3>Wages — 5 Staff · 36.42h · $982.23</h3>
-<div class="bar-row"><div class="lbl">Eden Wharerau</div><div class="barbg"><div class="bar" style="width:100%;background:var(--blue)"></div></div><div class="val">9.03h</div></div>
-<div class="bar-row"><div class="lbl">Franz Nicole Uyseco</div><div class="barbg"><div class="bar" style="width:87.3%;background:var(--green)"></div></div><div class="val">7.88h</div></div>
-<div class="bar-row"><div class="lbl">Klara Melody Keil</div><div class="barbg"><div class="bar" style="width:76.2%;background:var(--blue)"></div></div><div class="val">6.88h</div></div>
-<div class="bar-row"><div class="lbl">Maddi Roewen</div><div class="barbg"><div class="bar" style="width:74.2%;background:var(--blue)"></div></div><div class="val">6.70h</div></div>
-<div class="bar-row"><div class="lbl">Jimmy</div><div class="barbg"><div class="bar" style="width:65.7%;background:var(--green)"></div></div><div class="val">5.93h</div></div>
+<h3>Wages — 5 Staff · 35.60h · $952.80</h3>
+<div class="bar-row"><div class="lbl">Mei fung Woo</div><div class="barbg"><div class="bar" style="width:100%;background:var(--blue)"></div></div><div class="val">8.33h</div></div>
+<div class="bar-row"><div class="lbl">Carlos Araneda</div><div class="barbg"><div class="bar" style="width:96.4%;background:var(--green)"></div></div><div class="val">8.03h</div></div>
+<div class="bar-row"><div class="lbl">Ravi (Ravinder kaur)</div><div class="barbg"><div class="bar" style="width:87.3%;background:var(--green)"></div></div><div class="val">7.27h</div></div>
+<div class="bar-row"><div class="lbl">Klara Melody Keil</div><div class="barbg"><div class="bar" style="width:84.0%;background:var(--blue)"></div></div><div class="val">7.00h</div></div>
+<div class="bar-row"><div class="lbl">Maddi Roewen</div><div class="barbg"><div class="bar" style="width:59.7%;background:var(--blue)"></div></div><div class="val">4.97h</div></div>
 <div style="font-size:.7rem;color:var(--muted);margin-top:7px">FOH (blue) · Kitchen (green)</div>
 </div>
 
 <div class="commentary">
 <p class="h">Daily Commentary — VL</p>
-<p>VL produced a +$390.90 surplus (+13.2%) on Monday — below the 20% target but solidly positive. Café revenue of $2,972 was higher than last Monday ($2,438) — a strong start.</p>
-<p>COGS at 17.2% includes a substantial $293 Service Foods carry-forward (3 active spreads continuing from 22/05 through 28/05). After 28/05 those spreads end and daily COGS will drop materially, helping margins.</p>
-<p>Wages of $982 on 36.4h are efficient. Without the Service Foods spread weight, margin would have reached the 20% target.</p>
+<p>VL produced +$501.59 surplus (+15.7%) on Tuesday — below the 20% target but a step up from Mon's 13.2%. Café revenue $3,203 was below last Tue ($3,662) but solid.</p>
+<p>COGS $624 (19.5%) is largely the carry-forward weight: Service Foods spreads from 22/05 at $293/day continuing through 28/05, plus Five Elements daily $206 and a new Goodman Fielder catch-up ($112.44 dated 25/05).</p>
+<p>Wages $953 at 35.6h is efficient. WTD surplus +$892.49 (+14.45%) — Mon + Tue tracking close to 15%. Service Foods spread weight rolls off after Thu 28/05, which should lift Fri/Sat/Sun margins materially.</p>
 </div>
 
 <div class="section">
 <h3>Forward Forecast</h3>
 
 <div class="forecast-day">
-<h4>Tue 26 May</h4>
+<h4>Wed 27 May</h4>
 <div class="row">
-<div>Revenue forecast<div class="v">$3,662.35 (café)</div></div>
-<div>Variable COGS budget<div class="v">$447.41 <span style="color:var(--muted);font-weight:400">(after −$206.10 Five Elements ~est · −$5.75 LC #039)</span></div></div>
-<div>Wages target<div class="v blue-txt">$1,003.05</div></div>
+<div>Revenue forecast<div class="v">$2,628.97</div><div style="font-size:.7rem;color:var(--muted);margin-top:2px">Café only</div></div>
+<div>Variable COGS budget<div class="v amber-txt">$145.67 <span style="color:var(--muted);font-weight:400">(after −$206.10 Five Elements · −$293.01 Service Foods · −$12.46 LaundryCorp)</span></div></div>
+<div>Wages target<div class="v blue-txt">$1,319.96</div></div>
 </div>
-<div style="font-size:.7rem;color:var(--amber);margin-top:6px">⚠ Tight week — COGS and wages budgets are strict today · Hours guidance below ↓</div>
+<div style="font-size:.7rem;color:var(--amber);margin-top:6px">⚠ Service Foods spreads continue through Thu — variable COGS room is tight</div>
 </div>
 
 <div class="forecast-day">
-<h4>Wed 27 May</h4>
+<h4>Thu 28 May</h4>
 <div class="row">
-<div>Revenue forecast<div class="v">$2,628.97 (café)</div></div>
-<div>Variable COGS budget<div class="v">$261.36</div></div>
-<div>Wages target<div class="v blue-txt">$354.18</div></div>
+<div>Revenue forecast<div class="v">$3,089.53</div><div style="font-size:.7rem;color:var(--muted);margin-top:2px">Café only</div></div>
+<div>Variable COGS budget<div class="v amber-txt">$260.81 <span style="color:var(--muted);font-weight:400">(after −$206.10 Five Elements · −$293.01 Service Foods · −$12.46 LaundryCorp)</span></div></div>
+<div>Wages target<div class="v blue-txt">$1,150.70</div></div>
 </div>
-<div style="font-size:.7rem;color:var(--amber);margin-top:6px">⚠ Tight week — COGS and wages budgets are strict today</div>
-</div>
-
-<div class="hours-table">
-<div style="font-size:.78rem;font-weight:600;color:var(--blue);margin-bottom:8px">Suggested Hours — Tue 26 May (wage reduction needed)</div>
-<table>
-<thead><tr><th>Employee</th><th class="r">Target hrs</th></tr></thead>
-<tbody>
-<tr><td>Eden Wharerau</td><td class="r">7.7h</td></tr>
-<tr><td>Franz Uyseco</td><td class="r">6.8h</td></tr>
-<tr><td>Mei fung Woo</td><td class="r">6.5h</td></tr>
-<tr><td>Klara keil</td><td class="r">5.8h</td></tr>
-<tr><td>Ravi</td><td class="r">6.7h</td></tr>
-<tr><td>Mitch Cain-Treleaven</td><td class="r">5.9h</td></tr>
-</tbody>
-</table>
-<div style="font-size:.7rem;color:var(--muted);margin-top:7px">Hours sorted highest rate first · full-time staff minimum 7h</div>
+<div style="font-size:.7rem;color:var(--amber);margin-top:6px">⚠ Last day of Service Foods carry-forward spreads</div>
 </div>
 
 </div>
