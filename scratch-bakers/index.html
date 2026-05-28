@@ -40,12 +40,12 @@ tr.wtd-row td{border-bottom:2px solid #3a4f6a;color:var(--muted)}
 // One entry per week, most recent first. WTD_HISTORY[0] is updated nightly.
 // On Monday a new entry is prepended; the previous week's entry is kept as-is.
 const WTD_HISTORY = [
-  {
+    {
     week_start: "2026-05-25",
-    days_included: ["mon","tue","wed"],
-    revenue: 25382.4,
-    surplus: 510.05,
-    margin: 2.01
+    days_included: ["mon","tue","wed","thu"],
+    revenue: 35125.83,
+    surplus: 2843.05,
+    margin: 8.09
   },
   {
     week_start: "2026-05-18",
@@ -57,6 +57,7 @@ const WTD_HISTORY = [
 ];
 
 const HISTORY_DATA = [
+  { date: "2026-05-28", label: "Thu 28 May 2026", revenue: 9743.43, margin: 23.95, surplus: 2333.00, file: "Scratch Bakers – 2026-05-28 Thursday – Team Dashboard.html" },
   { date: "2026-05-27", label: "Wed 27 May 2026", revenue: 8781.03, margin: -3.98, surplus: -349.37, file: "Scratch Bakers – 2026-05-27 Wednesday – Team Dashboard.html" },
   { date: "2026-05-26", label: "Tue 26 May 2026", revenue: 9449.69, margin: -1.56, surplus: -147.29, file: "Scratch Bakers – 2026-05-26 Tuesday – Team Dashboard.html" },
   { date: "2026-05-25", label: "Mon 25 May 2026", revenue: 7151.68, margin: 14.08, surplus: 1006.71, file: "Scratch Bakers – 2026-05-25 Monday – Team Dashboard.html" },
