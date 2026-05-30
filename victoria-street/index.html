@@ -2,124 +2,72 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Victoria Street — Team Dashboard History</title>
+<title>Victoria Street – Dashboard History</title>
 <style>
-:root{--bg:#0f1419;--card:#1a1f2e;--card2:#232938;--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--orange:#f97316;--text:#e2e8f0;--muted:#94a3b8}
+:root{--bg:#0f1419;--card:#1a1f2e;--card-2:#232938;--ink:#e6edf3;--muted:#7d8ba1;--border:#2a3547;--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--orange:#f97316}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;font-size:14px;padding:24px;max-width:900px;margin:0 auto}
-h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
-.subtitle{color:var(--muted);font-size:.9rem;margin-bottom:20px}
-.pill{display:inline-block;padding:2px 8px;border-radius:12px;font-size:.75rem;background:#1e2a3a;color:var(--blue);margin-left:8px;font-weight:500}
-.intro{background:var(--card);border-radius:10px;padding:14px;border:1px solid #2a3547;font-size:.85rem;color:var(--muted);margin-bottom:16px}
-table{width:100%;border-collapse:collapse;font-size:.9rem;background:var(--card);border-radius:10px;overflow:hidden;border:1px solid #2a3547}
-th{background:#0f1419;padding:10px 12px;text-align:left;color:var(--muted);font-weight:500;border-bottom:1px solid #2a3547}
-td{padding:10px 12px;border-bottom:1px solid #1e2535}
-tr:last-child td{border:none}
-.mpill{display:inline-block;padding:3px 10px;border-radius:10px;font-size:.78rem;font-weight:600;border:1px solid}
-.tier-deep{color:#4ade80;background:#0a2e18;border-color:#4ade80}
-.tier-green{color:#4ade80;background:#0d261a;border-color:#4ade80}
-.tier-amber{color:#fbbf24;background:#262010;border-color:#fbbf24}
-.tier-orange{color:#f97316;background:#261a08;border-color:#f97316}
-.tier-red{color:#f87171;background:#261010;border-color:#f87171}
-a.open{color:var(--blue);text-decoration:none;font-weight:500}
-a.open:hover{text-decoration:underline}
-tr.wtd-row td{border-bottom:2px solid #3a4f6a;color:var(--muted)}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:20px;line-height:1.5}
+.container{max-width:1100px;margin:0 auto}
+h1{font-size:1.7rem;font-weight:700;margin-bottom:6px}
+.pill{display:inline-block;font-size:.7rem;font-weight:600;padding:3px 9px;border-radius:99px;background:#2a1f0d;color:#fbbf24;margin-left:8px;text-transform:uppercase;letter-spacing:.05em}
+.subtitle{color:var(--muted);font-size:.9rem;margin-bottom:18px}
+.wtdcard{background:linear-gradient(135deg,#172a4a,#1a1f2e);border:1px solid var(--blue);padding:16px;border-radius:8px;margin-bottom:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.wtdcard .l{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:4px}
+.wtdcard .v{font-size:1.5rem;font-weight:700}
+.section{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:18px}
+table.hist{width:100%;border-collapse:collapse;font-size:.85rem}
+table.hist th{background:var(--card-2);text-align:left;padding:10px;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+table.hist td{padding:9px 10px;border-bottom:1px solid var(--border);font-variant-numeric:tabular-nums}
+table.hist td.r{text-align:right}
+table.hist tr.wtd-row td{border-bottom:2px solid #3a4f6a;color:var(--muted);background:rgba(96,165,250,.04)}
+table.hist a{color:var(--blue);text-decoration:none}
+table.hist a:hover{text-decoration:underline}
+.mpill{display:inline-block;padding:3px 9px;border-radius:99px;font-size:.7rem;font-weight:600}
+.mpill.deepgreen{background:#0a2e18;color:#4ade80}
+.mpill.green{background:#0d261a;color:#4ade80}
+.mpill.amber{background:#2a1f08;color:#fbbf24}
+.mpill.orange{background:#261a08;color:#f97316}
+.mpill.red{background:#261010;color:#f87171}
 </style>
 </head>
 <body>
+<div class="container">
 <h1>Victoria Street — Dashboard History <span class="pill">Team View</span></h1>
-<div class="subtitle">Bookmark this page · daily team dashboards listed most recent first</div>
-<div class="intro">Each row links to that day's team dashboard. Margin pill is colour-coded vs the 20% daily target.</div>
-<table id="hist">
-  <thead><tr><th>Date</th><th>Revenue</th><th>Margin</th><th></th></tr></thead>
-  <tbody></tbody>
-</table>
+<div class="subtitle">All team dashboards — most recent first — threshold 20%</div>
 
+<div class="wtdcard" id="wtd-card">
+  <div><div class="l">WTD Revenue</div><div class="v">$19,935.63</div></div>
+  <div><div class="l">WTD Surplus</div><div class="v" style="color:var(--green)">+`$1,003.72</div></div>
+  <div><div class="l">WTD Margin</div><div class="v">5.03%</div></div>
+</div>
+
+<div class="section">
+<table class="hist"><thead><tr><th>Date</th><th class="r">Revenue</th><th>Margin</th><th></th></tr></thead>
+<tbody id="hist-body"></tbody></table>
+</div>
+</div>
 <script>
-const WTD_HISTORY = [
-    {
-    week_start: "2026-05-25",
-    days_included: ["mon","tue","wed","thu"],
-    revenue: 18156.13,
-    surplus: 1476.28,
-    margin: 8.13
-  },
-  {
-    week_start: "2026-05-18",
-    days_included: ["mon","tue","wed","thu","fri","sat","sun"],
-    revenue: 18087.88,
-    surplus: -4094.74,
-    margin: -22.65
-  }
-];
-
-const HISTORY_DATA = [
-  { date: "2026-05-28", label: "Thu 28 May 2026", revenue: 5697.93, margin: 44.02, surplus: 2508.32, file: "Victoria Street – 2026-05-28 Thursday – Team Dashboard.html" },
-  { date: "2026-05-27", label: "Wed 27 May 2026", revenue: 5413.03, margin: -25.04, surplus: -1355.45, file: "Victoria Street – 2026-05-27 Wednesday – Team Dashboard.html" },
-  { date: "2026-05-26", label: "Tue 26 May 2026", revenue: 4889.98, margin: 15.22, surplus: 744.34, file: "Victoria Street – 2026-05-26 Tuesday – Team Dashboard.html" },
-  { date: "2026-05-25", label: "Mon 25 May 2026", revenue: 2155.19, margin: -19.53, surplus: -420.93, file: "Victoria Street – 2026-05-25 Monday – Team Dashboard.html" },
-
-  { date: "2026-05-24", label: "Sun 24 May 2026", revenue: 0.00, margin: 0, surplus: -154.41, file: "Victoria Street – 2026-05-24 Sunday – Team Dashboard.html" },
-  { date: "2026-05-23", label: "Sat 23 May 2026", revenue: 0.00, margin: 0, surplus: -169.20, file: "Victoria Street – 2026-05-23 Saturday – Team Dashboard.html" },
-  { date: "2026-05-22", label: "Fri 22 May 2026", revenue: 2006.94, margin: -8.59, surplus: -172.37, file: "Victoria Street – 2026-05-22 Friday – Team Dashboard.html" },
-  { date: "2026-05-21", label: "Thu 21 May 2026", revenue: 5979.73, margin: -7.76, surplus: -464.19, file: "Victoria Street – 2026-05-21 Thursday – Team Dashboard.html" },
-  { date: "2026-05-20", label: "Wed 20 May 2026", revenue: 3225.89, margin: -47.09, surplus: -1519.01, file: "Victoria Street – 2026-05-20 Wednesday – Team Dashboard.html" },
-  { date: "2026-05-19", label: "Tue 19 May 2026", revenue: 4360.69, margin: -26.84, surplus: -1170.51, file: "Victoria Street – 2026-05-19 Tuesday – Team Dashboard.html" },
-  { date: "2026-05-18", label: "Mon 18 May 2026", revenue: 2514.63, margin: -17.81, surplus: -447.95, file: "Victoria Street – 2026-05-18 Monday – Team Dashboard.html" }
-];
+const HISTORY_DATA = [{"date":"2026-05-29","label":"Fri 29 May 2026","revenue":1779.5,"margin":-26.555774093846583,"surplus":-472.56,"file":"Victoria Street – 2026-05-29 Friday – Team Dashboard.html"},{"date":"2026-05-28","label":"Thu 28 May 2026","revenue":5697.93,"margin":44.02,"surplus":2508.32,"file":"Victoria Street – 2026-05-28 Thursday – Team Dashboard.html"},{"date":"2026-05-27","label":"Wed 27 May 2026","revenue":5413.03,"margin":-25.04,"surplus":-1355.45,"file":"Victoria Street – 2026-05-27 Wednesday – Team Dashboard.html"},{"date":"2026-05-26","label":"Tue 26 May 2026","revenue":4889.98,"margin":15.22,"surplus":744.34,"file":"Victoria Street – 2026-05-26 Tuesday – Team Dashboard.html"},{"date":"2026-05-25","label":"Mon 25 May 2026","revenue":2155.19,"margin":-19.53,"surplus":-420.93,"file":"Victoria Street – 2026-05-25 Monday – Team Dashboard.html"},{"date":"2026-05-24","label":"Sun 24 May 2026","revenue":0.00,"margin":0,"surplus":-154.41,"file":"Victoria Street – 2026-05-24 Sunday – Team Dashboard.html"},{"date":"2026-05-23","label":"Sat 23 May 2026","revenue":0.00,"margin":0,"surplus":-169.20,"file":"Victoria Street – 2026-05-23 Saturday – Team Dashboard.html"},{"date":"2026-05-22","label":"Fri 22 May 2026","revenue":2006.94,"margin":-8.59,"surplus":-172.37,"file":"Victoria Street – 2026-05-22 Friday – Team Dashboard.html"},{"date":"2026-05-21","label":"Thu 21 May 2026","revenue":5979.73,"margin":-7.76,"surplus":-464.19,"file":"Victoria Street – 2026-05-21 Thursday – Team Dashboard.html"},{"date":"2026-05-20","label":"Wed 20 May 2026","revenue":3225.89,"margin":-47.09,"surplus":-1519.01,"file":"Victoria Street – 2026-05-20 Wednesday – Team Dashboard.html"},{"date":"2026-05-19","label":"Tue 19 May 2026","revenue":4360.69,"margin":-26.84,"surplus":-1170.51,"file":"Victoria Street – 2026-05-19 Tuesday – Team Dashboard.html"},{"date":"2026-05-18","label":"Mon 18 May 2026","revenue":2514.63,"margin":-17.81,"surplus":-447.95,"file":"Victoria Street – 2026-05-18 Monday – Team Dashboard.html"}];
+const WTD_HISTORY = [{"week_start":"2026-05-25","days_included":["mon","tue","wed","thu","fri"],"revenue":19935.629999999997,"surplus":1003.7199999999966,"margin":5.0348045183422681},{"week_start":"2026-05-18","days_included":["mon","tue","wed","thu","fri","sat","sun"],"revenue":18087.88,"surplus":-4094.74,"margin":-22.65}];
 const THRESHOLD = 20;
-
-function tierClass(m){
-  if(m >= THRESHOLD+10) return "tier-deep";
-  if(m >= THRESHOLD) return "tier-green";
-  if(m >= THRESHOLD-5) return "tier-amber";
-  if(m >= 0) return "tier-orange";
-  return "tier-red";
-}
-function fmt$(v){ var s=Math.abs(v).toLocaleString('en-NZ',{minimumFractionDigits:2,maximumFractionDigits:2}); return (v<0?"−$":"$")+s; }
-
-function weekStartOf(dateStr){
-  const d = new Date(dateStr);
-  const day = d.getDay();
-  const diff = day===0 ? -6 : 1-day;
-  const mon = new Date(d);
-  mon.setDate(d.getDate()+diff);
-  return mon.toISOString().slice(0,10);
-}
-
-const wtdMap = {};
-WTD_HISTORY.forEach(w => { wtdMap[w.week_start] = w; });
-
-const weekMap = {};
-HISTORY_DATA.forEach(r => {
-  const ws = weekStartOf(r.date);
-  if(!weekMap[ws]) weekMap[ws] = [];
-  weekMap[ws].push(r);
-});
-
-const weekStarts = Object.keys(weekMap).sort().reverse();
-const dayNames = {mon:"Mon",tue:"Tue",wed:"Wed",thu:"Thu",fri:"Fri",sat:"Sat",sun:"Sun"};
-const tb = document.querySelector("#hist tbody");
-
-weekStarts.forEach(ws => {
-  const w = wtdMap[ws];
-  if(w){
-    const d = w.days_included;
-    const rangeLabel = d.length > 1 ? dayNames[d[0]]+"–"+dayNames[d[d.length-1]] : (d.length===1 ? dayNames[d[0]] : "—");
-    const tr = document.createElement("tr");
-    tr.className = "wtd-row";
-    tr.innerHTML =
-      `<td><strong>Week to Date</strong> <span style="font-size:.75rem;color:var(--muted)">${rangeLabel}</span></td>` +
-      `<td>${fmt$(w.revenue)}</td>` +
-      `<td><span class="mpill ${tierClass(w.margin)}">${w.margin.toFixed(1)}%</span></td>` +
-      `<td></td>`;
-    tb.appendChild(tr);
+function isoWeekStart(d){const dt=new Date(d);const day=(dt.getDay()+6)%7;dt.setDate(dt.getDate()-day);return dt.toISOString().slice(0,10);}
+function fmtMoney(v){if(v===null||v===undefined)return "";const sign=v<0?"−":(v>0?"+":"");return sign+"$"+Math.abs(v).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,",");}
+function pill(m){let cls="red";if(m>=THRESHOLD+10)cls="deepgreen";else if(m>=THRESHOLD)cls="green";else if(m>=THRESHOLD-5)cls="amber";else if(m>=0)cls="orange";return '<span class="mpill '+cls+'">'+m.toFixed(2)+'%</span>';}
+const grouped={};const order=[];
+HISTORY_DATA.forEach(e=>{const wk=isoWeekStart(e.date);if(!grouped[wk]){grouped[wk]=[];order.push(wk);}grouped[wk].push(e);});
+const tbody=document.getElementById("hist-body");
+order.forEach(wk=>{
+  const wtd=WTD_HISTORY.find(w=>w.week_start===wk);
+  if(wtd){
+    const row=document.createElement("tr");row.className="wtd-row";
+    const dr=(wtd.days_included&&wtd.days_included.length)?wtd.days_included[0].toUpperCase()+"–"+wtd.days_included[wtd.days_included.length-1].toUpperCase():"";
+    row.innerHTML='<td><b>Week to Date</b> '+dr+'</td><td class="r">$'+wtd.revenue.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,",")+'</td><td>'+pill(wtd.margin)+'</td><td></td>';
+    tbody.appendChild(row);
   }
-  weekMap[ws].forEach(r => {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `<td>${r.label}</td><td>${fmt$(r.revenue)}</td><td><span class="mpill ${tierClass(r.margin)}">${r.margin.toFixed(1)}%</span></td><td><a class="open" href="${r.file}">Open →</a></td>`;
-    tb.appendChild(tr);
+  grouped[wk].forEach(d=>{
+    const row=document.createElement("tr");
+    row.innerHTML='<td>'+d.label+'</td><td class="r">$'+d.revenue.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,",")+'</td><td>'+pill(d.margin)+'</td><td><a href="'+d.file+'">Open →</a></td>';
+    tbody.appendChild(row);
   });
 });
 </script>
