@@ -102,7 +102,7 @@ const DAY_ORDER=["mon","tue","wed","thu","fri","sat","sun"];
 function $sel(s,p){return (p||document).querySelector(s);}
 function $$sel(s,p){return Array.from((p||document).querySelectorAll(s));}
 function fmt(n,d){if(d===undefined)d=2;return Number(n).toLocaleString("en-NZ",{minimumFractionDigits:d,maximumFractionDigits:d});}
-function sgn(n){return (n>=0?"+":"âˆ’")+"$"+fmt(Math.abs(n));}
+function sgn(n){return (n>=0?"+":"−")+"$"+fmt(Math.abs(n));}
 
 function dayCommentary(entity, day){
   const e = DAY_DATA[day] ? DAY_DATA[day][entity] : null;
@@ -114,7 +114,7 @@ function dayCommentary(entity, day){
   if (day === "fri" && entity === "vl") {
     extra = " Two late-captured invoices booked today: Goodman Fielder #9085673142 (Thu 28 May, $139.16) and Homegrown Juice #573026826 (Wed 27 May, $160.56 weekly Ã·7 with 3-day catch-up = $68.82).";
   }
-  return "<b>"+entName+" "+label+":</b> Revenue $"+fmt(e.revenue.total)+" Â· COGS $"+fmt(e.cogs.total_cogs)+" ("+fmt(e.cogs.total_cogs/Math.max(e.revenue.total,1)*100,1)+"% of rev) Â· Wages $"+fmt(e.wages.total)+" ("+fmt(e.wages.hours,2)+"h, "+e.wages.staff+" staff) Â· Op Costs $"+fmt(e.op_costs.total)+". Daily result "+sgn(e.surplus)+" = "+fmt(margin,2)+"% margin."+extra;
+  return "<b>"+entName+" "+label+":</b> Revenue $"+fmt(e.revenue.total)+" · COGS $"+fmt(e.cogs.total_cogs)+" ("+fmt(e.cogs.total_cogs/Math.max(e.revenue.total,1)*100,1)+"% of rev) · Wages $"+fmt(e.wages.total)+" ("+fmt(e.wages.hours,2)+"h, "+e.wages.staff+" staff) · Op Costs $"+fmt(e.op_costs.total)+". Daily result "+sgn(e.surplus)+" = "+fmt(margin,2)+"% margin."+extra;
 }
 
 function renderDay(entity, day){
@@ -125,10 +125,10 @@ function renderDay(entity, day){
   const label = DAY_DATA[day].label;
 
   let html = '<div class="kpis">' +
-    '<div class="kpi"><div class="l">Total Revenue</div><div class="v">$'+fmt(e.revenue.total)+'</div><div class="s">'+label+' Â· incl GST</div></div>' +
-    '<div class="kpi"><div class="l">Total COGS</div><div class="v">$'+fmt(e.cogs.total_cogs)+'</div><div class="s">'+(e.revenue.total?fmt(e.cogs.total_cogs/e.revenue.total*100,1):"â€”")+'% of revenue</div></div>' +
-    '<div class="kpi"><div class="l">Wages</div><div class="v">$'+fmt(e.wages.total)+'</div><div class="s">'+fmt(e.wages.hours,2)+'h Â· '+e.wages.staff+' staff</div></div>' +
-    '<div class="kpi"><div class="l">Remaining Op Costs</div><div class="v">$'+fmt(e.op_costs.total)+'</div><div class="s">'+(e.revenue.total?fmt(e.op_costs.total/e.revenue.total*100,1):"â€”")+'% of revenue</div></div>' +
+    '<div class="kpi"><div class="l">Total Revenue</div><div class="v">$'+fmt(e.revenue.total)+'</div><div class="s">'+label+' · incl GST</div></div>' +
+    '<div class="kpi"><div class="l">Total COGS</div><div class="v">$'+fmt(e.cogs.total_cogs)+'</div><div class="s">'+(e.revenue.total?fmt(e.cogs.total_cogs/e.revenue.total*100,1):"—")+'% of revenue</div></div>' +
+    '<div class="kpi"><div class="l">Wages</div><div class="v">$'+fmt(e.wages.total)+'</div><div class="s">'+fmt(e.wages.hours,2)+'h · '+e.wages.staff+' staff</div></div>' +
+    '<div class="kpi"><div class="l">Remaining Op Costs</div><div class="v">$'+fmt(e.op_costs.total)+'</div><div class="s">'+(e.revenue.total?fmt(e.op_costs.total/e.revenue.total*100,1):"—")+'% of revenue</div></div>' +
   '</div>';
 
   html += '<div class="surplus '+(isSurp?"":"deficit")+'">' +
@@ -160,17 +160,17 @@ function renderDay(entity, day){
     html += '<div class="bar-row"><div class="nm"><span>'+supplierName+'</span><span class="v">$'+fmt(v)+'</span></div><div class="bar"><div class="fill" style="width:'+w+'%;background:var(--amber)"></div></div></div>';
     if (day === "fri" && entity === "vl") {
       if (k === "goodman_fielder") {
-        html += '<div class="late-note">âš  Late capture Â· Thursday 28 May invoice #9085673142 ($139.16) captured Friday Â· Friday invoice #9085690110 ($88.19) booked on delivery date</div>';
+        html += '<div class="late-note">⚠ Late capture · Thursday 28 May invoice #9085673142 ($139.16) captured Friday · Friday invoice #9085690110 ($88.19) booked on delivery date</div>';
       }
       if (k === "homegrown_juice") {
-        html += '<div class="late-note">âš  Late capture Â· Wednesday 27 May invoice #573026826 ($160.56, weekly Ã·7) captured Friday Â· 3 daily shares of $22.94 (Wed+Thu+Fri) booked today = $68.82</div>';
+        html += '<div class="late-note">⚠ Late capture · Wednesday 27 May invoice #573026826 ($160.56, weekly Ã·7) captured Friday · 3 daily shares of $22.94 (Wed+Thu+Fri) booked today = $68.82</div>';
       }
     }
   });
   html += '</div>';
 
   // Wages
-  html += '<div class="section"><h3>Wages <span class="sub">'+label+' Â· '+e.wages.staff+' Staff Â· '+fmt(e.wages.hours,2)+'h Â· $'+fmt(e.wages.total)+'</span></h3>';
+  html += '<div class="section"><h3>Wages <span class="sub">'+label+' · '+e.wages.staff+' Staff · '+fmt(e.wages.hours,2)+'h · $'+fmt(e.wages.total)+'</span></h3>';
   const avgRate = e.wages.hours > 0 ? e.wages.total/e.wages.hours : 0;
   html += '<div style="font-size:.78rem;color:var(--muted)">Effective average rate $'+fmt(avgRate,2)+'/h. See WTD tab for per-employee breakdown.</div>';
   html += '</div>';
@@ -185,7 +185,7 @@ function renderDay(entity, day){
     const w = Math.max(2, (Math.abs(v)/opMax)*100);
     const color = "var(--"+(opColors[k]||"blue")+")";
     const nm = k.replace(/_/g," ").replace(/\b\w/g,c=>c.toUpperCase());
-    const valStr = (v<0?"âˆ’":"")+"$"+fmt(Math.abs(v));
+    const valStr = (v<0?"−":"")+"$"+fmt(Math.abs(v));
     html += '<div class="bar-row"><div class="nm"><span>'+nm+'</span><span class="v">'+valStr+'</span></div><div class="bar"><div class="fill" style="width:'+w+'%;background:'+color+'"></div></div></div>';
   });
   html += '</div>';
@@ -242,7 +242,7 @@ function renderWTD(entity){
     const n=x[0], we=x[1];
     const rate = we.hours > 0 ? we.cost/we.hours : 0;
     const w = Math.max(2, we.hours/wageMax*100);
-    html += '<div class="bar-row"><div class="nm"><span>'+n+' Â· '+fmt(we.hours,2)+'h</span><span class="v">$'+fmt(we.cost)+' Â· $'+fmt(rate,2)+'/h</span></div><div class="bar"><div class="fill" style="width:'+w+'%;background:var(--blue)"></div></div></div>';
+    html += '<div class="bar-row"><div class="nm"><span>'+n+' · '+fmt(we.hours,2)+'h</span><span class="v">$'+fmt(we.cost)+' · $'+fmt(rate,2)+'/h</span></div><div class="bar"><div class="fill" style="width:'+w+'%;background:var(--blue)"></div></div></div>';
   });
   html += '</div>';
 
@@ -255,7 +255,7 @@ function renderWTD(entity){
     const k=x[0], v=x[1];
     const color = "var(--"+(opColors[k]||"blue")+")";
     const nm = k.replace(/_/g," ").replace(/\b\w/g,c=>c.toUpperCase());
-    const valStr = (v<0?"âˆ’":"")+"$"+fmt(Math.abs(v));
+    const valStr = (v<0?"−":"")+"$"+fmt(Math.abs(v));
     html += '<div class="bar-row"><div class="nm"><span>'+nm+'</span><span class="v">'+valStr+'</span></div><div class="bar"><div class="fill" style="width:'+Math.max(2,Math.abs(v)/opMax*100)+'%;background:'+color+'"></div></div></div>';
   });
   html += '</div>';
@@ -264,7 +264,7 @@ function renderWTD(entity){
 
 function renderMTD(entity){
   // MTD: just relay WTD since we only have current-week data in DAY_DATA
-  return '<div class="commentary">MTD view: the dashboard currently embeds only the current week (Mon 25 â€“ Fri 29 May). For a multi-week MTD view, daily entries from earlier weeks would need to be aggregated. Showing the current weekâ€™s WTD figures instead:</div>' + renderWTD(entity);
+  return '<div class="commentary">MTD view: the dashboard currently embeds only the current week (Mon 25 – Fri 29 May). For a multi-week MTD view, daily entries from earlier weeks would need to be aggregated. Showing the current week’s WTD figures instead:</div>' + renderWTD(entity);
 }
 
 function setupEntityPane(entity){
