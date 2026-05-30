@@ -186,7 +186,7 @@ document.querySelectorAll('.tab[data-entity]').forEach(btn => {
     document.querySelectorAll('.pane').forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
     const ent = btn.dataset.entity;
-    document.querySelector(.pane[data-pane="+ent+"]).classList.add('active');
+    document.querySelector('.pane[data-pane="' + ent + '"]').classList.add('active');
   });
 });
 document.querySelector('.pane[data-pane="vs"]').classList.add('active');
