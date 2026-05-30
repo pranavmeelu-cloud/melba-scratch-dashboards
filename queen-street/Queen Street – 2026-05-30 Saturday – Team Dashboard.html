@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Queen Street – Saturday 30 May 2026 – Team Dashboard</title>
+<style>
+:root{--bg:#0f1419;--card:#1a1f2e;--card-2:#232938;--ink:#e6edf3;--muted:#7d8ba1;--border:#2a3547;--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--purple:#a78bfa;--orange:#f97316;--teal:#34d399;--fuchsia:#e879f9}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:20px;line-height:1.5}
+.container{max-width:1400px;margin:0 auto}
+h1{font-size:1.7rem;font-weight:700;margin-bottom:6px}
+.pill{display:inline-block;font-size:.7rem;font-weight:600;padding:3px 9px;border-radius:99px;background:var(--card-2);color:var(--muted);margin-left:8px;text-transform:uppercase;letter-spacing:.05em}
+.pill.team{background:#2a1f0d;color:#fbbf24}
+.subtitle{color:var(--muted);font-size:.9rem;margin-bottom:18px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px}
+.kpi .l{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:6px}
+.kpi .v{font-size:1.5rem;font-weight:700}
+.kpi .s{font-size:.7rem;color:var(--muted);margin-top:3px}
+.section{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:18px}
+.section h3{font-size:.92rem;margin-bottom:14px;display:flex;justify-content:space-between;align-items:baseline}
+.section h3 .sub{font-size:.72rem;color:var(--muted);font-weight:400}
+.bar-row{margin-bottom:10px}
+.bar-row .nm{font-size:.78rem;color:var(--ink);margin-bottom:3px;display:flex;justify-content:space-between;gap:10px}
+.bar-row .nm .v{color:var(--muted);font-variant-numeric:tabular-nums;font-size:.74rem;text-align:right}
+.bar{height:10px;background:var(--card-2);border-radius:4px;overflow:hidden}
+.bar .fill{height:100%;border-radius:4px}
+.late-note{font-size:.7rem;color:var(--amber);margin:-3px 0 7px 8px;padding-left:8px;border-left:2px solid var(--amber);line-height:1.4}
+.note{font-size:.78rem;color:var(--muted);margin-top:8px;line-height:1.5}
+.fcastcard{background:var(--card-2);border:1px solid var(--border);border-radius:8px;padding:14px;margin-bottom:12px}
+.fcastcard.tight{border-color:rgba(251,191,36,.4)}
+.fcastcard.strong{border-color:rgba(74,222,128,.4)}
+.fcastcard h4{font-size:.95rem;margin-bottom:10px;font-weight:600}
+.fcastrow{display:flex;justify-content:space-between;font-size:.82rem;margin-bottom:4px}
+.fcastrow .l{color:var(--muted)}
+.fcastrow .v{font-variant-numeric:tabular-nums}
+.fcast-cogs{color:var(--amber);font-weight:600}
+.fcast-wages{color:var(--blue);font-weight:600}
+.bfh{background:rgba(96,165,250,.05);border:1px solid rgba(96,165,250,.2);border-radius:6px;padding:12px;margin-top:12px}
+.bfh-title{font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--blue);margin-bottom:8px;font-weight:600}
+.bfh table{width:100%;border-collapse:collapse;font-size:.78rem}
+.bfh th{text-align:left;padding:4px 6px;color:var(--muted);font-weight:500;border-bottom:1px solid var(--border);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em}
+.bfh td{padding:5px 6px;border-bottom:1px solid rgba(255,255,255,.04);font-variant-numeric:tabular-nums}
+.bfh td.area{color:var(--muted);font-size:.72rem}
+.bfh .note{font-size:.7rem;color:var(--muted);margin-top:8px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Queen Street
+<span class="pill">All $ incl GST</span>
+<span class="pill team">Team View</span></h1>
+<div class="subtitle">Saturday 30 May 2026 · Closed Saturday</div>
+
+<div class="kpis">
+  <div class="kpi"><div class="l">Total Revenue</div><div class="v">$0.00</div><div class="s">Closed today · WTD $3,596.10</div></div>
+  <div class="kpi"><div class="l">Total COGS</div><div class="v">$0.00</div><div class="s">WTD $351.65</div></div>
+  <div class="kpi"><div class="l">Wages</div><div class="v">$0.00</div><div class="s">0h · 0 staff · WTD $1,508.08</div></div>
+  <div class="kpi"><div class="l">Remaining Op Costs</div><div class="v">$0.00</div><div class="s">WTD $918.50</div></div>
+</div>
+<div style="border:1px solid var(--border);background:linear-gradient(135deg,#1a1f2e,#0f1419);padding:18px 22px;border-radius:8px;margin-bottom:18px">
+  <div style="font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:6px">Daily Result</div>
+  <div class="sval" style="color:var(--muted);font-size:2.2rem;font-weight:700">— Closed today —</div>
+  <div class="sn" style="font-size:.78rem;color:var(--muted);margin-top:4px">No revenue · Fixed costs only</div>
+</div>
+<div class="section"><h3>Revenue Breakdown <span class="sub">Today · WTD</span></h3><div class="bar-row"><div class="nm"><span>CAFE</span><span class="v">$0.00 · WTD $3596.10</span></div><div class="bar"><div class="fill" style="width:2%;background:#60a5fa"></div></div></div></div>
+<div class="section"><h3>COGS Breakdown <span class="sub">Today · WTD</span></h3><div class="bar-row"><div class="nm"><span>Bidfood</span><span class="v">$0.00 · WTD $0.00</span></div><div class="bar"><div class="fill" style="width:2%;background:#f87171"></div></div></div><div class="bar-row"><div class="nm"><span>Five Elements</span><span class="v">$0.00 · WTD $351.65</span></div><div class="bar"><div class="fill" style="width:100%;background:#f87171"></div></div></div><div class="note">Queen Street is closed Saturday – no new COGS booked today.</div></div>
+<div class="section"><h3>Wages <span class="sub">0h · 0 staff · WTD hours by employee</span></h3><div class="note">No staff scheduled today – Queen Street is closed Saturday.</div><div style="margin-top:12px"><div class="bar-row"><div class="nm"><span>Mana Cervela</span><span class="v">26.00h</span></div><div class="bar"><div class="fill" style="width:100%;background:#60a5fa"></div></div></div><div class="bar-row"><div class="nm"><span>Rocio Maria Sanchez</span><span class="v">23.94h</span></div><div class="bar"><div class="fill" style="width:92%;background:#60a5fa"></div></div></div><div class="bar-row"><div class="nm"><span>Eden Wharerau</span><span class="v">4.47h</span></div><div class="bar"><div class="fill" style="width:17%;background:#60a5fa"></div></div></div></div></div>
+<div class="section"><h3>Commentary</h3><div class="note">
+<b>Queen Street · Saturday 30 May 2026:</b> Closed for the day. WTD revenue $3,596.10 over 5 trading days (Mon – Fri) with a healthy $817.87 surplus and 22.74% margin – above the 20% team target ✓. Best week-to-date performance of the four entities by margin. Next trading day is Monday.
+</div></div>
+
+</div>
+</body>
+</html>
