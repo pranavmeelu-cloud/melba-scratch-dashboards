@@ -4,72 +4,73 @@
 <meta charset="UTF-8">
 <title>Scratch Bakers – Dashboard History</title>
 <style>
-:root{--bg:#0f1419;--card:#1a1f2e;--card-2:#232938;--ink:#e6edf3;--muted:#7d8ba1;--border:#2a3547;--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--orange:#f97316}
+:root{--bg:#0f1419;--card:#1a1f2e;--card-2:#232938;--ink:#e6edf3;--muted:#7d8ba1;--border:#2a3547;--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--purple:#a78bfa;--orange:#f97316}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:20px;line-height:1.5}
-.container{max-width:1100px;margin:0 auto}
-h1{font-size:1.7rem;font-weight:700;margin-bottom:6px}
-.pill{display:inline-block;font-size:.7rem;font-weight:600;padding:3px 9px;border-radius:99px;background:#2a1f0d;color:#fbbf24;margin-left:8px;text-transform:uppercase;letter-spacing:.05em}
+.container{max-width:1200px;margin:0 auto}
+h1{font-size:1.6rem;font-weight:700;margin-bottom:6px}
+.pill{display:inline-block;font-size:.7rem;font-weight:600;padding:3px 9px;border-radius:99px;background:var(--card-2);color:var(--muted);margin-left:8px;text-transform:uppercase;letter-spacing:.05em}
+.pill.owner{background:#172a4a;color:#9bc4ff}
+.pill.team{background:#2a1f4a;color:#c4b5fd}
+.pill.green{background:#0d2a1a;color:var(--green)}
+.pill.amber{background:#2a2010;color:var(--amber)}
+.pill.red{background:#2a1010;color:var(--red)}
+.pill.deepgreen{background:#0a2e18;color:#86efac}
+.pill.orange{background:#2a1a08;color:var(--orange)}
 .subtitle{color:var(--muted);font-size:.9rem;margin-bottom:18px}
-.wtdcard{background:linear-gradient(135deg,#172a4a,#1a1f2e);border:1px solid var(--blue);padding:16px;border-radius:8px;margin-bottom:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.wtdcard .l{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:4px}
-.wtdcard .v{font-size:1.5rem;font-weight:700}
-.section{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:18px}
-table.hist{width:100%;border-collapse:collapse;font-size:.85rem}
-table.hist th{background:var(--card-2);text-align:left;padding:10px;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
-table.hist td{padding:9px 10px;border-bottom:1px solid var(--border);font-variant-numeric:tabular-nums}
-table.hist td.r{text-align:right}
-table.hist tr.wtd-row td{border-bottom:2px solid #3a4f6a;color:var(--muted);background:rgba(96,165,250,.04)}
-table.hist a{color:var(--blue);text-decoration:none}
-table.hist a:hover{text-decoration:underline}
-.mpill{display:inline-block;padding:3px 9px;border-radius:99px;font-size:.7rem;font-weight:600}
-.mpill.deepgreen{background:#0a2e18;color:#4ade80}
-.mpill.green{background:#0d261a;color:#4ade80}
-.mpill.amber{background:#2a1f08;color:#fbbf24}
-.mpill.orange{background:#261a08;color:#f97316}
-.mpill.red{background:#261010;color:#f87171}
+.wtd-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:18px;margin-bottom:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.wtd-card .l{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:4px}
+.wtd-card .v{font-size:1.5rem;font-weight:700;font-variant-numeric:tabular-nums}
+table.idx{width:100%;border-collapse:collapse;font-size:.86rem;background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+table.idx th,table.idx td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border)}
+table.idx th{color:var(--muted);text-transform:uppercase;font-size:.7rem;letter-spacing:.05em;background:var(--card-2)}
+table.idx td.r{text-align:right;font-variant-numeric:tabular-nums}
+table.idx a{color:var(--blue);text-decoration:none}
+table.idx a:hover{text-decoration:underline}
+tr.wtd-row{font-weight:600}
+tr.wtd-row td{border-bottom:2px solid #3a4f6a;color:var(--muted)}
 </style>
 </head>
 <body>
 <div class="container">
-<h1>Scratch Bakers — Dashboard History <span class="pill">Team View</span></h1>
-<div class="subtitle">All team dashboards — most recent first — threshold 15%</div>
-
-<div class="wtdcard" id="wtd-card">
-  <div><div class="l">WTD Revenue</div><div class="v">$41,922.21</div></div>
-  <div><div class="l">WTD Surplus</div><div class="v" style="color:var(--green)">+`$2,151.97</div></div>
-  <div><div class="l">WTD Margin</div><div class="v">5.13%</div></div>
+<h1>Scratch Bakers <span class="pill team">Team View</span> <span class="pill">Dashboard History</span></h1>
+<div class="subtitle">Daily Team Dashboards · WTD rows pinned above each week</div>
+<div class="wtd-card">
+<div><div class="l">Current Week Revenue</div><div class="v">$45,092.20</div></div>
+<div><div class="l">Current Week Surplus</div><div class="v">$2,233.08</div></div>
+<div><div class="l">Current Week Margin</div><div class="v">5.0%</div></div>
 </div>
-
-<div class="section">
-<table class="hist"><thead><tr><th>Date</th><th class="r">Revenue</th><th>Margin</th><th></th></tr></thead>
-<tbody id="hist-body"></tbody></table>
-</div>
+<table class="idx"><thead><tr><th>Date</th><th>Revenue</th><th>Surplus</th><th>Margin</th><th></th></tr></thead><tbody id="tb"></tbody></table>
 </div>
 <script>
-const HISTORY_DATA = [{"date":"2026-05-30","label":"Sat 30 May 2026","revenue":2672.04,"margin":24.34,"surplus":650.46,"file":"Scratch Bakers – 2026-05-30 Saturday – Team Dashboard.html"},{"date":"2026-05-29","label":"Fri 29 May 2026","revenue":6796.38,"margin":-10.168354329804984,"surplus":-691.08,"file":"Scratch Bakers – 2026-05-29 Friday – Team Dashboard.html"},{"date":"2026-05-28","label":"Thu 28 May 2026","revenue":9743.43,"margin":23.95,"surplus":2333.00,"file":"Scratch Bakers – 2026-05-28 Thursday – Team Dashboard.html"},{"date":"2026-05-27","label":"Wed 27 May 2026","revenue":8781.03,"margin":-3.98,"surplus":-349.37,"file":"Scratch Bakers – 2026-05-27 Wednesday – Team Dashboard.html"},{"date":"2026-05-26","label":"Tue 26 May 2026","revenue":9449.69,"margin":-1.56,"surplus":-147.29,"file":"Scratch Bakers – 2026-05-26 Tuesday – Team Dashboard.html"},{"date":"2026-05-25","label":"Mon 25 May 2026","revenue":7151.68,"margin":14.08,"surplus":1006.71,"file":"Scratch Bakers – 2026-05-25 Monday – Team Dashboard.html"},{"date":"2026-05-24","label":"Sun 24 May 2026","revenue":612.26,"margin":-90.45,"surplus":-553.84,"file":"Scratch Bakers – 2026-05-24 Sunday – Team Dashboard.html"},{"date":"2026-05-23","label":"Sat 23 May 2026","revenue":3617.67,"margin":49.55,"surplus":1792.52,"file":"Scratch Bakers – 2026-05-23 Saturday – Team Dashboard.html"},{"date":"2026-05-22","label":"Fri 22 May 2026","revenue":14210.96,"margin":45.83,"surplus":6512.45,"file":"Scratch Bakers – 2026-05-22 Friday – Team Dashboard.html"},{"date":"2026-05-21","label":"Thu 21 May 2026","revenue":14858.13,"margin":49.89,"surplus":7412.62,"file":"Scratch Bakers – 2026-05-21 Thursday – Team Dashboard.html"},{"date":"2026-05-20","label":"Wed 20 May 2026","revenue":10644.92,"margin":33.74,"surplus":3591.92,"file":"Scratch Bakers – 2026-05-20 Wednesday – Team Dashboard.html"},{"date":"2026-05-19","label":"Tue 19 May 2026","revenue":8268.55,"margin":27.27,"surplus":2255.00,"file":"Scratch Bakers – 2026-05-19 Tuesday – Team Dashboard.html"},{"date":"2026-05-18","label":"Mon 18 May 2026","revenue":8395.35,"margin":7.21,"surplus":605.56,"file":"Scratch Bakers – 2026-05-18 Monday – Team Dashboard.html"}];
-const WTD_HISTORY = [{"week_start":"2026-05-25","days_included":["mon","tue","wed","thu","fri","sat"],"revenue":44594.25,"surplus":2802.45,"margin":6.2843},{"week_start":"2026-05-18","days_included":["mon","tue","wed","thu","fri","sat","sun"],"revenue":60607.84,"surplus":21616.23,"margin":35.67}];
-const THRESHOLD = 15;
-function isoWeekStart(d){const dt=new Date(d);const day=(dt.getDay()+6)%7;dt.setDate(dt.getDate()-day);return dt.toISOString().slice(0,10);}
-function fmtMoney(v){if(v===null||v===undefined)return "";const sign=v<0?"−":(v>0?"+":"");return sign+"$"+Math.abs(v).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,",");}
-function pill(m){let cls="red";if(m>=THRESHOLD+10)cls="deepgreen";else if(m>=THRESHOLD)cls="green";else if(m>=THRESHOLD-5)cls="amber";else if(m>=0)cls="orange";return '<span class="mpill '+cls+'">'+m.toFixed(2)+'%</span>';}
-const grouped={};const order=[];
-HISTORY_DATA.forEach(e=>{const wk=isoWeekStart(e.date);if(!grouped[wk]){grouped[wk]=[];order.push(wk);}grouped[wk].push(e);});
-const tbody=document.getElementById("hist-body");
-order.forEach(wk=>{
-  const wtd=WTD_HISTORY.find(w=>w.week_start===wk);
-  if(wtd){
-    const row=document.createElement("tr");row.className="wtd-row";
-    const dr=(wtd.days_included&&wtd.days_included.length)?wtd.days_included[0].toUpperCase()+"–"+wtd.days_included[wtd.days_included.length-1].toUpperCase():"";
-    row.innerHTML='<td><b>Week to Date</b> '+dr+'</td><td class="r">$'+wtd.revenue.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,",")+'</td><td>'+pill(wtd.margin)+'</td><td></td>';
-    tbody.appendChild(row);
-  }
-  grouped[wk].forEach(d=>{
-    const row=document.createElement("tr");
-    row.innerHTML='<td>'+d.label+'</td><td class="r">$'+d.revenue.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,",")+'</td><td>'+pill(d.margin)+'</td><td><a href="'+d.file+'">Open →</a></td>';
-    tbody.appendChild(row);
+const HISTORY_DATA = [{date:"2026-05-31",label:"Sun 31 May 2026",revenue:497.95,margin:-114.34,surplus:-569.35,file:"Scratch Bakers – 2026-05-31 Sunday – Team Dashboard.html"},{"date":"2026-05-30","label":"Sat 30 May 2026","revenue":2672.04,"margin":24.34,"surplus":650.46,"file":"Scratch Bakers – 2026-05-30 Saturday – Team Dashboard.html"},{"date":"2026-05-29","label":"Fri 29 May 2026","revenue":6796.38,"margin":-10.168354329804984,"surplus":-691.08,"file":"Scratch Bakers – 2026-05-29 Friday – Team Dashboard.html"},{"date":"2026-05-28","label":"Thu 28 May 2026","revenue":9743.43,"margin":23.95,"surplus":2333.00,"file":"Scratch Bakers – 2026-05-28 Thursday – Team Dashboard.html"},{"date":"2026-05-27","label":"Wed 27 May 2026","revenue":8781.03,"margin":-3.98,"surplus":-349.37,"file":"Scratch Bakers – 2026-05-27 Wednesday – Team Dashboard.html"},{"date":"2026-05-26","label":"Tue 26 May 2026","revenue":9449.69,"margin":-1.56,"surplus":-147.29,"file":"Scratch Bakers – 2026-05-26 Tuesday – Team Dashboard.html"},{"date":"2026-05-25","label":"Mon 25 May 2026","revenue":7151.68,"margin":14.08,"surplus":1006.71,"file":"Scratch Bakers – 2026-05-25 Monday – Team Dashboard.html"},{"date":"2026-05-24","label":"Sun 24 May 2026","revenue":612.26,"margin":-90.45,"surplus":-553.84,"file":"Scratch Bakers – 2026-05-24 Sunday – Team Dashboard.html"},{"date":"2026-05-23","label":"Sat 23 May 2026","revenue":3617.67,"margin":49.55,"surplus":1792.52,"file":"Scratch Bakers – 2026-05-23 Saturday – Team Dashboard.html"},{"date":"2026-05-22","label":"Fri 22 May 2026","revenue":14210.96,"margin":45.83,"surplus":6512.45,"file":"Scratch Bakers – 2026-05-22 Friday – Team Dashboard.html"},{"date":"2026-05-21","label":"Thu 21 May 2026","revenue":14858.13,"margin":49.89,"surplus":7412.62,"file":"Scratch Bakers – 2026-05-21 Thursday – Team Dashboard.html"},{"date":"2026-05-20","label":"Wed 20 May 2026","revenue":10644.92,"margin":33.74,"surplus":3591.92,"file":"Scratch Bakers – 2026-05-20 Wednesday – Team Dashboard.html"},{"date":"2026-05-19","label":"Tue 19 May 2026","revenue":8268.55,"margin":27.27,"surplus":2255.00,"file":"Scratch Bakers – 2026-05-19 Tuesday – Team Dashboard.html"},{"date":"2026-05-18","label":"Mon 18 May 2026","revenue":8395.35,"margin":7.21,"surplus":605.56,"file":"Scratch Bakers – 2026-05-18 Monday – Team Dashboard.html"}];
+const WTD_HISTORY = [{week_start:"2026-05-25",days_included:["mon","tue","wed","thu","fri","sat","sun"],revenue:45092.2,surplus:2233.08,margin:4.95},{"week_start":"2026-05-18","days_included":["mon","tue","wed","thu","fri","sat","sun"],"revenue":60607.84,"surplus":21616.23,"margin":35.67}];
+const THR = 15;
+function isoWeek(iso){const d=new Date(iso);const day=(d.getUTCDay()+6)%7;d.setUTCDate(d.getUTCDate()-day);return d.toISOString().slice(0,10);}
+function fmt(n){return '$'+n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+function pctCls(m,t){return m>=t+10?'deepgreen':m>=t?'green':m>=t-5?'amber':m>=0?'orange':'red';}
+function render(){
+  const groups={};
+  HISTORY_DATA.forEach(r=>{const w=isoWeek(r.date);if(!groups[w])groups[w]=[];groups[w].push(r);});
+  const tb=document.getElementById('tb');tb.innerHTML='';
+  const sortedWeeks=Object.keys(groups).sort().reverse();
+  const dayMap={mon:'Mon',tue:'Tue',wed:'Wed',thu:'Thu',fri:'Fri',sat:'Sat',sun:'Sun'};
+  sortedWeeks.forEach(w=>{
+    const wtd=WTD_HISTORY.find(x=>x.week_start===w);
+    if(wtd){
+      const tr=document.createElement('tr');tr.className='wtd-row';
+      const dlist=(wtd.days_included||[]).map(d=>dayMap[d]).join(' ');
+      tr.innerHTML='<td>Week to Date<br><span style="font-weight:400;font-size:.78rem">'+dlist+'</span></td><td class="r">'+fmt(wtd.revenue)+'</td><td class="r">'+fmt(wtd.surplus)+'</td><td><span class="pill '+pctCls(wtd.margin,THR)+'">'+wtd.margin.toFixed(1)+'%</span></td><td></td>';
+      tb.appendChild(tr);
+    }
+    groups[w].forEach(r=>{
+      const tr=document.createElement('tr');
+      tr.innerHTML='<td>'+r.label+'</td><td class="r">'+fmt(r.revenue)+'</td><td class="r">'+fmt(r.surplus)+'</td><td><span class="pill '+pctCls(r.margin,THR)+'">'+r.margin.toFixed(1)+'%</span></td><td><a href="'+r.file+'">Open '+'→'+'</a></td>';
+      tb.appendChild(tr);
+    });
   });
-});
+}
+render();
 </script>
 </body>
 </html>

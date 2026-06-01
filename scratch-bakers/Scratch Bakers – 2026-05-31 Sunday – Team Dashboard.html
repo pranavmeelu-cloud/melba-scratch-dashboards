@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Scratch Bakers – Sunday 31 May 2026 – Team Dashboard</title>
+<style>
+:root{--bg:#0f1419;--card:#1a1f2e;--card-2:#232938;--ink:#e6edf3;--muted:#7d8ba1;--border:#2a3547;--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--purple:#a78bfa;--orange:#f97316;--teal:#34d399;--fuchsia:#e879f9}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:20px;line-height:1.5}
+.container{max-width:1200px;margin:0 auto}
+h1{font-size:1.6rem;font-weight:700;margin-bottom:6px}
+h2{font-size:1.1rem;font-weight:600;margin:24px 0 10px}
+.pill{display:inline-block;font-size:.7rem;font-weight:600;padding:3px 9px;border-radius:99px;background:var(--card-2);color:var(--muted);margin-left:8px;text-transform:uppercase;letter-spacing:.05em}
+.pill.team{background:#2a1f4a;color:#c4b5fd}
+.subtitle{color:var(--muted);font-size:.9rem;margin-bottom:18px}
+.alert{padding:13px 16px;border-radius:8px;margin-bottom:18px;font-size:.86rem}
+.alert.warn{background:linear-gradient(135deg,#2a1f08,#1a1f2e);border:1px solid var(--amber);color:#fbe39a}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px}
+.kpi .l{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:6px}
+.kpi .v{font-size:1.5rem;font-weight:700}
+.kpi .s{font-size:.72rem;color:var(--muted);margin-top:2px}
+.sc{border-radius:8px;padding:18px;margin-bottom:24px}
+.sc.green{border:1px solid var(--green);background:linear-gradient(135deg,#0d261a,#1a1f2e)}
+.sc.deepgreen{border:1px solid var(--green);background:linear-gradient(135deg,#0a2e18,#1a1f2e)}
+.sc.amber{border:1px solid var(--amber);background:linear-gradient(135deg,#262010,#1a1f2e)}
+.sc.orange{border:1px solid var(--orange);background:linear-gradient(135deg,#261a08,#1a1f2e)}
+.sc.red{border:1px solid var(--red);background:linear-gradient(135deg,#261010,#1a1f2e)}
+.sc .sl{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:6px}
+.sc .sval{font-size:2.2rem;font-weight:700;margin-bottom:4px}
+.sc .sn{font-size:.78rem;color:var(--muted)}
+.barrow{display:grid;grid-template-columns:240px 1fr 110px 110px;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid #1f2738;font-size:.85rem}
+.barrow .nm{color:var(--ink)}
+.barrow .bar{height:18px;background:var(--card-2);border-radius:4px;position:relative;overflow:hidden}
+.barrow .barfill{height:100%;border-radius:4px}
+.barrow .amt{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.barrow .wtd{text-align:right;color:var(--muted);font-size:.78rem;font-variant-numeric:tabular-nums}
+.barhdr{display:grid;grid-template-columns:240px 1fr 110px 110px;gap:10px;font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding-bottom:6px;border-bottom:1px solid #2a3547;margin-bottom:2px}
+.barhdr div:nth-child(3),.barhdr div:nth-child(4){text-align:right}
+.note{font-size:.72rem;color:var(--muted);font-style:italic;margin-top:6px}
+.note.amber{color:var(--amber);font-style:normal;border-left:2px solid var(--amber);padding-left:8px;margin:-3px 0 7px 248px;font-size:.7rem}
+.commentary{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;margin-top:24px;font-size:.86rem;color:#cbd5e1;line-height:1.6}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.fcard{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px}
+.fcard.tight{border-color:rgba(251,191,36,.4)}
+.fcard.strong{border-color:rgba(74,222,128,.4)}
+.fcard h3{font-size:.92rem;margin-bottom:10px;font-weight:600}
+.fcard .row{display:flex;justify-content:space-between;padding:4px 0;font-size:.82rem;border-bottom:1px solid #1f2738}
+.fcard .lbl{color:var(--muted)}
+.fcard .val{font-variant-numeric:tabular-nums;font-weight:600}
+.fcard .val.cogs{color:var(--amber)}
+.fcard .val.wages{color:var(--blue)}
+.fnote{font-size:.7rem;color:var(--muted);font-style:italic;margin-top:6px}
+.fnote.amber{color:var(--amber);font-style:normal}
+.fnote.green{color:var(--green);font-style:normal}
+.bfh{background:rgba(96,165,250,.05);border:1px solid rgba(96,165,250,.2);border-radius:8px;padding:12px;margin-top:12px}
+.bfh h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--blue);margin-bottom:8px}
+.bfh table{width:100%;border-collapse:collapse;font-size:.8rem}
+.bfh th,.bfh td{padding:4px 8px;text-align:left;border-bottom:1px solid rgba(96,165,250,.1)}
+.bfh th{color:var(--muted);text-transform:uppercase;font-size:.65rem}
+.bfh td.r{text-align:right;font-variant-numeric:tabular-nums}
+.bfh .ftrnote{font-size:.7rem;color:var(--muted);margin-top:8px;font-style:italic}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Scratch Bakers <span class="pill">All $ incl GST</span> <span class="pill team">Team View</span></h1>
+<div class="subtitle">Sunday 31 May 2026</div>
+<div class="alert warn"><b>⚠ Note:</b> Sunday wages estimated from Sun 24 May 2026 timesheets (no Sun 31 file uploaded yet).</div>
+<div class="kpis">
+<div class="kpi"><div class="l">Total Revenue</div><div class="v">$497.95</div><div class="s">WTD $45,092.20</div></div>
+<div class="kpi"><div class="l">Total COGS</div><div class="v">$0.00</div><div class="s">WTD $13,332.51</div></div>
+<div class="kpi"><div class="l">Wages</div><div class="v">$863.55</div><div class="s">29.71h · 5 staff</div></div>
+<div class="kpi"><div class="l">Op Costs</div><div class="v">$203.75</div><div class="s">WTD $13,980.16</div></div>
+</div>
+<div class="sc red"><div class="sl">Daily Result</div><div class="sval" style="color:var(--red)">-114.3%</div><div class="sn">of revenue · Target ≥15% · below target</div><div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)">
+  <div style="font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:10px">To reach 15% — today's adjustments needed</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+    <div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:3px">COGS should have been</div>
+      <div style="font-size:1.15rem;font-weight:700;color:#fbbf24">≥$0.00</div>
+      <div style="font-size:10px;color:var(--muted)">$-470.25 vs actual $0.00</div>
+    </div>
+    <div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:3px">Wages should have been</div>
+      <div style="font-size:1.15rem;font-weight:700;color:#60a5fa">≥$628.42</div>
+      <div style="font-size:10px;color:var(--muted)">$-235.13 vs actual $863.55</div>
+    </div>
+  </div>
+</div></div>
+<h2>Revenue Breakdown</h2>
+<div class="barhdr"><div>Stream</div><div></div><div>Today</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">cafe</div><div class="bar"><div class="barfill" style="width:0%;background:#4ade80"></div></div><div class="amt">$0.00</div><div class="wtd">$0.00</div></div><div class="barrow"><div class="nm">wholesale</div><div class="bar"><div class="barfill" style="width:0%;background:#4ade80"></div></div><div class="amt">$0.00</div><div class="wtd">$0.00</div></div><div class="barrow"><div class="nm">tvnz</div><div class="bar"><div class="barfill" style="width:0%;background:#4ade80"></div></div><div class="amt">$0.00</div><div class="wtd">$0.00</div></div><div class="barrow"><div class="nm">catering</div><div class="bar"><div class="barfill" style="width:100%;background:#4ade80"></div></div><div class="amt">$497.95</div><div class="wtd">$45,092.20</div></div>
+<h2>COGS Breakdown</h2>
+<div class="barhdr"><div>Supplier</div><div></div><div>Today</div><div>WTD</div></div>
+<div class="note">No COGS booked today.</div>
+<h2>Wages</h2>
+<div class="barhdr"><div>Employee</div><div></div><div>Hours</div><div>Area</div></div>
+<div class="barrow"><div class="nm">Mohd Fahmi (Jimmy SB) · 7.73h</div><div class="bar"><div class="barfill" style="width:100%;background:#4ade80"></div></div><div class="amt">7.73h</div><div class="wtd">Kitchen</div></div><div class="barrow"><div class="nm">Suparna Faizal · 7.55h</div><div class="bar"><div class="barfill" style="width:98%;background:#4ade80"></div></div><div class="amt">7.55h</div><div class="wtd">Kitchen</div></div><div class="barrow"><div class="nm">Harry (Trimandeep Singh) · 5.85h</div><div class="bar"><div class="barfill" style="width:76%;background:#4ade80"></div></div><div class="amt">5.85h</div><div class="wtd">Kitchen</div></div><div class="barrow"><div class="nm">Jahnevah Numa · 4.33h</div><div class="bar"><div class="barfill" style="width:56%;background:#4ade80"></div></div><div class="amt">4.33h</div><div class="wtd">Kitchen</div></div><div class="barrow"><div class="nm">Kanika banth · 4.25h</div><div class="bar"><div class="barfill" style="width:55%;background:#4ade80"></div></div><div class="amt">4.25h</div><div class="wtd">Kitchen</div></div>
+<div class="commentary">
+<b>Scratch Bakers · Sunday 31 May 2026</b><br>
+Revenue $497.95. COGS $0.00. Wages $863.55 over 29.71h. Op costs $203.75.<br>
+Daily deficit $-569.35 at -114.3% (target ≥15%).<br>
+<b>WTD:</b> Revenue $45,092.20, surplus $2,233.08 at 5.0%.
+</div>
+<h2>Forward Forecast</h2><div class="subtitle">Next 2 trading days · budgets shown are entity targets at stream-weighted benchmark</div><div class="fgrid"><div class="fcard ">
+<h3>Mon 1 Jun</h3>
+<div class="row"><div class="lbl">Cafe</div><div class="val">$2,262.70</div></div><div class="row"><div class="lbl">TVNZ</div><div class="val">$866.10</div></div><div class="row"><div class="lbl">Catering</div><div class="val">$712.08</div></div><div class="row"><div class="lbl">Wholesale</div><div class="val">$4,615.19</div></div>
+<div class="row"><div class="lbl">Forecast Revenue</div><div class="val">$8,456.07</div></div>
+<div class="row"><div class="lbl">Variable COGS Budget</div><div class="val cogs">$2,325.46</div></div>
+<div class="row"><div class="lbl">Wages Budget</div><div class="val wages">$2,982.25</div></div>
+
+<div class="fnote">Stream-weighted COGS: $2,499.71 — less committed: Natural Choice $23.48, Mauri ANZ $97.95, Mediterranean $52.82</div>
+</div><div class="fcard ">
+<h3>Tue 2 Jun</h3>
+<div class="row"><div class="lbl">Cafe</div><div class="val">$2,919.90</div></div><div class="row"><div class="lbl">TVNZ</div><div class="val">$681.50</div></div><div class="row"><div class="lbl">Catering</div><div class="val">$426.09</div></div><div class="row"><div class="lbl">Wholesale</div><div class="val">$2,911.57</div></div>
+<div class="row"><div class="lbl">Forecast Revenue</div><div class="val">$6,939.06</div></div>
+<div class="row"><div class="lbl">Variable COGS Budget</div><div class="val cogs">$1,824.89</div></div>
+<div class="row"><div class="lbl">Wages Budget</div><div class="val wages">$3,186.93</div></div>
+
+<div class="fnote">Stream-weighted COGS: $1,975.66 — less committed: Mauri ANZ $97.95, Mediterranean $52.82</div>
+</div></div><div class="bfh">
+<h4>Best Fit Hours · Mon 1 Jun</h4>
+<table><thead><tr><th>Employee</th><th>Area</th><th>Target hrs</th></tr></thead><tbody><tr><td>Harry (Trimandeep Singh)</td><td>Kitchen</td><td class="r">6.83h</td></tr><tr><td>Kanika banth</td><td>Kitchen</td><td class="r">8.88h</td></tr><tr><td>Hannah Purdy</td><td>FOH</td><td class="r">8.5h</td></tr><tr><td>Thomas Moller</td><td>Kitchen</td><td class="r">8.5h</td></tr><tr><td>Hannah Grace Davis</td><td>TVNZ</td><td class="r">8.5h</td></tr><tr><td>Sarai Egan</td><td>Kitchen</td><td class="r">8.5h</td></tr><tr><td>Suparna Faizal</td><td>Kitchen</td><td class="r">7.83h</td></tr><tr><td>Jahnevah Numa</td><td>Kitchen</td><td class="r">2.92h</td></tr><tr><td>Leo Grant</td><td>Kitchen</td><td class="r">3.5h</td></tr></tbody></table>
+<div class="ftrnote">63.96 total hours · full-time staff at minimum 7h</div>
+</div><div class="bfh">
+<h4>Best Fit Hours · Tue 2 Jun</h4>
+<table><thead><tr><th>Employee</th><th>Area</th><th>Target hrs</th></tr></thead><tbody><tr><td>Harry (Trimandeep Singh)</td><td>Kitchen</td><td class="r">7.28h</td></tr><tr><td>Kanika banth</td><td>Kitchen</td><td class="r">8.5h</td></tr><tr><td>Hannah Purdy</td><td>FOH</td><td class="r">7.57h</td></tr><tr><td>Thomas Moller</td><td>Kitchen</td><td class="r">8.5h</td></tr><tr><td>Hannah Grace Davis</td><td>TVNZ</td><td class="r">8.5h</td></tr><tr><td>Daishea Harris</td><td>FOH</td><td class="r">8.1h</td></tr><tr><td>Sarai Egan</td><td>Kitchen</td><td class="r">8.05h</td></tr><tr><td>Suparna Faizal</td><td>Kitchen</td><td class="r">7.95h</td></tr><tr><td>Leo Grant</td><td>Kitchen</td><td class="r">8.3h</td></tr></tbody></table>
+<div class="ftrnote">72.75 total hours · full-time staff at minimum 7h</div>
+</div>
+</div>
+<script>
+const FORECAST_BASE = {
+  last_week: {
+    mon: { vs:{cafe:1911.41,catering:603.22}, sb:{cafe:2262.70,tvnz:866.10,wholesale:4615.19,catering:651.36}, vl:{cafe:2438.33} },
+    tue: { vs:{cafe:2113.87,catering:2246.82}, sb:{cafe:2919.90,tvnz:681.50,wholesale:2911.57,catering:1755.58}, vl:{cafe:3662.35} },
+    wed: { vs:{cafe:2048.30,catering:1177.59}, sb:{cafe:3740.24,tvnz:925.00,wholesale:3389.19,catering:2590.49}, vl:{cafe:2628.97} },
+    thu: { vs:{cafe:2348.50,catering:3631.23}, sb:{cafe:3257.00,tvnz:729.50,wholesale:3263.69,catering:7607.94}, vl:{cafe:3089.53} },
+    fri: { vs:{cafe:1716.00,catering:290.94}, sb:{cafe:8182.90,tvnz:537.60,wholesale:3659.75,catering:1830.71}, vl:{cafe:4006.31} },
+    sat: { vl:{cafe:4655.96}, sb:{wholesale:3119.72} },
+    sun: { vl:{cafe:4549.74}, sb:{wholesale:114.31} }
+  },
+  last_week_wages: {
+    mon: { vs:1428.14, sb:2982.25, vl:1040.69 },
+    tue: { vs:1743.95, sb:3186.93, vl:1183.10 },
+    wed: { vs:1558.12, sb:3448.31, vl:1319.96 },
+    thu: { vs:1685.08, sb:3463.49, vl:1150.70 },
+    fri: { vs:1302.62, sb:2916.72, vl:1319.96 },
+    sat: { vl:1171.25 },
+    sun: { vl:1379.73 }
+  },
+  cogs_benchmarks: {
+    sb:  { cafe:0.25, tvnz:0.22, catering:0.18, wholesale:0.35 },
+    vs:  { cafe:0.26, catering:0.22 },
+    vl:  { cafe:0.25 },
+    qs:  { cafe:0.19 }
+  }
+};
+</script>
+</body>
+</html>
