@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Melba-Scratch Group Dashboard – Monday 1 June 2026</title>
+<style>
+:root{--bg:#0f1419;--card:#1a1f2e;--card-2:#232938;--ink:#e6edf3;--muted:#7d8ba1;--border:#2a3547;--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--purple:#a78bfa;--orange:#f97316;--teal:#34d399;--fuchsia:#e879f9}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:20px;line-height:1.5}
+.container{max-width:1400px;margin:0 auto}
+h1{font-size:1.7rem;font-weight:700;margin-bottom:6px}
+h2{font-size:1.1rem;font-weight:600;margin:24px 0 10px}
+.pill{display:inline-block;font-size:.7rem;font-weight:600;padding:3px 9px;border-radius:99px;background:var(--card-2);color:var(--muted);margin-left:8px;text-transform:uppercase;letter-spacing:.05em}
+.pill.owner{background:#172a4a;color:#9bc4ff}
+.pill.team{background:#2a1f4a;color:#c4b5fd}
+.pill.green{background:#0d2a1a;color:var(--green)}
+.pill.amber{background:#2a2010;color:var(--amber)}
+.pill.red{background:#2a1010;color:var(--red)}
+.pill.deepgreen{background:#0a2e18;color:#86efac}
+.pill.orange{background:#2a1a08;color:var(--orange)}
+.subtitle{color:var(--muted);font-size:.9rem;margin-bottom:18px}
+.alert{padding:13px 16px;border-radius:8px;margin-bottom:18px;font-size:.86rem}
+.alert.warn{background:linear-gradient(135deg,#2a1f08,#1a1f2e);border:1px solid var(--amber);color:#fbe39a}
+.tabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.tab{background:var(--card);border:1px solid var(--border);color:var(--ink);padding:10px 18px;border-radius:8px;cursor:pointer;font-size:.88rem}
+.tab:hover{border-color:var(--blue)}
+.tab.active{background:#172a4a;border-color:var(--blue);color:#bfdbfe}
+.badge{font-size:.65rem;background:var(--card-2);color:var(--muted);padding:2px 6px;border-radius:4px;margin-left:6px}
+.badge.ok{background:#0d2a1a;color:var(--green)}
+.pane{display:none}
+.pane.active{display:block}
+.daytabs{display:flex;gap:6px;margin-bottom:18px;border-bottom:1px solid var(--border);padding-bottom:10px;flex-wrap:wrap}
+.daytab{background:transparent;border:1px solid var(--border);color:var(--muted);padding:7px 14px;border-radius:6px;cursor:pointer;font-size:.8rem}
+.daytab.active{background:#172a4a;border-color:var(--blue);color:#bfdbfe}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px}
+.kpi .l{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:6px}
+.kpi .v{font-size:1.5rem;font-weight:700}
+.kpi .s{font-size:.72rem;color:var(--muted);margin-top:2px}
+.sc{border-radius:8px;padding:18px;margin-bottom:24px}
+.sc.green{border:1px solid var(--green);background:linear-gradient(135deg,#0d261a,#1a1f2e)}
+.sc.deepgreen{border:1px solid var(--green);background:linear-gradient(135deg,#0a2e18,#1a1f2e)}
+.sc.amber{border:1px solid var(--amber);background:linear-gradient(135deg,#262010,#1a1f2e)}
+.sc.orange{border:1px solid var(--orange);background:linear-gradient(135deg,#261a08,#1a1f2e)}
+.sc.red{border:1px solid var(--red);background:linear-gradient(135deg,#261010,#1a1f2e)}
+.sc .sl{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:6px}
+.sc .sval{font-size:2rem;font-weight:700;margin-bottom:4px}
+.sc .sn{font-size:.78rem;color:var(--muted)}
+.barrow{display:grid;grid-template-columns:240px 1fr 110px 110px;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid #1f2738;font-size:.85rem}
+.barrow .nm{color:var(--ink)}
+.barrow .bar{height:18px;background:var(--card-2);border-radius:4px;position:relative;overflow:hidden}
+.barrow .barfill{height:100%;border-radius:4px}
+.barrow .amt{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.barrow .wtd{text-align:right;color:var(--muted);font-size:.78rem;font-variant-numeric:tabular-nums}
+.barhdr{display:grid;grid-template-columns:240px 1fr 110px 110px;gap:10px;font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding-bottom:6px;border-bottom:1px solid #2a3547;margin-bottom:2px}
+.barhdr div:nth-child(3),.barhdr div:nth-child(4){text-align:right}
+.note{font-size:.72rem;color:var(--muted);font-style:italic;margin-top:6px}
+.note.amber{color:var(--amber);font-style:normal;border-left:2px solid var(--amber);padding-left:8px;margin:-3px 0 7px 248px;font-size:.7rem}
+.note.red{color:var(--red);font-style:normal;border-left:2px solid var(--red);padding-left:8px;margin:-3px 0 7px 248px;font-size:.7rem}
+.commentary{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;margin-top:24px;font-size:.86rem;color:#cbd5e1;line-height:1.6}
+.commentary b{color:var(--amber)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.fcard{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px}
+.fcard.tight{border-color:rgba(251,191,36,.4)}
+.fcard.strong{border-color:rgba(74,222,128,.4)}
+.fcard h3{font-size:.92rem;margin-bottom:10px;font-weight:600}
+.fcard .row{display:flex;justify-content:space-between;padding:4px 0;font-size:.82rem;border-bottom:1px solid #1f2738}
+.fcard .lbl{color:var(--muted)}
+.fcard .val{font-variant-numeric:tabular-nums;font-weight:600}
+.fcard .val.cogs{color:var(--amber)}
+.fcard .val.wages{color:var(--blue)}
+.fnote{font-size:.7rem;color:var(--muted);font-style:italic;margin-top:6px}
+.fnote.amber{color:var(--amber);font-style:normal}
+.fnote.green{color:var(--green);font-style:normal}
+.bfh{background:rgba(96,165,250,.05);border:1px solid rgba(96,165,250,.2);border-radius:8px;padding:12px;margin-top:12px}
+.bfh h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--blue);margin-bottom:8px}
+.bfh table{width:100%;border-collapse:collapse;font-size:.8rem}
+.bfh th,.bfh td{padding:4px 8px;text-align:left;border-bottom:1px solid rgba(96,165,250,.1)}
+.bfh th{color:var(--muted);text-transform:uppercase;font-size:.65rem}
+.bfh td.r{text-align:right;font-variant-numeric:tabular-nums}
+.bfh .ftrnote{font-size:.7rem;color:var(--muted);margin-top:8px;font-style:italic}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Melba-Scratch Group Dashboard <span class="pill">All $ incl GST</span> <span class="pill owner">Owner View</span></h1>
+<div class="subtitle">Monday 1 June 2026 · Week 1 of June · (Mon 1 Jun – new week)</div>
+<div class="alert warn"><b>⚠ Note:</b> Queen's Birthday public holiday — VS POS, SB cafe, TVNZ and QS closed. VL traded full day (strongest Monday in recent weeks). SB kitchen ran catering + wholesale only. New week — all WTD figures reset to Monday only.</div>
+<div class="tabs">
+<button class="tab active" data-entity="vs" onclick="showPane('vs')">Victoria Street <span class="badge ok">data ✓</span></button>
+<button class="tab" data-entity="sb" onclick="showPane('sb')">Scratch Bakers <span class="badge ok">data ✓</span></button>
+<button class="tab" data-entity="vl" onclick="showPane('vl')">Vulcan Lane <span class="badge ok">data ✓</span></button>
+<button class="tab" data-entity="qs" onclick="showPane('qs')">Queen Street <span class="badge ok">data ✓</span></button>
+</div>
+<div class="pane active" data-entity="vs">
+<div class="daytabs"><button class="daytab active" data-day="mon">Mon 1 Jun</button><button class="daytab" onclick="alert('WTD: revenue $0.00 · surplus $-78.05 · margin 0.0%')">WTD</button></div>
+<div class="kpis">
+  <div class="kpi"><div class="l">Total Revenue</div><div class="v">$0.00</div><div class="s">WTD $0.00</div></div>
+  <div class="kpi"><div class="l">Total COGS</div><div class="v">$33.01</div><div class="s">WTD $33.01</div></div>
+  <div class="kpi"><div class="l">Wages</div><div class="v">$0.00</div><div class="s">0h · WTD $0.00 / 0h</div></div>
+  <div class="kpi"><div class="l">Remaining Op Costs</div><div class="v">$45.04</div><div class="s">WTD $45.04</div></div>
+</div>
+<div class="sc orange"><div class="sl">Deficit</div><div class="sval">$-78.05</div><div class="sn">0.0% margin · target ≥20%</div></div>
+<h2>Revenue Breakdown</h2>
+<div class="barhdr"><div>Stream</div><div></div><div>Mon 1 Jun</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">POS</div><div class="bar"><div class="barfill" style="width:0%;background:#4ade80"></div></div><div class="amt">$0.00</div><div class="wtd">$0.00</div></div><div class="barrow"><div class="nm">Catering</div><div class="bar"><div class="barfill" style="width:0%;background:#4ade80"></div></div><div class="amt">$0.00</div><div class="wtd">$0.00</div></div>
+<h2>COGS Breakdown</h2>
+<div class="barhdr"><div>Supplier</div><div></div><div>Mon 1 Jun</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">LaundryCorp</div><div class="bar"><div class="barfill" style="width:95%;background:#fbbf24"></div></div><div class="amt">$16.10</div><div class="wtd">$16.10</div></div><div class="barrow"><div class="nm">Karma Drinks</div><div class="bar"><div class="barfill" style="width:100%;background:#fbbf24"></div></div><div class="amt">$16.91</div><div class="wtd">$16.91</div></div>
+<h2>Wages</h2>
+<div class="barhdr"><div>Employee</div><div></div><div>Cost</div><div>Hours</div></div>
+<div class="note">No wages booked for Victoria Street today.</div>
+<div class="note">Hourly rates from Pay Rates.xlsx. Hours from Deputy Timesheets — Monday, 1 June 2026.</div>
+<h2>Remaining Operational Costs</h2>
+<div class="barhdr"><div>Item</div><div></div><div>Mon 1 Jun</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">Car Loan</div><div class="bar"><div class="barfill" style="width:100%;background:#7d8ba1"></div></div><div class="amt">$29.36</div><div class="wtd">$29.36</div></div><div class="barrow"><div class="nm">Electricity</div><div class="bar"><div class="barfill" style="width:68%;background:#fbbf24"></div></div><div class="amt">$20.00</div><div class="wtd">$20.00</div></div><div class="barrow"><div class="nm">GST</div><div class="bar"><div class="barfill" style="width:15%;background:#f97316"></div></div><div class="amt">$-4.31</div><div class="wtd">$-4.31</div></div><div class="barrow"><div class="nm">Rent</div><div class="bar"><div class="barfill" style="width:0%;background:#60a5fa"></div></div><div class="amt">$0.00</div><div class="wtd">$0.00</div></div><div class="barrow"><div class="nm">Miscellaneous</div><div class="bar"><div class="barfill" style="width:0%;background:#f87171"></div></div><div class="amt">$0.00</div><div class="wtd">$0.00</div></div><div class="barrow"><div class="nm">Merchant Fees</div><div class="bar"><div class="barfill" style="width:0%;background:#34d399"></div></div><div class="amt">$0.00</div><div class="wtd">$0.00</div></div><div class="barrow"><div class="nm">Royalty</div><div class="bar"><div class="barfill" style="width:0%;background:#a78bfa"></div></div><div class="amt">$0.00</div><div class="wtd">$0.00</div></div>
+<div class="commentary">
+<b>Victoria Street · Karma Drinks</b><br>
+Revenue $0.00. COGS $33.01. Wages $0.00 over 0h. Op costs $45.04.<br>
+Daily deficit of $-78.05 (0.0% margin, target ≥20%).<br>
+<b>WTD:</b> Revenue $0.00, surplus $-78.05 at 0.0% · new week (Mon 1 Jun only).<br>
+⚠ VS POS closed for Queen's Birthday public holiday — no revenue, op costs reflect daily fixed items only (electricity, car loan, negative GST credit on COGS spread).
+</div>
+</div>
+<div class="pane" data-entity="sb">
+<div class="daytabs"><button class="daytab active" data-day="mon">Mon 1 Jun</button><button class="daytab" onclick="alert('WTD: revenue $2,782.59 · surplus $307.54 · margin 11.1%')">WTD</button></div>
+<div class="kpis">
+  <div class="kpi"><div class="l">Total Revenue</div><div class="v">$2,782.59</div><div class="s">WTD $2,782.59</div></div>
+  <div class="kpi"><div class="l">Total COGS</div><div class="v">$174.25</div><div class="s">WTD $174.25</div></div>
+  <div class="kpi"><div class="l">Wages</div><div class="v">$680.42</div><div class="s">24.51h · WTD $680.42 / 24.51h</div></div>
+  <div class="kpi"><div class="l">Remaining Op Costs</div><div class="v">$1,620.38</div><div class="s">WTD $1,620.38</div></div>
+</div>
+<div class="sc amber"><div class="sl">Surplus</div><div class="sval">$307.54</div><div class="sn">11.1% margin · target ≥15%</div></div>
+<h2>Revenue Breakdown</h2>
+<div class="barhdr"><div>Stream</div><div></div><div>Mon 1 Jun</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">Cafe</div><div class="bar"><div class="barfill" style="width:0%;background:#4ade80"></div></div><div class="amt">$0.00</div><div class="wtd">$0.00</div></div><div class="barrow"><div class="nm">Wholesale</div><div class="bar"><div class="barfill" style="width:100%;background:#4ade80"></div></div><div class="amt">$2,070.51</div><div class="wtd">$2,070.51</div></div><div class="barrow"><div class="nm">TVNZ</div><div class="bar"><div class="barfill" style="width:0%;background:#4ade80"></div></div><div class="amt">$0.00</div><div class="wtd">$0.00</div></div><div class="barrow"><div class="nm">Catering</div><div class="bar"><div class="barfill" style="width:34%;background:#4ade80"></div></div><div class="amt">$712.08</div><div class="wtd">$712.08</div></div>
+<h2>COGS Breakdown</h2>
+<div class="barhdr"><div>Supplier</div><div></div><div>Mon 1 Jun</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">Mediterranean Foods</div><div class="bar"><div class="barfill" style="width:54%;background:#fbbf24"></div></div><div class="amt">$52.82</div><div class="wtd">$52.82</div></div><div class="barrow"><div class="nm">Mauri ANZ</div><div class="bar"><div class="barfill" style="width:100%;background:#fbbf24"></div></div><div class="amt">$97.95</div><div class="wtd">$97.95</div></div><div class="barrow"><div class="nm">Natural Choice</div><div class="bar"><div class="barfill" style="width:24%;background:#fbbf24"></div></div><div class="amt">$23.48</div><div class="wtd">$23.48</div></div>
+<h2>Wages</h2>
+<div class="barhdr"><div>Employee</div><div></div><div>Cost</div><div>Hours</div></div>
+<div class="barrow"><div class="nm">Mohd Fahmi (Jimmy SB) · 8h·$24</div><div class="bar"><div class="barfill" style="width:100%;background:#4ade80"></div></div><div class="amt">$192.00</div><div class="wtd">8h</div></div><div class="barrow"><div class="nm">Suparna Faizal · 7h·$27</div><div class="bar"><div class="barfill" style="width:88%;background:#4ade80"></div></div><div class="amt">$189.00</div><div class="wtd">7h</div></div><div class="barrow"><div class="nm">Kanika banth · 5.83h·$34</div><div class="bar"><div class="barfill" style="width:73%;background:#4ade80"></div></div><div class="amt">$198.22</div><div class="wtd">5.83h</div></div><div class="barrow"><div class="nm">Jahnevah Numa · 3.68h·$27.5</div><div class="bar"><div class="barfill" style="width:46%;background:#4ade80"></div></div><div class="amt">$101.20</div><div class="wtd">3.68h</div></div>
+<div class="note">Hourly rates from Pay Rates.xlsx. Hours from Deputy Timesheets — Monday, 1 June 2026.</div>
+<h2>Remaining Operational Costs</h2>
+<div class="barhdr"><div>Item</div><div></div><div>Mon 1 Jun</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">Internal Cafes</div><div class="bar"><div class="barfill" style="width:100%;background:#e879f9"></div></div><div class="amt">$637.09</div><div class="wtd">$637.09</div></div><div class="barrow"><div class="nm">Rent</div><div class="bar"><div class="barfill" style="width:90%;background:#60a5fa"></div></div><div class="amt">$576.34</div><div class="wtd">$576.34</div></div><div class="barrow"><div class="nm">GST</div><div class="bar"><div class="barfill" style="width:27%;background:#f97316"></div></div><div class="amt">$172.87</div><div class="wtd">$172.87</div></div><div class="barrow"><div class="nm">Electricity & Gas</div><div class="bar"><div class="barfill" style="width:19%;background:#fbbf24"></div></div><div class="amt">$120.00</div><div class="wtd">$120.00</div></div><div class="barrow"><div class="nm">Miscellaneous</div><div class="bar"><div class="barfill" style="width:11%;background:#f87171"></div></div><div class="amt">$69.56</div><div class="wtd">$69.56</div></div><div class="barrow"><div class="nm">Merchant Fees</div><div class="bar"><div class="barfill" style="width:7%;background:#34d399"></div></div><div class="amt">$44.52</div><div class="wtd">$44.52</div></div>
+<div class="commentary">
+<b>Scratch Bakers · Natural Choice</b><br>
+Revenue $2,782.59. COGS $174.25. Wages $680.42 over 24.51h. Op costs $1,620.38.<br>
+Daily surplus of $307.54 (11.1% margin, target ≥15%).<br>
+<b>WTD:</b> Revenue $2,782.59, surplus $307.54 at 11.1% · new week (Mon 1 Jun only).<br>
+Kitchen open for catering/wholesale prep; cafe + TVNZ closed for public holiday. SB Catering · $712.08 and Wholesale $2,070.51 traded today. Internal Cafes op-cost $637.09.
+</div>
+</div>
+<div class="pane" data-entity="vl">
+<div class="daytabs"><button class="daytab active" data-day="mon">Mon 1 Jun</button><button class="daytab" onclick="alert('WTD: revenue $3,752.65 · surplus $1,014.45 · margin 27.0%')">WTD</button></div>
+<div class="kpis">
+  <div class="kpi"><div class="l">Total Revenue</div><div class="v">$3,752.65</div><div class="s">WTD $3,752.65</div></div>
+  <div class="kpi"><div class="l">Total COGS</div><div class="v">$367.44</div><div class="s">WTD $367.44</div></div>
+  <div class="kpi"><div class="l">Wages</div><div class="v">$1,088.92</div><div class="s">39.62h · WTD $1,088.92 / 39.62h</div></div>
+  <div class="kpi"><div class="l">Remaining Op Costs</div><div class="v">$1,281.84</div><div class="s">WTD $1,281.84</div></div>
+</div>
+<div class="sc green"><div class="sl">Surplus</div><div class="sval">$1,014.45</div><div class="sn">27.0% margin · target ≥20%</div></div>
+<h2>Revenue Breakdown</h2>
+<div class="barhdr"><div>Stream</div><div></div><div>Mon 1 Jun</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">Cafe</div><div class="bar"><div class="barfill" style="width:100%;background:#4ade80"></div></div><div class="amt">$3,752.65</div><div class="wtd">$3,752.65</div></div>
+<h2>COGS Breakdown</h2>
+<div class="barhdr"><div>Supplier</div><div></div><div>Mon 1 Jun</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">Homegrown Juice</div><div class="bar"><div class="barfill" style="width:10%;background:#fbbf24"></div></div><div class="amt">$22.94</div><div class="wtd">$22.94</div></div><div class="barrow"><div class="nm">Five Elements</div><div class="bar"><div class="barfill" style="width:100%;background:#fbbf24"></div></div><div class="amt">$232.98</div><div class="wtd">$232.98</div></div><div class="barrow"><div class="nm">LaundryCorp</div><div class="bar"><div class="barfill" style="width:5%;background:#fbbf24"></div></div><div class="amt">$12.46</div><div class="wtd">$12.46</div></div><div class="barrow"><div class="nm">Betscharts</div><div class="bar"><div class="barfill" style="width:43%;background:#fbbf24"></div></div><div class="amt">$99.06</div><div class="wtd">$99.06</div></div>
+<h2>Wages</h2>
+<div class="barhdr"><div>Employee</div><div></div><div>Cost</div><div>Hours</div></div>
+<div class="barrow"><div class="nm">Eden Wharerau · 7.12h·$27</div><div class="bar"><div class="barfill" style="width:100%;background:#60a5fa"></div></div><div class="amt">$192.24</div><div class="wtd">7.12h</div></div><div class="barrow"><div class="nm">Ravi (Ravinder kaur) · 6.78h·$29.66</div><div class="bar"><div class="barfill" style="width:95%;background:#4ade80"></div></div><div class="amt">$201.10</div><div class="wtd">6.78h</div></div><div class="barrow"><div class="nm">Franz Nicole Uyseco · 6.68h·$33</div><div class="bar"><div class="barfill" style="width:94%;background:#4ade80"></div></div><div class="amt">$220.44</div><div class="wtd">6.68h</div></div><div class="barrow"><div class="nm">Maddi Roewen · 6.63h·$25</div><div class="bar"><div class="barfill" style="width:93%;background:#60a5fa"></div></div><div class="amt">$165.75</div><div class="wtd">6.63h</div></div><div class="barrow"><div class="nm">Jimmy (Mohd Fahmi VL) · 6.63h·$24</div><div class="bar"><div class="barfill" style="width:93%;background:#4ade80"></div></div><div class="amt">$159.12</div><div class="wtd">6.63h</div></div><div class="barrow"><div class="nm">Mei fung Woo · 5.78h·$26</div><div class="bar"><div class="barfill" style="width:81%;background:#60a5fa"></div></div><div class="amt">$150.28</div><div class="wtd">5.78h</div></div>
+<div class="note">Hourly rates from Pay Rates.xlsx. Hours from Deputy Timesheets — Monday, 1 June 2026.</div>
+<h2>Remaining Operational Costs</h2>
+<div class="barhdr"><div>Item</div><div></div><div>Mon 1 Jun</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">Rent</div><div class="bar"><div class="barfill" style="width:100%;background:#60a5fa"></div></div><div class="amt">$502.05</div><div class="wtd">$502.05</div></div><div class="barrow"><div class="nm">GST</div><div class="bar"><div class="barfill" style="width:66%;background:#f97316"></div></div><div class="amt">$332.01</div><div class="wtd">$332.01</div></div><div class="barrow"><div class="nm">Royalty</div><div class="bar"><div class="barfill" style="width:37%;background:#a78bfa"></div></div><div class="amt">$187.63</div><div class="wtd">$187.63</div></div><div class="barrow"><div class="nm">Miscellaneous</div><div class="bar"><div class="barfill" style="width:30%;background:#f87171"></div></div><div class="amt">$150.11</div><div class="wtd">$150.11</div></div><div class="barrow"><div class="nm">Merchant Fees</div><div class="bar"><div class="barfill" style="width:12%;background:#34d399"></div></div><div class="amt">$60.04</div><div class="wtd">$60.04</div></div><div class="barrow"><div class="nm">Electricity</div><div class="bar"><div class="barfill" style="width:10%;background:#fbbf24"></div></div><div class="amt">$50.00</div><div class="wtd">$50.00</div></div>
+<div class="commentary">
+<b>Vulcan Lane · Betscharts</b><br>
+Revenue $3,752.65. COGS $367.44. Wages $1,088.92 over 39.62h. Op costs $1,281.84.<br>
+Daily surplus of $1,014.45 (27.0% margin, target ≥20%).<br>
+<b>WTD:</b> Revenue $3,752.65, surplus $1,014.45 at 27.0% · new week (Mon 1 Jun only).<br>
+▲ VL had a strong day at $3,752.65 (126% of last Mon's $2,972.43) — VL trades every day including public holidays.
+</div>
+</div>
+<div class="pane" data-entity="qs">
+<div class="daytabs"><button class="daytab active" data-day="mon">Mon 1 Jun</button><button class="daytab" onclick="alert('WTD: revenue $0.00 · surplus $0.00 · margin 0.0%')">WTD</button></div>
+<div class="kpis">
+  <div class="kpi"><div class="l">Total Revenue</div><div class="v">$0.00</div><div class="s">WTD $0.00</div></div>
+  <div class="kpi"><div class="l">Total COGS</div><div class="v">$0.00</div><div class="s">WTD $0.00</div></div>
+  <div class="kpi"><div class="l">Wages</div><div class="v">$0.00</div><div class="s">0h · WTD $0.00 / 0h</div></div>
+  <div class="kpi"><div class="l">Remaining Op Costs</div><div class="v">$0.00</div><div class="s">WTD $0.00</div></div>
+</div>
+<div class="sc orange"><div class="sl">Surplus</div><div class="sval">$0.00</div><div class="sn">0.0% margin · target ≥20%</div></div>
+<h2>Revenue Breakdown</h2>
+<div class="barhdr"><div>Stream</div><div></div><div>Mon 1 Jun</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">Cafe</div><div class="bar"><div class="barfill" style="width:0%;background:#4ade80"></div></div><div class="amt">$0.00</div><div class="wtd">$0.00</div></div>
+<h2>COGS Breakdown</h2>
+<div class="barhdr"><div>Supplier</div><div></div><div>Mon 1 Jun</div><div>WTD</div></div>
+<div class="note">No COGS booked for Queen Street today.</div>
+<h2>Wages</h2>
+<div class="barhdr"><div>Employee</div><div></div><div>Cost</div><div>Hours</div></div>
+<div class="note">No wages booked for Queen Street today.</div>
+<div class="note">Hourly rates from Pay Rates.xlsx. Hours from Deputy Timesheets — Monday, 1 June 2026.</div>
+<h2>Remaining Operational Costs</h2>
+<div class="barhdr"><div>Item</div><div></div><div>Mon 1 Jun</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">Merchant Fees</div><div class="bar"><div class="barfill" style="width:0%;background:#34d399"></div></div><div class="amt">$0.00</div><div class="wtd">$0.00</div></div><div class="barrow"><div class="nm">Rent</div><div class="bar"><div class="barfill" style="width:0%;background:#60a5fa"></div></div><div class="amt">$0.00</div><div class="wtd">$0.00</div></div><div class="barrow"><div class="nm">GST</div><div class="bar"><div class="barfill" style="width:0%;background:#f97316"></div></div><div class="amt">$0.00</div><div class="wtd">$0.00</div></div><div class="barrow"><div class="nm">Miscellaneous</div><div class="bar"><div class="barfill" style="width:0%;background:#f87171"></div></div><div class="amt">$0.00</div><div class="wtd">$0.00</div></div>
+<div class="commentary">
+<b>Queen Street · Cafe</b><br>
+Revenue $0.00. COGS $0.00. Wages $0.00 over 0h. Op costs $0.00.<br>
+Daily surplus of $0.00 (0.0% margin, target ≥20%).<br>
+<b>WTD:</b> Revenue $0.00, surplus $0.00 at 0.0% · new week (Mon 1 Jun only).<br>
+⚠ QS (Little Melba) closed for Queen's Birthday public holiday.
+</div>
+</div>
+</div>
+<script>
+function showPane(entity){
+  document.querySelectorAll('.pane').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  const pane = document.querySelector('.pane[data-entity="'+entity+'"]');
+  const tab  = document.querySelector('.tab[data-entity="'+entity+'"]');
+  if(pane) pane.classList.add('active');
+  if(tab)  tab.classList.add('active');
+}
+</script>
+<script>
+const WTD_SUBTOTALS = {"vs":{"cogs":{"laundrycorp":16.1,"karma_drinks":16.91},"wages":{},"op_costs":{"merchant":0,"rent":0,"misc":0,"royalty":0,"electricity":20,"gst":-4.31,"car_loan":29.355},"revenue":{"catering":0,"pos":0}},"vl":{"cogs":{"homegrown_juice":22.94,"five_elements":232.98,"laundrycorp":12.46,"betscharts":99.06},"wages":{"Franz Nicole Uyseco":{"cost":220.44,"hours":6.68},"Eden Wharerau":{"cost":192.24,"hours":7.12},"Ravi (Ravinder kaur)":{"cost":201.09,"hours":6.78},"Jimmy (Mohd Fahmi VL)":{"cost":159.12,"hours":6.63},"Mei fung Woo":{"cost":150.28,"hours":5.78},"Maddi Roewen":{"cost":165.75,"hours":6.63}},"op_costs":{"merchant":60.04,"rent":502.05,"misc":150.11,"royalty":187.63,"electricity":50,"gst":332.01},"revenue":{"cafe":3752.65}},"sb":{"cogs":{"mediterranean_foods":52.82,"mauri_anz":97.95,"natural_choice":23.48},"wages":{"Suparna Faizal":{"cost":189,"hours":7},"Kanika banth":{"cost":198.22,"hours":5.83},"Mohd Fahmi (Jimmy SB)":{"cost":192,"hours":8},"Jahnevah Numa":{"cost":101.2,"hours":3.68}},"op_costs":{"merchant":44.52,"rent":576.34,"electricity_gas":120,"misc":69.56,"internal_cafes":637.09,"gst":172.87},"revenue":{"cafe":0,"wholesale":2070.51,"tvnz":0,"catering":712.08}},"qs":{"cogs":{},"wages":{},"op_costs":{"gst":0,"misc":0,"merchant":0,"rent":0},"revenue":{"cafe":0}}};
+</script>
+<script>
+const DAY_DATA = {"mon":{"label":"Mon 1 Jun","qs":{"cogs":{"total_cogs":0},"wages":{"hours":0,"staff":0,"total":0},"op_costs":{"gst":0,"misc":0,"merchant":0,"total":0,"rent":0},"surplus":0,"revenue":{"cafe":0,"total":0}},"vl":{"cogs":{"total_cogs":367.44,"homegrown_juice":{"total":22.94},"five_elements":{"total":232.98},"laundrycorp":{"total":12.46},"betscharts":{"total":99.06}},"wages":{"hours":39.62,"staff":6,"total":1088.92},"op_costs":{"rent":502.05,"merchant":60.04,"gst":332.01,"royalty":187.63,"misc":150.11,"total":1281.84,"electricity":50},"surplus":1014.45,"revenue":{"cafe":3752.65,"total":3752.65}},"vs":{"cogs":{"laundrycorp":{"total":16.1},"karma_drinks":{"total":16.91},"total_cogs":33.01},"wages":{"hours":0,"staff":0,"total":0},"op_costs":{"rent":0,"merchant":0,"gst":-4.31,"royalty":0,"total":45.04,"car_loan":29.355,"misc":0,"electricity":20},"surplus":-78.05,"revenue":{"pos":0,"total":0,"catering":0}},"sb":{"cogs":{"mediterranean_foods":{"total":52.82},"total_cogs":174.25,"mauri_anz":{"total":97.95},"natural_choice":{"total":23.48}},"wages":{"hours":24.51,"staff":4,"total":680.42},"op_costs":{"rent":576.34,"merchant":44.52,"gst":172.87,"electricity_gas":120,"misc":69.56,"total":1620.38,"internal_cafes":637.09},"surplus":307.54,"revenue":{"cafe":0,"wholesale":2070.51,"tvnz":0,"total":2782.59,"catering":712.08}}}};
+</script>
+<script>
+const INVOICE_LOG = {"week_start":"2026-06-01","entries":[{"entity":"vs","supplier":"LaundryCorp","ref":"01909229","amount":40.25,"date":"2026-06-01","captured":"2026-06-01"},{"entity":"vl","supplier":"LaundryCorp","ref":"01909232","amount":47,"date":"2026-06-01","captured":"2026-06-01"}],"prior_week_adjustments":[{"entity":"vl","supplier":"Goodman Fielder","ref":"9085710603","amount":195.45,"invoice_date":"2026-05-31","captured":"2026-06-01","missed_prior_days":1}],"active_spreads":[{"entity":"vs","supplier":"Karma Drinks","ref":"INV85636","total":169.05,"daily_share":16.91,"divisor":10,"delivery_date":"2026-05-25","captured":"2026-05-25","spread_dates":["2026-05-25","2026-05-26","2026-05-27","2026-05-28","2026-05-29","2026-06-01","2026-06-02","2026-06-03","2026-06-04","2026-06-05"],"booked_dates":["2026-05-25","2026-05-26","2026-05-27","2026-05-28","2026-05-29","2026-06-01"]},{"entity":"sb","supplier":"Mauri ANZ","ref":"107051688","total":489.73,"daily_share":97.95,"divisor":5,"delivery_date":"2026-05-27","captured":"2026-05-27","spread_dates":["2026-05-27","2026-05-28","2026-05-29","2026-06-01","2026-06-02"],"booked_dates":["2026-05-27","2026-05-28","2026-05-29","2026-06-01"]},{"entity":"vs","supplier":"LaundryCorp","ref":"01909159","total":40.25,"daily_share":8.05,"divisor":5,"delivery_date":"2026-05-28","captured":"2026-05-28","spread_dates":["2026-05-28","2026-05-29","2026-06-01","2026-06-02","2026-06-03"],"booked_dates":["2026-05-28","2026-05-29","2026-06-01"]},{"entity":"vl","supplier":"Betscharts","ref":"F54154832","total":693.45,"daily_share":99.06,"divisor":7,"delivery_date":"2026-05-28","captured":"2026-05-28","spread_dates":["2026-05-28","2026-05-29","2026-05-30","2026-05-31","2026-06-01","2026-06-02","2026-06-03"],"booked_dates":["2026-05-28","2026-05-29","2026-05-30","2026-05-31","2026-06-01"]},{"entity":"vl","supplier":"LaundryCorp","ref":"01909184","total":40.25,"daily_share":5.75,"divisor":7,"delivery_date":"2026-05-29","captured":"2026-05-29","spread_dates":["2026-05-29","2026-05-30","2026-05-31","2026-06-01","2026-06-02","2026-06-03","2026-06-04"],"booked_dates":["2026-05-29","2026-05-30","2026-05-31","2026-06-01"]},{"entity":"vl","supplier":"Homegrown Juice","ref":"573026826","total":160.56,"daily_share":22.94,"divisor":7,"delivery_date":"2026-05-27","captured":"2026-05-29","spread_dates":["2026-05-27","2026-05-28","2026-05-29","2026-05-30","2026-05-31","2026-06-01","2026-06-02"],"booked_dates":["2026-05-27","2026-05-28","2026-05-29","2026-05-30","2026-05-31","2026-06-01"]},{"entity":"sb","supplier":"Mediterranean Foods","ref":"INV102186","total":264.11,"daily_share":52.82,"divisor":5,"delivery_date":"2026-05-28","captured":"2026-05-30","spread_dates":["2026-05-28","2026-05-29","2026-06-01","2026-06-02","2026-06-03"],"booked_dates":["2026-05-28","2026-05-29","2026-06-01"]},{"entity":"vl","supplier":"Five Elements","ref":"#11515","total":1630.88,"daily_share":232.98,"divisor":7,"delivery_date":"2026-05-31","captured":"2026-05-31","spread_dates":["2026-06-01","2026-06-02","2026-06-03","2026-06-04","2026-06-05","2026-06-06","2026-06-07"],"booked_dates":["2026-06-01"]},{"entity":"vs","supplier":"LaundryCorp","ref":"01909229","total":40.25,"daily_share":8.05,"divisor":5,"delivery_date":"2026-06-01","captured":"2026-06-01","spread_dates":["2026-06-01","2026-06-02","2026-06-03","2026-06-04","2026-06-05"],"booked_dates":["2026-06-01"]},{"entity":"vl","supplier":"LaundryCorp","ref":"01909232","total":47,"daily_share":6.71,"divisor":7,"delivery_date":"2026-06-01","captured":"2026-06-01","spread_dates":["2026-06-01","2026-06-02","2026-06-03","2026-06-04","2026-06-05","2026-06-06","2026-06-07"],"booked_dates":["2026-06-01"]}]};
+</script>
+</body>
+</html>
