@@ -18,7 +18,7 @@ h1{font-size:1.6rem;font-weight:700;margin-bottom:6px}
 .pill.deepgreen{background:#0a2e18;color:#86efac}
 .pill.orange{background:#2a1a08;color:var(--orange)}
 .subtitle{color:var(--muted);font-size:.9rem;margin-bottom:18px}
-.wtd-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:18px;margin-bottom:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.wtd-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:18px;margin-bottom:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 .wtd-card .l{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:4px}
 .wtd-card .v{font-size:1.5rem;font-weight:700;font-variant-numeric:tabular-nums}
 table.idx{width:100%;border-collapse:collapse;font-size:.86rem;background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden}
@@ -37,10 +37,9 @@ tr.wtd-row td{border-bottom:2px solid #3a4f6a;color:var(--muted)}
 <div class="subtitle">Daily Team Dashboards · WTD rows pinned above each week</div>
 <div class="wtd-card">
 <div><div class="l">Current Week Revenue</div><div class="v">$3,596.10</div></div>
-<div><div class="l">Current Week Surplus</div><div class="v">$817.87</div></div>
 <div><div class="l">Current Week Margin</div><div class="v">22.7%</div></div>
 </div>
-<table class="idx"><thead><tr><th>Date</th><th>Revenue</th><th>Surplus</th><th>Margin</th><th></th></tr></thead><tbody id="tb"></tbody></table>
+<table class="idx"><thead><tr><th>Date</th><th>Revenue</th><th>Margin</th><th></th></tr></thead><tbody id="tb"></tbody></table>
 </div>
 <script>
 const HISTORY_DATA = [{date:"2026-05-31",label:"Sun 31 May 2026",revenue:0,margin:0,surplus:0,file:"Queen Street – 2026-05-31 Sunday – Team Dashboard.html"},{"date":"2026-05-30","label":"Sat 30 May 2026","revenue":0.00,"margin":null,"surplus":0.00,"file":"Queen Street – 2026-05-30 Saturday – Team Dashboard.html"},{"date":"2026-05-29","label":"Fri 29 May 2026","revenue":770,"margin":35.364935064935068,"surplus":272.31,"file":"Queen Street – 2026-05-29 Friday – Team Dashboard.html"},{"date":"2026-05-28","label":"Thu 28 May 2026","revenue":720.20,"margin":32.94,"surplus":237.22,"file":"Queen Street – 2026-05-28 Thursday – Team Dashboard.html"},{"date":"2026-05-27","label":"Wed 27 May 2026","revenue":793.2,"margin":20.08,"surplus":159.24,"file":"Queen Street – 2026-05-27 Wednesday – Team Dashboard.html"},{"date":"2026-05-26","label":"Tue 26 May 2026","revenue":795.80,"margin":10.58,"surplus":84.21,"file":"Queen Street – 2026-05-26 Tuesday – Team Dashboard.html"},{"date":"2026-05-25","label":"Mon 25 May 2026","revenue":516.9,"margin":12.55,"surplus":64.89,"file":"Queen Street – 2026-05-25 Monday – Team Dashboard.html"},{"date":"2026-05-24","label":"Sun 24 May 2026","revenue":0.00,"margin":0,"surplus":0.00,"file":"Queen Street – 2026-05-24 Sunday – Team Dashboard.html"},{"date":"2026-05-23","label":"Sat 23 May 2026","revenue":0.00,"margin":0,"surplus":0.00,"file":"Queen Street – 2026-05-23 Saturday – Team Dashboard.html"},{"date":"2026-05-22","label":"Fri 22 May 2026","revenue":786.1,"margin":30.46,"surplus":239.43,"file":"Queen Street – 2026-05-22 Friday – Team Dashboard.html"},{"date":"2026-05-21","label":"Thu 21 May 2026","revenue":754.70,"margin":11.26,"surplus":84.97,"file":"Queen Street – 2026-05-21 Thursday – Team Dashboard.html"},{"date":"2026-05-20","label":"Wed 20 May 2026","revenue":797.00,"margin":15.70,"surplus":125.11,"file":"Queen Street – 2026-05-20 Wednesday – Team Dashboard.html"},{"date":"2026-05-19","label":"Tue 19 May 2026","revenue":637.40,"margin":-1.61,"surplus":-10.26,"file":"Queen Street – 2026-05-19 Tuesday – Team Dashboard.html"},{"date":"2026-05-18","label":"Mon 18 May 2026","revenue":528.20,"margin":4.47,"surplus":23.62,"file":"Queen Street – 2026-05-18 Monday – Team Dashboard.html"}];
@@ -63,13 +62,13 @@ function render(){
       const tr=document.createElement('tr');tr.className='wtd-row';
       const dlist=(wtd.days_included||[]).map(d=>dayMap[d]).join(' ');
       const m=n0(wtd.margin);
-      tr.innerHTML='<td>Week to Date<br><span style="font-weight:400;font-size:.78rem">'+dlist+'</span></td><td class="r">'+fmt(wtd.revenue)+'</td><td class="r">'+fmt(wtd.surplus)+'</td><td><span class="pill '+pctCls(m,THR)+'">'+mPct(m)+'</span></td><td></td>';
+      tr.innerHTML='<td>Week to Date<br><span style="font-weight:400;font-size:.78rem">'+dlist+'</span></td><td class="r">'+fmt(wtd.revenue)+'</td><td><span class="pill '+pctCls(m,THR)+'">'+mPct(m)+'</span></td><td></td>';
       tb.appendChild(tr);
     }
     groups[w].forEach(r=>{
       const tr=document.createElement('tr');
       const m=n0(r.margin);
-      tr.innerHTML='<td>'+r.label+'</td><td class="r">'+fmt(r.revenue)+'</td><td class="r">'+fmt(r.surplus)+'</td><td><span class="pill '+pctCls(m,THR)+'">'+mPct(m)+'</span></td><td><a href="'+r.file+'">Open '+'→'+'</a></td>';
+      tr.innerHTML='<td>'+r.label+'</td><td class="r">'+fmt(r.revenue)+'</td><td><span class="pill '+pctCls(m,THR)+'">'+mPct(m)+'</span></td><td><a href="'+r.file+'">Open '+'→'+'</a></td>';
       tb.appendChild(tr);
     });
   });

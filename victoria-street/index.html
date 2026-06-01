@@ -18,7 +18,7 @@ h1{font-size:1.6rem;font-weight:700;margin-bottom:6px}
 .pill.deepgreen{background:#0a2e18;color:#86efac}
 .pill.orange{background:#2a1a08;color:var(--orange)}
 .subtitle{color:var(--muted);font-size:.9rem;margin-bottom:18px}
-.wtd-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:18px;margin-bottom:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.wtd-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:18px;margin-bottom:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 .wtd-card .l{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:4px}
 .wtd-card .v{font-size:1.5rem;font-weight:700;font-variant-numeric:tabular-nums}
 table.idx{width:100%;border-collapse:collapse;font-size:.86rem;background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden}
@@ -37,10 +37,9 @@ tr.wtd-row td{border-bottom:2px solid #3a4f6a;color:var(--muted)}
 <div class="subtitle">Daily Team Dashboards · WTD rows pinned above each week</div>
 <div class="wtd-card">
 <div><div class="l">Current Week Revenue</div><div class="v">$22,656.56</div></div>
-<div><div class="l">Current Week Surplus</div><div class="v">$3,014.55</div></div>
 <div><div class="l">Current Week Margin</div><div class="v">13.3%</div></div>
 </div>
-<table class="idx"><thead><tr><th>Date</th><th>Revenue</th><th>Surplus</th><th>Margin</th><th></th></tr></thead><tbody id="tb"></tbody></table>
+<table class="idx"><thead><tr><th>Date</th><th>Revenue</th><th>Margin</th><th></th></tr></thead><tbody id="tb"></tbody></table>
 </div>
 <script>
 const HISTORY_DATA = [{date:"2026-05-31",label:"Sun 31 May 2026",revenue:0,margin:0,surplus:-49.36,file:"Victoria Street – 2026-05-31 Sunday – Team Dashboard.html"},{"date":"2026-05-30","label":"Sat 30 May 2026","revenue":0.00,"margin":null,"surplus":-49.36,"file":"Victoria Street – 2026-05-30 Saturday – Team Dashboard.html"},{"date":"2026-05-29","label":"Fri 29 May 2026","revenue":1779.5,"margin":-26.555774093846583,"surplus":-472.56,"file":"Victoria Street – 2026-05-29 Friday – Team Dashboard.html"},{"date":"2026-05-28","label":"Thu 28 May 2026","revenue":5697.93,"margin":44.02,"surplus":2508.32,"file":"Victoria Street – 2026-05-28 Thursday – Team Dashboard.html"},{"date":"2026-05-27","label":"Wed 27 May 2026","revenue":5413.03,"margin":-25.04,"surplus":-1355.45,"file":"Victoria Street – 2026-05-27 Wednesday – Team Dashboard.html"},{"date":"2026-05-26","label":"Tue 26 May 2026","revenue":7610.91,"margin":37.50,"surplus":2853.89,"file":"Victoria Street – 2026-05-26 Tuesday – Team Dashboard.html"},{"date":"2026-05-25","label":"Mon 25 May 2026","revenue":2155.19,"margin":-19.53,"surplus":-420.93,"file":"Victoria Street – 2026-05-25 Monday – Team Dashboard.html"},{"date":"2026-05-24","label":"Sun 24 May 2026","revenue":0.00,"margin":0,"surplus":-154.41,"file":"Victoria Street – 2026-05-24 Sunday – Team Dashboard.html"},{"date":"2026-05-23","label":"Sat 23 May 2026","revenue":0.00,"margin":0,"surplus":-169.20,"file":"Victoria Street – 2026-05-23 Saturday – Team Dashboard.html"},{"date":"2026-05-22","label":"Fri 22 May 2026","revenue":2006.94,"margin":-8.59,"surplus":-172.37,"file":"Victoria Street – 2026-05-22 Friday – Team Dashboard.html"},{"date":"2026-05-21","label":"Thu 21 May 2026","revenue":5979.73,"margin":-7.76,"surplus":-464.19,"file":"Victoria Street – 2026-05-21 Thursday – Team Dashboard.html"},{"date":"2026-05-20","label":"Wed 20 May 2026","revenue":3225.89,"margin":-47.09,"surplus":-1519.01,"file":"Victoria Street – 2026-05-20 Wednesday – Team Dashboard.html"},{"date":"2026-05-19","label":"Tue 19 May 2026","revenue":4360.69,"margin":-26.84,"surplus":-1170.51,"file":"Victoria Street – 2026-05-19 Tuesday – Team Dashboard.html"},{"date":"2026-05-18","label":"Mon 18 May 2026","revenue":2514.63,"margin":-17.81,"surplus":-447.95,"file":"Victoria Street – 2026-05-18 Monday – Team Dashboard.html"}];
@@ -63,13 +62,13 @@ function render(){
       const tr=document.createElement('tr');tr.className='wtd-row';
       const dlist=(wtd.days_included||[]).map(d=>dayMap[d]).join(' ');
       const m=n0(wtd.margin);
-      tr.innerHTML='<td>Week to Date<br><span style="font-weight:400;font-size:.78rem">'+dlist+'</span></td><td class="r">'+fmt(wtd.revenue)+'</td><td class="r">'+fmt(wtd.surplus)+'</td><td><span class="pill '+pctCls(m,THR)+'">'+mPct(m)+'</span></td><td></td>';
+      tr.innerHTML='<td>Week to Date<br><span style="font-weight:400;font-size:.78rem">'+dlist+'</span></td><td class="r">'+fmt(wtd.revenue)+'</td><td><span class="pill '+pctCls(m,THR)+'">'+mPct(m)+'</span></td><td></td>';
       tb.appendChild(tr);
     }
     groups[w].forEach(r=>{
       const tr=document.createElement('tr');
       const m=n0(r.margin);
-      tr.innerHTML='<td>'+r.label+'</td><td class="r">'+fmt(r.revenue)+'</td><td class="r">'+fmt(r.surplus)+'</td><td><span class="pill '+pctCls(m,THR)+'">'+mPct(m)+'</span></td><td><a href="'+r.file+'">Open '+'→'+'</a></td>';
+      tr.innerHTML='<td>'+r.label+'</td><td class="r">'+fmt(r.revenue)+'</td><td><span class="pill '+pctCls(m,THR)+'">'+mPct(m)+'</span></td><td><a href="'+r.file+'">Open '+'→'+'</a></td>';
       tb.appendChild(tr);
     });
   });
