@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Vulcan Lane Team Dashboard - Monday 8 June 2026</title><style>:root{--bg:#0f1419;--card:#1a1f2e;--card-2:#232938;--ink:#e6edf3;--muted:#7d8ba1;--border:#2a3547;--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--purple:#a78bfa;--orange:#f97316;--teal:#34d399;--fuchsia:#e879f9}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:20px;line-height:1.5}
+.container{max-width:1100px;margin:0 auto}
+h1{font-size:1.6rem;font-weight:700;margin-bottom:6px}
+h2{font-size:1.05rem;font-weight:600;margin:22px 0 10px}
+.pill{display:inline-block;font-size:.7rem;font-weight:600;padding:3px 9px;border-radius:99px;background:var(--card-2);color:var(--muted);margin-left:8px;text-transform:uppercase;letter-spacing:.05em}
+.pill.team{background:#2a1f4a;color:#c4b5fd}
+.subtitle{color:var(--muted);font-size:.9rem;margin-bottom:18px}
+.note{font-size:.78rem;color:var(--muted);margin-top:6px;padding:8px 10px;background:rgba(96,165,250,.05);border-left:2px solid var(--blue);border-radius:4px}
+.note.amber{background:rgba(251,191,36,.05);border-left-color:var(--amber);color:#fbe39a}
+.note.red{background:rgba(248,113,113,.05);border-left-color:var(--red);color:#fca5a5}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px}
+.kpi .l{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:6px}
+.kpi .v{font-size:1.5rem;font-weight:700}
+.kpi .s{font-size:.72rem;color:var(--muted);margin-top:2px}
+.sc{border-radius:8px;padding:18px;margin-bottom:24px}
+.sc.green{border:1px solid var(--green);background:linear-gradient(135deg,#0d261a,#1a1f2e)}
+.sc.deepgreen{border:1px solid var(--green);background:linear-gradient(135deg,#0a2e18,#1a1f2e)}
+.sc.amber{border:1px solid var(--amber);background:linear-gradient(135deg,#262010,#1a1f2e)}
+.sc.orange{border:1px solid var(--orange);background:linear-gradient(135deg,#261a08,#1a1f2e)}
+.sc.red{border:1px solid var(--red);background:linear-gradient(135deg,#261010,#1a1f2e)}
+.sc .slabel{font-size:.72rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:6px}
+.sc .sval{font-size:2.2rem;font-weight:800}
+.sc .sn{font-size:.85rem;color:var(--muted);margin-top:4px}
+.bars{display:flex;flex-direction:column;gap:4px;margin-top:8px}
+.barrow{display:grid;grid-template-columns:200px 1fr 100px 100px;gap:10px;align-items:center;padding:6px 0;font-size:.83rem}
+.barrow .nm{color:var(--ink);font-weight:500}
+.barrow .bar{position:relative;height:10px;background:var(--card-2);border-radius:4px;overflow:hidden}
+.barrow .bar > i{position:absolute;left:0;top:0;height:100%;background:var(--blue);border-radius:4px}
+.barrow .v{text-align:right;font-variant-numeric:tabular-nums}
+.barrow .wtd{text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+.barrow.head{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;border-bottom:1px solid var(--border);padding-bottom:4px}
+.invblk{margin-left:210px;padding:8px 12px;border-left:2px solid var(--amber);background:rgba(251,191,36,.05);font-size:.78rem;color:var(--muted);margin:4px 0 12px;border-radius:0 4px 4px 0;line-height:1.6}
+.spreadblk{margin-left:210px;padding:6px 12px;border-left:2px solid var(--blue);background:rgba(96,165,250,.05);font-size:.78rem;color:var(--muted);margin:4px 0 12px;border-radius:0 4px 4px 0}
+.section-foot{margin-top:10px;padding-top:8px;border-top:1px solid var(--border);font-size:.83rem;color:var(--muted);text-align:right}
+.wage-bars .bar > i{background:var(--blue)}
+.wage-bars .bar.kit > i{background:var(--green)}
+.wage-bars .bar.tvnz > i{background:var(--purple)}
+.commentary{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;font-size:.88rem;line-height:1.7}
+.commentary h3{font-size:.78rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:8px;margin-top:14px}
+.commentary h3:first-child{margin-top:0}
+.fc-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+.fc-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px}
+.fc-card.tight{border-color:rgba(251,191,36,.4)}
+.fc-card.high{border-color:rgba(74,222,128,.4)}
+.fc-card h4{font-size:.95rem;font-weight:600;margin-bottom:6px}
+.fc-card .fc-dt{font-size:.75rem;color:var(--muted);margin-bottom:10px}
+.fc-card .fc-rev{font-size:.83rem;margin-bottom:10px;color:var(--ink);line-height:1.6}
+.fc-card .fc-line{display:flex;justify-content:space-between;font-size:.84rem;padding:4px 0}
+.fc-card .fc-line .l{color:var(--muted)}
+.fc-card .fc-line .v.cogs{color:var(--amber);font-weight:600}
+.fc-card .fc-line .v.wages{color:var(--blue);font-weight:600}
+.fc-card .fc-spreadnote{font-size:.72rem;color:var(--muted);margin-top:8px;padding-top:6px;border-top:1px dashed var(--border)}
+.bfh-panel{background:rgba(96,165,250,.05);border:1px solid rgba(96,165,250,.2);border-radius:6px;padding:10px 12px;margin-top:12px;font-size:.82rem}
+.bfh-panel h5{font-size:.75rem;text-transform:uppercase;color:#9bc4ff;letter-spacing:.05em;margin-bottom:8px}
+.bfh-panel table{width:100%;border-collapse:collapse}
+.bfh-panel th,.bfh-panel td{text-align:left;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.03)}
+.bfh-panel th{font-size:.7rem;text-transform:uppercase;color:var(--muted)}
+.bfh-panel td.r{text-align:right;font-variant-numeric:tabular-nums}
+.bfh-foot{font-size:.7rem;color:var(--muted);margin-top:6px}
+.fc-tightnote{margin-top:10px;padding:8px 10px;background:rgba(251,191,36,.07);border-left:2px solid var(--amber);border-radius:4px;font-size:.78rem;color:#fbe39a}
+.fc-strongnote{margin-top:10px;padding:8px 10px;background:rgba(74,222,128,.07);border-left:2px solid var(--green);border-radius:4px;font-size:.78rem;color:#86efac}</style></head><body><div class="container"><h1>Vulcan Lane Team Dashboard <span class="pill team">Team View</span></h1><div class="subtitle">Monday 8 June 2026</div><div class="kpis"><div class="kpi"><div class="l">Total Revenue</div><div class="v">$2,092.22</div><div class="s">Monday 8 June 2026</div></div><div class="kpi"><div class="l">Total COGS</div><div class="v">$662.21</div><div class="s">31.7% of revenue</div></div><div class="kpi"><div class="l">Wages</div><div class="v">$1,045.96</div><div class="s">37.49 h – 5 staff</div></div><div class="kpi"><div class="l">Remaining Op Costs</div><div class="v">$870.31</div><div class="s">41.6% of revenue</div></div></div><div class="sc red"><div class="slabel">Daily Result</div><div class="sval" style="color:#f87171">-23.2%</div><div class="sn">of revenue · Target ≥20% – below target</div><div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)"><div style="font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:10px">To reach 20% – today's adjustments needed</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div><div style="font-size:11px;color:var(--muted);margin-bottom:3px">COGS should have been</div><div style="font-size:1.15rem;font-weight:700;color:#fbbf24">≥ $1.63</div><div style="font-size:10px;color:var(--muted)">-$660.58 vs actual $662.21</div></div><div><div style="font-size:11px;color:var(--muted);margin-bottom:3px">Wages should have been</div><div style="font-size:1.15rem;font-weight:700;color:#60a5fa">≥ $715.67</div><div style="font-size:10px;color:var(--muted)">-$330.29 vs actual $1,045.96</div></div></div></div></div><h2>Revenue Breakdown</h2><div class="bars"><div class="barrow head"><div>Stream</div><div></div><div>Mon 8 Jun</div><div>WTD</div></div><div class="barrow"><div class="nm">Cafe</div><div class="bar"><i style="width:100.0%"></i></div><div class="v">$2,092.22</div><div class="wtd">$2,092.22</div></div></div><h2>COGS Breakdown</h2><div class="bars"><div class="barrow head"><div>Supplier</div><div></div><div>Mon 8 Jun</div><div>WTD</div></div><div class="barrow"><div class="nm">Bidfood</div><div class="bar"><i style="width:72.7%"></i></div><div class="v">$481.48</div><div class="wtd">$481.48</div></div><div class="invblk"><div>108936131 · PO 12144285-1 · Date 2026-06-08 · <b>$317.37</b></div><div>108933253 · PO 3999832-1 · Date 2026-06-08 · <b>$100.97</b></div><div>108933251 · PO 4000526-1 · Date 2026-06-08 · <b>$63.14</b></div></div><div class="barrow"><div class="nm">Five Elements</div><div class="bar"><i style="width:25.4%"></i></div><div class="v">$168.27</div><div class="wtd">$168.27</div></div><div class="spreadblk"><div>Inv #11538: Weekly ÷7 · $1,177.90 ÷ 7 = $168.27/day</div></div><div class="barrow"><div class="nm">LaundryCorp</div><div class="bar"><i style="width:1.9%"></i></div><div class="v">$12.46</div><div class="wtd">$12.46</div></div><div class="spreadblk"><div>Inv 01909365: Weekly ÷7 · $40.25 ÷ 7 = $5.75/day</div></div></div><div class="section-foot">Main suppliers $481.48 + Spread suppliers $180.73 = $662.21 total COGS today</div><h2>Wages · 5 Staff · 37.49 h · $1,045.96</h2><div class="bars wage-bars"><div class="barrow"><div class="nm">Eden Wharerau – 8.75h</div><div class="bar"><i style="width:100.0%"></i></div><div class="v"></div><div class="wtd">Front of House</div></div><div class="barrow"><div class="nm">Franz Uyseco – 7.92h</div><div class="bar kit"><i style="width:90.5%"></i></div><div class="v"></div><div class="wtd">Kitchen</div></div><div class="barrow"><div class="nm">Maddison Roewen – 7.47h</div><div class="bar"><i style="width:85.4%"></i></div><div class="v"></div><div class="wtd">Front of House</div></div><div class="barrow"><div class="nm">Ravinder kaur – 7.28h</div><div class="bar kit"><i style="width:83.2%"></i></div><div class="v"></div><div class="wtd">Kitchen</div></div><div class="barrow"><div class="nm">Mikayla Wratt – 6.07h</div><div class="bar"><i style="width:69.4%"></i></div><div class="v"></div><div class="wtd">Front of House</div></div></div><h2>Commentary</h2><div class="commentary"><h3>Today</h3><p>Vulcan Lane posted a deficit of -$486.26 (-23.2% margin) on $2,092.22 revenue. Below the 20% target.</p><h3>Week to date</h3><p>Vulcan Lane WTD: $2,092.22 revenue / -$486.26 surplus / -23.2% margin.</p></div><h2>Forward Forecast</h2><div class="fc-grid"><div class="fc-card"><h4>Tue 9 Jun</h4><div class="fc-dt">Forecast next trading day</div><div class="fc-rev">Cafe $2,807.72<br><b>Total: $2,807.72</b></div><div class="fc-line"><div class="l">Variable COGS budget</div><div class="v cogs">$521.20</div></div><div class="fc-line"><div class="l">Wages budget</div><div class="v wages">$1,098.84</div></div><div class="fc-spreadnote">Committed shares: LaundryCorp $5.75 / Five Elements $168.27 / LaundryCorp $6.71</div><div class="bfh-panel"><h5>Best Fit Hours</h5><table><thead><tr><th>Employee</th><th>Area</th><th class="r">Target hrs</th></tr></thead><tbody><tr><td>Franz Uyseco</td><td>Kitchen</td><td class="r">8.32</td></tr><tr><td>Ravinder kaur</td><td>Kitchen</td><td class="r">7.65</td></tr><tr><td>Eden Wharerau</td><td>Front of House</td><td class="r">8.50</td></tr><tr><td>Maddison Roewen</td><td>Front of House</td><td class="r">7.85</td></tr><tr><td>Mikayla Wratt</td><td>Front of House</td><td class="r">6.38</td></tr></tbody></table><div class="bfh-foot">38.69 total hours · full-time staff at minimum 7h</div></div></div><div class="fc-card"><h4>Wed 10 Jun</h4><div class="fc-dt">Forecast next trading day</div><div class="fc-rev">Cafe $2,550.19<br><b>Total: $2,550.19</b></div><div class="fc-line"><div class="l">Variable COGS budget</div><div class="v cogs">$456.82</div></div><div class="fc-line"><div class="l">Wages budget</div><div class="v wages">$1,005.17</div></div><div class="fc-spreadnote">Committed shares: LaundryCorp $5.75 / Five Elements $168.27 / LaundryCorp $6.71</div><div class="bfh-panel"><h5>Best Fit Hours</h5><table><thead><tr><th>Employee</th><th>Area</th><th class="r">Target hrs</th></tr></thead><tbody><tr><td>Franz Uyseco</td><td>Kitchen</td><td class="r">7.61</td></tr><tr><td>Ravinder kaur</td><td>Kitchen</td><td class="r">7.00</td></tr><tr><td>Eden Wharerau</td><td>Front of House</td><td class="r">8.41</td></tr><tr><td>Maddison Roewen</td><td>Front of House</td><td class="r">7.18</td></tr><tr><td>Mikayla Wratt</td><td>Front of House</td><td class="r">5.83</td></tr></tbody></table><div class="bfh-foot">36.03 total hours · full-time staff at minimum 7h</div></div></div></div><script>const FORECAST_BASE = {
+    "last_week":  {
+                      "mon":  {
+                                  "vs":  {
+                                             "cafe":  0,
+                                             "catering":  0
+                                         },
+                                  "sb":  {
+                                             "cafe":  0,
+                                             "tvnz":  0,
+                                             "wholesale":  2070.51,
+                                             "catering":  712.08
+                                         },
+                                  "vl":  {
+                                             "cafe":  3752.65
+                                         }
+                              },
+                      "tue":  {
+                                  "vs":  {
+                                             "cafe":  3086.12,
+                                             "catering":  2341.23
+                                         },
+                                  "sb":  {
+                                             "cafe":  2524.3,
+                                             "tvnz":  807.5,
+                                             "wholesale":  3546.15,
+                                             "catering":  426.09
+                                         },
+                                  "vl":  {
+                                             "cafe":  2807.72
+                                         }
+                              },
+                      "wed":  {
+                                  "vs":  {
+                                             "cafe":  2339.8,
+                                             "catering":  2410.53
+                                         },
+                                  "sb":  {
+                                             "cafe":  3085.7,
+                                             "tvnz":  827.8,
+                                             "wholesale":  3106.92,
+                                             "catering":  1740.37
+                                         },
+                                  "vl":  {
+                                             "cafe":  2550.19
+                                         }
+                              },
+                      "thu":  {
+                                  "vs":  {
+                                             "cafe":  2557.3,
+                                             "catering":  2850.58
+                                         },
+                                  "sb":  {
+                                             "cafe":  3298.1,
+                                             "tvnz":  760.7,
+                                             "wholesale":  3056.79,
+                                             "catering":  2416.14
+                                         },
+                                  "vl":  {
+                                             "cafe":  2486.95
+                                         }
+                              },
+                      "fri":  {
+                                  "vs":  {
+                                             "cafe":  1505.01,
+                                             "catering":  1165.68
+                                         },
+                                  "sb":  {
+                                             "cafe":  3105.9,
+                                             "tvnz":  666.7,
+                                             "wholesale":  3403.88,
+                                             "catering":  946.16
+                                         },
+                                  "vl":  {
+                                             "cafe":  3447.89
+                                         }
+                              },
+                      "sat":  {
+                                  "vs":  {
+                                             "cafe":  0,
+                                             "catering":  442.82
+                                         },
+                                  "sb":  {
+                                             "cafe":  0,
+                                             "tvnz":  0,
+                                             "wholesale":  3540.7,
+                                             "catering":  1031.09
+                                         },
+                                  "vl":  {
+                                             "cafe":  3420.89
+                                         }
+                              },
+                      "sun":  {
+                                  "vs":  {
+                                             "cafe":  0,
+                                             "catering":  0
+                                         },
+                                  "sb":  {
+                                             "cafe":  0,
+                                             "tvnz":  0,
+                                             "wholesale":  114.31,
+                                             "catering":  1442.79
+                                         },
+                                  "vl":  {
+                                             "cafe":  4195.65
+                                         }
+                              }
+                  },
+    "last_week_wages":  {
+                            "mon":  {
+                                        "vs":  0,
+                                        "sb":  680.42,
+                                        "vl":  1088.92
+                                    },
+                            "tue":  {
+                                        "vs":  1734.48,
+                                        "sb":  3292.85,
+                                        "vl":  1098.84
+                                    },
+                            "wed":  {
+                                        "vs":  1631.1,
+                                        "sb":  3452.37,
+                                        "vl":  1005.17
+                                    },
+                            "thu":  {
+                                        "vs":  1605.61,
+                                        "sb":  2970.88,
+                                        "vl":  936.46
+                                    },
+                            "fri":  {
+                                        "vs":  1042.94,
+                                        "sb":  3078.65,
+                                        "vl":  1260.92
+                                    },
+                            "sat":  {
+                                        "vs":  103.5,
+                                        "sb":  175.68,
+                                        "vl":  1323.99
+                                    },
+                            "sun":  {
+                                        "vs":  154,
+                                        "sb":  811.12,
+                                        "vl":  1317.57
+                                    }
+                        },
+    "cogs_benchmarks":  {
+                            "sb":  {
+                                       "cafe":  0.25,
+                                       "tvnz":  0.22,
+                                       "catering":  0.18,
+                                       "wholesale":  0.35
+                                   },
+                            "vs":  {
+                                       "cafe":  0.26,
+                                       "catering":  0.22
+                                   },
+                            "vl":  {
+                                       "cafe":  0.25
+                                   },
+                            "qs":  {
+                                       "cafe":  0.19
+                                   }
+                        }
+}
+;</script></div></body></html>
