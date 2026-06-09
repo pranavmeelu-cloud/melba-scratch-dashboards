@@ -1,58 +1,80 @@
-﻿<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Vulcan Lane - Dashboard History</title><style>
-:root{--bg:#0f1419;--card:#1a1f2e;--card-2:#232938;--ink:#e6edf3;--muted:#7d8ba1;--border:#2a3547;--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--orange:#f97316}
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vulcan Lane – Dashboard History</title>
+<style>
+:root{--bg:#0f1419;--card:#1a1f2e;--card-2:#232938;--ink:#e6edf3;--muted:#7d8ba1;--border:#2a3547;--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--purple:#a78bfa;--orange:#f97316}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:20px;line-height:1.5}
-.container{max-width:1100px;margin:0 auto}
-h1{font-size:1.6rem;font-weight:700}
+.container{max-width:1200px;margin:0 auto}
+h1{font-size:1.6rem;font-weight:700;margin-bottom:6px}
 .pill{display:inline-block;font-size:.7rem;font-weight:600;padding:3px 9px;border-radius:99px;background:var(--card-2);color:var(--muted);margin-left:8px;text-transform:uppercase;letter-spacing:.05em}
-.pill.team{background:#2a1f4a;color:#c4b5fd}
 .pill.owner{background:#172a4a;color:#9bc4ff}
+.pill.team{background:#2a1f4a;color:#c4b5fd}
 .pill.green{background:#0d2a1a;color:var(--green)}
-.pill.deepgreen{background:#0a2e18;color:#86efac}
 .pill.amber{background:#2a2010;color:var(--amber)}
 .pill.red{background:#2a1010;color:var(--red)}
+.pill.deepgreen{background:#0a2e18;color:#86efac}
 .pill.orange{background:#2a1a08;color:var(--orange)}
-.subtitle{color:var(--muted);font-size:.85rem;margin:6px 0 18px}
-.wtd-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px;margin-bottom:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.subtitle{color:var(--muted);font-size:.9rem;margin-bottom:18px}
+.wtd-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:18px;margin-bottom:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .wtd-card.team{grid-template-columns:repeat(2,1fr)}
 .wtd-card .l{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:4px}
-.wtd-card .v{font-size:1.3rem;font-weight:700}
-.wtd-card .s{font-size:.72rem;color:var(--muted);margin-top:2px}
-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;border:1px solid var(--border)}
-th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);font-size:.85rem}
-th{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;background:#16203a}
-td.r{text-align:right;font-variant-numeric:tabular-nums}
-td.c{text-align:center}
-tr.wtd-row td{border-bottom:2px solid #3a4f6a;color:var(--muted);background:#171e2e}
-a{color:#9bc4ff;text-decoration:none}
-a:hover{text-decoration:underline}
-</style></head><body><div class="container">
-<h1>Vulcan Lane <span class="pill team">Team View</span></h1>
-<div class="subtitle">Dashboard History</div>
-<div class="wtd-card team"><div><div class="l">Current Week Revenue</div><div class="v">$22,661.94,092.22</div></div><div><div class="l">Current Week Margin</div><div class="v"><span class="pill red">-23.2%</span></div>
-<table id="hist"><thead><tr><th>Date</th><th class="r">Revenue</th><th class="c">Margin</th><th></th></tr></thead><tbody id="hist-body"></tbody></table>
+.wtd-card .v{font-size:1.5rem;font-weight:700;font-variant-numeric:tabular-nums}
+table.idx{width:100%;border-collapse:collapse;font-size:.86rem;background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+table.idx th,table.idx td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border)}
+table.idx th{color:var(--muted);text-transform:uppercase;font-size:.7rem;letter-spacing:.05em;background:var(--card-2)}
+table.idx td.r{text-align:right;font-variant-numeric:tabular-nums}
+table.idx a{color:var(--blue);text-decoration:none}
+table.idx a:hover{text-decoration:underline}
+tr.wtd-row{font-weight:600}
+tr.wtd-row td{border-bottom:2px solid #3a4f6a;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Vulcan Lane <span class="pill team">Team View</span> <span class="pill">Dashboard History</span></h1>
+<div class="subtitle">Daily Team Dashboards · WTD rows pinned above each week</div>
+<div class="wtd-card team">
+<div><div class="l">Current Week Revenue</div><div class="v">$5,098.04</div></div>
+<div><div class="l">Current Week Margin</div><div class="v">1.7%</div></div>
+</div>
+<table class="idx"><thead><tr><th>Date</th><th>Revenue</th><th>Margin</th><th></th></tr></thead><tbody id="tb"></tbody></table>
+</div>
 <script>
-const HISTORY_DATA = [{"date":"2026-06-08","label":"Mon 8 Jun 2026","revenue":2092.22,"margin":-23.24,"surplus":-486.26,"file":"Vulcan Lane – 2026-06-08 Monday – Team Dashboard.html"},{"date":"2026-06-07","label":"Sun 7 Jun 2026","revenue":4195.65,"margin":26.95,"surplus":1130.78,"file":"Vulcan Lane – 2026-06-07 Sunday – Team Dashboard.html"},{"date":"2026-06-06","label":"Sat 6 Jun 2026","revenue":3420.89,"margin":-46.90,"surplus":-1604.39,"file":"Vulcan Lane – 2026-06-06 Saturday – Team Dashboard.html"},{"date":"2026-06-05","label":"Fri 5 Jun 2026","revenue":3447.89,"margin":18.55,"surplus":639.51,"file":"Vulcan Lane – 2026-06-05 Friday – Team Dashboard.html"},{date:"2026-06-04",label:"Thu 4 Jun 2026",revenue:2486.95,margin:5,surplus:124.87,file:"Vulcan Lane – 2026-06-04 Thursday – Team Dashboard.html"},{"label":"Wed 3 Jun 2026","surplus":103.86,"revenue":2550.19,"date":"2026-06-03","margin":4.07,"file":"Vulcan Lane – 2026-06-03 Wednesday – Team Dashboard.html"},{date:"2026-06-02",label:"Tue 2 Jun 2026",revenue:2807.72,margin:-40.06,surplus:-1124.81,file:"Vulcan Lane – 2026-06-02 Tuesday – Team Dashboard.html"},{date:"2026-06-01",label:"Mon 1 Jun 2026",revenue:3752.65,margin:27.03,surplus:1014.45,file:"Vulcan Lane – 2026-06-01 Monday – Team Dashboard.html"},{date:"2026-05-31",label:"Sun 31 May 2026",revenue:4157.44,margin:17.82,surplus:740.79,file:"Vulcan Lane – 2026-05-31 Sunday – Team Dashboard.html"},{"date":"2026-05-30","label":"Sat 30 May 2026","revenue":3937.12,"margin":23.67,"surplus":931.99,"file":"Vulcan Lane – 2026-05-30 Saturday – Team Dashboard.html"},{"date":"2026-05-29","label":"Fri 29 May 2026","revenue":2515.66,"margin":-57.346779771511258,"surplus":-1442.65,"file":"Vulcan Lane – 2026-05-29 Friday – Team Dashboard.html"},{"date":"2026-05-28","label":"Thu 28 May 2026","revenue":3084.45,"margin":13.78,"surplus":424.98,"file":"Vulcan Lane – 2026-05-28 Thursday – Team Dashboard.html"},{"date":"2026-05-27","label":"Wed 27 May 2026","revenue":2642.42,"margin":-25.1,"surplus":-663.31,"file":"Vulcan Lane – 2026-05-27 Wednesday – Team Dashboard.html"},{"date":"2026-05-26","label":"Tue 26 May 2026","revenue":3203.35,"margin":15.66,"surplus":501.59,"file":"Vulcan Lane – 2026-05-26 Tuesday – Team Dashboard.html"},{"date":"2026-05-25","label":"Mon 25 May 2026","revenue":2972.43,"margin":13.15,"surplus":390.9,"file":"Vulcan Lane – 2026-05-25 Monday – Team Dashboard.html"},{"date":"2026-05-24","label":"Sun 24 May 2026","revenue":4549.74,"margin":10.55,"surplus":479.87,"file":"Vulcan Lane – 2026-05-24 Sunday – Team Dashboard.html"},{"date":"2026-05-23","label":"Sat 23 May 2026","revenue":4655.96,"margin":33.45,"surplus":1557.32,"file":"Vulcan Lane – 2026-05-23 Saturday – Team Dashboard.html"},{"date":"2026-05-22","label":"Fri 22 May 2026","revenue":4006.31,"margin":24.51,"surplus":981.84,"file":"Vulcan Lane – 2026-05-22 Friday – Team Dashboard.html"},{"date":"2026-05-21","label":"Thu 21 May 2026","revenue":3089.53,"margin":14.24,"surplus":440.03,"file":"Vulcan Lane – 2026-05-21 Thursday – Team Dashboard.html"},{"date":"2026-05-20","label":"Wed 20 May 2026","revenue":2628.97,"margin":-0.03,"surplus":-0.88,"file":"Vulcan Lane – 2026-05-20 Wednesday – Team Dashboard.html"},{"date":"2026-05-19","label":"Tue 19 May 2026","revenue":3662.35,"margin":25.75,"surplus":942.99,"file":"Vulcan Lane – 2026-05-19 Tuesday – Team Dashboard.html"},{"date":"2026-05-18","label":"Mon 18 May 2026","revenue":2438.33,"margin":5.59,"surplus":136.42,"file":"Vulcan Lane – 2026-05-18 Monday – Team Dashboard.html"}];
-const WTD_HISTORY = [{"week_start":"2026-06-08","days_included":["mon"],"revenue":2092.22,"surplus":-486.26,"margin":-23.24},{"week_start":"2026-06-01","days_included":["mon","tue","wed","thu","fri","sat","sun"],"revenue":22661.94,"surplus":284.27,"margin":1.25},{week_start:"2026-05-25",days_included:["mon","tue","wed","thu","fri","sat","sun"],revenue:22512.87,surplus:884.29,margin:3.93},{"week_start":"2026-05-18","days_included":["mon","tue","wed","thu","fri","sat","sun"],"revenue":25031.19,"surplus":4537.59,"margin":18.13}];
-const THRESH = 20;
-function n0(x){if(x===null||x===undefined||isNaN(x))return null;return Number(x)}
-function mPct(m){if(m===null)return "&mdash;";return m.toFixed(1)+"%"}
-function fmt(v){if(v===null||v===undefined)return "$0.00";return "$"+Number(v).toLocaleString("en-NZ",{minimumFractionDigits:2,maximumFractionDigits:2})}
-function pillCls(m,t){if(m===null)return "";if(m<0)return "red";if(m>=t+10)return "deepgreen";if(m>=t)return "green";if(m>=t-5)return "amber";return "orange"}
-function pill(m){return '<span class="pill '+pillCls(m,THRESH)+'">'+mPct(m)+'</span>'}
-function isoWeek(dStr){var d=new Date(dStr);var day=(d.getDay()+6)%7;d.setDate(d.getDate()-day);return d.toISOString().substring(0,10)}
-var body=document.getElementById("hist-body");
-var byWeek={};HISTORY_DATA.forEach(function(r){var k=isoWeek(r.date);(byWeek[k]=byWeek[k]||[]).push(r)});
-var wtdByWeek={};WTD_HISTORY.forEach(function(w){wtdByWeek[w.week_start]=w});
-var wkOrder=Object.keys(byWeek).sort().reverse();
-wkOrder.forEach(function(wk){
-  var w=wtdByWeek[wk];
-  if(w){
-    var rng=(w.days_included||[]).join("-").toUpperCase();
-    body.insertAdjacentHTML("beforeend",'<tr class="wtd-row"><td>Week to Date '+rng+'</td><td class="r">'+fmt(w.revenue)+'</td><td class="c">'+pill(n0(w.margin))+'</td><td></td></tr>');
-  }
-  byWeek[wk].forEach(function(r){
-    body.insertAdjacentHTML("beforeend",'<tr><td>'+r.label+'</td><td class="r">'+fmt(r.revenue)+'</td><td class="c">'+pill(n0(r.margin))+'</td><td><a href="'+r.file+'">Open</a></td></tr>');
+const HISTORY_DATA = [{date:"2026-06-09",label:"Tue 9 Jun 2026",revenue:3005.82,margin:19.13,surplus:574.87,file:"Vulcan Lane – 2026-06-09 Tuesday – Team Dashboard.html"},{"date":"2026-06-08","label":"Mon 8 Jun 2026","revenue":2092.22,"margin":-23.24,"surplus":-486.26,"file":"Vulcan Lane – 2026-06-08 Monday – Team Dashboard.html"},{"date":"2026-06-07","label":"Sun 7 Jun 2026","revenue":4195.65,"margin":26.95,"surplus":1130.78,"file":"Vulcan Lane – 2026-06-07 Sunday – Team Dashboard.html"},{"date":"2026-06-06","label":"Sat 6 Jun 2026","revenue":3420.89,"margin":-46.90,"surplus":-1604.39,"file":"Vulcan Lane – 2026-06-06 Saturday – Team Dashboard.html"},{"date":"2026-06-05","label":"Fri 5 Jun 2026","revenue":3447.89,"margin":18.55,"surplus":639.51,"file":"Vulcan Lane – 2026-06-05 Friday – Team Dashboard.html"},{date:"2026-06-04",label:"Thu 4 Jun 2026",revenue:2486.95,margin:5,surplus:124.87,file:"Vulcan Lane – 2026-06-04 Thursday – Team Dashboard.html"},{"label":"Wed 3 Jun 2026","surplus":103.86,"revenue":2550.19,"date":"2026-06-03","margin":4.07,"file":"Vulcan Lane – 2026-06-03 Wednesday – Team Dashboard.html"},{date:"2026-06-02",label:"Tue 2 Jun 2026",revenue:2807.72,margin:-40.06,surplus:-1124.81,file:"Vulcan Lane – 2026-06-02 Tuesday – Team Dashboard.html"},{date:"2026-06-01",label:"Mon 1 Jun 2026",revenue:3752.65,margin:27.03,surplus:1014.45,file:"Vulcan Lane – 2026-06-01 Monday – Team Dashboard.html"},{date:"2026-05-31",label:"Sun 31 May 2026",revenue:4157.44,margin:17.82,surplus:740.79,file:"Vulcan Lane – 2026-05-31 Sunday – Team Dashboard.html"},{"date":"2026-05-30","label":"Sat 30 May 2026","revenue":3937.12,"margin":23.67,"surplus":931.99,"file":"Vulcan Lane – 2026-05-30 Saturday – Team Dashboard.html"},{"date":"2026-05-29","label":"Fri 29 May 2026","revenue":2515.66,"margin":-57.346779771511258,"surplus":-1442.65,"file":"Vulcan Lane – 2026-05-29 Friday – Team Dashboard.html"},{"date":"2026-05-28","label":"Thu 28 May 2026","revenue":3084.45,"margin":13.78,"surplus":424.98,"file":"Vulcan Lane – 2026-05-28 Thursday – Team Dashboard.html"},{"date":"2026-05-27","label":"Wed 27 May 2026","revenue":2642.42,"margin":-25.1,"surplus":-663.31,"file":"Vulcan Lane – 2026-05-27 Wednesday – Team Dashboard.html"},{"date":"2026-05-26","label":"Tue 26 May 2026","revenue":3203.35,"margin":15.66,"surplus":501.59,"file":"Vulcan Lane – 2026-05-26 Tuesday – Team Dashboard.html"},{"date":"2026-05-25","label":"Mon 25 May 2026","revenue":2972.43,"margin":13.15,"surplus":390.9,"file":"Vulcan Lane – 2026-05-25 Monday – Team Dashboard.html"},{"date":"2026-05-24","label":"Sun 24 May 2026","revenue":4549.74,"margin":10.55,"surplus":479.87,"file":"Vulcan Lane – 2026-05-24 Sunday – Team Dashboard.html"},{"date":"2026-05-23","label":"Sat 23 May 2026","revenue":4655.96,"margin":33.45,"surplus":1557.32,"file":"Vulcan Lane – 2026-05-23 Saturday – Team Dashboard.html"},{"date":"2026-05-22","label":"Fri 22 May 2026","revenue":4006.31,"margin":24.51,"surplus":981.84,"file":"Vulcan Lane – 2026-05-22 Friday – Team Dashboard.html"},{"date":"2026-05-21","label":"Thu 21 May 2026","revenue":3089.53,"margin":14.24,"surplus":440.03,"file":"Vulcan Lane – 2026-05-21 Thursday – Team Dashboard.html"},{"date":"2026-05-20","label":"Wed 20 May 2026","revenue":2628.97,"margin":-0.03,"surplus":-0.88,"file":"Vulcan Lane – 2026-05-20 Wednesday – Team Dashboard.html"},{"date":"2026-05-19","label":"Tue 19 May 2026","revenue":3662.35,"margin":25.75,"surplus":942.99,"file":"Vulcan Lane – 2026-05-19 Tuesday – Team Dashboard.html"},{"date":"2026-05-18","label":"Mon 18 May 2026","revenue":2438.33,"margin":5.59,"surplus":136.42,"file":"Vulcan Lane – 2026-05-18 Monday – Team Dashboard.html"}];
+const WTD_HISTORY = [{week_start:"2026-06-08",days_included:["mon","tue"],revenue:5098.04,surplus:88.61,margin:1.74},{"week_start":"2026-06-01","days_included":["mon","tue","wed","thu","fri","sat","sun"],"revenue":22661.94,"surplus":284.27,"margin":1.25},{week_start:"2026-05-25",days_included:["mon","tue","wed","thu","fri","sat","sun"],revenue:22512.87,surplus:884.29,margin:3.93},{"week_start":"2026-05-18","days_included":["mon","tue","wed","thu","fri","sat","sun"],"revenue":25031.19,"surplus":4537.59,"margin":18.13}];
+const THR = 20;
+function isoWeek(iso){const d=new Date(iso);const day=(d.getUTCDay()+6)%7;d.setUTCDate(d.getUTCDate()-day);return d.toISOString().slice(0,10);}
+function fmt(n){const v=(n==null||isNaN(n))?0:Number(n);return '$'+v.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+function n0(x){return (x==null||isNaN(x))?null:Number(x);}
+function pctCls(m,t){if(m==null)return 'orange';return m>=t+10?'deepgreen':m>=t?'green':m>=t-5?'amber':m>=0?'orange':'red';}
+function mPct(m){return m==null?'—':m.toFixed(1)+'%';}
+function render(){
+  const groups={};
+  HISTORY_DATA.forEach(r=>{const w=isoWeek(r.date);if(!groups[w])groups[w]=[];groups[w].push(r);});
+  const tb=document.getElementById('tb');tb.innerHTML='';
+  const sortedWeeks=Object.keys(groups).sort().reverse();
+  const dayMap={mon:'Mon',tue:'Tue',wed:'Wed',thu:'Thu',fri:'Fri',sat:'Sat',sun:'Sun'};
+  sortedWeeks.forEach(w=>{
+    const wtd=WTD_HISTORY.find(x=>x.week_start===w);
+    if(wtd){
+      const tr=document.createElement('tr');tr.className='wtd-row';
+      const dlist=(wtd.days_included||[]).map(d=>dayMap[d]).join(' ');
+      const m=n0(wtd.margin);
+      tr.innerHTML='<td>Week to Date<br><span style="font-weight:400;font-size:.78rem">'+dlist+'</span></td><td class="r">'+fmt(wtd.revenue)+'</td><td><span class="pill '+pctCls(m,THR)+'">'+mPct(m)+'</span></td><td></td>';
+      tb.appendChild(tr);
+    }
+    groups[w].forEach(r=>{
+      const tr=document.createElement('tr');
+      const m=n0(r.margin);
+      tr.innerHTML='<td>'+r.label+'</td><td class="r">'+fmt(r.revenue)+'</td><td><span class="pill '+pctCls(m,THR)+'">'+mPct(m)+'</span></td><td><a href="'+r.file+'">Open '+'→'+'</a></td>';
+      tb.appendChild(tr);
+    });
   });
-});
-</script></div></body></html>
+}
+render();
+</script>
+</body>
+</html>

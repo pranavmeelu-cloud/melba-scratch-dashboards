@@ -1,62 +1,86 @@
-﻿<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Melba-Scratch Group - Dashboard History</title><style>
-:root{--bg:#0f1419;--card:#1a1f2e;--card-2:#232938;--ink:#e6edf3;--muted:#7d8ba1;--border:#2a3547;--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--orange:#f97316}
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Melba-Scratch Group – Dashboard History</title>
+<style>
+:root{--bg:#0f1419;--card:#1a1f2e;--card-2:#232938;--ink:#e6edf3;--muted:#7d8ba1;--border:#2a3547;--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--purple:#a78bfa;--orange:#f97316}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:20px;line-height:1.5}
-.container{max-width:1100px;margin:0 auto}
-h1{font-size:1.6rem;font-weight:700}
+.container{max-width:1200px;margin:0 auto}
+h1{font-size:1.6rem;font-weight:700;margin-bottom:6px}
 .pill{display:inline-block;font-size:.7rem;font-weight:600;padding:3px 9px;border-radius:99px;background:var(--card-2);color:var(--muted);margin-left:8px;text-transform:uppercase;letter-spacing:.05em}
-.pill.team{background:#2a1f4a;color:#c4b5fd}
 .pill.owner{background:#172a4a;color:#9bc4ff}
+.pill.team{background:#2a1f4a;color:#c4b5fd}
 .pill.green{background:#0d2a1a;color:var(--green)}
-.pill.deepgreen{background:#0a2e18;color:#86efac}
 .pill.amber{background:#2a2010;color:var(--amber)}
 .pill.red{background:#2a1010;color:var(--red)}
+.pill.deepgreen{background:#0a2e18;color:#86efac}
 .pill.orange{background:#2a1a08;color:var(--orange)}
-.subtitle{color:var(--muted);font-size:.85rem;margin:6px 0 18px}
-.wtd-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px;margin-bottom:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.subtitle{color:var(--muted);font-size:.9rem;margin-bottom:18px}
+.wtd-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:18px;margin-bottom:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .wtd-card.team{grid-template-columns:repeat(2,1fr)}
 .wtd-card .l{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:4px}
-.wtd-card .v{font-size:1.3rem;font-weight:700}
-.wtd-card .s{font-size:.72rem;color:var(--muted);margin-top:2px}
-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden;border:1px solid var(--border)}
-th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);font-size:.85rem}
-th{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;background:#16203a}
-td.r{text-align:right;font-variant-numeric:tabular-nums}
-td.c{text-align:center}
-tr.wtd-row td{border-bottom:2px solid #3a4f6a;color:var(--muted);background:#171e2e}
-a{color:#9bc4ff;text-decoration:none}
-a:hover{text-decoration:underline}
-</style></head><body><div class="container">
-<h1>Melba-Scratch Group <span class="pill owner">Owner View</span></h1>
-<div class="subtitle">Dashboard History - all $ incl GST</div>
-<div class="wtd-card"><div><div class="l">Current Week Revenue</div><div class="v">$72,713.74</div></div><div><div class="l">Current Week Surplus</div><div class="v">$9,050.49</div></div><div><div class="l">Current Week Margin</div><div class="v"><span class="pill orange">12.4%</span></div></div></div>
-<table id="hist"><thead><tr><th>Date</th><th class="r">Group Revenue</th><th class="r">Group Surplus</th><th class="c">Group Margin</th><th class="c">VS</th><th class="c">SB</th><th class="c">VL</th><th class="c">QS</th><th></th></tr></thead><tbody id="hist-body"></tbody></table>
+.wtd-card .v{font-size:1.5rem;font-weight:700;font-variant-numeric:tabular-nums}
+table.idx{width:100%;border-collapse:collapse;font-size:.86rem;background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+table.idx th,table.idx td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border)}
+table.idx th{color:var(--muted);text-transform:uppercase;font-size:.7rem;letter-spacing:.05em;background:var(--card-2)}
+table.idx td.r{text-align:right;font-variant-numeric:tabular-nums}
+table.idx a{color:var(--blue);text-decoration:none}
+table.idx a:hover{text-decoration:underline}
+tr.wtd-row{font-weight:600}
+tr.wtd-row td{border-bottom:2px solid #3a4f6a;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Melba-Scratch Group – Dashboard History <span class="pill owner">Owner View</span></h1>
+<div class="subtitle">All dated group dashboards · WTD rows pinned above each week</div>
+<div class="wtd-card">
+<div><div class="l">Current Week Revenue</div><div class="v">$40,576.54</div></div>
+<div><div class="l">Current Week Surplus</div><div class="v">$3,980.60</div></div>
+<div><div class="l">Current Week Margin</div><div class="v">9.8%</div></div>
+</div>
+<table class="idx" id="tbl">
+<thead><tr><th>Date</th><th>Group Revenue</th><th>Group Surplus</th><th>Margin</th><th>VS</th><th>SB</th><th>VL</th><th>QS</th><th></th></tr></thead>
+<tbody id="tb"></tbody>
+</table>
+</div>
 <script>
-const HISTORY_DATA = [{"date":"2026-06-08","label":"Mon 8 Jun 2026","group_revenue":17041.37,"vs":{"margin":3.15,"surplus":162.12},"sb":{"margin":-21.06,"surplus":-1933.84},"vl":{"margin":-23.24,"surplus":-486.26},"qs":{"margin":29.61,"surplus":184.68},"file":"Melba-Scratch Group Dashboard - Monday 8 June 2026.html"},{"date":"2026-06-07","label":"Sun 7 Jun 2026","group_revenue":5752.75,"vs":{"margin":null,"surplus":-203.36},"sb":{"margin":23.38,"surplus":364.12},"vl":{"margin":26.95,"surplus":1130.78},"qs":{"margin":null,"surplus":0.00},"file":"Melba-Scratch Group Dashboard - Sunday 7 June 2026.html"},{"date":"2026-06-06","label":"Sat 6 Jun 2026","group_revenue":8435.50,"vs":{"margin":43.01,"surplus":190.46},"sb":{"margin":22.04,"surplus":1007.84},"vl":{"margin":-46.90,"surplus":-1604.39},"qs":{"margin":null,"surplus":0.00},"file":"Melba-Scratch Group Dashboard - Saturday 6 June 2026.html"},{"date":"2026-06-05","label":"Fri 5 Jun 2026","group_revenue":15031.52,"vs":{"margin":20.43,"surplus":545.73},"sb":{"margin":18.66,"surplus":1515.77},"vl":{"margin":18.55,"surplus":639.51},"qs":{"margin":37.31,"surplus":294.86},"file":"Melba-Scratch Group Dashboard - Friday 5 June 2026.html"},{date:"2026-06-04",label:"Thu 4 Jun 2026",group_revenue:18144.56,vs:{margin:35.4,surplus:1914.14},sb:{margin:30.5,surplus:2910.64},vl:{margin:5,surplus:124.87},qs:{margin:34.9,surplus:250.58},file:"Melba-Scratch Group Dashboard - Thursday 4 June 2026.html"},{"vl":{"margin":4.07,"surplus":103.86},"sb":{"margin":-3,"surplus":-262.69},"file":"Melba-Scratch Group Dashboard - Wednesday 3 June 2026.html","group_revenue":16815.11,"vs":{"margin":20.39,"surplus":968.44},"label":"Wed 3 Jun 2026","qs":{"margin":34.75,"surplus":261.93},"date":"2026-06-03"},{date:"2026-06-02",label:"Tue 2 Jun 2026",group_revenue:16187.31,vs:{margin:1.97,surplus:107.04},sb:{margin:-7.88,surplus:-575.58},vl:{margin:-40.06,surplus:-1124.81},qs:{margin:20.4,surplus:132.26},file:"Melba-Scratch Group Dashboard - Tuesday 2 June 2026.html"},{date:"2026-06-01",label:"Mon 1 Jun 2026",group_revenue:6535.24,vs:{margin:0,surplus:-78.05},sb:{margin:11.05,surplus:307.54},vl:{margin:27.03,surplus:1014.45},qs:{margin:0,surplus:0},file:"Melba-Scratch Group Dashboard - Monday 1 June 2026.html"},{date:"2026-05-31",label:"Sun 31 May 2026",group_revenue:4655.39,vs:{margin:0,surplus:-49.36},sb:{margin:-12.13,surplus:-60.39},vl:{margin:17.82,surplus:740.79},qs:{margin:0,surplus:0},file:"Melba-Scratch Group Dashboard - Sunday 31 May 2026.html"},{"date":"2026-05-30","label":"Sat 30 May 2026","group_revenue":6609.16,"vs":{"margin":null,"surplus":-49.36},"sb":{"margin":24.34,"surplus":650.46},"vl":{"margin":23.67,"surplus":931.99},"qs":{"margin":null,"surplus":0.00},"file":"Melba-Scratch Group Dashboard - Saturday 30 May 2026.html"},{"date":"2026-05-29","label":"Fri 29 May 2026","group_revenue":11861.54,"vs":{"margin":-26.555774093846583,"surplus":-472.56},"sb":{"margin":-10.168354329804984,"surplus":-691.08},"vl":{"margin":-57.346779771511258,"surplus":-1442.65},"qs":{"margin":35.364935064935068,"surplus":272.31},"file":"Melba-Scratch Group Dashboard - Friday 29 May 2026.html"},{"date":"2026-05-28","label":"Thu 28 May 2026","group_revenue":19246.01,"vs":{"margin":44.02,"surplus":2508.32},"sb":{"margin":23.95,"surplus":2333.00},"vl":{"margin":13.78,"surplus":424.98},"qs":{"margin":32.94,"surplus":237.22},"file":"Melba-Scratch Group Dashboard - Thursday 28 May 2026.html"},{"date":"2026-05-27","label":"Wed 27 May 2026","group_revenue":17629.68,"vs":{"margin":-25.04,"surplus":-1355.45},"sb":{"margin":-3.98,"surplus":-349.37},"vl":{"margin":-25.10,"surplus":-663.31},"qs":{"margin":20.08,"surplus":159.24},"file":"Melba-Scratch Group Dashboard - Wednesday 27 May 2026.html"},{"date":"2026-05-26","label":"Tue 26 May 2026","group_revenue":21059.75,"vs":{"margin":37.50,"surplus":2853.89},"sb":{"margin":-1.56,"surplus":-147.29},"vl":{"margin":15.66,"surplus":501.59},"qs":{"margin":10.58,"surplus":84.21},"file":"Melba-Scratch Group Dashboard - Tuesday 26 May 2026.html"},{"date":"2026-05-25","label":"Mon 25 May 2026","group_revenue":12796.20,"vs":{"margin":-19.53,"surplus":-420.93},"sb":{"margin":14.08,"surplus":1006.71},"vl":{"margin":13.15,"surplus":390.90},"qs":{"margin":12.55,"surplus":64.89},"file":"Melba-Scratch Group Dashboard - Monday 25 May 2026.html"},{"date":"2026-05-24","label":"Sun 24 May 2026","group_revenue":5162.00,"vs":{"margin":null,"surplus":-154.41},"sb":{"margin":-90.45,"surplus":-553.84},"vl":{"margin":10.55,"surplus":479.87},"qs":{"margin":null,"surplus":0.00},"file":"Melba-Scratch Group Dashboard - Sunday 24 May 2026.html"},{"date":"2026-05-23","label":"Sat 23 May 2026","group_revenue":8273.63,"vs":{"margin":null,"surplus":-169.20},"sb":{"margin":49.55,"surplus":1792.52},"vl":{"margin":33.45,"surplus":1557.32},"qs":{"margin":null,"surplus":0.00},"file":"Melba-Scratch Group Dashboard - Saturday 23 May 2026.html"},{"date":"2026-05-22","label":"Fri 22 May 2026","group_revenue":21010.31,"vs":{"margin":-8.59,"surplus":-172.37},"sb":{"margin":45.83,"surplus":6512.45},"vl":{"margin":24.51,"surplus":981.84},"qs":{"margin":30.46,"surplus":239.43},"file":"Melba-Scratch Group Dashboard - Friday 22 May 2026.html"},{"date":"2026-05-21","label":"Thu 21 May 2026","group_revenue":24682.09,"vs":{"margin":-7.76,"surplus":-464.19},"sb":{"margin":49.89,"surplus":7412.62},"vl":{"margin":14.24,"surplus":440.03},"qs":{"margin":11.26,"surplus":84.97},"file":"Melba-Scratch Group Dashboard - Thursday 21 May 2026.html"},{"date":"2026-05-20","label":"Wed 20 May 2026","group_revenue":17296.78,"vs":{"margin":-47.09,"surplus":-1519.01},"sb":{"margin":33.74,"surplus":3591.92},"vl":{"margin":-0.03,"surplus":-0.88},"qs":{"margin":15.70,"surplus":125.11},"file":"Melba-Scratch Group Dashboard - Wednesday 20 May 2026.html"},{"date":"2026-05-19","label":"Tue 19 May 2026","group_revenue":16928.99,"vs":{"margin":-26.84,"surplus":-1170.51},"sb":{"margin":27.27,"surplus":2255.00},"vl":{"margin":25.75,"surplus":942.99},"qs":{"margin":-1.61,"surplus":-10.26},"file":"Melba-Scratch Group Dashboard - Tuesday 19 May 2026.html"},{"date":"2026-05-18","label":"Mon 18 May 2026","group_revenue":13876.51,"vs":{"margin":-17.81,"surplus":-447.95},"sb":{"margin":7.21,"surplus":605.56},"vl":{"margin":5.59,"surplus":136.42},"qs":{"margin":4.47,"surplus":23.62},"file":"Melba-Scratch Group Dashboard - Monday 18 May 2026.html"}];
-const WTD_HISTORY = [{"week_start":"2026-06-08","days_included":["mon"],"group_revenue":17041.37,"group_surplus":-2073.30,"group_margin":-12.17,"vs":{"margin":3.15},"sb":{"margin":-21.06},"vl":{"margin":-23.24},"qs":{"margin":29.61}},{"week_start":"2026-06-01","days_included":["mon","tue","wed","thu","fri","sat","sun"],"group_revenue":86901.99,"group_surplus":9935.91,"group_margin":11.43,"vs":{"margin":18.42},"sb":{"margin":12.36},"vl":{"margin":1.25},"qs":{"margin":32.29}},{week_start:"2026-05-25",days_included:["mon","tue","wed","thu","fri","sat","sun"],group_revenue:93857.73,group_surplus:7458.75,group_margin:7.95,vs:{margin:13.31},sb:{margin:6.08},vl:{margin:3.93},qs:{margin:22.74}},{"week_start":"2026-05-18","days_included":["mon","tue","wed","thu","fri","sat","sun"],"group_revenue":107230.31,"group_surplus":22519.05,"group_margin":21.00,"vs":{"margin":-22.65},"sb":{"margin":35.67},"vl":{"margin":18.13},"qs":{"margin":13.21}}];
-function n0(x){if(x===null||x===undefined||isNaN(x))return null;return Number(x)}
-function mPct(m){if(m===null)return "&mdash;";return m.toFixed(1)+"%"}
-function fmt(v){if(v===null||v===undefined)return "$0.00";return "$"+Number(v).toLocaleString("en-NZ",{minimumFractionDigits:2,maximumFractionDigits:2})}
-function pillCls(m,t){if(m===null)return "";if(m<0)return "red";if(m>=t+10)return "deepgreen";if(m>=t)return "green";if(m>=t-5)return "amber";return "orange"}
-function gpCls(m){if(m===null)return "";if(m<0)return "red";if(m>=28)return "deepgreen";if(m>=18)return "green";if(m>=13)return "amber";return "orange"}
-function pill(m,t){return '<span class="pill '+pillCls(m,t)+'">'+mPct(m)+'</span>'}
-function pillG(m){return '<span class="pill '+gpCls(m)+'">'+mPct(m)+'</span>'}
-function isoWeek(dStr){var d=new Date(dStr);var day=(d.getDay()+6)%7;d.setDate(d.getDate()-day);return d.toISOString().substring(0,10)}
-var body=document.getElementById("hist-body");
-var byWeek={};HISTORY_DATA.forEach(function(r){var k=isoWeek(r.date);(byWeek[k]=byWeek[k]||[]).push(r)});
-var wtdByWeek={};WTD_HISTORY.forEach(function(w){wtdByWeek[w.week_start]=w});
-var wkOrder=Object.keys(byWeek).sort().reverse();
-wkOrder.forEach(function(wk){
-  var w=wtdByWeek[wk];
-  if(w){
-    var rng=(w.days_included||[]).join("-").toUpperCase();
-    var gm=n0(w.group_margin);
-    body.insertAdjacentHTML("beforeend",'<tr class="wtd-row"><td>Week to Date '+rng+'</td><td class="r">'+fmt(w.group_revenue)+'</td><td class="r">'+fmt(w.group_surplus)+'</td><td class="c">'+pillG(gm)+'</td><td class="c">'+pill(n0(w.vs.margin),20)+'</td><td class="c">'+pill(n0(w.sb.margin),15)+'</td><td class="c">'+pill(n0(w.vl.margin),20)+'</td><td class="c">'+pill(n0(w.qs.margin),20)+'</td><td></td></tr>');
-  }
-  byWeek[wk].forEach(function(r){
-    var totalSur=Number(r.vs.surplus||0)+Number(r.sb.surplus||0)+Number(r.vl.surplus||0)+Number(r.qs.surplus||0);
-    var gm=r.group_revenue>0?(totalSur/r.group_revenue*100):null;
-    body.insertAdjacentHTML("beforeend",'<tr><td>'+r.label+'</td><td class="r">'+fmt(r.group_revenue)+'</td><td class="r">'+fmt(totalSur)+'</td><td class="c">'+pillG(gm)+'</td><td class="c">'+pill(n0(r.vs.margin),20)+'</td><td class="c">'+pill(n0(r.sb.margin),15)+'</td><td class="c">'+pill(n0(r.vl.margin),20)+'</td><td class="c">'+pill(n0(r.qs.margin),20)+'</td><td><a href="'+r.file+'">Open</a></td></tr>');
+const HISTORY_DATA = [{date:"2026-06-09",label:"Tue 9 Jun 2026",group_revenue:23535.17,vs:{margin:14.27,surplus:475.79},sb:{margin:28.94,surplus:4775.19},vl:{margin:19.13,surplus:574.87},qs:{margin:32.94,surplus:228.05},file:"Melba-Scratch Group Dashboard - Tuesday 9 June 2026.html"},{"date":"2026-06-08","label":"Mon 8 Jun 2026","group_revenue":17041.37,"vs":{"margin":3.15,"surplus":162.12},"sb":{"margin":-21.06,"surplus":-1933.84},"vl":{"margin":-23.24,"surplus":-486.26},"qs":{"margin":29.61,"surplus":184.68},"file":"Melba-Scratch Group Dashboard - Monday 8 June 2026.html"},{"date":"2026-06-07","label":"Sun 7 Jun 2026","group_revenue":5752.75,"vs":{"margin":null,"surplus":-203.36},"sb":{"margin":23.38,"surplus":364.12},"vl":{"margin":26.95,"surplus":1130.78},"qs":{"margin":null,"surplus":0.00},"file":"Melba-Scratch Group Dashboard - Sunday 7 June 2026.html"},{"date":"2026-06-06","label":"Sat 6 Jun 2026","group_revenue":8435.50,"vs":{"margin":43.01,"surplus":190.46},"sb":{"margin":22.04,"surplus":1007.84},"vl":{"margin":-46.90,"surplus":-1604.39},"qs":{"margin":null,"surplus":0.00},"file":"Melba-Scratch Group Dashboard - Saturday 6 June 2026.html"},{"date":"2026-06-05","label":"Fri 5 Jun 2026","group_revenue":15031.52,"vs":{"margin":20.43,"surplus":545.73},"sb":{"margin":18.66,"surplus":1515.77},"vl":{"margin":18.55,"surplus":639.51},"qs":{"margin":37.31,"surplus":294.86},"file":"Melba-Scratch Group Dashboard - Friday 5 June 2026.html"},{date:"2026-06-04",label:"Thu 4 Jun 2026",group_revenue:18144.56,vs:{margin:35.4,surplus:1914.14},sb:{margin:30.5,surplus:2910.64},vl:{margin:5,surplus:124.87},qs:{margin:34.9,surplus:250.58},file:"Melba-Scratch Group Dashboard - Thursday 4 June 2026.html"},{"vl":{"margin":4.07,"surplus":103.86},"sb":{"margin":-3,"surplus":-262.69},"file":"Melba-Scratch Group Dashboard - Wednesday 3 June 2026.html","group_revenue":16815.11,"vs":{"margin":20.39,"surplus":968.44},"label":"Wed 3 Jun 2026","qs":{"margin":34.75,"surplus":261.93},"date":"2026-06-03"},{date:"2026-06-02",label:"Tue 2 Jun 2026",group_revenue:16187.31,vs:{margin:1.97,surplus:107.04},sb:{margin:-7.88,surplus:-575.58},vl:{margin:-40.06,surplus:-1124.81},qs:{margin:20.4,surplus:132.26},file:"Melba-Scratch Group Dashboard - Tuesday 2 June 2026.html"},{date:"2026-06-01",label:"Mon 1 Jun 2026",group_revenue:6535.24,vs:{margin:0,surplus:-78.05},sb:{margin:11.05,surplus:307.54},vl:{margin:27.03,surplus:1014.45},qs:{margin:0,surplus:0},file:"Melba-Scratch Group Dashboard - Monday 1 June 2026.html"},{date:"2026-05-31",label:"Sun 31 May 2026",group_revenue:4655.39,vs:{margin:0,surplus:-49.36},sb:{margin:-12.13,surplus:-60.39},vl:{margin:17.82,surplus:740.79},qs:{margin:0,surplus:0},file:"Melba-Scratch Group Dashboard - Sunday 31 May 2026.html"},{"date":"2026-05-30","label":"Sat 30 May 2026","group_revenue":6609.16,"vs":{"margin":null,"surplus":-49.36},"sb":{"margin":24.34,"surplus":650.46},"vl":{"margin":23.67,"surplus":931.99},"qs":{"margin":null,"surplus":0.00},"file":"Melba-Scratch Group Dashboard - Saturday 30 May 2026.html"},{"date":"2026-05-29","label":"Fri 29 May 2026","group_revenue":11861.54,"vs":{"margin":-26.555774093846583,"surplus":-472.56},"sb":{"margin":-10.168354329804984,"surplus":-691.08},"vl":{"margin":-57.346779771511258,"surplus":-1442.65},"qs":{"margin":35.364935064935068,"surplus":272.31},"file":"Melba-Scratch Group Dashboard - Friday 29 May 2026.html"},{"date":"2026-05-28","label":"Thu 28 May 2026","group_revenue":19246.01,"vs":{"margin":44.02,"surplus":2508.32},"sb":{"margin":23.95,"surplus":2333.00},"vl":{"margin":13.78,"surplus":424.98},"qs":{"margin":32.94,"surplus":237.22},"file":"Melba-Scratch Group Dashboard - Thursday 28 May 2026.html"},{"date":"2026-05-27","label":"Wed 27 May 2026","group_revenue":17629.68,"vs":{"margin":-25.04,"surplus":-1355.45},"sb":{"margin":-3.98,"surplus":-349.37},"vl":{"margin":-25.10,"surplus":-663.31},"qs":{"margin":20.08,"surplus":159.24},"file":"Melba-Scratch Group Dashboard - Wednesday 27 May 2026.html"},{"date":"2026-05-26","label":"Tue 26 May 2026","group_revenue":21059.75,"vs":{"margin":37.50,"surplus":2853.89},"sb":{"margin":-1.56,"surplus":-147.29},"vl":{"margin":15.66,"surplus":501.59},"qs":{"margin":10.58,"surplus":84.21},"file":"Melba-Scratch Group Dashboard - Tuesday 26 May 2026.html"},{"date":"2026-05-25","label":"Mon 25 May 2026","group_revenue":12796.20,"vs":{"margin":-19.53,"surplus":-420.93},"sb":{"margin":14.08,"surplus":1006.71},"vl":{"margin":13.15,"surplus":390.90},"qs":{"margin":12.55,"surplus":64.89},"file":"Melba-Scratch Group Dashboard - Monday 25 May 2026.html"},{"date":"2026-05-24","label":"Sun 24 May 2026","group_revenue":5162.00,"vs":{"margin":null,"surplus":-154.41},"sb":{"margin":-90.45,"surplus":-553.84},"vl":{"margin":10.55,"surplus":479.87},"qs":{"margin":null,"surplus":0.00},"file":"Melba-Scratch Group Dashboard - Sunday 24 May 2026.html"},{"date":"2026-05-23","label":"Sat 23 May 2026","group_revenue":8273.63,"vs":{"margin":null,"surplus":-169.20},"sb":{"margin":49.55,"surplus":1792.52},"vl":{"margin":33.45,"surplus":1557.32},"qs":{"margin":null,"surplus":0.00},"file":"Melba-Scratch Group Dashboard - Saturday 23 May 2026.html"},{"date":"2026-05-22","label":"Fri 22 May 2026","group_revenue":21010.31,"vs":{"margin":-8.59,"surplus":-172.37},"sb":{"margin":45.83,"surplus":6512.45},"vl":{"margin":24.51,"surplus":981.84},"qs":{"margin":30.46,"surplus":239.43},"file":"Melba-Scratch Group Dashboard - Friday 22 May 2026.html"},{"date":"2026-05-21","label":"Thu 21 May 2026","group_revenue":24682.09,"vs":{"margin":-7.76,"surplus":-464.19},"sb":{"margin":49.89,"surplus":7412.62},"vl":{"margin":14.24,"surplus":440.03},"qs":{"margin":11.26,"surplus":84.97},"file":"Melba-Scratch Group Dashboard - Thursday 21 May 2026.html"},{"date":"2026-05-20","label":"Wed 20 May 2026","group_revenue":17296.78,"vs":{"margin":-47.09,"surplus":-1519.01},"sb":{"margin":33.74,"surplus":3591.92},"vl":{"margin":-0.03,"surplus":-0.88},"qs":{"margin":15.70,"surplus":125.11},"file":"Melba-Scratch Group Dashboard - Wednesday 20 May 2026.html"},{"date":"2026-05-19","label":"Tue 19 May 2026","group_revenue":16928.99,"vs":{"margin":-26.84,"surplus":-1170.51},"sb":{"margin":27.27,"surplus":2255.00},"vl":{"margin":25.75,"surplus":942.99},"qs":{"margin":-1.61,"surplus":-10.26},"file":"Melba-Scratch Group Dashboard - Tuesday 19 May 2026.html"},{"date":"2026-05-18","label":"Mon 18 May 2026","group_revenue":13876.51,"vs":{"margin":-17.81,"surplus":-447.95},"sb":{"margin":7.21,"surplus":605.56},"vl":{"margin":5.59,"surplus":136.42},"qs":{"margin":4.47,"surplus":23.62},"file":"Melba-Scratch Group Dashboard - Monday 18 May 2026.html"}];
+const WTD_HISTORY = [{week_start:"2026-06-08",days_included:["mon","tue"],group_revenue:40576.54,group_surplus:3980.60,group_margin:9.81,vs:{margin:7.52},sb:{margin:11.06},vl:{margin:1.74},qs:{margin:31.36}},{"week_start":"2026-06-01","days_included":["mon","tue","wed","thu","fri","sat","sun"],"group_revenue":86901.99,"group_surplus":9935.91,"group_margin":11.43,"vs":{"margin":18.42},"sb":{"margin":12.36},"vl":{"margin":1.25},"qs":{"margin":32.29}},{week_start:"2026-05-25",days_included:["mon","tue","wed","thu","fri","sat","sun"],group_revenue:93857.73,group_surplus:7458.75,group_margin:7.95,vs:{margin:13.31},sb:{margin:6.08},vl:{margin:3.93},qs:{margin:22.74}},{"week_start":"2026-05-18","days_included":["mon","tue","wed","thu","fri","sat","sun"],"group_revenue":107230.31,"group_surplus":22519.05,"group_margin":21.00,"vs":{"margin":-22.65},"sb":{"margin":35.67},"vl":{"margin":18.13},"qs":{"margin":13.21}}];
+function isoWeek(iso){const d=new Date(iso);const day=(d.getUTCDay()+6)%7;d.setUTCDate(d.getUTCDate()-day);return d.toISOString().slice(0,10);}
+function fmt(n){const v=(n==null||isNaN(n))?0:Number(n);return '$'+v.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+function n0(x){return (x==null||isNaN(x))?null:Number(x);}
+function pctCls(m,t){if(m==null)return 'orange';return m>=t+10?'deepgreen':m>=t?'green':m>=t-5?'amber':m>=0?'orange':'red';}
+function grpCls(m){if(m==null)return 'orange';return m>=28?'deepgreen':m>=18?'green':m>=13?'amber':m>=0?'orange':'red';}
+function mPct(m){return m==null?'—':m.toFixed(1)+'%';}
+function render(){
+  const groups={};
+  HISTORY_DATA.forEach(r=>{const w=isoWeek(r.date);if(!groups[w])groups[w]=[];groups[w].push(r);});
+  const tb=document.getElementById('tb');tb.innerHTML='';
+  const sortedWeeks=Object.keys(groups).sort().reverse();
+  sortedWeeks.forEach(w=>{
+    const wtd=WTD_HISTORY.find(x=>x.week_start===w);
+    if(wtd){
+      const tr=document.createElement('tr');tr.className='wtd-row';
+      const dayMap={mon:'Mon',tue:'Tue',wed:'Wed',thu:'Thu',fri:'Fri',sat:'Sat',sun:'Sun'};
+      const dlist=(wtd.days_included||[]).map(d=>dayMap[d]).join(' ');
+      const gM=n0(wtd.group_margin),vsM=n0(wtd.vs.margin),sbM=n0(wtd.sb.margin),vlM=n0(wtd.vl.margin),qsM=n0(wtd.qs.margin);
+      tr.innerHTML='<td>Week to Date<br><span style="font-weight:400;font-size:.78rem">'+dlist+'</span></td><td class="r">'+fmt(wtd.group_revenue)+'</td><td class="r">'+fmt(wtd.group_surplus)+'</td><td><span class="pill '+grpCls(gM)+'">'+mPct(gM)+'</span></td><td><span class="pill '+pctCls(vsM,20)+'">'+mPct(vsM)+'</span></td><td><span class="pill '+pctCls(sbM,15)+'">'+mPct(sbM)+'</span></td><td><span class="pill '+pctCls(vlM,20)+'">'+mPct(vlM)+'</span></td><td><span class="pill '+pctCls(qsM,20)+'">'+mPct(qsM)+'</span></td><td></td>';
+      tb.appendChild(tr);
+    }
+    groups[w].forEach(r=>{
+      const tr=document.createElement('tr');
+      const grpSur=(r.vs.surplus||0)+(r.sb.surplus||0)+(r.vl.surplus||0)+(r.qs.surplus||0);
+      const grpMar=r.group_revenue>0?grpSur/r.group_revenue*100:null;
+      const vsM=n0(r.vs.margin),sbM=n0(r.sb.margin),vlM=n0(r.vl.margin),qsM=n0(r.qs.margin),gM=n0(grpMar);
+      tr.innerHTML='<td>'+r.label+'</td><td class="r">'+fmt(r.group_revenue)+'</td><td class="r">'+fmt(grpSur)+'</td><td><span class="pill '+grpCls(gM)+'">'+mPct(gM)+'</span></td><td><span class="pill '+pctCls(vsM,20)+'">'+mPct(vsM)+'</span></td><td><span class="pill '+pctCls(sbM,15)+'">'+mPct(sbM)+'</span></td><td><span class="pill '+pctCls(vlM,20)+'">'+mPct(vlM)+'</span></td><td><span class="pill '+pctCls(qsM,20)+'">'+mPct(qsM)+'</span></td><td><a href="'+r.file+'">Open '+'→'+'</a></td>';
+      tb.appendChild(tr);
+    });
   });
-});
-</script></div></body></html>
+}
+render();
+</script>
+</body>
+</html>

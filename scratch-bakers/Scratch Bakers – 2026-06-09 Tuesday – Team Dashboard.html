@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Scratch Bakers – Veggieman – Team Dashboard</title>
+<style>
+:root{--bg:#0f1419;--card:#1a1f2e;--card-2:#232938;--ink:#e6edf3;--muted:#7d8ba1;--border:#2a3547;--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--purple:#a78bfa;--orange:#f97316;--teal:#34d399;--fuchsia:#e879f9}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:20px;line-height:1.5}
+.container{max-width:1200px;margin:0 auto}
+h1{font-size:1.6rem;font-weight:700;margin-bottom:6px}
+h2{font-size:1.1rem;font-weight:600;margin:24px 0 10px}
+.pill{display:inline-block;font-size:.7rem;font-weight:600;padding:3px 9px;border-radius:99px;background:var(--card-2);color:var(--muted);margin-left:8px;text-transform:uppercase;letter-spacing:.05em}
+.pill.team{background:#2a1f4a;color:#c4b5fd}
+.subtitle{color:var(--muted);font-size:.9rem;margin-bottom:18px}
+.alert{padding:13px 16px;border-radius:8px;margin-bottom:18px;font-size:.86rem}
+.alert.warn{background:linear-gradient(135deg,#2a1f08,#1a1f2e);border:1px solid var(--amber);color:#fbe39a}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px}
+.kpi .l{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:6px}
+.kpi .v{font-size:1.5rem;font-weight:700}.kpi .s{font-size:.72rem;color:var(--muted);margin-top:2px}
+.sc{border-radius:8px;padding:18px;margin-bottom:24px}
+.sc.green{border:1px solid var(--green);background:linear-gradient(135deg,#0d261a,#1a1f2e)}
+.sc.deepgreen{border:1px solid var(--green);background:linear-gradient(135deg,#0a2e18,#1a1f2e)}
+.sc.amber{border:1px solid var(--amber);background:linear-gradient(135deg,#262010,#1a1f2e)}
+.sc.orange{border:1px solid var(--orange);background:linear-gradient(135deg,#261a08,#1a1f2e)}
+.sc.red{border:1px solid var(--red);background:linear-gradient(135deg,#261010,#1a1f2e)}
+.sc .sl{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:6px}
+.sc .sval{font-size:2.2rem;font-weight:700;margin-bottom:4px}.sc .sn{font-size:.78rem;color:var(--muted)}
+.barrow{display:grid;grid-template-columns:240px 1fr 110px 110px;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid #1f2738;font-size:.85rem}
+.barrow .nm{color:var(--ink)}
+.barrow .bar{height:18px;background:var(--card-2);border-radius:4px;position:relative;overflow:hidden}
+.barrow .barfill{height:100%;border-radius:4px}
+.barrow .amt{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.barrow .wtd{text-align:right;color:var(--muted);font-size:.78rem;font-variant-numeric:tabular-nums}
+.barhdr{display:grid;grid-template-columns:240px 1fr 110px 110px;gap:10px;font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding-bottom:6px;border-bottom:1px solid #2a3547;margin-bottom:2px}
+.barhdr div:nth-child(3),.barhdr div:nth-child(4){text-align:right}
+.note{font-size:.72rem;color:var(--muted);font-style:italic;margin-top:6px}
+.note.amber{color:var(--amber);font-style:normal;border-left:2px solid var(--amber);padding-left:8px;margin:-3px 0 7px 248px;font-size:.7rem}
+.note.blue{color:#9bc4ff;font-style:normal;border-left:2px solid var(--blue);padding-left:8px;margin:-3px 0 7px 248px;font-size:.7rem}
+.commentary{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;margin-top:24px;font-size:.86rem;color:#cbd5e1;line-height:1.6}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.fcard{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px}
+.fcard.tight{border-color:rgba(251,191,36,.4)}
+.fcard.strong{border-color:rgba(74,222,128,.4)}
+.fcard h3{font-size:.92rem;margin-bottom:10px;font-weight:600}
+.fcard .row{display:flex;justify-content:space-between;padding:4px 0;font-size:.82rem;border-bottom:1px solid #1f2738}
+.fcard .lbl{color:var(--muted)}
+.fcard .val{font-variant-numeric:tabular-nums;font-weight:600}
+.fcard .val.cogs{color:var(--amber)}.fcard .val.wages{color:var(--blue)}
+.fnote{font-size:.7rem;color:var(--muted);font-style:italic;margin-top:6px}
+.fnote.amber{color:var(--amber);font-style:normal}.fnote.green{color:var(--green);font-style:normal}
+.bfh{background:rgba(96,165,250,.05);border:1px solid rgba(96,165,250,.2);border-radius:8px;padding:12px;margin-top:12px}
+.bfh h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--blue);margin-bottom:8px}
+.bfh table{width:100%;border-collapse:collapse;font-size:.8rem}
+.bfh th,.bfh td{padding:4px 8px;text-align:left;border-bottom:1px solid rgba(96,165,250,.1)}
+.bfh th{color:var(--muted);text-transform:uppercase;font-size:.65rem}
+.bfh td.r{text-align:right;font-variant-numeric:tabular-nums}
+.bfh .ftrnote{font-size:.7rem;color:var(--muted);margin-top:8px;font-style:italic}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Scratch Bakers <span class="pill">All $ incl GST</span> <span class="pill team">Team View</span></h1>
+<div class="subtitle">Veggieman</div>
+<div class="alert warn"><b>⚠ Hours estimated:</b> the Tue 9 Jun Deputy Timesheets export was not available at build time — today's hours are estimated from last Tuesday (2 Jun). Revenue and COGS are actuals.</div>
+<div class="kpis">
+<div class="kpi"><div class="l">Total Revenue</div><div class="v">$16,502.69</div><div class="s">WTD $25,684.74</div></div>
+<div class="kpi"><div class="l">Total COGS</div><div class="v">$4,802.46</div><div class="s">WTD $10,343.25</div></div>
+<div class="kpi"><div class="l">Wages</div><div class="v">$3,301.91</div><div class="s">118.6h · 16 staff</div></div>
+<div class="kpi"><div class="l">Op Costs</div><div class="v">$3,623.13</div><div class="s">WTD $5,917.60</div></div>
+</div>
+<div class="sc deepgreen"><div class="sl">Daily Result</div><div class="sval" style="color:#4ade80">28.9%</div><div class="sn">of revenue · Target ≥15% — on track ✓</div></div>
+<h2>Revenue Breakdown</h2>
+<div class="barhdr"><div>Stream</div><div></div><div>Today</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">TVNZ</div><div class="bar"><div class="barfill" style="width:10%;background:#4ade80"></div></div><div class="amt">$879.00</div><div class="wtd">$1,520.90</div></div><div class="barrow"><div class="nm">Wholesale</div><div class="bar"><div class="barfill" style="width:47%;background:#4ade80"></div></div><div class="amt">$4,077.62</div><div class="wtd">$7,841.31</div></div><div class="barrow"><div class="nm">Cafe</div><div class="bar"><div class="barfill" style="width:32%;background:#4ade80"></div></div><div class="amt">$2,794.40</div><div class="wtd">$4,841.10</div></div><div class="barrow"><div class="nm">Catering</div><div class="bar"><div class="barfill" style="width:100%;background:#4ade80"></div></div><div class="amt">$8,751.67</div><div class="wtd">$11,481.43</div></div>
+<h2>COGS Breakdown</h2>
+<div class="barhdr"><div>Supplier</div><div></div><div>Today</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">Bidfood</div><div class="bar"><div class="barfill" style="width:100%;background:#fbbf24"></div></div><div class="amt">$4,145.55</div><div class="wtd">$9,119.39</div></div><div class="note amber">Bidfood (9 invoices + 1 credit, all 09-Jun-2026): 108955096 $1,918.32, 108955094 $1,136.06, 108949102 $505.44, 108955093 $449.26, 108949099 $137.47, 108955095 $31.79, 108949098 $30.14, 108949100 $16.08, 108955097 $14.55, credit 821619061 −$93.56 · net $4,145.55</div><div class="barrow"><div class="nm">Five Elements</div><div class="bar"><div class="barfill" style="width:8%;background:#fbbf24"></div></div><div class="amt">$351.90</div><div class="wtd">$703.80</div></div><div class="note blue">Weekly ÷5 · #11536 $1,759.51 ÷ 5 = $351.90/day (Day 2 of 5)</div><div class="barrow"><div class="nm">Mauri ANZ</div><div class="bar"><div class="barfill" style="width:4%;background:#fbbf24"></div></div><div class="amt">$179.92</div><div class="wtd">$269.88</div></div><div class="note blue">Weekly ÷5 · 107056284 $89.96/day (Day 5 of 5 final) + NEW 107059071 $449.82 ÷ 5 = $89.96/day (Day 1 of 5) · combined $179.92/day</div><div class="barrow"><div class="nm">Veggieman</div><div class="bar"><div class="barfill" style="width:3%;background:#fbbf24"></div></div><div class="amt">$125.09</div><div class="wtd">$250.18</div></div><div class="note blue">Weekly ÷5 · 65149 $71.48/day (Day 5 of 5 final) + 65279 $53.61/day (Day 2 of 5) · combined $125.09/day</div>
+<h2>Wages</h2>
+<div class="barhdr"><div>Employee</div><div></div><div>Hours</div><div>Area</div></div>
+<div class="barrow"><div class="nm">Thomas Moller · 12.23h</div><div class="bar"><div class="barfill" style="width:100%;background:#4ade80"></div></div><div class="amt">12.23h</div><div class="wtd">Kitchen</div></div><div class="barrow"><div class="nm">Hannah Grace Davis · 9h</div><div class="bar"><div class="barfill" style="width:74%;background:#a78bfa"></div></div><div class="amt">9h</div><div class="wtd">TVNZ</div></div><div class="barrow"><div class="nm">Adi · 8.58h</div><div class="bar"><div class="barfill" style="width:70%;background:#4ade80"></div></div><div class="amt">8.58h</div><div class="wtd">Kitchen</div></div><div class="barrow"><div class="nm">Daishea Harris · 8.13h</div><div class="bar"><div class="barfill" style="width:66%;background:#60a5fa"></div></div><div class="amt">8.13h</div><div class="wtd">FOH</div></div><div class="barrow"><div class="nm">Craig Feltis · 7.87h</div><div class="bar"><div class="barfill" style="width:64%;background:#4ade80"></div></div><div class="amt">7.87h</div><div class="wtd">Kitchen</div></div><div class="barrow"><div class="nm">Kanika banth · 7.85h</div><div class="bar"><div class="barfill" style="width:64%;background:#4ade80"></div></div><div class="amt">7.85h</div><div class="wtd">Kitchen</div></div><div class="barrow"><div class="nm">Maria Neider · 7.82h</div><div class="bar"><div class="barfill" style="width:64%;background:#60a5fa"></div></div><div class="amt">7.82h</div><div class="wtd">FOH</div></div><div class="barrow"><div class="nm">Hannah Purdy · 7.52h</div><div class="bar"><div class="barfill" style="width:61%;background:#60a5fa"></div></div><div class="amt">7.52h</div><div class="wtd">FOH</div></div><div class="barrow"><div class="nm">Mohd Fahmi (Jimmy SB) · 7.5h</div><div class="bar"><div class="barfill" style="width:61%;background:#4ade80"></div></div><div class="amt">7.5h</div><div class="wtd">Kitchen</div></div><div class="barrow"><div class="nm">Suparna Faizal · 7.35h</div><div class="bar"><div class="barfill" style="width:60%;background:#4ade80"></div></div><div class="amt">7.35h</div><div class="wtd">Kitchen</div></div><div class="barrow"><div class="nm">Trimandeep Singh (Harry) · 7.18h</div><div class="bar"><div class="barfill" style="width:59%;background:#4ade80"></div></div><div class="amt">7.18h</div><div class="wtd">Kitchen</div></div><div class="barrow"><div class="nm">Sarai Egan · 6.67h</div><div class="bar"><div class="barfill" style="width:55%;background:#4ade80"></div></div><div class="amt">6.67h</div><div class="wtd">Kitchen</div></div><div class="barrow"><div class="nm">Isabella Holmes (Izzy) · 6.5h</div><div class="bar"><div class="barfill" style="width:53%;background:#60a5fa"></div></div><div class="amt">6.5h</div><div class="wtd">FOH</div></div><div class="barrow"><div class="nm">Leo Grant · 5.87h</div><div class="bar"><div class="barfill" style="width:48%;background:#4ade80"></div></div><div class="amt">5.87h</div><div class="wtd">Kitchen</div></div><div class="barrow"><div class="nm">Jahnevah Numa · 4.53h</div><div class="bar"><div class="barfill" style="width:37%;background:#4ade80"></div></div><div class="amt">4.53h</div><div class="wtd">Kitchen</div></div><div class="barrow"><div class="nm">Tayla George · 4h</div><div class="bar"><div class="barfill" style="width:33%;background:#a78bfa"></div></div><div class="amt">4h</div><div class="wtd">TVNZ</div></div>
+<div class="commentary">
+<b>Scratch Bakers · Veggieman</b><br>
+Revenue $16,502.69. COGS $4,802.46. Wages $3,301.91 over 118.6h (estimated). Op costs $3,623.13.<br>
+Daily surplus $4,775.19 at 28.9% (target ≥15%).<br>
+<b>WTD (Mon – Tue):</b> Revenue $25,684.74, surplus $2,841.35 at 11.1%.
+</div>
+<h2>Forward Forecast</h2><div class="subtitle">Next 2 trading days · budgets shown are entity targets after committed spread shares</div><div class="fgrid"><div class="fcard tight">
+<h3>Wed 10 Jun</h3>
+<div class="row"><div class="lbl">Cafe</div><div class="val">$3,085.70</div></div><div class="row"><div class="lbl">TVNZ</div><div class="val">$827.80</div></div><div class="row"><div class="lbl">Catering</div><div class="val">$2,535.60</div></div><div class="row"><div class="lbl">Wholesale</div><div class="val">$3,106.92</div></div>
+<div class="row"><div class="lbl">Forecast Revenue</div><div class="val">$9,556.02</div></div>
+<div class="row"><div class="lbl">Variable COGS Budget</div><div class="val cogs">$1,797.97</div></div>
+<div class="row"><div class="lbl">Wages Budget</div><div class="val wages">$3,452.37</div></div>
+<div class="fnote amber">⚠ Tight day — COGS and wages budgets are strict</div>
+<div class="fnote">COGS held to 24% floor $2,293.44 less committed (Five Elements $351.90, Veggieman $53.61, Mauri ANZ $89.96).</div>
+</div><div class="fcard tight">
+<h3>Thu 11 Jun</h3>
+<div class="row"><div class="lbl">Cafe</div><div class="val">$3,298.10</div></div><div class="row"><div class="lbl">TVNZ</div><div class="val">$760.70</div></div><div class="row"><div class="lbl">Catering</div><div class="val">$1,584.92</div></div><div class="row"><div class="lbl">Wholesale</div><div class="val">$3,056.79</div></div>
+<div class="row"><div class="lbl">Forecast Revenue</div><div class="val">$8,700.51</div></div>
+<div class="row"><div class="lbl">Variable COGS Budget</div><div class="val cogs">$1,592.65</div></div>
+<div class="row"><div class="lbl">Wages Budget</div><div class="val wages">$2,970.88</div></div>
+<div class="fnote amber">⚠ Tight day — COGS and wages budgets are strict</div>
+<div class="fnote">COGS held to 24% floor $2,088.12 less committed (Five Elements $351.90, Veggieman $53.61, Mauri ANZ $89.96).</div>
+</div></div><div class="bfh">
+<h4>Best Fit Hours · Wed 10 Jun</h4>
+<table><thead><tr><th>Employee</th><th>Area</th><th>Target hrs</th></tr></thead><tbody><tr><td>Thomas Moller</td><td>Kitchen</td><td class="r">11.93h</td></tr><tr><td>Sarai Egan</td><td>Kitchen</td><td class="r">10.33h</td></tr><tr><td>Hannah Grace Davis</td><td>TVNZ</td><td class="r">9.13h</td></tr><tr><td>Leo Grant</td><td>Kitchen</td><td class="r">8.68h</td></tr><tr><td>Hannah Purdy</td><td>FOH</td><td class="r">8.5h</td></tr><tr><td>Adi</td><td>Kitchen</td><td class="r">8.35h</td></tr><tr><td>Craig Feltis</td><td>Kitchen</td><td class="r">8.17h</td></tr><tr><td>Isabella Holmes (Izzy)</td><td>FOH</td><td class="r">8h</td></tr><tr><td>Maria Neider</td><td>FOH</td><td class="r">7.93h</td></tr><tr><td>Mohd Fahmi (Jimmy SB)</td><td>Kitchen</td><td class="r">7.92h</td></tr><tr><td>Suparna Faizal</td><td>Kitchen</td><td class="r">7.75h</td></tr><tr><td>Amelia Hamilton</td><td>FOH</td><td class="r">7.22h</td></tr><tr><td>Trimandeep Singh (Harry)</td><td>Kitchen</td><td class="r">6.5h</td></tr><tr><td>Kanika banth</td><td>Kitchen</td><td class="r">6.42h</td></tr><tr><td>Jahnevah Numa</td><td>Kitchen</td><td class="r">4.88h</td></tr><tr><td>Tayla George</td><td>TVNZ</td><td class="r">4h</td></tr></tbody></table>
+<div class="ftrnote">125.71 total hours · full-time staff at minimum 7h</div>
+</div><div class="bfh">
+<h4>Best Fit Hours · Thu 11 Jun</h4>
+<table><thead><tr><th>Employee</th><th>Area</th><th>Target hrs</th></tr></thead><tbody><tr><td>Thomas Moller</td><td>Kitchen</td><td class="r">11.38h</td></tr><tr><td>Kanika banth</td><td>Kitchen</td><td class="r">9.47h</td></tr><tr><td>Hannah Grace Davis</td><td>TVNZ</td><td class="r">9.12h</td></tr><tr><td>Suparna Faizal</td><td>Kitchen</td><td class="r">8.68h</td></tr><tr><td>Amelia Hamilton</td><td>FOH</td><td class="r">8.5h</td></tr><tr><td>Adi</td><td>Kitchen</td><td class="r">8.02h</td></tr><tr><td>Hannah Purdy</td><td>FOH</td><td class="r">7.77h</td></tr><tr><td>Isabella Holmes (Izzy)</td><td>FOH</td><td class="r">7.63h</td></tr><tr><td>Trimandeep Singh (Harry)</td><td>Kitchen</td><td class="r">7.62h</td></tr><tr><td>Leo Grant</td><td>Kitchen</td><td class="r">7.33h</td></tr><tr><td>Maria Neider</td><td>FOH</td><td class="r">7.08h</td></tr><tr><td>Jahnevah Numa</td><td>Kitchen</td><td class="r">4.88h</td></tr><tr><td>Sarai Egan</td><td>Kitchen</td><td class="r">4.78h</td></tr><tr><td>Tayla George</td><td>TVNZ</td><td class="r">4h</td></tr></tbody></table>
+<div class="ftrnote">106.26 total hours · full-time staff at minimum 7h</div>
+</div>
+</div>
+<script>
+const FORECAST_BASE = {
+    "last_week":  {
+                      "mon":  {
+                                  "vs":  {
+                                             "cafe":  0,
+                                             "catering":  0
+                                         },
+                                  "sb":  {
+                                             "cafe":  0,
+                                             "tvnz":  0,
+                                             "wholesale":  2070.51,
+                                             "catering":  712.08
+                                         },
+                                  "vl":  {
+                                             "cafe":  3752.65
+                                         }
+                              },
+                      "tue":  {
+                                  "vs":  {
+                                             "cafe":  3086.12,
+                                             "catering":  2341.23
+                                         },
+                                  "sb":  {
+                                             "cafe":  2524.3,
+                                             "tvnz":  807.5,
+                                             "wholesale":  3546.15,
+                                             "catering":  426.09
+                                         },
+                                  "vl":  {
+                                             "cafe":  2807.72
+                                         }
+                              },
+                      "wed":  {
+                                  "vs":  {
+                                             "cafe":  2339.8,
+                                             "catering":  2410.53
+                                         },
+                                  "sb":  {
+                                             "cafe":  3085.7,
+                                             "tvnz":  827.8,
+                                             "wholesale":  3106.92,
+                                             "catering":  1740.37
+                                         },
+                                  "vl":  {
+                                             "cafe":  2550.19
+                                         }
+                              },
+                      "thu":  {
+                                  "vs":  {
+                                             "cafe":  2557.3,
+                                             "catering":  2850.58
+                                         },
+                                  "sb":  {
+                                             "cafe":  3298.1,
+                                             "tvnz":  760.7,
+                                             "wholesale":  3056.79,
+                                             "catering":  2416.14
+                                         },
+                                  "vl":  {
+                                             "cafe":  2486.95
+                                         }
+                              },
+                      "fri":  {
+                                  "vs":  {
+                                             "cafe":  1505.01,
+                                             "catering":  1165.68
+                                         },
+                                  "sb":  {
+                                             "cafe":  3105.9,
+                                             "tvnz":  666.7,
+                                             "wholesale":  3403.88,
+                                             "catering":  946.16
+                                         },
+                                  "vl":  {
+                                             "cafe":  3447.89
+                                         }
+                              },
+                      "sat":  {
+                                  "vs":  {
+                                             "cafe":  0,
+                                             "catering":  442.82
+                                         },
+                                  "sb":  {
+                                             "cafe":  0,
+                                             "tvnz":  0,
+                                             "wholesale":  3540.7,
+                                             "catering":  1031.09
+                                         },
+                                  "vl":  {
+                                             "cafe":  3420.89
+                                         }
+                              },
+                      "sun":  {
+                                  "vs":  {
+                                             "cafe":  0,
+                                             "catering":  0
+                                         },
+                                  "sb":  {
+                                             "cafe":  0,
+                                             "tvnz":  0,
+                                             "wholesale":  114.31,
+                                             "catering":  1442.79
+                                         },
+                                  "vl":  {
+                                             "cafe":  4195.65
+                                         }
+                              }
+                  },
+    "last_week_wages":  {
+                            "mon":  {
+                                        "vs":  0,
+                                        "sb":  680.42,
+                                        "vl":  1088.92
+                                    },
+                            "tue":  {
+                                        "vs":  1734.48,
+                                        "sb":  3292.85,
+                                        "vl":  1098.84
+                                    },
+                            "wed":  {
+                                        "vs":  1631.1,
+                                        "sb":  3452.37,
+                                        "vl":  1005.17
+                                    },
+                            "thu":  {
+                                        "vs":  1605.61,
+                                        "sb":  2970.88,
+                                        "vl":  936.46
+                                    },
+                            "fri":  {
+                                        "vs":  1042.94,
+                                        "sb":  3078.65,
+                                        "vl":  1260.92
+                                    },
+                            "sat":  {
+                                        "vs":  103.5,
+                                        "sb":  175.68,
+                                        "vl":  1323.99
+                                    },
+                            "sun":  {
+                                        "vs":  154,
+                                        "sb":  811.12,
+                                        "vl":  1317.57
+                                    }
+                        },
+    "cogs_benchmarks":  {
+                            "sb":  {
+                                       "cafe":  0.25,
+                                       "tvnz":  0.22,
+                                       "catering":  0.18,
+                                       "wholesale":  0.35
+                                   },
+                            "vs":  {
+                                       "cafe":  0.26,
+                                       "catering":  0.22
+                                   },
+                            "vl":  {
+                                       "cafe":  0.25
+                                   },
+                            "qs":  {
+                                       "cafe":  0.19
+                                   }
+                        }
+};
+</script>
+</body>
+</html>

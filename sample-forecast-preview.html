@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sample — Forward Forecast with Hours Guidance</title>
+<style>
+:root{--bg:#0f1419;--card:#1a1f2e;--card2:#232938;--muted:#7c8a9c;--text:#e6edf3;
+--green:#4ade80;--amber:#fbbf24;--blue:#60a5fa}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,Segoe UI,Roboto,sans-serif;
+  line-height:1.5;padding:18px;font-size:14px;max-width:900px;margin:0 auto}
+.section{background:var(--card);border-radius:9px;padding:14px;margin:11px 0;border:1px solid #2a3547}
+.section h3{font-size:.92rem;margin-bottom:10px}
+.forecast-day{background:var(--card);border-radius:9px;padding:12px;margin:8px 0;border:1px solid #2a3547}
+.forecast-day h4{font-size:.86rem;margin-bottom:8px}
+.frow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;font-size:.78rem;color:var(--muted);margin-bottom:6px}
+.frow .v{color:var(--text);font-weight:600;font-family:ui-monospace,Menlo,monospace;display:block;margin-top:2px}
+.hours-table{background:rgba(96,165,250,.05);border:1px solid rgba(96,165,250,.2);border-radius:8px;padding:12px;margin-top:10px}
+.hours-table .ht-label{font-size:.75rem;font-weight:600;color:var(--blue);margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.hours-table .ht-label span{color:var(--muted);font-weight:400;font-size:.7rem}
+table{width:100%;font-size:.78rem;border-collapse:collapse}
+th{text-align:left;color:var(--muted);font-weight:500;font-size:.7rem;text-transform:uppercase;
+  letter-spacing:.05em;padding:5px 7px;border-bottom:1px solid #2a3547}
+td{padding:5px 7px;border-bottom:1px solid #20283b}
+td.r{text-align:right;font-family:ui-monospace,Menlo,monospace;font-weight:600}
+td.area{font-size:.7rem;color:var(--muted)}
+tr:last-child td{border-bottom:none}
+.total-row td{color:var(--blue);font-weight:600;border-top:1px solid #2a3547;padding-top:7px}
+.cap-note{font-size:.68rem;color:var(--amber);margin-left:4px;font-weight:400}
+.note{font-size:.7rem;color:var(--muted);margin-top:7px}
+.amber-txt{color:var(--amber)}
+.blue-txt{color:var(--blue)}
+</style>
+</head>
+<body>
+
+<div class="section">
+<h3>Forward Forecast</h3>
+
+<!-- Wed 27 May -->
+<div class="forecast-day">
+  <h4>Wed 27 May</h4>
+  <div class="frow">
+    <div>Revenue forecast
+      <span class="v">$5,275.65</span>
+      <span style="font-size:.68rem;color:var(--muted)">POS $2,048 &middot; Catering $3,228</span>
+    </div>
+    <div>Variable COGS budget
+      <span class="v amber-txt">$1,041.23</span>
+      <span style="font-size:.68rem;color:var(--muted)">after &minus;$176 Five Elements &middot; &minus;$8 LaundryCorp &middot; &minus;$17 Karma</span>
+    </div>
+    <div>Wages budget
+      <span class="v blue-txt">$1,558.12</span>
+      <span style="font-size:.68rem;color:var(--muted)">last-week same-day &middot; hours guidance below &darr;</span>
+    </div>
+  </div>
+  <div style="font-size:.7rem;color:var(--amber);margin-top:4px">&#9888; Tight week &mdash; COGS and wages budgets are strict today</div>
+
+  <div class="hours-table">
+    <div class="ht-label">
+      Best Fit Hours &mdash; Wed 27 May
+      <span>Full-time min 7h &middot; FOH max 8.5h &middot; sorted highest rate first</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Employee</th>
+          <th>Area</th>
+          <th class="r">Target hrs</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Aleisha Yee</td><td class="area">FOH</td><td class="r">8.0h</td></tr>
+        <tr><td>Helen Sherratt</td><td class="area">FOH</td><td class="r">8.0h</td></tr>
+        <tr><td>Karol Cartagena</td><td class="area">FOH</td><td class="r">7.5h</td></tr>
+        <tr><td>Horacio Nicolas Soto</td><td class="area">Kitchen</td><td class="r">7.5h</td></tr>
+        <tr><td>Ria Saito</td><td class="area">FOH</td><td class="r">7.0h</td></tr>
+        <tr><td>Septya Putri (Kaka)</td><td class="area">Kitchen</td><td class="r">7.0h</td></tr>
+        <tr><td>David Easthope</td><td class="area">Kitchen</td><td class="r">7.0h</td></tr>
+        <tr><td>Jimmy</td><td class="area">Kitchen</td><td class="r">5.0h</td></tr>
+        <tr class="total-row"><td colspan="2">Total</td><td class="r">57.0h</td></tr>
+      </tbody>
+    </table>
+    <div class="note">57.0 total hours &middot; full-time staff at minimum 7h &middot; FOH max 8.5h applied</div>
+  </div>
+</div>
+
+<!-- Thu 28 May -->
+<div class="forecast-day">
+  <h4>Thu 28 May</h4>
+  <div class="frow">
+    <div>Revenue forecast
+      <span class="v">$4,232.42</span>
+      <span style="font-size:.68rem;color:var(--muted)">POS $2,348 &middot; Catering $1,884</span>
+    </div>
+    <div>Variable COGS budget
+      <span class="v amber-txt">$823.72</span>
+      <span style="font-size:.68rem;color:var(--muted)">after &minus;$176 Five Elements &middot; &minus;$8 LaundryCorp &middot; &minus;$17 Karma</span>
+    </div>
+    <div>Wages budget
+      <span class="v blue-txt">$1,685.08</span>
+      <span style="font-size:.68rem;color:var(--muted)">last-week same-day &middot; hours guidance below &darr;</span>
+    </div>
+  </div>
+  <div style="font-size:.7rem;color:var(--amber);margin-top:4px">&#9888; Tight week &mdash; COGS and wages budgets are strict today</div>
+
+  <div class="hours-table">
+    <div class="ht-label">
+      Best Fit Hours &mdash; Thu 28 May
+      <span>Full-time min 7h &middot; FOH max 8.5h &middot; sorted highest rate first</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Employee</th>
+          <th>Area</th>
+          <th class="r">Target hrs</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Aleisha Yee</td><td class="area">FOH</td><td class="r">8.5h</td></tr>
+        <tr><td>Helen Sherratt</td><td class="area">FOH</td><td class="r">8.5h</td></tr>
+        <tr><td>Karol Cartagena</td><td class="area">FOH</td><td class="r">8.0h</td></tr>
+        <tr><td>Horacio Nicolas Soto</td><td class="area">Kitchen</td><td class="r">8.0h</td></tr>
+        <tr><td>Ria Saito</td><td class="area">FOH</td><td class="r">8.0h</td></tr>
+        <tr><td>Septya Putri (Kaka)</td><td class="area">Kitchen</td><td class="r">7.5h</td></tr>
+        <tr><td>David Easthope</td><td class="area">Kitchen</td><td class="r">7.0h</td></tr>
+        <tr><td>Jimmy</td><td class="area">Kitchen</td><td class="r">7.0h</td></tr>
+        <tr class="total-row"><td colspan="2">Total</td><td class="r">62.5h</td></tr>
+      </tbody>
+    </table>
+    <div class="note">62.5 total hours &middot; full-time staff at minimum 7h</div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
