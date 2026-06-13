@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Victoria Street &ndash; Team Dashboard &ndash; Sat 13 Jun 2026</title>
+<style>
+:root{--bg:#0f1419;--card:#1a1f2e;--card-2:#232938;--ink:#e6edf3;--muted:#7d8ba1;--border:#2a3547;--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--purple:#a78bfa;--orange:#f97316;--teal:#34d399;--fuchsia:#e879f9}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:20px;line-height:1.5}
+.container{max-width:1100px;margin:0 auto}
+h1{font-size:1.6rem;font-weight:700;margin-bottom:6px}
+h2{font-size:1.1rem;font-weight:600;margin:24px 0 10px}
+.pill{display:inline-block;font-size:.7rem;font-weight:600;padding:3px 9px;border-radius:99px;background:var(--card-2);color:var(--muted);margin-left:8px;text-transform:uppercase;letter-spacing:.05em}
+.pill.team{background:#2a1f4a;color:#c4b5fd}
+.subtitle{color:var(--muted);font-size:.9rem;margin-bottom:18px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px}
+.kpi .l{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:6px}
+.kpi .v{font-size:1.5rem;font-weight:700}.kpi .s{font-size:.72rem;color:var(--muted);margin-top:2px}
+.sc{border-radius:8px;padding:18px;margin-bottom:24px}
+.sc.green{border:1px solid var(--green);background:linear-gradient(135deg,#0d261a,#1a1f2e)}
+.sc.deepgreen{border:1px solid var(--green);background:linear-gradient(135deg,#0a2e18,#1a1f2e)}
+.sc.amber{border:1px solid var(--amber);background:linear-gradient(135deg,#262010,#1a1f2e)}
+.sc.orange{border:1px solid var(--orange);background:linear-gradient(135deg,#261a08,#1a1f2e)}
+.sc.red{border:1px solid var(--red);background:linear-gradient(135deg,#261010,#1a1f2e)}
+.sc .sl{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:6px}
+.sc .sval{font-size:2rem;font-weight:700;margin-bottom:4px}.sc .sn{font-size:.78rem;color:var(--muted)}
+.barrow{display:grid;grid-template-columns:240px 1fr 110px 110px;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid #1f2738;font-size:.85rem}
+.barrow .nm{color:var(--ink)}
+.barrow .bar{height:18px;background:var(--card-2);border-radius:4px;position:relative;overflow:hidden}
+.barrow .barfill{height:100%;border-radius:4px}
+.barrow .amt{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.barrow .wtd{text-align:right;color:var(--muted);font-size:.78rem;font-variant-numeric:tabular-nums}
+.barhdr{display:grid;grid-template-columns:240px 1fr 110px 110px;gap:10px;font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding-bottom:6px;border-bottom:1px solid #2a3547;margin-bottom:2px}
+.barhdr div:nth-child(3),.barhdr div:nth-child(4){text-align:right}
+.note{font-size:.72rem;color:var(--muted);font-style:italic;margin-top:6px}
+.note.amber{color:var(--amber);font-style:normal;border-left:2px solid var(--amber);padding-left:8px;margin:-3px 0 7px 248px;font-size:.7rem}
+.note.red{color:var(--red);font-style:normal;border-left:2px solid var(--red);padding-left:8px;margin:-3px 0 7px 248px;font-size:.7rem}
+.note.blue{color:#9bc4ff;font-style:normal;border-left:2px solid var(--blue);padding-left:8px;margin:-3px 0 7px 248px;font-size:.7rem}
+.commentary{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;margin-top:8px;font-size:.86rem;color:#cbd5e1;line-height:1.6}
+.commentary b{color:var(--amber)}
+
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Victoria Street <span class="pill">All $ incl GST</span> <span class="pill team">Team View</span></h1>
+<div class="subtitle">Saturday 13 June 2026 &middot; Week 2 of June &middot; (Mon 8 Jun &ndash; Sat 13 Jun)</div>
+<div class="kpis">
+  <div class="kpi"><div class="l">Total Revenue</div><div class="v">$0.00</div><div class="s">WTD $22,389.39</div></div>
+  <div class="kpi"><div class="l">Total COGS</div><div class="v">$130.83</div><div class="s">WTD $294.49</div></div>
+  <div class="kpi"><div class="l">Wages</div><div class="v">$0.00</div><div class="s">0h &middot; WTD $7,971.38 / 292.31h</div></div>
+  <div class="kpi"><div class="l">Remaining Op Costs</div><div class="v">$32.30</div><div class="s">covered by business</div></div>
+</div>
+<div class="sc red"><div class="sl">Daily Result</div><div class="sval">Closed</div><div class="sn">No trading today &mdash; Victoria Street is closed on weekends. Next trade Monday 15 Jun.</div></div>
+<h2>Revenue Breakdown</h2>
+<div class="barhdr"><div>Stream</div><div></div><div>Sat 13 Jun</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">Catering</div><div class="bar"><div class="barfill" style="width:0%;background:#4ade80"></div></div><div class="amt">$0.00</div><div class="wtd">$12,509.10</div></div><div class="barrow"><div class="nm">POS</div><div class="bar"><div class="barfill" style="width:0%;background:#4ade80"></div></div><div class="amt">$0.00</div><div class="wtd">$9,880.29</div></div><h2>COGS Breakdown</h2>
+<div class="barhdr"><div>Supplier</div><div></div><div>Sat 13 Jun</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">Goodman Fielder</div><div class="bar"><div class="barfill" style="width:100%;background:#fbbf24"></div></div><div class="amt">$130.83</div><div class="wtd">$294.49</div></div><div class="note amber">Goodman Fielder invoice 9085895952 dated 11-Jun (delivery 11-Jun) &middot; $130.83. Main supplier, booked in full today from Hubdoc &mdash; late capture (invoice dated 11-Jun, captured 13-Jun).</div><div class="note">Main suppliers $130.83 + Spread suppliers $0.00 = $130.83 total COGS today</div><h2>Wages <span class="pill">0 Staff &middot; 0h &middot; $0.00</span></h2>
+<div class="barhdr"><div>Employee</div><div></div><div>Hours</div><div></div></div>
+<div class="note">Hours from Deputy Timesheets (Sat 13 Jun). FOH (blue) &middot; Kitchen (green) &middot; TVNZ (purple) &middot; Estimated (amber).</div><h2>Commentary</h2>
+<div class="commentary">
+<b>Victoria Street &middot; closed Saturday</b><br>Victoria Street is closed on weekends &mdash; no POS trade and no catering due today. The only booking is a late-captured Goodman Fielder invoice ($130.83, dated 11-Jun) plus fixed daily costs.<br><b>Week to date (Mon &ndash; Sat):</b> Revenue $22,389.39 at 13.4%.<br>Nothing to action today &mdash; the focus is the week ahead. See the forecast below for Monday and Tuesday targets to push the week toward the 20% goal.
+</div>
+<h2>Forward Forecast</h2>
+<div class="note blue" style="margin-left:0;border-left-color:#4ade80;color:#86efac">&#9650; Strong week &mdash; drive COGS to minimum and hold wages steady.</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px"><div style="background:var(--card);border:1px solid rgba(74,222,128,.4);border-radius:8px;padding:16px"><div style="font-weight:700;font-size:1.05rem;margin-bottom:8px">Mon 15 Jun</div><div style="font-size:.8rem;color:var(--muted);margin-bottom:4px">Revenue forecast</div><div style="display:flex;justify-content:space-between;font-size:.85rem"><span>Cafe</span><span style="font-variant-numeric:tabular-nums">&mdash; (no prior data)</span></div><div style="display:flex;justify-content:space-between;font-size:.85rem"><span>Catering</span><span style="font-variant-numeric:tabular-nums">$3,633.90</span></div><div style="display:flex;justify-content:space-between;font-size:.9rem;font-weight:700;border-top:1px solid var(--border);margin-top:4px;padding-top:4px"><span>Total</span><span>$3,633.90</span></div><div class="note" style="margin-top:2px">Caf&eacute; no prior data (last Mon 1 Jun was King&rsquo;s Birthday closure); catering from booked orders.</div><div style="margin-top:10px"><div style="font-size:.7rem;text-transform:uppercase;color:var(--muted)">Variable COGS budget</div><div style="font-size:1.3rem;font-weight:700;color:#fbbf24">$426.35</div></div><div class="note">Floor 18% target `$654 &minus; committed spreads ~`$227.75 (Homegrown `$27.49 + LaundryCorp `$7.02 confirmed; est. next-week Five Elements ~`$185 + LaundryCorp ~`$8).</div><div style="margin-top:10px"><div style="font-size:.7rem;text-transform:uppercase;color:var(--muted)">Wages budget</div><div style="font-size:1.3rem;font-weight:700;color:#60a5fa">$1,727.47</div></div><div class="note">Estimated from Mon 8 Jun (last Mon was a public holiday). Hours guidance below &darr;</div><div style="margin-top:14px;background:rgba(96,165,250,.05);border:1px solid rgba(96,165,250,.2);border-radius:8px;padding:12px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:8px">Best Fit Hours</div><div style="display:grid;grid-template-columns:1fr 90px 70px;gap:4px;font-size:.78rem"><div style="color:var(--muted);font-size:.65rem;text-transform:uppercase">Employee</div><div style="color:var(--muted);font-size:.65rem;text-transform:uppercase">Area</div><div style="color:var(--muted);font-size:.65rem;text-transform:uppercase;text-align:right">Target hrs</div><div>Horacio Nicolas Soto</div><div style="color:var(--muted)">Kitchen</div><div style="text-align:right;font-variant-numeric:tabular-nums">8.3h</div><div>Helen Sherratt</div><div style="color:var(--muted)">FOH</div><div style="text-align:right;font-variant-numeric:tabular-nums">8.5h</div><div>Karol Cartagena</div><div style="color:var(--muted)">FOH</div><div style="text-align:right;font-variant-numeric:tabular-nums">8.5h</div><div>Aleisha Yee</div><div style="color:var(--muted)">FOH</div><div style="text-align:right;font-variant-numeric:tabular-nums">4.32h</div><div>David Easthope</div><div style="color:var(--muted)">Kitchen</div><div style="text-align:right;font-variant-numeric:tabular-nums">10.93h</div><div>Kaka</div><div style="color:var(--muted)">Kitchen</div><div style="text-align:right;font-variant-numeric:tabular-nums">9.12h</div><div>Klara Melody Keil</div><div style="color:var(--muted)">FOH</div><div style="text-align:right;font-variant-numeric:tabular-nums">7.78h</div><div>Mohd Fahmi (Jimmy)</div><div style="color:var(--muted)">Kitchen</div><div style="text-align:right;font-variant-numeric:tabular-nums">6.05h</div></div><div class="note" style="margin-top:8px">63.5 total hours &middot; full-time staff at minimum 7h</div></div></div><div style="background:var(--card);border:1px solid rgba(74,222,128,.4);border-radius:8px;padding:16px"><div style="font-weight:700;font-size:1.05rem;margin-bottom:8px">Tue 16 Jun</div><div style="font-size:.8rem;color:var(--muted);margin-bottom:4px">Revenue forecast</div><div style="display:flex;justify-content:space-between;font-size:.85rem"><span>Cafe</span><span style="font-variant-numeric:tabular-nums">$3,086.12</span></div><div style="display:flex;justify-content:space-between;font-size:.85rem"><span>Catering</span><span style="font-variant-numeric:tabular-nums">$1,552.05</span></div><div style="display:flex;justify-content:space-between;font-size:.9rem;font-weight:700;border-top:1px solid var(--border);margin-top:4px;padding-top:4px"><span>Total</span><span>$4,638.17</span></div><div class="note" style="margin-top:2px">Caf&eacute; from last Tue; catering from booked orders.</div><div style="margin-top:10px"><div style="font-size:.7rem;text-transform:uppercase;color:var(--muted)">Variable COGS budget</div><div style="font-size:1.3rem;font-weight:700;color:#fbbf24">$634.61</div></div><div class="note">Floor 18% target `$835 &minus; est. committed spreads ~`$200 (next-week Five Elements ~`$185 + LaundryCorp ~`$15).</div><div style="margin-top:10px"><div style="font-size:.7rem;text-transform:uppercase;color:var(--muted)">Wages budget</div><div style="font-size:1.3rem;font-weight:700;color:#60a5fa">$1,734.48</div></div><div class="note">Last Tuesday same-day. Hours guidance below &darr;</div><div style="margin-top:14px;background:rgba(96,165,250,.05);border:1px solid rgba(96,165,250,.2);border-radius:8px;padding:12px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:8px">Best Fit Hours</div><div style="display:grid;grid-template-columns:1fr 90px 70px;gap:4px;font-size:.78rem"><div style="color:var(--muted);font-size:.65rem;text-transform:uppercase">Employee</div><div style="color:var(--muted);font-size:.65rem;text-transform:uppercase">Area</div><div style="color:var(--muted);font-size:.65rem;text-transform:uppercase;text-align:right">Target hrs</div><div>Helen Sherratt</div><div style="color:var(--muted)">FOH</div><div style="text-align:right;font-variant-numeric:tabular-nums">7.22h</div><div>Horacio Nicolas Soto</div><div style="color:var(--muted)">Kitchen</div><div style="text-align:right;font-variant-numeric:tabular-nums">7.78h</div><div>Aleisha Yee</div><div style="color:var(--muted)">FOH</div><div style="text-align:right;font-variant-numeric:tabular-nums">8.28h</div><div>Karol Cartagena</div><div style="color:var(--muted)">FOH</div><div style="text-align:right;font-variant-numeric:tabular-nums">8.5h</div><div>David Easthope</div><div style="color:var(--muted)">Kitchen</div><div style="text-align:right;font-variant-numeric:tabular-nums">8.28h</div><div>Kaka</div><div style="color:var(--muted)">Kitchen</div><div style="text-align:right;font-variant-numeric:tabular-nums">8.43h</div><div>Klara Melody Keil</div><div style="color:var(--muted)">FOH</div><div style="text-align:right;font-variant-numeric:tabular-nums">7.42h</div><div>Mohd Fahmi (Jimmy)</div><div style="color:var(--muted)">Kitchen</div><div style="text-align:right;font-variant-numeric:tabular-nums">5.9h</div></div><div class="note" style="margin-top:8px">61.81 total hours &middot; full-time staff at minimum 7h</div></div></div></div>
+<script>
+const FORECAST_BASE = {
+    "last_week":  {
+                      "mon":  {
+                                  "vs":  {
+                                             "cafe":  0,
+                                             "catering":  0
+                                         },
+                                  "sb":  {
+                                             "cafe":  0,
+                                             "tvnz":  0,
+                                             "wholesale":  2070.51,
+                                             "catering":  712.08
+                                         },
+                                  "vl":  {
+                                             "cafe":  3752.65
+                                         }
+                              },
+                      "tue":  {
+                                  "vs":  {
+                                             "cafe":  3086.12,
+                                             "catering":  2341.23
+                                         },
+                                  "sb":  {
+                                             "cafe":  2524.3,
+                                             "tvnz":  807.5,
+                                             "wholesale":  3546.15,
+                                             "catering":  426.09
+                                         },
+                                  "vl":  {
+                                             "cafe":  2807.72
+                                         }
+                              },
+                      "wed":  {
+                                  "vs":  {
+                                             "cafe":  2339.8,
+                                             "catering":  2410.53
+                                         },
+                                  "sb":  {
+                                             "cafe":  3085.7,
+                                             "tvnz":  827.8,
+                                             "wholesale":  3106.92,
+                                             "catering":  1740.37
+                                         },
+                                  "vl":  {
+                                             "cafe":  2550.19
+                                         }
+                              },
+                      "thu":  {
+                                  "vs":  {
+                                             "cafe":  2557.3,
+                                             "catering":  2850.58
+                                         },
+                                  "sb":  {
+                                             "cafe":  3298.1,
+                                             "tvnz":  760.7,
+                                             "wholesale":  3056.79,
+                                             "catering":  2416.14
+                                         },
+                                  "vl":  {
+                                             "cafe":  2486.95
+                                         }
+                              },
+                      "fri":  {
+                                  "vs":  {
+                                             "cafe":  1505.01,
+                                             "catering":  1165.68
+                                         },
+                                  "sb":  {
+                                             "cafe":  3105.9,
+                                             "tvnz":  666.7,
+                                             "wholesale":  3403.88,
+                                             "catering":  946.16
+                                         },
+                                  "vl":  {
+                                             "cafe":  3447.89
+                                         }
+                              },
+                      "sat":  {
+                                  "vs":  {
+                                             "cafe":  0,
+                                             "catering":  442.82
+                                         },
+                                  "sb":  {
+                                             "cafe":  0,
+                                             "tvnz":  0,
+                                             "wholesale":  3540.7,
+                                             "catering":  1031.09
+                                         },
+                                  "vl":  {
+                                             "cafe":  3420.89
+                                         }
+                              },
+                      "sun":  {
+                                  "vs":  {
+                                             "cafe":  0,
+                                             "catering":  0
+                                         },
+                                  "sb":  {
+                                             "cafe":  0,
+                                             "tvnz":  0,
+                                             "wholesale":  114.31,
+                                             "catering":  1442.79
+                                         },
+                                  "vl":  {
+                                             "cafe":  4195.65
+                                         }
+                              }
+                  },
+    "last_week_wages":  {
+                            "mon":  {
+                                        "vs":  0,
+                                        "sb":  680.42,
+                                        "vl":  1088.92
+                                    },
+                            "tue":  {
+                                        "vs":  1734.48,
+                                        "sb":  3292.85,
+                                        "vl":  1098.84
+                                    },
+                            "wed":  {
+                                        "vs":  1631.1,
+                                        "sb":  3452.37,
+                                        "vl":  1005.17
+                                    },
+                            "thu":  {
+                                        "vs":  1605.61,
+                                        "sb":  2970.88,
+                                        "vl":  936.46
+                                    },
+                            "fri":  {
+                                        "vs":  1042.94,
+                                        "sb":  3078.65,
+                                        "vl":  1260.92
+                                    },
+                            "sat":  {
+                                        "vs":  103.5,
+                                        "sb":  175.68,
+                                        "vl":  1323.99
+                                    },
+                            "sun":  {
+                                        "vs":  154,
+                                        "sb":  811.12,
+                                        "vl":  1317.57
+                                    }
+                        },
+    "cogs_benchmarks":  {
+                            "sb":  {
+                                       "cafe":  0.25,
+                                       "tvnz":  0.22,
+                                       "catering":  0.18,
+                                       "wholesale":  0.35
+                                   },
+                            "vs":  {
+                                       "cafe":  0.26,
+                                       "catering":  0.22
+                                   },
+                            "vl":  {
+                                       "cafe":  0.25
+                                   },
+                            "qs":  {
+                                       "cafe":  0.19
+                                   }
+                        }
+};
+</script>
+</div>
+</body>
+</html>
