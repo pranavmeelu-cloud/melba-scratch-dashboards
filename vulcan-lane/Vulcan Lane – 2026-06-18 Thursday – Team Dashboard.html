@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vulcan Lane &ndash; Team Dashboard &ndash; Thu 18 Jun 2026</title>
+<style>
+:root{--bg:#0f1419;--card:#1a1f2e;--card-2:#232938;--ink:#e6edf3;--muted:#7d8ba1;--border:#2a3547;--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--purple:#a78bfa;--orange:#f97316;--teal:#34d399;--fuchsia:#e879f9}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:20px;line-height:1.5}
+.container{max-width:1100px;margin:0 auto}
+h1{font-size:1.6rem;font-weight:700;margin-bottom:6px}
+h2{font-size:1.1rem;font-weight:600;margin:24px 0 10px}
+.pill{display:inline-block;font-size:.7rem;font-weight:600;padding:3px 9px;border-radius:99px;background:var(--card-2);color:var(--muted);margin-left:8px;text-transform:uppercase;letter-spacing:.05em}
+.pill.team{background:#2a1f4a;color:#c4b5fd}
+.subtitle{color:var(--muted);font-size:.9rem;margin-bottom:18px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px}
+.kpi .l{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:6px}
+.kpi .v{font-size:1.5rem;font-weight:700}.kpi .s{font-size:.72rem;color:var(--muted);margin-top:2px}
+.sc{border-radius:8px;padding:18px;margin-bottom:24px}
+.sc.green{border:1px solid var(--green);background:linear-gradient(135deg,#0d261a,#1a1f2e)}
+.sc.deepgreen{border:1px solid var(--green);background:linear-gradient(135deg,#0a2e18,#1a1f2e)}
+.sc.amber{border:1px solid var(--amber);background:linear-gradient(135deg,#262010,#1a1f2e)}
+.sc.orange{border:1px solid var(--orange);background:linear-gradient(135deg,#261a08,#1a1f2e)}
+.sc.red{border:1px solid var(--red);background:linear-gradient(135deg,#261010,#1a1f2e)}
+.sc .sl{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:6px}
+.sc .sval{font-size:2rem;font-weight:700;margin-bottom:4px}.sc .sn{font-size:.78rem;color:var(--muted)}
+.barrow{display:grid;grid-template-columns:240px 1fr 110px 110px;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid #1f2738;font-size:.85rem}
+.barrow .nm{color:var(--ink)}
+.barrow .bar{height:18px;background:var(--card-2);border-radius:4px;position:relative;overflow:hidden}
+.barrow .barfill{height:100%;border-radius:4px}
+.barrow .amt{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.barrow .wtd{text-align:right;color:var(--muted);font-size:.78rem;font-variant-numeric:tabular-nums}
+.barhdr{display:grid;grid-template-columns:240px 1fr 110px 110px;gap:10px;font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding-bottom:6px;border-bottom:1px solid #2a3547;margin-bottom:2px}
+.barhdr div:nth-child(3),.barhdr div:nth-child(4){text-align:right}
+.note{font-size:.72rem;color:var(--muted);font-style:italic;margin-top:6px}
+.note.amber{color:var(--amber);font-style:normal;border-left:2px solid var(--amber);padding-left:8px;margin:-3px 0 7px 248px;font-size:.7rem}
+.note.red{color:var(--red);font-style:normal;border-left:2px solid var(--red);padding-left:8px;margin:-3px 0 7px 248px;font-size:.7rem}
+.note.blue{color:#9bc4ff;font-style:normal;border-left:2px solid var(--blue);padding-left:8px;margin:-3px 0 7px 248px;font-size:.7rem}
+.commentary{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;margin-top:8px;font-size:.86rem;color:#cbd5e1;line-height:1.6}
+.commentary b{color:var(--amber)}
+
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Vulcan Lane <span class="pill">All $ incl GST</span> <span class="pill team">Team View</span></h1>
+<div class="subtitle">Thursday 18 June 2026 &middot; Week 3 of June &middot; (Mon 15 Jun &ndash; Thu 18 Jun)</div>
+<div class="kpis">
+  <div class="kpi"><div class="l">Total Revenue</div><div class="v">$2,416.92</div><div class="s">WTD $9,046.02</div></div>
+  <div class="kpi"><div class="l">Total COGS</div><div class="v">$246.78</div><div class="s">WTD $992.59</div></div>
+  <div class="kpi"><div class="l">Wages</div><div class="v">$973.75</div><div class="s">35.6h &middot; WTD $3,776.59 / 137.61h</div></div>
+  <div class="kpi"><div class="l">Remaining Op Costs</div><div class="v">$997.45</div><div class="s">covered by business</div></div>
+</div>
+<div class="sc orange"><div class="sl">Daily Result</div><div class="sval">8.2%</div><div class="sn">of revenue &middot; Target &ge;20% &middot; below target</div><div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)"><div style="font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:10px">To reach 20% &mdash; today&rsquo;s adjustments needed</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div><div style="font-size:11px;color:var(--muted);margin-bottom:3px">COGS should have been</div><div style="font-size:1.15rem;font-weight:700;color:#fbbf24">&le;$247</div><div style="font-size:10px;color:var(--muted)">&minus;$0 vs actual $246.78</div></div><div><div style="font-size:11px;color:var(--muted);margin-bottom:3px">Wages should have been</div><div style="font-size:1.15rem;font-weight:700;color:#60a5fa">&le;$689</div><div style="font-size:10px;color:var(--muted)">&minus;$284 vs actual $973.75</div></div></div></div></div>
+<h2>Revenue Breakdown</h2>
+<div class="barhdr"><div>Stream</div><div></div><div>Thu 18 Jun</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">Cafe</div><div class="bar"><div class="barfill" style="width:100%;background:#4ade80"></div></div><div class="amt">$2,416.92</div><div class="wtd">$9,046.02</div></div><h2>COGS Breakdown</h2>
+<div class="barhdr"><div>Supplier</div><div></div><div>Thu 18 Jun</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">Five Elements</div><div class="bar"><div class="barfill" style="width:100%;background:#fbbf24"></div></div><div class="amt">$170.01</div><div class="wtd">$680.04</div></div><div class="note blue">Weekly &divide;7 &middot; #11553 $1,190.09 &divide; 7 = $170.01/day &middot; Day 4 of 7 (w/c 15 Jun)</div><div class="barrow"><div class="nm">Goodman Fielder</div><div class="bar"><div class="barfill" style="width:38%;background:#fbbf24"></div></div><div class="amt">$64.31</div><div class="wtd">$262.71</div></div><div class="note amber">9085976998 $64.31 (milk, almond milk). Main supplier &mdash; booked in full. &#9888; Invoice dated 17 Jun &mdash; captured 18 Jun (late via VL Hubdoc).</div><div class="barrow"><div class="nm">LaundryCorp</div><div class="bar"><div class="barfill" style="width:7%;background:#fbbf24"></div></div><div class="amt">$12.46</div><div class="wtd">$49.84</div></div><div class="note blue">Weekly &divide;7 &middot; INV 01909503 $5.75/day (Day 7 of 7, final share, carryover w/c 12 Jun) + INV 01909548 $47.00 &divide; 7 = $6.71/day (Day 4 of 7) &middot; combined $12.46 today</div><div class="note">Main suppliers $64.31 + Spread suppliers $182.47 = $246.78 total COGS today</div><h2>Wages <span class="pill">5 Staff &middot; 35.6h &middot; $973.75</span></h2>
+<div class="barhdr"><div>Employee</div><div></div><div>Hours</div><div></div></div>
+<div class="barrow"><div class="nm">Eden Wharerau</div><div class="bar"><div class="barfill" style="width:100%;background:#60a5fa"></div></div><div class="amt">8.55h</div><div class="wtd"></div></div><div class="barrow"><div class="nm">Carlos Araneda</div><div class="bar"><div class="barfill" style="width:93%;background:#4ade80"></div></div><div class="amt">7.98h</div><div class="wtd"></div></div><div class="barrow"><div class="nm">Maddison Roewen</div><div class="bar"><div class="barfill" style="width:87%;background:#60a5fa"></div></div><div class="amt">7.45h</div><div class="wtd"></div></div><div class="barrow"><div class="nm">Ravinder kaur (Ravi)</div><div class="bar"><div class="barfill" style="width:86%;background:#4ade80"></div></div><div class="amt">7.32h</div><div class="wtd"></div></div><div class="barrow"><div class="nm">Sora Kim</div><div class="bar"><div class="barfill" style="width:50%;background:#60a5fa"></div></div><div class="amt">4.3h</div><div class="wtd"></div></div><div class="note">Hours from Deputy Timesheets (Thu 18 Jun, actual). Hours &times; rate from Pay Rates.xlsx. FOH (blue) &middot; Kitchen (green) &middot; TVNZ (purple) &middot; Estimated rate (amber).</div><h2>Commentary</h2>
+<div class="commentary">
+<b>Vulcan Lane &middot; thin positive, recovering from Wednesday's stock-up</b><br>Revenue $2,416.92. COGS $246.78 &mdash; Five Elements share, a late-captured Goodman Fielder $64.31, LaundryCorp &times;2; no new Bidfood order and no Betscharts today. Daily result 8.2% of revenue &mdash; a normal-cost day after Wednesday's bulk Bidfood stock-up. WTD is still in deficit while that stock is used up.<br>This is a tight week &mdash; keep caf&eacute; revenue up and rostering lean; see the hours guidance below.<br><b>Wages note:</b> hours are actual (Deputy Timesheets, Thu 18 Jun).
+</div>
+<h2>Forward Forecast</h2>
+<div class="note amber" style="margin-left:0">&#9888; Tight week &mdash; COGS and wages budgets are strict today; hold the lean roster and keep ordering tight.</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px"><div style="background:var(--card);border:1px solid rgba(251,191,36,.4);border-radius:8px;padding:16px"><div style="font-weight:700;font-size:1.05rem;margin-bottom:8px">Fri 19 Jun</div><div style="font-size:.8rem;color:var(--muted);margin-bottom:4px">Revenue forecast</div><div style="display:flex;justify-content:space-between;font-size:.85rem"><span>C</span><span style="font-variant-numeric:tabular-nums">$97.00</span></div><div style="display:flex;justify-content:space-between;font-size:.85rem"><span>3652.26</span><span style="font-variant-numeric:tabular-nums">$0.00</span></div><div style="display:flex;justify-content:space-between;font-size:.9rem;font-weight:700;border-top:1px solid var(--border);margin-top:4px;padding-top:4px"><span>Total</span><span>$3,652.26</span></div><div class="note" style="margin-top:2px">Caf&eacute; from last Fri (12 Jun).</div><div style="margin-top:10px"><div style="font-size:.7rem;text-transform:uppercase;color:var(--muted)">Variable COGS budget</div><div style="font-size:1.3rem;font-weight:700;color:#fbbf24">$416.83</div></div><div class="note">Tight week &mdash; COGS held to the 18% floor (`$657.41) minus committed &divide;7 spreads: Five Elements `$170.01 + LaundryCorp `$6.71 + Betscharts ~`$63.86 (new Fresho order F55045119, est.). Keep Bidfood ordering tight against the day&rsquo;s revenue.</div><div style="margin-top:10px"><div style="font-size:.7rem;text-transform:uppercase;color:var(--muted)">Wages budget</div><div style="font-size:1.3rem;font-weight:700;color:#60a5fa">$1,083.87</div></div><div class="note">Last Fri (12 Jun) same-day &mdash; hold this lean roster. Hours guidance below &darr;</div><div style="margin-top:14px;background:rgba(96,165,250,.05);border:1px solid rgba(96,165,250,.2);border-radius:8px;padding:12px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:8px">Best Fit Hours</div><div style="display:grid;grid-template-columns:1fr 90px 70px;gap:4px;font-size:.78rem"><div style="color:var(--muted);font-size:.65rem;text-transform:uppercase">Employee</div><div style="color:var(--muted);font-size:.65rem;text-transform:uppercase">Area</div><div style="color:var(--muted);font-size:.65rem;text-transform:uppercase;text-align:right">Target hrs</div><div>Franz Uyseco</div><div style="color:var(--muted)">Kitchen</div><div style="text-align:right;font-variant-numeric:tabular-nums">8.35h</div><div>Carlos Araneda</div><div style="color:var(--muted)">Kitchen</div><div style="text-align:right;font-variant-numeric:tabular-nums">7.62h</div><div>Eden Wharerau</div><div style="color:var(--muted)">FOH</div><div style="text-align:right;font-variant-numeric:tabular-nums">8.5h</div><div>Sora Kim</div><div style="color:var(--muted)">FOH</div><div style="text-align:right;font-variant-numeric:tabular-nums">6.85h</div><div>Mei fung Woo</div><div style="color:var(--muted)">FOH</div><div style="text-align:right;font-variant-numeric:tabular-nums">6.87h</div></div><div class="note" style="margin-top:8px">38.19 total hours &middot; full-time staff at minimum 7h</div></div></div><div style="background:var(--card);border:1px solid rgba(251,191,36,.4);border-radius:8px;padding:16px"><div style="font-weight:700;font-size:1.05rem;margin-bottom:8px">Sat 20 Jun</div><div style="font-size:.8rem;color:var(--muted);margin-bottom:4px">Revenue forecast</div><div style="display:flex;justify-content:space-between;font-size:.85rem"><span>C</span><span style="font-variant-numeric:tabular-nums">$97.00</span></div><div style="display:flex;justify-content:space-between;font-size:.85rem"><span>2862.62</span><span style="font-variant-numeric:tabular-nums">$0.00</span></div><div style="display:flex;justify-content:space-between;font-size:.9rem;font-weight:700;border-top:1px solid var(--border);margin-top:4px;padding-top:4px"><span>Total</span><span>$2,862.62</span></div><div class="note" style="margin-top:2px">Caf&eacute; from last Sat (13 Jun).</div><div style="margin-top:10px"><div style="font-size:.7rem;text-transform:uppercase;color:var(--muted)">Variable COGS budget</div><div style="font-size:1.3rem;font-weight:700;color:#fbbf24">$274.69</div></div><div class="note">Tight week &mdash; COGS held to the 18% floor (`$515.27) minus committed &divide;7 spreads: Five Elements `$170.01 + LaundryCorp `$6.71 + Betscharts ~`$63.86 (est.). Keep Bidfood top-ups tight.</div><div style="margin-top:10px"><div style="font-size:.7rem;text-transform:uppercase;color:var(--muted)">Wages budget</div><div style="font-size:1.3rem;font-weight:700;color:#60a5fa">$1,249.37</div></div><div class="note">Last Sat (13 Jun) same-day &mdash; hold this lean roster. Hours guidance below &darr;</div><div style="margin-top:14px;background:rgba(96,165,250,.05);border:1px solid rgba(96,165,250,.2);border-radius:8px;padding:12px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:8px">Best Fit Hours</div><div style="display:grid;grid-template-columns:1fr 90px 70px;gap:4px;font-size:.78rem"><div style="color:var(--muted);font-size:.65rem;text-transform:uppercase">Employee</div><div style="color:var(--muted);font-size:.65rem;text-transform:uppercase">Area</div><div style="color:var(--muted);font-size:.65rem;text-transform:uppercase;text-align:right">Target hrs</div><div>Franz Uyseco</div><div style="color:var(--muted)">Kitchen</div><div style="text-align:right;font-variant-numeric:tabular-nums">6.78h</div><div>Carlos Araneda</div><div style="color:var(--muted)">Kitchen</div><div style="text-align:right;font-variant-numeric:tabular-nums">6.65h</div><div>Eden Wharerau</div><div style="color:var(--muted)">FOH</div><div style="text-align:right;font-variant-numeric:tabular-nums">8.22h</div><div>Rocio Maria Sanchez</div><div style="color:var(--muted)">FOH</div><div style="text-align:right;font-variant-numeric:tabular-nums">7h</div><div>Maddison Roewen</div><div style="color:var(--muted)">FOH</div><div style="text-align:right;font-variant-numeric:tabular-nums">8.35h</div><div>Surapa Tilokwattanothai</div><div style="color:var(--muted)">Kitchen</div><div style="text-align:right;font-variant-numeric:tabular-nums">6.53h</div><div>Mikayla Wratt</div><div style="color:var(--muted)">FOH</div><div style="text-align:right;font-variant-numeric:tabular-nums">3.48h</div></div><div class="note" style="margin-top:8px">47.01 total hours &middot; full-time staff at minimum 7h</div></div></div></div>
+<script>
+const FORECAST_BASE = {
+  "last_week": {
+    "mon": { "vs": { "cafe": 1876.25, "catering": 3267.05 }, "sb": { "cafe": 2046.70, "tvnz": 641.90, "wholesale": 3763.69, "catering": 2729.76 }, "vl": { "cafe": 2092.22 } },
+    "tue": { "vs": { "cafe": 1891.47, "catering": 1442.89 }, "sb": { "cafe": 2794.40, "tvnz": 879.00, "wholesale": 4077.62, "catering": 8751.67 }, "vl": { "cafe": 3005.82 } },
+    "wed": { "vs": { "cafe": 2000.68, "catering": 4786.13 }, "sb": { "cafe": 3774.20, "tvnz": 963.70, "wholesale": 3458.84, "catering": 2535.60 }, "vl": { "cafe": 2658.73 } },
+    "thu": { "vs": { "cafe": 2385.39, "catering": 1956.91 }, "sb": { "cafe": 3640.10, "tvnz": 695.90, "wholesale": 3141.73, "catering": 1644.28 }, "vl": { "cafe": 3084.24 } },
+    "fri": { "vs": { "cafe": 1726.50, "catering": 1056.12 }, "sb": { "cafe": 2821.40, "tvnz": 491.80, "wholesale": 3278.02, "catering": 1042.08 }, "vl": { "cafe": 3652.26 } },
+    "sat": { "vl": { "cafe": 2862.62 }, "sb": { "wholesale": 3498.75 } },
+    "sun": { "vl": { "cafe": 3063.05 }, "sb": { "wholesale": 0 } }
+  },
+  "last_week_wages": {
+    "mon": { "vs": 1727.47, "sb": 3280.63, "vl": 1045.96 },
+    "tue": { "vs": 1684.48, "sb": 3617.26, "vl": 1126.92 },
+    "wed": { "vs": 1631.36, "sb": 3412.72, "vl": 950.95 },
+    "thu": { "vs": 1756.25, "sb": 3122.97, "vl": 1181.42 },
+    "fri": { "vs": 1171.82, "sb": 2525.81, "vl": 1083.87 },
+    "sat": { "vl": 1249.37 },
+    "sun": { "vl": 1338.38 }
+  },
+  "cogs_benchmarks": {
+    "sb": { "cafe": 0.25, "tvnz": 0.22, "catering": 0.18, "wholesale": 0.35 },
+    "vs": { "cafe": 0.26, "catering": 0.22 },
+    "vl": { "cafe": 0.25 },
+    "qs": { "cafe": 0.19 }
+  }
+}
+;
+</script>
+</div>
+</body>
+</html>
