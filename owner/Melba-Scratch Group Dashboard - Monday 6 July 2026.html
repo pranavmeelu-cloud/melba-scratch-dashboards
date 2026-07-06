@@ -60,52 +60,52 @@ h2{font-size:1.1rem;font-weight:600;margin:24px 0 10px}
 <div class="container">
 <h1>Melba-Scratch Group Dashboard <span class="pill">All $ incl GST</span> <span class="pill owner">Owner View</span></h1>
 <div class="subtitle">Monday 6 July 2026 &middot; Week 2 of July &middot; (Mon 6 Jul &ndash; Mon 6 Jul)</div>
-<div class="alert warn"><b>&#9888; Monday 6 July &mdash; week opens (w/c 6 Jul):</b> All three businesses trade Monday; wages are <b>actual</b> (Deputy Timesheets, Mon 6 Jul). A fresh week &mdash; WTD totals, the invoice log and CDIFF chains reset today (deferred spread shares carry forward). <b>Queen Street is excluded from all builds.</b> <b>Bidfood invoice files were empty for all three businesses at build time</b> &mdash; Monday deliveries had not yet been invoiced, so today&rsquo;s COGS excludes Bidfood and surplus is overstated; the Bidfood cost is expected to appear on Tuesday&rsquo;s build. <b>The VS and SB CDIFF chain was reset to zero this week</b> (Monday&rsquo;s inherited over/under-spend forced to `$0) per the roll-out correction &mdash; budgets rebuild from a clean baseline; the chain accumulates from Monday&rsquo;s own deviation forward. Monday is the main stocking day for VS and SB (Monday COGS front-loads 25% of Tuesday&rsquo;s buy). See the team forecasts.</div>
+<div class="alert warn"><b>&#9888; Monday 6 July &mdash; week opens (w/c 6 Jul):</b> All three businesses trade Monday; wages are <b>actual</b> (Deputy Timesheets, Mon 6 Jul). A fresh week &mdash; WTD totals, the invoice log and CDIFF chains reset today (deferred spread shares carry forward). <b>Queen Street is excluded from all builds.</b> <b>Bidfood invoice files were empty for all three businesses at build time</b> &mdash; Monday deliveries had not yet been invoiced, so today&rsquo;s COGS excludes Bidfood and surplus is overstated; the Bidfood cost is expected to appear on Tuesday&rsquo;s build. <b>The VS and SB CDIFF chain was reset to zero this week</b> (Monday&rsquo;s inherited over/under-spend forced to `$0) per the roll-out correction &mdash; budgets rebuild from a clean baseline; the chain accumulates from Monday&rsquo;s own deviation forward. Monday is the main stocking day for VS and SB (Monday COGS front-loads 25% of Tuesday&rsquo;s buy). <b>Gilmours cost reallocation applied (owner instruction):</b> Scratch Bakers Gilmours invoices/orders with PO reference <b>Vicst / David / nicolas</b> are allocated to <b>Victoria Street</b>, and <b>harneet</b> to <b>Vulcan Lane</b> &mdash; both today&rsquo;s actuals and the upcoming Tuesday orders. See the team forecasts.</div>
 <div class="tabs">
 <button class="tab active" data-entity="vs" onclick="showPane('vs')">Victoria Street <span class="badge ok">data &#10003;</span></button>
 <button class="tab" data-entity="sb" onclick="showPane('sb')">Scratch Bakers <span class="badge ok">data &#10003;</span></button>
 <button class="tab" data-entity="vl" onclick="showPane('vl')">Vulcan Lane <span class="badge ok">data &#10003;</span></button>
 </div>
 <div class="pane active" data-entity="vs">
-<div class="daytabs"><button class="daytab active" data-day="mon">Mon 6 Jul</button><button class="daytab" onclick="alert('WTD Mon: revenue $3,643.79 &middot; surplus $828.04 &middot; margin 22.7%')">WTD</button></div>
+<div class="daytabs"><button class="daytab active" data-day="mon">Mon 6 Jul</button><button class="daytab" onclick="alert('WTD Mon: revenue $3,643.79 &middot; deficit -$337.54 &middot; margin -9.3%')">WTD</button></div>
 <div class="kpis">
   <div class="kpi"><div class="l">Total Revenue</div><div class="v">$3,643.79</div><div class="s">WTD $3,643.79</div></div>
-  <div class="kpi"><div class="l">Total COGS</div><div class="v">$301.52</div><div class="s">WTD $301.52</div></div>
+  <div class="kpi"><div class="l">Total COGS</div><div class="v">$1,641.94</div><div class="s">WTD $1,641.94</div></div>
   <div class="kpi"><div class="l">Wages</div><div class="v">$1,592.53</div><div class="s">59.33h &middot; WTD $1,592.53 / 59.33h</div></div>
-  <div class="kpi"><div class="l">Remaining Op Costs</div><div class="v">$921.70</div><div class="s">WTD $921.70</div></div>
+  <div class="kpi"><div class="l">Remaining Op Costs</div><div class="v">$746.86</div><div class="s">WTD $746.86</div></div>
 </div>
-<div class="sc green"><div class="sl">Surplus</div><div class="sval">$828.04</div><div class="sn">22.7% margin &middot; target &ge;20%</div></div>
+<div class="sc red"><div class="sl">Deficit</div><div class="sval">-$337.54</div><div class="sn">-9.3% margin &middot; target &ge;20%</div></div>
 <h2>Revenue Breakdown</h2>
 <div class="barhdr"><div>Stream</div><div></div><div>Mon 6 Jul</div><div>WTD</div></div>
 <div class="barrow"><div class="nm">Catering</div><div class="bar"><div class="barfill" style="width:100%;background:#4ade80"></div></div><div class="amt">$2,308.09</div><div class="wtd">$2,308.09</div></div><div class="barrow"><div class="nm">POS</div><div class="bar"><div class="barfill" style="width:58%;background:#4ade80"></div></div><div class="amt">$1,335.70</div><div class="wtd">$1,335.70</div></div><h2>COGS Breakdown</h2>
 <div class="barhdr"><div>Supplier</div><div></div><div>Mon 6 Jul</div><div>WTD</div></div>
-<div class="barrow"><div class="nm">Five Elements</div><div class="bar"><div class="barfill" style="width:100%;background:#fbbf24"></div></div><div class="amt">$274.94</div><div class="wtd">$274.94</div></div><div class="note blue">Weekly &divide;5 &middot; FE #11609 w/c 6 Jul $1,374.71 &divide; 5 = $274.94/day &middot; Day 1 of 5 (Mon&ndash;Fri w/c 6 Jul)</div><div class="barrow"><div class="nm">LaundryCorp</div><div class="bar"><div class="barfill" style="width:10%;background:#fbbf24"></div></div><div class="amt">$26.58</div><div class="wtd">$26.58</div></div><div class="note blue">Weekly &divide;5 &middot; 01909877 $8.86 (Day 5/5, completes) + 01909981 $8.86 (Day 3/5) + 019010056 $44.28 &divide; 5 = $8.86 (Day 1/5) &middot; combined $26.58 today</div><div class="note">Main suppliers $0.00 + Spread suppliers $301.52 = $301.52 total COGS today</div><div class="note amber">&#9888; Bidfood invoice files were empty at build time for all three businesses &mdash; Monday deliveries had not yet been invoiced. Today&rsquo;s COGS excludes Bidfood; expect it to post on Tuesday&rsquo;s build. COGS is understated and surplus overstated for today.</div><h2>Wages</h2>
+<div class="barrow"><div class="nm">Gilmours</div><div class="bar"><div class="barfill" style="width:100%;background:#fbbf24"></div></div><div class="amt">$1,340.42</div><div class="wtd">$1,340.42</div></div><div class="note amber">3 invoices (6 Jul), reallocated from the Scratch Bakers Gilmours file by PO reference (owner instruction): 4120140682 (PO Vicst) $98.33 + 4120140776 (PO David) $521.18 + 4120140967 (PO nicolas) $720.91 = $1,340.42. Main supplier &mdash; booked in full on delivery.</div><div class="barrow"><div class="nm">Five Elements</div><div class="bar"><div class="barfill" style="width:21%;background:#fbbf24"></div></div><div class="amt">$274.94</div><div class="wtd">$274.94</div></div><div class="note blue">Weekly &divide;5 &middot; FE #11609 w/c 6 Jul $1,374.71 &divide; 5 = $274.94/day &middot; Day 1 of 5 (Mon&ndash;Fri w/c 6 Jul)</div><div class="barrow"><div class="nm">LaundryCorp</div><div class="bar"><div class="barfill" style="width:2%;background:#fbbf24"></div></div><div class="amt">$26.58</div><div class="wtd">$26.58</div></div><div class="note blue">Weekly &divide;5 &middot; 01909877 $8.86 (Day 5/5, completes) + 01909981 $8.86 (Day 3/5) + 019010056 $44.28 &divide; 5 = $8.86 (Day 1/5) &middot; combined $26.58 today</div><div class="note">Main suppliers $1,340.42 + Spread suppliers $301.52 = $1,641.94 total COGS today</div><div class="note amber">&#9888; Bidfood invoice files were empty at build time for all three businesses &mdash; Monday deliveries had not yet been invoiced. Today&rsquo;s COGS excludes Bidfood; expect it to post on Tuesday&rsquo;s build. COGS is understated and surplus overstated for today.</div><h2>Wages</h2>
 <div class="barhdr"><div>Employee</div><div></div><div>Cost</div><div>Hours</div></div>
 <div class="barrow"><div class="nm">Aleisha Yee &middot; 8.7h &middot; $28</div><div class="bar"><div class="barfill" style="width:100%;background:#60a5fa"></div></div><div class="amt">$243.60</div><div class="wtd">8.7h</div></div><div class="barrow"><div class="nm">Helen Sherratt &middot; 8.37h &middot; $30</div><div class="bar"><div class="barfill" style="width:96%;background:#60a5fa"></div></div><div class="amt">$251.10</div><div class="wtd">8.37h</div></div><div class="barrow"><div class="nm">Kaka &middot; 8.15h &middot; $25</div><div class="bar"><div class="barfill" style="width:94%;background:#4ade80"></div></div><div class="amt">$203.75</div><div class="wtd">8.15h</div></div><div class="barrow"><div class="nm">Horacio Nicolas Soto &middot; 7.83h &middot; $30</div><div class="bar"><div class="barfill" style="width:90%;background:#4ade80"></div></div><div class="amt">$234.90</div><div class="wtd">7.83h</div></div><div class="barrow"><div class="nm">David Easthope &middot; 7.13h &middot; $27.5</div><div class="bar"><div class="barfill" style="width:82%;background:#4ade80"></div></div><div class="amt">$196.08</div><div class="wtd">7.13h</div></div><div class="barrow"><div class="nm">Klara Melody Keil &middot; 7h &middot; $24.5</div><div class="bar"><div class="barfill" style="width:80%;background:#60a5fa"></div></div><div class="amt">$171.50</div><div class="wtd">7h</div></div><div class="barrow"><div class="nm">Jimmy (VS) &middot; 6.3h &middot; $24</div><div class="bar"><div class="barfill" style="width:72%;background:#4ade80"></div></div><div class="amt">$151.20</div><div class="wtd">6.3h</div></div><div class="barrow"><div class="nm">Tayla George &middot; 5.85h &middot; $24</div><div class="bar"><div class="barfill" style="width:67%;background:#60a5fa"></div></div><div class="amt">$140.40</div><div class="wtd">5.85h</div></div><div class="note">Hours from Deputy Timesheets (Mon 6 Jul, actual). Hours &times; rate from Pay Rates.xlsx. FOH (blue) &middot; Kitchen (green) &middot; TVNZ (purple) &middot; Estimated rate (amber).</div><h2>Remaining Operational Costs</h2>
 <div class="barhdr"><div>Item</div><div></div><div>Mon 6 Jul</div><div>WTD</div></div>
-<div class="barrow"><div class="nm">GST</div><div class="bar"><div class="barfill" style="width:100%;background:#f97316"></div></div><div class="amt">$379.24</div><div class="wtd">$379.24</div></div><div class="barrow"><div class="nm">Royalty</div><div class="bar"><div class="barfill" style="width:48%;background:#a78bfa"></div></div><div class="amt">$182.19</div><div class="wtd">$182.19</div></div><div class="barrow"><div class="nm">Miscellaneous</div><div class="bar"><div class="barfill" style="width:38%;background:#f87171"></div></div><div class="amt">$145.75</div><div class="wtd">$145.75</div></div><div class="barrow"><div class="nm">Rent</div><div class="bar"><div class="barfill" style="width:28%;background:#60a5fa"></div></div><div class="amt">$106.86</div><div class="wtd">$106.86</div></div><div class="barrow"><div class="nm">Merchant Fees</div><div class="bar"><div class="barfill" style="width:15%;background:#34d399"></div></div><div class="amt">$58.30</div><div class="wtd">$58.30</div></div><div class="barrow"><div class="nm">Car Loan</div><div class="bar"><div class="barfill" style="width:8%;background:#7d8ba1"></div></div><div class="amt">$29.36</div><div class="wtd">$29.36</div></div><div class="barrow"><div class="nm">Electricity</div><div class="bar"><div class="barfill" style="width:5%;background:#fbbf24"></div></div><div class="amt">$20.00</div><div class="wtd">$20.00</div></div><div class="commentary">
-<b>Victoria Street &middot; week opens</b><br>Monday revenue $3,643.79 &mdash; POS $1,335.70 (a soft Monday counter) plus a strong Melba Catering $2,308.09. COGS $301.52 &mdash; Five Elements week (FE #11609) starts ($274.94/day) plus three overlapping LaundryCorp shares ($26.58). <b>Bidfood invoice file was empty</b> &mdash; Monday deliveries had not yet posted, so today&rsquo;s COGS is understated. Wages $1,592.53 (8 staff). Result +$828.04 at 22.7% &mdash; flattered by the missing Bidfood; a normal week-opening shape once Tuesday&rsquo;s Bidfood posts.<br><b>WTD (Mon):</b> Revenue $3,643.79, surplus $828.04 at 22.7%.
+<div class="barrow"><div class="nm">GST</div><div class="bar"><div class="barfill" style="width:100%;background:#f97316"></div></div><div class="amt">$204.40</div><div class="wtd">$204.40</div></div><div class="barrow"><div class="nm">Royalty</div><div class="bar"><div class="barfill" style="width:89%;background:#a78bfa"></div></div><div class="amt">$182.19</div><div class="wtd">$182.19</div></div><div class="barrow"><div class="nm">Miscellaneous</div><div class="bar"><div class="barfill" style="width:71%;background:#f87171"></div></div><div class="amt">$145.75</div><div class="wtd">$145.75</div></div><div class="barrow"><div class="nm">Rent</div><div class="bar"><div class="barfill" style="width:52%;background:#60a5fa"></div></div><div class="amt">$106.86</div><div class="wtd">$106.86</div></div><div class="barrow"><div class="nm">Merchant Fees</div><div class="bar"><div class="barfill" style="width:29%;background:#34d399"></div></div><div class="amt">$58.30</div><div class="wtd">$58.30</div></div><div class="barrow"><div class="nm">Car Loan</div><div class="bar"><div class="barfill" style="width:14%;background:#7d8ba1"></div></div><div class="amt">$29.36</div><div class="wtd">$29.36</div></div><div class="barrow"><div class="nm">Electricity</div><div class="bar"><div class="barfill" style="width:10%;background:#fbbf24"></div></div><div class="amt">$20.00</div><div class="wtd">$20.00</div></div><div class="commentary">
+<b>Victoria Street &middot; week opens</b><br>Monday revenue $3,643.79 &mdash; POS $1,335.70 (a soft Monday counter) plus a strong Melba Catering $2,308.09. COGS $1,641.94 &mdash; Gilmours $1,340.42 (3 invoices PO Vicst/David/nicolas, reallocated from the Scratch Bakers Gilmours file per owner instruction), Five Elements week starts ($274.94/day) plus three overlapping LaundryCorp shares ($26.58). <b>Bidfood invoice file was empty</b> &mdash; Monday deliveries had not yet posted, so COGS is still understated on the Bidfood line. Wages $1,592.53 (8 staff). Result &minus;$337.54 at &minus;9.3% &mdash; the reallocated Gilmours cost pulls Monday negative; the mid-week days recover.<br><b>WTD (Mon):</b> Revenue $3,643.79, deficit $337.54 at &minus;9.3%.
 </div>
 </div>
 <div class="pane" data-entity="sb">
-<div class="daytabs"><button class="daytab active" data-day="mon">Mon 6 Jul</button><button class="daytab" onclick="alert('WTD Mon: revenue $7,934.43 &middot; deficit -$852.35 &middot; margin -10.7%')">WTD</button></div>
+<div class="daytabs"><button class="daytab active" data-day="mon">Mon 6 Jul</button><button class="daytab" onclick="alert('WTD Mon: revenue $7,934.43 &middot; surplus $313.24 &middot; margin 3.9%')">WTD</button></div>
 <div class="kpis">
   <div class="kpi"><div class="l">Total Revenue</div><div class="v">$7,934.43</div><div class="s">WTD $7,934.43</div></div>
-  <div class="kpi"><div class="l">Total COGS</div><div class="v">$3,376.77</div><div class="s">WTD $3,376.77</div></div>
+  <div class="kpi"><div class="l">Total COGS</div><div class="v">$2,036.35</div><div class="s">WTD $2,036.35</div></div>
   <div class="kpi"><div class="l">Wages</div><div class="v">$3,072.11</div><div class="s">111.63h &middot; WTD $3,072.11 / 111.63h</div></div>
-  <div class="kpi"><div class="l">Remaining Op Costs</div><div class="v">$2,337.90</div><div class="s">WTD $2,337.90</div></div>
+  <div class="kpi"><div class="l">Remaining Op Costs</div><div class="v">$2,512.73</div><div class="s">WTD $2,512.73</div></div>
 </div>
-<div class="sc red"><div class="sl">Deficit</div><div class="sval">-$852.35</div><div class="sn">-10.7% margin &middot; target &ge;15%</div></div>
+<div class="sc orange"><div class="sl">Surplus</div><div class="sval">$313.24</div><div class="sn">3.9% margin &middot; target &ge;15%</div></div>
 <h2>Revenue Breakdown</h2>
 <div class="barhdr"><div>Stream</div><div></div><div>Mon 6 Jul</div><div>WTD</div></div>
 <div class="barrow"><div class="nm">Wholesale</div><div class="bar"><div class="barfill" style="width:100%;background:#4ade80"></div></div><div class="amt">$4,062.40</div><div class="wtd">$4,062.40</div></div><div class="barrow"><div class="nm">Cafe</div><div class="bar"><div class="barfill" style="width:49%;background:#4ade80"></div></div><div class="amt">$2,007.90</div><div class="wtd">$2,007.90</div></div><div class="barrow"><div class="nm">TVNZ</div><div class="bar"><div class="barfill" style="width:24%;background:#4ade80"></div></div><div class="amt">$979.90</div><div class="wtd">$979.90</div></div><div class="barrow"><div class="nm">Catering</div><div class="bar"><div class="barfill" style="width:22%;background:#4ade80"></div></div><div class="amt">$884.23</div><div class="wtd">$884.23</div></div><h2>COGS Breakdown</h2>
 <div class="barhdr"><div>Supplier</div><div></div><div>Mon 6 Jul</div><div>WTD</div></div>
-<div class="barrow"><div class="nm">Gilmours</div><div class="bar"><div class="barfill" style="width:100%;background:#fbbf24"></div></div><div class="amt">$2,858.12</div><div class="wtd">$2,858.12</div></div><div class="note amber">7 invoices (6 Jul): 4120140674 (PO harry) $72.04 + 4120140682 (PO Vicst) $98.33 + 4120140715 (PO Thomas) $278.71 + 4120140773 (PO kanika) $352.81 + 4120140776 (PO David) $521.18 + 4120140825 (PO dana) $814.14 + 4120140967 (PO nicolas) $720.91 = $2,858.12. From Scratch Bakers Gilmours Invoice Report; reconciled to Hubdoc PDFs (all match). Main supplier &mdash; booked in full on delivery.</div><div class="barrow"><div class="nm">Five Elements</div><div class="bar"><div class="barfill" style="width:11%;background:#fbbf24"></div></div><div class="amt">$322.69</div><div class="wtd">$322.69</div></div><div class="note blue">Weekly &divide;5 &middot; FE #11607 w/c 6 Jul $1,613.46 &divide; 5 = $322.69/day &middot; Day 1 of 5 (Mon&ndash;Fri w/c 6 Jul)</div><div class="barrow"><div class="nm">Mauri ANZ</div><div class="bar"><div class="barfill" style="width:3%;background:#fbbf24"></div></div><div class="amt">$90.01</div><div class="wtd">$90.01</div></div><div class="note blue">Weekly &divide;5 &middot; 107073211 $450.04 &divide; 5 = $90.01/day &middot; Day 5 of 5 (w/c 30 Jun) &mdash; complete after today</div><div class="barrow"><div class="nm">Veggieman</div><div class="bar"><div class="barfill" style="width:2%;background:#fbbf24"></div></div><div class="amt">$53.61</div><div class="wtd">$53.61</div></div><div class="note blue">Weekly &divide;5 &middot; 66121 $268.07 &divide; 5 = $53.61/day &middot; Day 1 of 5 (w/c 6 Jul)</div><div class="barrow"><div class="nm">Mediterranean Foods</div><div class="bar"><div class="barfill" style="width:2%;background:#fbbf24"></div></div><div class="amt">$52.34</div><div class="wtd">$52.34</div></div><div class="note blue">Weekly &divide;5 &middot; INV105113 $261.69 &divide; 5 = $52.34/day &middot; Day 5 of 5 (w/c 30 Jun) &mdash; complete after today</div><div class="note">Main suppliers $2,858.12 + Spread suppliers $518.65 = $3,376.77 total COGS today</div><div class="note amber">&#9888; Bidfood invoice files were empty at build time for all three businesses &mdash; Monday deliveries had not yet been invoiced. Today&rsquo;s COGS excludes Bidfood; expect it to post on Tuesday&rsquo;s build. COGS is understated and surplus overstated for today.</div><div class="note">&#9888; Prior-week adjustment: The Produce Company invoice 3415466 (.45, dated 4 Jul) captured today via Hubdoc &mdash; belongs to last week&rsquo;s WTD; recorded as a prior-week adjustment, not booked to this week.</div><h2>Wages</h2>
+<div class="barrow"><div class="nm">Gilmours</div><div class="bar"><div class="barfill" style="width:100%;background:#fbbf24"></div></div><div class="amt">$1,517.70</div><div class="wtd">$1,517.70</div></div><div class="note amber">4 invoices (6 Jul): 4120140674 (PO harry) $72.04 + 4120140715 (PO Thomas) $278.71 + 4120140773 (PO kanika) $352.81 + 4120140825 (PO dana) $814.14 = $1,517.70. From Scratch Bakers Gilmours Invoice Report; reconciled to Hubdoc PDFs (all match). Invoices with PO Vicst/David/nicolas ($1,340.42) reallocated to Victoria Street per owner instruction. Main supplier &mdash; booked in full on delivery.</div><div class="barrow"><div class="nm">Five Elements</div><div class="bar"><div class="barfill" style="width:21%;background:#fbbf24"></div></div><div class="amt">$322.69</div><div class="wtd">$322.69</div></div><div class="note blue">Weekly &divide;5 &middot; FE #11607 w/c 6 Jul $1,613.46 &divide; 5 = $322.69/day &middot; Day 1 of 5 (Mon&ndash;Fri w/c 6 Jul)</div><div class="barrow"><div class="nm">Mauri ANZ</div><div class="bar"><div class="barfill" style="width:6%;background:#fbbf24"></div></div><div class="amt">$90.01</div><div class="wtd">$90.01</div></div><div class="note blue">Weekly &divide;5 &middot; 107073211 $450.04 &divide; 5 = $90.01/day &middot; Day 5 of 5 (w/c 30 Jun) &mdash; complete after today</div><div class="barrow"><div class="nm">Veggieman</div><div class="bar"><div class="barfill" style="width:4%;background:#fbbf24"></div></div><div class="amt">$53.61</div><div class="wtd">$53.61</div></div><div class="note blue">Weekly &divide;5 &middot; 66121 $268.07 &divide; 5 = $53.61/day &middot; Day 1 of 5 (w/c 6 Jul)</div><div class="barrow"><div class="nm">Mediterranean Foods</div><div class="bar"><div class="barfill" style="width:3%;background:#fbbf24"></div></div><div class="amt">$52.34</div><div class="wtd">$52.34</div></div><div class="note blue">Weekly &divide;5 &middot; INV105113 $261.69 &divide; 5 = $52.34/day &middot; Day 5 of 5 (w/c 30 Jun) &mdash; complete after today</div><div class="note">Main suppliers $1,517.70 + Spread suppliers $518.65 = $2,036.35 total COGS today</div><div class="note amber">&#9888; Bidfood invoice files were empty at build time for all three businesses &mdash; Monday deliveries had not yet been invoiced. Today&rsquo;s COGS excludes Bidfood; expect it to post on Tuesday&rsquo;s build. COGS is understated and surplus overstated for today.</div><div class="note">&#9888; Prior-week adjustment: The Produce Company invoice 3415466 (.45, dated 4 Jul) captured today via Hubdoc &mdash; belongs to last week&rsquo;s WTD; recorded as a prior-week adjustment, not booked to this week.</div><h2>Wages</h2>
 <div class="barhdr"><div>Employee</div><div></div><div>Cost</div><div>Hours</div></div>
 <div class="barrow"><div class="nm">Maria Neider &middot; 9.42h &middot; $25</div><div class="bar"><div class="barfill" style="width:100%;background:#60a5fa"></div></div><div class="amt">$235.50</div><div class="wtd">9.42h</div></div><div class="barrow"><div class="nm">Hannah Grace Davis &middot; 9.03h &middot; $27.5</div><div class="bar"><div class="barfill" style="width:96%;background:#a78bfa"></div></div><div class="amt">$248.32</div><div class="wtd">9.03h</div></div><div class="barrow"><div class="nm">Sarai Egan &middot; 8.98h &middot; $27</div><div class="bar"><div class="barfill" style="width:95%;background:#4ade80"></div></div><div class="amt">$242.46</div><div class="wtd">8.98h</div></div><div class="barrow"><div class="nm">Leo Grant &middot; 8.8h &middot; $27</div><div class="bar"><div class="barfill" style="width:93%;background:#4ade80"></div></div><div class="amt">$237.60</div><div class="wtd">8.8h</div></div><div class="barrow"><div class="nm">Thomas Moller &middot; 8.5h &middot; $27</div><div class="bar"><div class="barfill" style="width:90%;background:#4ade80"></div></div><div class="amt">$229.50</div><div class="wtd">8.5h</div></div><div class="barrow"><div class="nm">Adi &middot; 8.3h &middot; $24</div><div class="bar"><div class="barfill" style="width:88%;background:#4ade80"></div></div><div class="amt">$199.20</div><div class="wtd">8.3h</div></div><div class="barrow"><div class="nm">Mohd Fahmi (Jimmy SB) &middot; 8h &middot; $24</div><div class="bar"><div class="barfill" style="width:85%;background:#4ade80"></div></div><div class="amt">$192.00</div><div class="wtd">8h</div></div><div class="barrow"><div class="nm">Dana Dewi &middot; 7.97h &middot; $30</div><div class="bar"><div class="barfill" style="width:85%;background:#4ade80"></div></div><div class="amt">$239.10</div><div class="wtd">7.97h</div></div><div class="barrow"><div class="nm">Daishea Harris &middot; 7.93h &middot; $29</div><div class="bar"><div class="barfill" style="width:84%;background:#60a5fa"></div></div><div class="amt">$229.97</div><div class="wtd">7.93h</div></div><div class="barrow"><div class="nm">Isabella Holmes (Izzy) &middot; 7.58h &middot; $25</div><div class="bar"><div class="barfill" style="width:80%;background:#60a5fa"></div></div><div class="amt">$189.50</div><div class="wtd">7.58h</div></div><div class="barrow"><div class="nm">Trimandeep Singh (Harry) &middot; 7.12h &middot; $36</div><div class="bar"><div class="barfill" style="width:76%;background:#4ade80"></div></div><div class="amt">$256.32</div><div class="wtd">7.12h</div></div><div class="barrow"><div class="nm">Kanika banth &middot; 7h &middot; $34</div><div class="bar"><div class="barfill" style="width:74%;background:#4ade80"></div></div><div class="amt">$238.00</div><div class="wtd">7h</div></div><div class="barrow"><div class="nm">Heemin Lee &middot; 6.53h &middot; $24</div><div class="bar"><div class="barfill" style="width:69%;background:#4ade80"></div></div><div class="amt">$156.72</div><div class="wtd">6.53h</div></div><div class="barrow"><div class="nm">Jahnevah Numa &middot; 6.47h &middot; $27.5</div><div class="bar"><div class="barfill" style="width:69%;background:#4ade80"></div></div><div class="amt">$177.92</div><div class="wtd">6.47h</div></div><div class="note">Hours from Deputy Timesheets (Mon 6 Jul, actual). Hours &times; rate from Pay Rates.xlsx. FOH (blue) &middot; Kitchen (green) &middot; TVNZ (purple) &middot; Estimated rate (amber).</div><h2>Remaining Operational Costs</h2>
 <div class="barhdr"><div>Item</div><div></div><div>Mon 6 Jul</div><div>WTD</div></div>
-<div class="barrow"><div class="nm">Internal Cafes</div><div class="bar"><div class="barfill" style="width:100%;background:#e879f9"></div></div><div class="amt">$946.24</div><div class="wtd">$946.24</div></div><div class="barrow"><div class="nm">Rent</div><div class="bar"><div class="barfill" style="width:61%;background:#60a5fa"></div></div><div class="amt">$576.34</div><div class="wtd">$576.34</div></div><div class="barrow"><div class="nm">GST</div><div class="bar"><div class="barfill" style="width:39%;background:#f97316"></div></div><div class="amt">$370.01</div><div class="wtd">$370.01</div></div><div class="barrow"><div class="nm">Miscellaneous</div><div class="bar"><div class="barfill" style="width:21%;background:#f87171"></div></div><div class="amt">$198.36</div><div class="wtd">$198.36</div></div><div class="barrow"><div class="nm">Merchant Fees</div><div class="bar"><div class="barfill" style="width:13%;background:#34d399"></div></div><div class="amt">$126.95</div><div class="wtd">$126.95</div></div><div class="barrow"><div class="nm">Electricity & Gas</div><div class="bar"><div class="barfill" style="width:13%;background:#fbbf24"></div></div><div class="amt">$120.00</div><div class="wtd">$120.00</div></div><div class="commentary">
-<b>Scratch Bakers &middot; Monday deficit</b><br>Monday revenue $7,934.43 &mdash; caf&eacute; $2,007.90, TVNZ $979.90, wholesale $4,062.40, catering $884.23. COGS $3,376.77 &mdash; Gilmours $2,858.12 (7 invoices, the big Monday bake/stock buy) plus spread shares (Five Elements week starts, Veggieman eggs, Mauri/Mediterranean finishing). <b>Bidfood invoice file was empty</b> (not yet posted). Wages $3,072.11 (14 staff). Internal cafes $946.24 booked to op costs. Result &minus;$852.35 at &minus;10.7% &mdash; the heavy Monday Gilmours stock buy plus internal cafes pull Monday negative; the buy supports the rest of the week.<br><b>WTD (Mon):</b> Revenue $7,934.43, deficit $852.35 at &minus;10.7%.
+<div class="barrow"><div class="nm">Internal Cafes</div><div class="bar"><div class="barfill" style="width:100%;background:#e879f9"></div></div><div class="amt">$946.24</div><div class="wtd">$946.24</div></div><div class="barrow"><div class="nm">Rent</div><div class="bar"><div class="barfill" style="width:61%;background:#60a5fa"></div></div><div class="amt">$576.34</div><div class="wtd">$576.34</div></div><div class="barrow"><div class="nm">GST</div><div class="bar"><div class="barfill" style="width:58%;background:#f97316"></div></div><div class="amt">$544.84</div><div class="wtd">$544.84</div></div><div class="barrow"><div class="nm">Miscellaneous</div><div class="bar"><div class="barfill" style="width:21%;background:#f87171"></div></div><div class="amt">$198.36</div><div class="wtd">$198.36</div></div><div class="barrow"><div class="nm">Merchant Fees</div><div class="bar"><div class="barfill" style="width:13%;background:#34d399"></div></div><div class="amt">$126.95</div><div class="wtd">$126.95</div></div><div class="barrow"><div class="nm">Electricity & Gas</div><div class="bar"><div class="barfill" style="width:13%;background:#fbbf24"></div></div><div class="amt">$120.00</div><div class="wtd">$120.00</div></div><div class="commentary">
+<b>Scratch Bakers &middot; positive Monday</b><br>Monday revenue $7,934.43 &mdash; caf&eacute; $2,007.90, TVNZ $979.90, wholesale $4,062.40, catering $884.23. COGS $2,036.35 &mdash; Gilmours $1,517.70 (4 invoices; the PO Vicst/David/nicolas invoices $1,340.42 reallocated to Victoria Street) plus spread shares (Five Elements week starts, Veggieman eggs, Mauri/Mediterranean finishing). <b>Bidfood invoice file was empty</b> (not yet posted). Wages $3,072.11 (14 staff). Internal cafes $946.24 booked to op costs. Result +$313.24 at 3.9% &mdash; below the 15% target but positive after the Gilmours reallocation; Monday&rsquo;s buy supports the rest of the week.<br><b>WTD (Mon):</b> Revenue $7,934.43, surplus $313.24 at 3.9%.
 </div>
 </div>
 <div class="pane" data-entity="vl">
@@ -126,7 +126,7 @@ h2{font-size:1.1rem;font-weight:600;margin:24px 0 10px}
 <div class="barrow"><div class="nm">Eden Wharerau &middot; 9.1h &middot; $27</div><div class="bar"><div class="barfill" style="width:100%;background:#60a5fa"></div></div><div class="amt">$245.70</div><div class="wtd">9.1h</div></div><div class="barrow"><div class="nm">Franz Nicole Uyseco &middot; 8.03h &middot; $33</div><div class="bar"><div class="barfill" style="width:88%;background:#4ade80"></div></div><div class="amt">$264.99</div><div class="wtd">8.03h</div></div><div class="barrow"><div class="nm">Ravi (Ravinder kaur) &middot; 7.47h &middot; $29.66</div><div class="bar"><div class="barfill" style="width:82%;background:#4ade80"></div></div><div class="amt">$221.56</div><div class="wtd">7.47h</div></div><div class="barrow"><div class="nm">Rocio Maria Sanchez &middot; 7.35h &middot; $27</div><div class="bar"><div class="barfill" style="width:81%;background:#60a5fa"></div></div><div class="amt">$198.45</div><div class="wtd">7.35h</div></div><div class="note">Hours from Deputy Timesheets (Mon 6 Jul, actual). Hours &times; rate from Pay Rates.xlsx. FOH (blue) &middot; Kitchen (green) &middot; TVNZ (purple) &middot; Estimated rate (amber).</div><h2>Remaining Operational Costs</h2>
 <div class="barhdr"><div>Item</div><div></div><div>Mon 6 Jul</div><div>WTD</div></div>
 <div class="barrow"><div class="nm">Rent</div><div class="bar"><div class="barfill" style="width:100%;background:#60a5fa"></div></div><div class="amt">$502.05</div><div class="wtd">$502.05</div></div><div class="barrow"><div class="nm">GST</div><div class="bar"><div class="barfill" style="width:58%;background:#f97316"></div></div><div class="amt">$292.48</div><div class="wtd">$292.48</div></div><div class="barrow"><div class="nm">Royalty</div><div class="bar"><div class="barfill" style="width:33%;background:#a78bfa"></div></div><div class="amt">$166.34</div><div class="wtd">$166.34</div></div><div class="barrow"><div class="nm">Miscellaneous</div><div class="bar"><div class="barfill" style="width:27%;background:#f87171"></div></div><div class="amt">$133.07</div><div class="wtd">$133.07</div></div><div class="barrow"><div class="nm">Merchant Fees</div><div class="bar"><div class="barfill" style="width:11%;background:#34d399"></div></div><div class="amt">$53.23</div><div class="wtd">$53.23</div></div><div class="barrow"><div class="nm">Electricity</div><div class="bar"><div class="barfill" style="width:10%;background:#fbbf24"></div></div><div class="amt">$50.00</div><div class="wtd">$50.00</div></div><div class="commentary">
-<b>Vulcan Lane &middot; solid Monday caf&eacute;</b><br>Monday revenue $3,326.83 &mdash; a good Monday counter. COGS $283.03 &mdash; no Bidfood (file empty / not yet posted); &divide;7 spread shares only (Five Elements $208.01, Betscharts $61.40, LaundryCorp $13.62). Wages $930.70 (4 staff). Result +$915.93 at 27.5% &mdash; a strong open, though flattered by the missing Bidfood; watch for Bidfood top-ups on Tuesday&rsquo;s build.<br><b>WTD (Mon):</b> Revenue $3,326.83, surplus $915.93 at 27.5%.
+<b>Vulcan Lane &middot; solid Monday caf&eacute;</b><br>Monday revenue $3,326.83 &mdash; a good Monday counter. COGS $283.03 &mdash; no Bidfood (file empty / not yet posted); &divide;7 spread shares only (Five Elements $208.01, Betscharts $61.40, LaundryCorp $13.62). Wages $930.70 (4 staff). Result +$915.93 at 27.5% &mdash; a strong open, though flattered by the missing Bidfood; a confirmed Gilmours order (PO harneet, $573.07) is booked for Tuesday delivery and will land as VL COGS on Tuesday&rsquo;s build.<br><b>WTD (Mon):</b> Revenue $3,326.83, surplus $915.93 at 27.5%.
 </div>
 </div>
 </div>
@@ -143,8 +143,9 @@ function showPane(entity){
 const WTD_SUBTOTALS = {
     "vs":  {
                "cogs":  {
+                            "five_elements":  274.94,
                             "laundrycorp":  26.58,
-                            "five_elements":  274.94
+                            "gilmours":  1340.42
                         },
                "wages":  {
                              "Tayla George":  {
@@ -181,7 +182,7 @@ const WTD_SUBTOTALS = {
                                                 }
                          },
                "op_costs":  {
-                                "gst":  379.24,
+                                "gst":  204.4,
                                 "merchant":  58.3,
                                 "misc":  145.75,
                                 "royalty":  182.19,
@@ -236,7 +237,7 @@ const WTD_SUBTOTALS = {
                             "veggieman":  53.61,
                             "five_elements":  322.69,
                             "mauri_anz":  90.01,
-                            "gilmours":  2858.12
+                            "gilmours":  1517.7
                         },
                "wages":  {
                              "Jahnevah Numa":  {
@@ -297,7 +298,7 @@ const WTD_SUBTOTALS = {
                                                }
                          },
                "op_costs":  {
-                                "gst":  370.01,
+                                "gst":  544.84,
                                 "merchant":  126.95,
                                 "electricity_gas":  120,
                                 "misc":  198.36,
@@ -318,18 +319,18 @@ const DAY_DATA = {
     "mon":  {
                 "vs":  {
                            "cdiff_inherited":  0,
-                           "cogs_budget_c2":  292.66,
+                           "cogs_budget_c2":  711.79,
                            "op_costs":  {
                                             "rent":  106.86,
-                                            "total":  921.7,
-                                            "gst":  379.24,
+                                            "total":  746.86,
+                                            "gst":  204.4,
                                             "car_loan":  29.355,
                                             "royalty":  182.19,
                                             "merchant":  58.3,
                                             "electricity":  20,
                                             "misc":  145.75
                                         },
-                           "cogs_budget_c3":  2182.78,
+                           "cogs_budget_c3":  423.23,
                            "catering_booked_at_forecast":  {
                                                                "c2":  1213.25,
                                                                "c3":  1884.54
@@ -405,33 +406,36 @@ const DAY_DATA = {
                                          "total":  1592.53
                                      },
                            "label":  "Mon 6 Jul",
-                           "surplus":  828.04,
+                           "surplus":  -337.54,
                            "cogs":  {
-                                        "total_cogs":  301.52,
+                                        "total_cogs":  1641.94,
                                         "five_elements":  {
                                                               "total":  274.94
                                                           },
                                         "laundrycorp":  {
                                                             "total":  26.58
-                                                        }
+                                                        },
+                                        "gilmours":  {
+                                                         "total":  1340.42
+                                                     }
                                     },
                            "revenue":  {
                                            "pos":  1335.7,
                                            "total":  3643.79,
                                            "catering":  2308.09
                                        },
-                           "cdiff1":  -769.37,
+                           "cdiff1":  571.05,
                            "prior_weekend_aggregate":  0,
-                           "cdiff2":  -354.84,
+                           "cdiff2":  64.29,
                            "c2_order_refs":  [
-
+                                                 "O-0005527842"
                                              ],
-                           "cdiff":  -1124.21,
+                           "cdiff":  635.34,
                            "carry_forward":  0,
                            "prior_thu_cdiff":  0,
                            "catering_actual":  2308.09,
                            "variable_ideal":  1070.89,
-                           "c2_estimate":  292.66
+                           "c2_estimate":  711.79
                        },
                 "vl":  {
                            "label":  "Mon 6 Jul",
@@ -502,17 +506,17 @@ const DAY_DATA = {
                        },
                 "sb":  {
                            "cdiff_inherited":  0,
-                           "cogs_budget_c2":  3783.68,
+                           "cogs_budget_c2":  2791.48,
                            "op_costs":  {
-                                            "gst":  370.01,
+                                            "gst":  544.84,
                                             "merchant":  126.95,
                                             "electricity_gas":  120,
                                             "misc":  198.36,
-                                            "total":  2337.9,
+                                            "total":  2512.73,
                                             "internal_cafes":  946.24,
                                             "rent":  576.34
                                         },
-                           "cogs_budget_c3":  429.58,
+                           "cogs_budget_c3":  2318.44,
                            "catering_booked_at_forecast":  {
                                                                "c2":  3122.47,
                                                                "c3":  434.15
@@ -636,7 +640,7 @@ const DAY_DATA = {
                                          "total":  3072.11
                                      },
                            "label":  "Mon 6 Jul",
-                           "surplus":  -852.35,
+                           "surplus":  313.24,
                            "cogs":  {
                                         "mauri_anz":  {
                                                           "total":  90.01
@@ -650,9 +654,9 @@ const DAY_DATA = {
                                         "five_elements":  {
                                                               "total":  322.69
                                                           },
-                                        "total_cogs":  3376.77,
+                                        "total_cogs":  2036.35,
                                         "gilmours":  {
-                                                         "total":  2858.12
+                                                         "total":  1517.7
                                                      }
                                     },
                            "revenue":  {
@@ -662,26 +666,24 @@ const DAY_DATA = {
                                            "total":  7934.43,
                                            "catering":  884.23
                                        },
-                           "cdiff1":  480.39,
+                           "cdiff1":  -860.03,
                            "prior_weekend_aggregate":  0,
-                           "cdiff2":  1990.21,
+                           "cdiff2":  998.01,
                            "c2_order_refs":  [
-                                                 "O-0005529092",
                                                  "O-0005528562",
                                                  "O-0005528406",
                                                  "O-0005527852",
-                                                 "O-0005527842",
                                                  "O-0005527680",
                                                  "O-0005527430",
                                                  "O-0005527238",
                                                  "O-0005526537"
                                              ],
-                           "cdiff":  2470.6,
+                           "cdiff":  137.98,
                            "carry_forward":  0,
                            "prior_thu_cdiff":  0,
                            "catering_actual":  884.23,
                            "variable_ideal":  2896.38,
-                           "c2_estimate":  3783.68
+                           "c2_estimate":  2791.48
                        }
             }
 };
@@ -897,7 +899,8 @@ const INVOICE_LOG = {
                         "captured":  "2026-07-06"
                     },
                     {
-                        "entity":  "sb",
+                        "entity":  "vs",
+                        "note":  "PO Vicst - reallocated to VS",
                         "date":  "2026-07-06",
                         "supplier":  "Gilmours",
                         "ref":  "4120140682",
@@ -921,7 +924,8 @@ const INVOICE_LOG = {
                         "captured":  "2026-07-06"
                     },
                     {
-                        "entity":  "sb",
+                        "entity":  "vs",
+                        "note":  "PO David - reallocated to VS",
                         "date":  "2026-07-06",
                         "supplier":  "Gilmours",
                         "ref":  "4120140776",
@@ -937,7 +941,8 @@ const INVOICE_LOG = {
                         "captured":  "2026-07-06"
                     },
                     {
-                        "entity":  "sb",
+                        "entity":  "vs",
+                        "note":  "PO nicolas - reallocated to VS",
                         "date":  "2026-07-06",
                         "supplier":  "Gilmours",
                         "ref":  "4120140967",
