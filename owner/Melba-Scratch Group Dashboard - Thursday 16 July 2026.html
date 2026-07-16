@@ -1,0 +1,2728 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Melba-Scratch Group Dashboard – Thursday 16 July 2026</title>
+<style>
+:root{--bg:#0f1419;--card:#1a1f2e;--card-2:#232938;--ink:#e6edf3;--muted:#7d8ba1;--border:#2a3547;--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--purple:#a78bfa;--orange:#f97316;--teal:#34d399;--fuchsia:#e879f9}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:20px;line-height:1.5}
+.container{max-width:1400px;margin:0 auto}
+h1{font-size:1.7rem;font-weight:700;margin-bottom:6px}
+h2{font-size:1.1rem;font-weight:600;margin:24px 0 10px}
+.pill{display:inline-block;font-size:.7rem;font-weight:600;padding:3px 9px;border-radius:99px;background:var(--card-2);color:var(--muted);margin-left:8px;text-transform:uppercase;letter-spacing:.05em}
+.pill.owner{background:#172a4a;color:#9bc4ff}
+.subtitle{color:var(--muted);font-size:.9rem;margin-bottom:18px}
+.alert{padding:13px 16px;border-radius:8px;margin-bottom:18px;font-size:.86rem}
+.alert.warn{background:linear-gradient(135deg,#2a1f08,#1a1f2e);border:1px solid var(--amber);color:#fbe39a}
+.tabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.tab{background:var(--card);border:1px solid var(--border);color:var(--ink);padding:10px 18px;border-radius:8px;cursor:pointer;font-size:.88rem}
+.tab:hover{border-color:var(--blue)}
+.tab.active{background:#172a4a;border-color:var(--blue);color:#bfdbfe}
+.badge{font-size:.65rem;background:var(--card-2);color:var(--muted);padding:2px 6px;border-radius:4px;margin-left:6px}
+.badge.ok{background:#0d2a1a;color:var(--green)}
+.badge.partial{background:#2a2010;color:var(--amber)}
+.pane{display:none}.pane.active{display:block}
+.daytabs{display:flex;gap:6px;margin-bottom:18px;border-bottom:1px solid var(--border);padding-bottom:10px;flex-wrap:wrap}
+.daytab{background:transparent;border:1px solid var(--border);color:var(--muted);padding:7px 14px;border-radius:6px;cursor:pointer;font-size:.8rem}
+.daytab.active{background:#172a4a;border-color:var(--blue);color:#bfdbfe}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px}
+.kpi .l{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:6px}
+.kpi .v{font-size:1.5rem;font-weight:700}.kpi .s{font-size:.72rem;color:var(--muted);margin-top:2px}
+.sc{border-radius:8px;padding:18px;margin-bottom:24px}
+.sc.green{border:1px solid var(--green);background:linear-gradient(135deg,#0d261a,#1a1f2e)}
+.sc.deepgreen{border:1px solid var(--green);background:linear-gradient(135deg,#0a2e18,#1a1f2e)}
+.sc.amber{border:1px solid var(--amber);background:linear-gradient(135deg,#262010,#1a1f2e)}
+.sc.orange{border:1px solid var(--orange);background:linear-gradient(135deg,#261a08,#1a1f2e)}
+.sc.red{border:1px solid var(--red);background:linear-gradient(135deg,#261010,#1a1f2e)}
+.sc .sl{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:6px}
+.sc .sval{font-size:2rem;font-weight:700;margin-bottom:4px}.sc .sn{font-size:.78rem;color:var(--muted)}
+.barrow{display:grid;grid-template-columns:240px 1fr 110px 110px;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid #1f2738;font-size:.85rem}
+.barrow .nm{color:var(--ink)}
+.barrow .bar{height:18px;background:var(--card-2);border-radius:4px;position:relative;overflow:hidden}
+.barrow .barfill{height:100%;border-radius:4px}
+.barrow .amt{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.barrow .wtd{text-align:right;color:var(--muted);font-size:.78rem;font-variant-numeric:tabular-nums}
+.barhdr{display:grid;grid-template-columns:240px 1fr 110px 110px;gap:10px;font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding-bottom:6px;border-bottom:1px solid #2a3547;margin-bottom:2px}
+.barhdr div:nth-child(3),.barhdr div:nth-child(4){text-align:right}
+.note{font-size:.72rem;color:var(--muted);font-style:italic;margin-top:6px}
+.note.amber{color:var(--amber);font-style:normal;border-left:2px solid var(--amber);padding-left:8px;margin:-3px 0 7px 248px;font-size:.7rem}
+.note.red{color:var(--red);font-style:normal;border-left:2px solid var(--red);padding-left:8px;margin:-3px 0 7px 248px;font-size:.7rem}
+.note.blue{color:#9bc4ff;font-style:normal;border-left:2px solid var(--blue);padding-left:8px;margin:-3px 0 7px 248px;font-size:.7rem}
+.commentary{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;margin-top:24px;font-size:.86rem;color:#cbd5e1;line-height:1.6}
+.commentary b{color:var(--amber)}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Melba-Scratch Group Dashboard <span class="pill">All $ incl GST</span> <span class="pill owner">Owner View</span></h1>
+<div class="subtitle">Thursday 16 July 2026 · Week 3 of July · (Mon 13 Jul – Thu 16 Jul)</div>
+<div class="alert warn"><b>&#9888; Thursday 16 July — final actuals.</b> Revenue, COGS and wages are all actual. <b>Bidfood invoice files are present but empty</b> for all three entities (no deliveries); a Bidfood <b>credit note 821665761 (−$201.24, June 2026 rebate)</b> surfaced in Hubdoc only and is booked to Scratch Bakers, so SB&rsquo;s Bidfood line is negative today. <b>Gilmours PO reallocation applied</b> (owner instruction): PO <b>harneet</b> ($429.21) &rarr; Vulcan Lane; no Victoria PO was raised today. <b>Five Elements orders are unchanged</b> this week (no new order), so the daily shares continue at Day 4/5. <b>Four new spread invoices</b> begin today: VS LaundryCorp 019010259, SB Veggieman 66413 (a <b>second</b> Veggieman invoice this week, running concurrently with 66317), SB MG International INV-00083501, and VL Betscharts F56143249 (a Fresho <b>indicative</b> order total, not a tax invoice). Of the 24 Hubdoc PDFs pulled, most were Wednesday&rsquo;s invoices re-surfacing and were deduplicated against the invoice log — no double-booking. <b>Queen Street is excluded from all builds.</b></div>
+<div class="alert warn" style="border-color:#f87171;background:linear-gradient(135deg,#2a1010,#1a1f2e);color:#fca5a5"><b>&#9888; Owner decision needed — Victoria Street COGS budget chain has stopped self-correcting.</b><br>VS&rsquo;s rolling over-spend accumulator (CDIFF) now stands at <b>$27,930</b> against a daily revenue of roughly $3,500. It has compounded every day since the Matariki week: $6,825 (Mon) &rarr; $10,943 (Tue) &rarr; $16,936 (Wed) &rarr; $27,931 (Thu). VS&rsquo;s next-day budget has now been pinned at the 5% fresh-produce floor for <b>four consecutive builds</b>, which means the model is no longer producing an actionable ordering number for the team — it just says &lsquo;buy nothing&rsquo;.<br>Two things are driving it: (1) the genuine Matariki-week over-order, which is real and is trading through (today&rsquo;s 7.8% COGS is that stock being consumed); and (2) a <b>forecast artifact</b> — last Friday (10 Jul) was the Matariki public holiday, so VS&rsquo;s Friday caf&eacute; base is $0 and the Friday ideal is only $121, which makes any normal Friday order look like a large over-spend and inflates the accumulator further.<br><b>Recommendation:</b> reset the VS CDIFF chain to $0 from the next build (the same treatment applied to Scratch Bakers on 6 Jul), so VS returns to a pure benchmark budget and the team gets a usable number again. This needs your instruction — the chain has been carried forward faithfully in the meantime.</div>
+<div class="tabs">
+<button class="tab active" data-entity="vs" onclick="showPane('vs')">Victoria Street <span class="badge ok">data &#10003;</span></button>
+<button class="tab" data-entity="sb" onclick="showPane('sb')">Scratch Bakers <span class="badge ok">data &#10003;</span></button>
+<button class="tab" data-entity="vl" onclick="showPane('vl')">Vulcan Lane <span class="badge ok">data &#10003;</span></button>
+</div>
+<div class="pane active" data-entity="vs">
+<div class="daytabs"><button class="daytab" onclick="alert('Mon 13 Jul : revenue $2,032.18 · surplus -$1,258.42 · margin -61.9%')">Mon 13 Jul</button><button class="daytab" onclick="alert('Tue 14 Jul : revenue $4,406.41 · surplus $638.21 · margin 14.5%')">Tue 14 Jul</button><button class="daytab" onclick="alert('Wed 15 Jul : revenue $2,965.80 · surplus $96.05 · margin 3.2%')">Wed 15 Jul</button><button class="daytab active" data-day="thu">Thu 16 Jul</button><button class="daytab" onclick="alert('WTD Mon–Thu: revenue $12,963.68 · surplus $586.17 · margin 4.5%')">WTD</button></div>
+<div class="kpis">
+  <div class="kpi"><div class="l">Total Revenue</div><div class="v">$3,559.29</div><div class="s">WTD $12,963.68</div></div>
+  <div class="kpi"><div class="l">Total COGS</div><div class="v">$276.37</div><div class="s">WTD $1,105.48</div></div>
+  <div class="kpi"><div class="l">Wages</div><div class="v">$1,229.25</div><div class="s">46.33h · WTD $5,990.81 / 221.5h</div></div>
+  <div class="kpi"><div class="l">Remaining Op Costs</div><div class="v">$943.34</div><div class="s">WTD $3,193.95</div></div>
+</div>
+<div class="sc deepgreen"><div class="sl">Surplus</div><div class="sval">$1,110.33</div><div class="sn">31.2% margin · target ≥20%</div></div>
+<h2>Revenue Breakdown</h2>
+<div class="barhdr"><div>Stream</div><div></div><div>Thu 16 Jul</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">POS</div><div class="bar"><div class="barfill" style="width:100%;background:#4ade80"></div></div><div class="amt">$1,872.73</div><div class="wtd">$7,188.59</div></div><div class="barrow"><div class="nm">Catering</div><div class="bar"><div class="barfill" style="width:90%;background:#4ade80"></div></div><div class="amt">$1,686.56</div><div class="wtd">$5,775.09</div></div><h2>COGS Breakdown</h2>
+<div class="barhdr"><div>Supplier</div><div></div><div>Thu 16 Jul</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">Five Elements</div><div class="bar"><div class="barfill" style="width:100%;background:#fbbf24"></div></div><div class="amt">$245.73</div><div class="wtd">$982.92</div></div><div class="note blue">Weekly ÷ 5 · FE #11629 w/c 13 Jul $1,228.65 ÷ 5 = $245.73/day · Day 4 of 5 (Mon–Fri w/c 13 Jul) · this week's Five Elements order is unchanged (no new order placed)</div><div class="barrow"><div class="nm">LaundryCorp</div><div class="bar"><div class="barfill" style="width:7%;background:#fbbf24"></div></div><div class="amt">$16.56</div><div class="wtd">$66.24</div></div><div class="note blue">Weekly ÷ 5 · 019010195 $38.50 ÷ 5 = $7.70 (Day 4/5) + 019010259 $44.28 ÷ 5 = $8.86 (Day 1/5, new invoice dated 16 Jul) · combined $16.56 today</div><div class="barrow"><div class="nm">Karma Drinks</div><div class="bar"><div class="barfill" style="width:6%;background:#fbbf24"></div></div><div class="amt">$14.08</div><div class="wtd">$56.32</div></div><div class="note blue">Fortnightly ÷ 10 · INV86506 $140.76 ÷ 10 = $14.08/day · Day 6 of 10 (w/c 9 Jul)</div><div class="note">Main suppliers $0.00 + Spread suppliers $276.37 = $276.37 total COGS today</div><div class="note amber">&#9888; <b>No Bidfood delivery for Thursday</b> — the Bidfood invoice file is present but empty, so no Bidfood COGS is booked. All figures (revenue, COGS, wages) are actual.</div><h2>Wages</h2>
+<div class="barhdr"><div>Employee</div><div></div><div>Cost</div><div>Hours</div></div>
+<div class="barrow"><div class="nm">Karol Cartagena · 9.05h · $28</div><div class="bar"><div class="barfill" style="width:100%;background:#60a5fa"></div></div><div class="amt">$253.40</div><div class="wtd">9.05h</div></div><div class="barrow"><div class="nm">Aleisha Yee · 8.62h · $28</div><div class="bar"><div class="barfill" style="width:95%;background:#60a5fa"></div></div><div class="amt">$241.36</div><div class="wtd">8.62h</div></div><div class="barrow"><div class="nm">Kaka · 8.5h · $25</div><div class="bar"><div class="barfill" style="width:94%;background:#4ade80"></div></div><div class="amt">$212.50</div><div class="wtd">8.5h</div></div><div class="barrow"><div class="nm">Mana Cervela · 7.75h · $28.5</div><div class="bar"><div class="barfill" style="width:86%;background:#60a5fa"></div></div><div class="amt">$220.88</div><div class="wtd">7.75h</div></div><div class="barrow"><div class="nm">Klara Melody Keil · 6.53h · $24.5</div><div class="bar"><div class="barfill" style="width:72%;background:#60a5fa"></div></div><div class="amt">$159.99</div><div class="wtd">6.53h</div></div><div class="barrow"><div class="nm">Jimmy (VS) · 5.88h · $24</div><div class="bar"><div class="barfill" style="width:65%;background:#4ade80"></div></div><div class="amt">$141.12</div><div class="wtd">5.88h</div></div><div class="note">Hours from Deputy Timesheets (Thu 16 Jul, actual). Hours &times; rate from Pay Rates.xlsx. FOH (blue) · Kitchen (green) · TVNZ (purple). Tayla George (SB, TVNZ) not in Pay Rates.xlsx — rate estimated at $24/h.</div><h2>Remaining Operational Costs</h2>
+<div class="barhdr"><div>Item</div><div></div><div>Thu 16 Jul</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">GST</div><div class="bar"><div class="barfill" style="width:100%;background:#f97316"></div></div><div class="amt">$366.88</div><div class="wtd">$1,047.28</div></div><div class="barrow"><div class="nm">Royalty</div><div class="bar"><div class="barfill" style="width:49%;background:#a78bfa"></div></div><div class="amt">$177.96</div><div class="wtd">$648.18</div></div><div class="barrow"><div class="nm">Rent</div><div class="bar"><div class="barfill" style="width:41%;background:#60a5fa"></div></div><div class="amt">$149.82</div><div class="wtd">$575.09</div></div><div class="barrow"><div class="nm">Miscellaneous</div><div class="bar"><div class="barfill" style="width:39%;background:#f87171"></div></div><div class="amt">$142.37</div><div class="wtd">$518.55</div></div><div class="barrow"><div class="nm">Merchant Fees</div><div class="bar"><div class="barfill" style="width:16%;background:#34d399"></div></div><div class="amt">$56.95</div><div class="wtd">$207.41</div></div><div class="barrow"><div class="nm">Car Loan</div><div class="bar"><div class="barfill" style="width:8%;background:#7d8ba1"></div></div><div class="amt">$29.36</div><div class="wtd">$117.44</div></div><div class="barrow"><div class="nm">Electricity</div><div class="bar"><div class="barfill" style="width:5%;background:#fbbf24"></div></div><div class="amt">$20.00</div><div class="wtd">$80.00</div></div><div class="commentary">
+<b>Victoria Street · a no-delivery day; margin flattered by stock draw-down</b><br>POS $1,872.73 + Melba Catering $1,686.56 = revenue $3,559.29. COGS $276.37 — just <b>7.8% of revenue</b>, because <b>Victoria took no fresh deliveries at all today</b>: no Gilmours order was placed, the Bidfood invoice file is empty, and no Goodman Fielder milk invoice arrived. The only COGS booked is committed spread shares (Five Elements $245.73, LaundryCorp $16.56, Karma $14.08). Wages $1,229.25 (6 staff, 46.3h). Result +$1,110.33 at 31.2%.<br><b>Read this margin with care:</b> it reflects the Matariki-week over-buy trading through — the kitchen is working off stock already paid for in a previous week rather than buying today. It is not a sustainable run-rate; expect the margin to normalise once ordering resumes.<br><b>WTD (Mon–Thu):</b> Revenue $12,963.68, surplus $586.17 at 4.5% — back in the black after Monday&rsquo;s deficit.
+</div>
+</div>
+<div class="pane" data-entity="sb">
+<div class="daytabs"><button class="daytab" onclick="alert('Mon 13 Jul : revenue $8,503.98 · surplus $1,698.55 · margin 20%')">Mon 13 Jul</button><button class="daytab" onclick="alert('Tue 14 Jul : revenue $8,956.64 · surplus $896.97 · margin 10%')">Tue 14 Jul</button><button class="daytab" onclick="alert('Wed 15 Jul : revenue $10,998.57 · surplus $2,292.69 · margin 20.8%')">Wed 15 Jul</button><button class="daytab active" data-day="thu">Thu 16 Jul</button><button class="daytab" onclick="alert('WTD Mon–Thu: revenue $37,853.99 · surplus $6,197.23 · margin 16.4%')">WTD</button></div>
+<div class="kpis">
+  <div class="kpi"><div class="l">Total Revenue</div><div class="v">$9,394.80</div><div class="s">WTD $37,853.99</div></div>
+  <div class="kpi"><div class="l">Total COGS</div><div class="v">$2,262.23</div><div class="s">WTD $8,153.59</div></div>
+  <div class="kpi"><div class="l">Wages</div><div class="v">$3,329.15</div><div class="s">117.14h · WTD $12,666.76 / 452.69h</div></div>
+  <div class="kpi"><div class="l">Remaining Op Costs</div><div class="v">$2,494.40</div><div class="s">WTD $9,791.42</div></div>
+</div>
+<div class="sc amber"><div class="sl">Surplus</div><div class="sval">$1,309.02</div><div class="sn">13.9% margin · target ≥15%</div></div>
+<h2>Revenue Breakdown</h2>
+<div class="barhdr"><div>Stream</div><div></div><div>Thu 16 Jul</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">Wholesale</div><div class="bar"><div class="barfill" style="width:100%;background:#4ade80"></div></div><div class="amt">$3,200.47</div><div class="wtd">$12,898.95</div></div><div class="barrow"><div class="nm">Cafe</div><div class="bar"><div class="barfill" style="width:99%;background:#4ade80"></div></div><div class="amt">$3,157.99</div><div class="wtd">$11,223.99</div></div><div class="barrow"><div class="nm">Catering</div><div class="bar"><div class="barfill" style="width:49%;background:#4ade80"></div></div><div class="amt">$1,577.84</div><div class="wtd">$9,291.35</div></div><div class="barrow"><div class="nm">TVNZ</div><div class="bar"><div class="barfill" style="width:46%;background:#4ade80"></div></div><div class="amt">$1,458.50</div><div class="wtd">$4,439.70</div></div><h2>COGS Breakdown</h2>
+<div class="barhdr"><div>Supplier</div><div></div><div>Thu 16 Jul</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">Gilmours</div><div class="bar"><div class="barfill" style="width:100%;background:#fbbf24"></div></div><div class="amt">$1,802.81</div><div class="wtd">$6,099.80</div></div><div class="note amber">4 invoices (16 Jul): 4120244535 (harry) $136.87 + 4120244587 (kanika) $985.02 + 4120244680 (Thomas) $497.75 + 4120244835 (dana) $183.17 = $1,802.81. From the Scratch Bakers Gilmours Invoice Report; PO harneet ($429.21) reallocated to Vulcan Lane per owner instruction; no Victoria PO today. Reconciled against the matching Hubdoc PDFs — totals agree. Main supplier — booked in full on delivery.</div><div class="barrow"><div class="nm">Five Elements</div><div class="bar"><div class="barfill" style="width:20%;background:#fbbf24"></div></div><div class="amt">$356.71</div><div class="wtd">$1,426.84</div></div><div class="note blue">Weekly ÷ 5 · FE #11627 w/c 13 Jul $1,783.54 ÷ 5 = $356.71/day · Day 4 of 5 (Mon–Fri w/c 13 Jul) · order unchanged this week</div><div class="barrow"><div class="nm">Veggieman</div><div class="bar"><div class="barfill" style="width:6%;background:#fbbf24"></div></div><div class="amt">$107.22</div><div class="wtd">$268.05</div></div><div class="note blue">Weekly ÷ 5 · 66317 $268.07 ÷ 5 = $53.61 (Day 4/5) + 66413 $268.07 ÷ 5 = $53.61 (Day 1/5, second Veggieman invoice this week, dated 16 Jul) · combined $107.22 today. Each invoice spreads ÷ 5 independently.</div><div class="barrow"><div class="nm">MG International</div><div class="bar"><div class="barfill" style="width:6%;background:#fbbf24"></div></div><div class="amt">$106.72</div><div class="wtd">$200.10</div></div><div class="note blue">Weekly ÷ 5 · INV-00083501 $533.60 ÷ 5 = $106.72/day · Day 1 of 5 (frozen egg pulp, 8 × 10kg)</div><div class="barrow"><div class="nm">Mauri ANZ</div><div class="bar"><div class="barfill" style="width:5%;background:#fbbf24"></div></div><div class="amt">$90.01</div><div class="wtd">$360.04</div></div><div class="note blue">Weekly ÷ 5 · 107082324 $450.04 ÷ 5 = $90.01/day · Day 2 of 5</div><div class="barrow"><div class="nm">Bidfood</div><div class="bar"><div class="barfill" style="width:11%;background:#f87171"></div></div><div class="amt">-$201.24</div><div class="wtd">-$201.24</div></div><div class="note amber">&#9888; CREDIT NOTE 821665761 — −$201.24 (customer rebate, June 2026). The Bidfood invoice file is present but empty (no delivery today); this credit surfaced in Hubdoc only, so it is booked from Hubdoc. Dated 15 Jul — captured 16 Jul (late capture). It reduces today's COGS.</div><div class="note">Main suppliers $1,601.57 + Spread suppliers $660.66 = $2,262.23 total COGS today</div><h2>Wages</h2>
+<div class="barhdr"><div>Employee</div><div></div><div>Cost</div><div>Hours</div></div>
+<div class="barrow"><div class="nm">Jahnevah Numa · 15.67h · $27.5</div><div class="bar"><div class="barfill" style="width:100%;background:#4ade80"></div></div><div class="amt">$430.92</div><div class="wtd">15.67h</div></div><div class="barrow"><div class="nm">Sarai Egan · 9.8h · $27</div><div class="bar"><div class="barfill" style="width:63%;background:#4ade80"></div></div><div class="amt">$264.60</div><div class="wtd">9.8h</div></div><div class="barrow"><div class="nm">Maria Neider · 9.6h · $25</div><div class="bar"><div class="barfill" style="width:61%;background:#60a5fa"></div></div><div class="amt">$240.00</div><div class="wtd">9.6h</div></div><div class="barrow"><div class="nm">Hannah Grace Davis · 9.3h · $27.5</div><div class="bar"><div class="barfill" style="width:59%;background:#a78bfa"></div></div><div class="amt">$255.75</div><div class="wtd">9.3h</div></div><div class="barrow"><div class="nm">Adi · 8.55h · $24</div><div class="bar"><div class="barfill" style="width:55%;background:#4ade80"></div></div><div class="amt">$205.20</div><div class="wtd">8.55h</div></div><div class="barrow"><div class="nm">Kanika banth · 8.05h · $34</div><div class="bar"><div class="barfill" style="width:51%;background:#4ade80"></div></div><div class="amt">$273.70</div><div class="wtd">8.05h</div></div><div class="barrow"><div class="nm">Dana Dewi · 7.93h · $30</div><div class="bar"><div class="barfill" style="width:51%;background:#4ade80"></div></div><div class="amt">$237.90</div><div class="wtd">7.93h</div></div><div class="barrow"><div class="nm">Leo Grant · 7.78h · $27</div><div class="bar"><div class="barfill" style="width:50%;background:#4ade80"></div></div><div class="amt">$210.06</div><div class="wtd">7.78h</div></div><div class="barrow"><div class="nm">Isabella Holmes (Izzy) · 7.75h · $25</div><div class="bar"><div class="barfill" style="width:49%;background:#60a5fa"></div></div><div class="amt">$193.75</div><div class="wtd">7.75h</div></div><div class="barrow"><div class="nm">Heemin Lee · 7.42h · $36</div><div class="bar"><div class="barfill" style="width:47%;background:#4ade80"></div></div><div class="amt">$267.12</div><div class="wtd">7.42h</div></div><div class="barrow"><div class="nm">Thomas Moller · 7.27h · $27</div><div class="bar"><div class="barfill" style="width:46%;background:#4ade80"></div></div><div class="amt">$196.29</div><div class="wtd">7.27h</div></div><div class="barrow"><div class="nm">Trimandeep Singh (Harry) · 7.15h · $36</div><div class="bar"><div class="barfill" style="width:46%;background:#4ade80"></div></div><div class="amt">$257.40</div><div class="wtd">7.15h</div></div><div class="barrow"><div class="nm">Craig Feltis · 6.47h · $29.5</div><div class="bar"><div class="barfill" style="width:41%;background:#4ade80"></div></div><div class="amt">$190.86</div><div class="wtd">6.47h</div></div><div class="barrow"><div class="nm">Tayla George · 4.4h · $24</div><div class="bar"><div class="barfill" style="width:28%;background:#a78bfa"></div></div><div class="amt">$105.60</div><div class="wtd">4.4h</div></div><div class="note">Hours from Deputy Timesheets (Thu 16 Jul, actual). Hours &times; rate from Pay Rates.xlsx. FOH (blue) · Kitchen (green) · TVNZ (purple). Tayla George (SB, TVNZ) not in Pay Rates.xlsx — rate estimated at $24/h.</div><h2>Remaining Operational Costs</h2>
+<div class="barhdr"><div>Item</div><div></div><div>Thu 16 Jul</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">GST</div><div class="bar"><div class="barfill" style="width:100%;background:#f97316"></div></div><div class="amt">$736.27</div><div class="wtd">$2,992.45</div></div><div class="barrow"><div class="nm">Internal Cafes</div><div class="bar"><div class="barfill" style="width:92%;background:#e879f9"></div></div><div class="amt">$676.60</div><div class="wtd">$2,461.59</div></div><div class="barrow"><div class="nm">Rent</div><div class="bar"><div class="barfill" style="width:78%;background:#60a5fa"></div></div><div class="amt">$576.34</div><div class="wtd">$2,305.36</div></div><div class="barrow"><div class="nm">Miscellaneous</div><div class="bar"><div class="barfill" style="width:32%;background:#f87171"></div></div><div class="amt">$234.87</div><div class="wtd">$946.35</div></div><div class="barrow"><div class="nm">Merchant Fees</div><div class="bar"><div class="barfill" style="width:20%;background:#34d399"></div></div><div class="amt">$150.32</div><div class="wtd">$605.67</div></div><div class="barrow"><div class="nm">Electricity & Gas</div><div class="bar"><div class="barfill" style="width:16%;background:#fbbf24"></div></div><div class="amt">$120.00</div><div class="wtd">$480.00</div></div><div class="commentary">
+<b>Scratch Bakers · steady day, wage line still heavy</b><br>Revenue $9,394.80 — caf&eacute; $3,157.99, TVNZ $1,458.50, catering $1,577.84, wholesale $3,200.47. COGS $2,262.23 (24.1%) — Gilmours $1,802.81 (4 invoices), Five Elements $356.71, Veggieman $107.22 (<b>two</b> invoices now running concurrently), Mauri ANZ $90.01, a new MG International frozen egg-pulp order $106.72, less a <b>Bidfood credit note of −$201.24</b> (June rebate, captured today). Wages $3,329.15 (14 staff, 117.1h). Internal cafes $676.60 to op costs. Result +$1,309.02 at 13.93% — just short of the 15% target; revenue was solid but the roster again carried the wage line above $3,300.<br><b>WTD (Mon–Thu):</b> Revenue $37,853.99, surplus $6,197.23 at 16.4%.
+</div>
+</div>
+<div class="pane" data-entity="vl">
+<div class="daytabs"><button class="daytab" onclick="alert('Mon 13 Jul : revenue $2,801.90 · surplus $169.59 · margin 6.1%')">Mon 13 Jul</button><button class="daytab" onclick="alert('Tue 14 Jul : revenue $3,350.48 · surplus $595.82 · margin 17.8%')">Tue 14 Jul</button><button class="daytab" onclick="alert('Wed 15 Jul : revenue $3,268.98 · surplus $623.72 · margin 19.1%')">Wed 15 Jul</button><button class="daytab active" data-day="thu">Thu 16 Jul</button><button class="daytab" onclick="alert('WTD Mon–Thu: revenue $13,381.61 · surplus $2,376.78 · margin 17.8%')">WTD</button></div>
+<div class="kpis">
+  <div class="kpi"><div class="l">Total Revenue</div><div class="v">$3,960.25</div><div class="s">WTD $13,381.61</div></div>
+  <div class="kpi"><div class="l">Total COGS</div><div class="v">$671.46</div><div class="s">WTD $1,727.69</div></div>
+  <div class="kpi"><div class="l">Wages</div><div class="v">$1,012.31</div><div class="s">36.86h · WTD $4,335.05 / 154.13h</div></div>
+  <div class="kpi"><div class="l">Remaining Op Costs</div><div class="v">$1,288.83</div><div class="s">WTD $4,695.54</div></div>
+</div>
+<div class="sc green"><div class="sl">Surplus</div><div class="sval">$987.65</div><div class="sn">24.9% margin · target ≥20%</div></div>
+<h2>Revenue Breakdown</h2>
+<div class="barhdr"><div>Stream</div><div></div><div>Thu 16 Jul</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">Cafe</div><div class="bar"><div class="barfill" style="width:100%;background:#4ade80"></div></div><div class="amt">$3,960.25</div><div class="wtd">$13,381.61</div></div><h2>COGS Breakdown</h2>
+<div class="barhdr"><div>Supplier</div><div></div><div>Thu 16 Jul</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">Gilmours</div><div class="bar"><div class="barfill" style="width:100%;background:#fbbf24"></div></div><div class="amt">$429.21</div><div class="wtd">$981.71</div></div><div class="note amber">1 invoice (16 Jul), reallocated from the Scratch Bakers Gilmours file (PO harneet, owner instruction): 4120244721 $429.21. Reconciled against the matching Hubdoc PDF — totals agree. Main supplier — booked in full on delivery.</div><div class="barrow"><div class="nm">Five Elements</div><div class="bar"><div class="barfill" style="width:36%;background:#fbbf24"></div></div><div class="amt">$154.29</div><div class="wtd">$617.16</div></div><div class="note blue">Weekly ÷ 7 · FE #11625 w/c 13 Jul $1,080.00 ÷ 7 = $154.29/day · Day 4 of 7 · order unchanged this week</div><div class="barrow"><div class="nm">Betscharts</div><div class="bar"><div class="barfill" style="width:17%;background:#fbbf24"></div></div><div class="amt">$74.34</div><div class="wtd">$74.34</div></div><div class="note blue">Weekly ÷ 7 · F56143249 $520.38 ÷ 7 = $74.34/day · Day 1 of 7 (bacon/chorizo/bratwurst). Fresho order confirmation — indicative total, final invoice may vary.</div><div class="barrow"><div class="nm">LaundryCorp</div><div class="bar"><div class="barfill" style="width:3%;background:#fbbf24"></div></div><div class="amt">$13.62</div><div class="wtd">$54.48</div></div><div class="note blue">Weekly ÷ 7 · 019010149 $44.28 ÷ 7 = $6.33 (Day 7/7, final) + 019010193 $51.03 ÷ 7 = $7.29 (Day 4/7) · combined $13.62 today</div><div class="note">Main suppliers $429.21 + Spread suppliers $242.25 = $671.46 total COGS today</div><div class="note amber">&#9888; <b>No Bidfood delivery for Thursday</b> — the Bidfood invoice file is present but empty, so no Bidfood COGS is booked. All figures (revenue, COGS, wages) are actual.</div><h2>Wages</h2>
+<div class="barhdr"><div>Employee</div><div></div><div>Cost</div><div>Hours</div></div>
+<div class="barrow"><div class="nm">Eden Wharerau · 8.43h · $27</div><div class="bar"><div class="barfill" style="width:100%;background:#60a5fa"></div></div><div class="amt">$227.61</div><div class="wtd">8.43h</div></div><div class="barrow"><div class="nm">Carlos Araneda · 8.27h · $28</div><div class="bar"><div class="barfill" style="width:98%;background:#4ade80"></div></div><div class="amt">$231.56</div><div class="wtd">8.27h</div></div><div class="barrow"><div class="nm">Ravi (Ravinder kaur) · 7.55h · $29.66</div><div class="bar"><div class="barfill" style="width:90%;background:#4ade80"></div></div><div class="amt">$223.93</div><div class="wtd">7.55h</div></div><div class="barrow"><div class="nm">Sora Kim · 6.98h · $27</div><div class="bar"><div class="barfill" style="width:83%;background:#60a5fa"></div></div><div class="amt">$188.46</div><div class="wtd">6.98h</div></div><div class="barrow"><div class="nm">Maddi Roewen · 5.63h · $25</div><div class="bar"><div class="barfill" style="width:67%;background:#60a5fa"></div></div><div class="amt">$140.75</div><div class="wtd">5.63h</div></div><div class="note">Hours from Deputy Timesheets (Thu 16 Jul, actual). Hours &times; rate from Pay Rates.xlsx. FOH (blue) · Kitchen (green) · TVNZ (purple). Tayla George (SB, TVNZ) not in Pay Rates.xlsx — rate estimated at $24/h.</div><h2>Remaining Operational Costs</h2>
+<div class="barhdr"><div>Item</div><div></div><div>Thu 16 Jul</div><div>WTD</div></div>
+<div class="barrow"><div class="nm">Rent</div><div class="bar"><div class="barfill" style="width:100%;background:#60a5fa"></div></div><div class="amt">$502.05</div><div class="wtd">$2,008.20</div></div><div class="barrow"><div class="nm">GST</div><div class="bar"><div class="barfill" style="width:63%;background:#f97316"></div></div><div class="amt">$317.00</div><div class="wtd">$1,068.89</div></div><div class="barrow"><div class="nm">Royalty</div><div class="bar"><div class="barfill" style="width:39%;background:#a78bfa"></div></div><div class="amt">$198.01</div><div class="wtd">$669.08</div></div><div class="barrow"><div class="nm">Miscellaneous</div><div class="bar"><div class="barfill" style="width:32%;background:#f87171"></div></div><div class="amt">$158.41</div><div class="wtd">$535.27</div></div><div class="barrow"><div class="nm">Merchant Fees</div><div class="bar"><div class="barfill" style="width:13%;background:#34d399"></div></div><div class="amt">$63.36</div><div class="wtd">$214.10</div></div><div class="barrow"><div class="nm">Electricity</div><div class="bar"><div class="barfill" style="width:10%;background:#fbbf24"></div></div><div class="amt">$50.00</div><div class="wtd">$200.00</div></div><div class="commentary">
+<b>Vulcan Lane · best day of the week</b><br>Caf&eacute; revenue $3,960.25, the strongest daily trade this week. COGS $671.46 (17.0%) — the Gilmours order (PO harneet, $429.21) reallocated from the Scratch file, plus &divide;7 spread shares (Five Elements $154.29, LaundryCorp $13.62) and a new Betscharts meat order $74.34/day. Wages $1,012.31 (5 staff, 36.9h) — a tight roster on a big revenue day. Result +$987.65 at 24.94% — comfortably clear of the 20% target.<br><b>WTD (Mon–Thu):</b> Revenue $13,381.61, surplus $2,376.78 at 17.8%.
+</div>
+</div>
+</div>
+<script>
+function showPane(entity){
+  document.querySelectorAll('.pane').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  const pane=document.querySelector('.pane[data-entity="'+entity+'"]');
+  const tab=document.querySelector('.tab[data-entity="'+entity+'"]');
+  if(pane)pane.classList.add('active'); if(tab)tab.classList.add('active');
+}
+</script>
+<script>
+const WTD_SUBTOTALS = {
+    "vs":  {
+               "cogs":  {
+                            "karma_drinks":  56.32,
+                            "five_elements":  982.92,
+                            "goodman_fielder":  290.67,
+                            "laundrycorp":  66.24,
+                            "gilmours":  1796.63
+                        },
+               "wages":  {
+                             "Karol Cartagena":  {
+                                                     "hours":  35.78,
+                                                     "cost":  1001.84
+                                                 },
+                             "Jimmy (VS)":  {
+                                                "hours":  23.28,
+                                                "cost":  558.72
+                                            },
+                             "Mana Cervela":  {
+                                                  "hours":  30.2,
+                                                  "cost":  860.7
+                                              },
+                             "Aleisha Yee":  {
+                                                 "hours":  33.91,
+                                                 "cost":  949.48
+                                             },
+                             "Horacio Nicolas Soto":  {
+                                                          "hours":  23.05,
+                                                          "cost":  691.5
+                                                      },
+                             "Kaka":  {
+                                          "hours":  32.98,
+                                          "cost":  824.5
+                                      },
+                             "David Easthope":  {
+                                                    "hours":  22.57,
+                                                    "cost":  620.67
+                                                },
+                             "Klara Melody Keil":  {
+                                                       "hours":  19.73,
+                                                       "cost":  483.4
+                                                   }
+                         },
+               "op_costs":  {
+                                "rent":  575.09,
+                                "merchant":  207.41,
+                                "gst":  1047.28,
+                                "royalty":  648.18,
+                                "car_loan":  117.44,
+                                "misc":  518.55,
+                                "electricity":  80
+                            },
+               "revenue":  {
+                               "pos":  7188.59,
+                               "catering":  5775.09
+                           }
+           },
+    "vl":  {
+               "cogs":  {
+                            "five_elements":  617.16,
+                            "betscharts":  74.34,
+                            "goodman_fielder":  246.55,
+                            "laundrycorp":  54.48,
+                            "gilmours":  981.71
+                        },
+               "wages":  {
+                             "Carlos Araneda":  {
+                                                    "hours":  23.37,
+                                                    "cost":  654.36
+                                                },
+                             "Eden Wharerau":  {
+                                                   "hours":  25.49,
+                                                   "cost":  688.23
+                                               },
+                             "Ravi (Ravinder kaur)":  {
+                                                          "hours":  28.59,
+                                                          "cost":  847.98
+                                                      },
+                             "Klara Melody Keil":  {
+                                                       "hours":  4.55,
+                                                       "cost":  111.48
+                                                   },
+                             "Nevaeh Paleaaesina":  {
+                                                        "hours":  8.55,
+                                                        "cost":  205.2
+                                                    },
+                             "Sora Kim":  {
+                                              "hours":  21.38,
+                                              "cost":  577.26
+                                          },
+                             "Maddi Roewen":  {
+                                                  "hours":  5.63,
+                                                  "cost":  140.75
+                                              },
+                             "Rocio Maria Sanchez":  {
+                                                         "hours":  16.17,
+                                                         "cost":  436.59
+                                                     },
+                             "Franz Uyseco":  {
+                                                  "hours":  20.4,
+                                                  "cost":  673.2
+                                              }
+                         },
+               "op_costs":  {
+                                "rent":  2008.2,
+                                "merchant":  214.1,
+                                "gst":  1068.89,
+                                "royalty":  669.08,
+                                "misc":  535.27,
+                                "electricity":  200
+                            },
+               "revenue":  {
+                               "cafe":  13381.61
+                           }
+           },
+    "sb":  {
+               "cogs":  {
+                            "mauri_anz":  360.04,
+                            "gilmours":  6099.8,
+                            "bidfood":  -201.24,
+                            "veggieman":  268.05,
+                            "mg_international":  200.1,
+                            "goodman_fielder":  546.21,
+                            "five_elements":  1426.84,
+                            "produce_company":  498.78
+                        },
+               "wages":  {
+                             "Jahnevah Numa":  {
+                                                   "hours":  36.85,
+                                                   "cost":  1013.37
+                                               },
+                             "Mohd Fahmi (Jimmy SB)":  {
+                                                           "hours":  23.93,
+                                                           "cost":  574.32
+                                                       },
+                             "Amelia Hamilton":  {
+                                                     "hours":  6,
+                                                     "cost":  159
+                                                 },
+                             "Leo Grant":  {
+                                               "hours":  28.35,
+                                               "cost":  765.45
+                                           },
+                             "Heemin Lee":  {
+                                                "hours":  24.04,
+                                                "cost":  766.8
+                                            },
+                             "Hannah Grace Davis":  {
+                                                        "hours":  36.77,
+                                                        "cost":  1011.17
+                                                    },
+                             "Daishea Harris":  {
+                                                    "hours":  8.78,
+                                                    "cost":  254.62
+                                                },
+                             "Isabella Holmes (Izzy)":  {
+                                                            "hours":  19.95,
+                                                            "cost":  498.75
+                                                        },
+                             "Tayla George":  {
+                                                  "hours":  12.52,
+                                                  "cost":  300.48
+                                              },
+                             "Sarai Egan":  {
+                                                "hours":  38.38,
+                                                "cost":  1036.26
+                                            },
+                             "Adi":  {
+                                         "hours":  33.9,
+                                         "cost":  813.6
+                                     },
+                             "Trimandeep Singh (Harry)":  {
+                                                              "hours":  30.92,
+                                                              "cost":  1113.12
+                                                          },
+                             "Maria Neider":  {
+                                                  "hours":  38.77,
+                                                  "cost":  969.25
+                                              },
+                             "Craig Feltis":  {
+                                                  "hours":  22.43,
+                                                  "cost":  661.68
+                                              },
+                             "Kanika banth":  {
+                                                  "hours":  23.85,
+                                                  "cost":  810.9
+                                              },
+                             "Dana Dewi":  {
+                                               "hours":  34.08,
+                                               "cost":  1022.4
+                                           },
+                             "Thomas Moller":  {
+                                                   "hours":  33.17,
+                                                   "cost":  895.59
+                                               }
+                         },
+               "op_costs":  {
+                                "rent":  2305.36,
+                                "merchant":  605.67,
+                                "gst":  2992.45,
+                                "electricity_gas":  480,
+                                "misc":  946.35,
+                                "internal_cafes":  2461.59
+                            },
+               "revenue":  {
+                               "cafe":  11223.99,
+                               "wholesale":  12898.95,
+                               "tvnz":  4439.7,
+                               "catering":  9291.35
+                           }
+           }
+}
+;
+</script>
+<script>
+const DAY_DATA = {
+    "mon":  {
+                "vs":  {
+                           "prior_weekend_aggregate":  3854.99,
+                           "catering_booked_at_forecast":  {
+                                                               "c2":  2234.3,
+                                                               "c3":  1270.33
+                                                           },
+                           "wages":  {
+                                         "hours":  53.97,
+                                         "total":  1479.86,
+                                         "staff":  [
+                                                       {
+                                                           "rate":  30,
+                                                           "cost":  219.6,
+                                                           "hours":  7.32,
+                                                           "est":  false,
+                                                           "name":  "Horacio Nicolas Soto",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  28.5,
+                                                           "cost":  221.44,
+                                                           "hours":  7.77,
+                                                           "est":  false,
+                                                           "name":  "Mana Cervela",
+                                                           "area":  "Front of House"
+                                                       },
+                                                       {
+                                                           "rate":  28,
+                                                           "cost":  237.16,
+                                                           "hours":  8.47,
+                                                           "est":  false,
+                                                           "name":  "Aleisha Yee",
+                                                           "area":  "Front of House"
+                                                       },
+                                                       {
+                                                           "rate":  28,
+                                                           "cost":  247.24,
+                                                           "hours":  8.83,
+                                                           "est":  false,
+                                                           "name":  "Karol Cartagena",
+                                                           "area":  "Front of House"
+                                                       },
+                                                       {
+                                                           "rate":  27.5,
+                                                           "cost":  225.5,
+                                                           "hours":  8.2,
+                                                           "est":  false,
+                                                           "name":  "David Easthope",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  25,
+                                                           "cost":  195,
+                                                           "hours":  7.8,
+                                                           "est":  false,
+                                                           "name":  "Kaka",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  24,
+                                                           "cost":  133.92,
+                                                           "hours":  5.58,
+                                                           "est":  false,
+                                                           "name":  "Jimmy (VS)",
+                                                           "area":  "Kitchen"
+                                                       }
+                                                   ]
+                                     },
+                           "c2_estimate":  1066.71,
+                           "variable_ideal":  772.81,
+                           "revenue":  {
+                                           "pos":  1604.22,
+                                           "total":  2032.18,
+                                           "catering":  427.96
+                                       },
+                           "surplus":  -1258.42,
+                           "cogs":  {
+                                        "total_cogs":  1372.14,
+                                        "five_elements":  {
+                                                              "total":  245.73
+                                                          },
+                                        "karma_drinks":  {
+                                                             "total":  14.08
+                                                         },
+                                        "laundrycorp":  {
+                                                            "total":  16.56
+                                                        },
+                                        "gilmours":  {
+                                                         "total":  1095.77
+                                                     }
+                                    },
+                           "label":  "Mon 13 Jul",
+                           "upcoming_order_refs":  {
+                                                       "gilmours":  {
+                                                                        "2026-07-14":  [
+                                                                                           {
+                                                                                               "ref":  "O-0005546888",
+                                                                                               "amount":  517.02
+                                                                                           },
+                                                                                           {
+                                                                                               "ref":  "O-0005546586",
+                                                                                               "amount":  224.73
+                                                                                           },
+                                                                                           {
+                                                                                               "ref":  "O-0005546563",
+                                                                                               "amount":  57.45
+                                                                                           }
+                                                                                       ]
+                                                                    },
+                                                       "bidfood":  {
+
+                                                                   }
+                                                   },
+                           "cogs_budget_c3":  167.24,
+                           "cogs_budget_c2":  1066.71,
+                           "prior_thu_cdiff":  2088.98,
+                           "carry_forward":  0,
+                           "op_costs":  {
+                                            "rent":  128.34,
+                                            "car_loan":  29.36,
+                                            "merchant":  32.51,
+                                            "gst":  45.5,
+                                            "royalty":  101.61,
+                                            "misc":  81.29,
+                                            "total":  438.6,
+                                            "electricity":  20
+                                        },
+                           "cdiff1":  2688.31,
+                           "cdiff_inherited":  2088.98,
+                           "cdiff":  6825.32,
+                           "catering_actual":  427.96,
+                           "cdiff2":  4137.01
+                       },
+                "vl":  {
+                           "op_costs":  {
+                                            "rent":  502.05,
+                                            "merchant":  44.83,
+                                            "gst":  196.44,
+                                            "royalty":  140.1,
+                                            "misc":  112.08,
+                                            "total":  1045.5,
+                                            "electricity":  50
+                                        },
+                           "label":  "Mon 13 Jul",
+                           "surplus":  169.59,
+                           "cogs_budget_c2":  552.27,
+                           "cogs_budget_c3":  471.62,
+                           "wages":  {
+                                         "hours":  36.67,
+                                         "total":  1045.16,
+                                         "staff":  [
+                                                       {
+                                                           "rate":  33,
+                                                           "cost":  259.05,
+                                                           "hours":  7.85,
+                                                           "est":  false,
+                                                           "name":  "Franz Uyseco",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  29.66,
+                                                           "cost":  215.63,
+                                                           "hours":  7.27,
+                                                           "est":  false,
+                                                           "name":  "Ravi (Ravinder kaur)",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  27,
+                                                           "cost":  219.24,
+                                                           "hours":  8.12,
+                                                           "est":  false,
+                                                           "name":  "Rocio Maria Sanchez",
+                                                           "area":  "Front of House"
+                                                       },
+                                                       {
+                                                           "rate":  27,
+                                                           "cost":  239.76,
+                                                           "hours":  8.88,
+                                                           "est":  false,
+                                                           "name":  "Eden Wharerau",
+                                                           "area":  "Front of House"
+                                                       },
+                                                       {
+                                                           "rate":  24.5,
+                                                           "cost":  111.48,
+                                                           "hours":  4.55,
+                                                           "est":  false,
+                                                           "name":  "Klara Melody Keil",
+                                                           "area":  "Front of House"
+                                                       }
+                                                   ]
+                                     },
+                           "cogs":  {
+                                        "total_cogs":  541.65,
+                                        "five_elements":  {
+                                                              "total":  154.29
+                                                          },
+                                        "goodman_fielder":  {
+                                                                "total":  81.52
+                                                            },
+                                        "laundrycorp":  {
+                                                            "total":  13.62
+                                                        },
+                                        "gilmours":  {
+                                                         "total":  292.22
+                                                     }
+                                    },
+                           "revenue":  {
+                                           "cafe":  2801.9,
+                                           "total":  2801.9
+                                       },
+                           "upcoming_order_refs":  {
+                                                       "gilmours":  {
+                                                                        "2026-07-14":  {
+                                                                                           "ref":  "O-0005547527",
+                                                                                           "amount":  240.72
+                                                                                       }
+                                                                    },
+                                                       "bidfood":  {
+
+                                                                   }
+                                                   }
+                       },
+                "sb":  {
+                           "prior_weekend_aggregate":  -216.81,
+                           "catering_booked_at_forecast":  {
+                                                               "c2":  2476.89,
+                                                               "c3":  2438.49
+                                                           },
+                           "wages":  {
+                                         "hours":  95.86,
+                                         "total":  2627.93,
+                                         "staff":  [
+                                                       {
+                                                           "rate":  36,
+                                                           "cost":  274.68,
+                                                           "hours":  7.63,
+                                                           "est":  false,
+                                                           "name":  "Trimandeep Singh (Harry)",
+                                                           "area":  "HQ Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  30,
+                                                           "cost":  273,
+                                                           "hours":  9.1,
+                                                           "est":  false,
+                                                           "name":  "Dana Dewi",
+                                                           "area":  "HQ Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  29,
+                                                           "cost":  254.62,
+                                                           "hours":  8.78,
+                                                           "est":  false,
+                                                           "name":  "Daishea Harris",
+                                                           "area":  "HQ FOH"
+                                                       },
+                                                       {
+                                                           "rate":  27.5,
+                                                           "cost":  254.92,
+                                                           "hours":  9.27,
+                                                           "est":  false,
+                                                           "name":  "Hannah Grace Davis",
+                                                           "area":  "TVNZ"
+                                                       },
+                                                       {
+                                                           "rate":  27.5,
+                                                           "cost":  154.82,
+                                                           "hours":  5.63,
+                                                           "est":  false,
+                                                           "name":  "Jahnevah Numa",
+                                                           "area":  "HQ Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  27,
+                                                           "cost":  165.51,
+                                                           "hours":  6.13,
+                                                           "est":  false,
+                                                           "name":  "Leo Grant",
+                                                           "area":  "HQ Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  27,
+                                                           "cost":  229.5,
+                                                           "hours":  8.5,
+                                                           "est":  false,
+                                                           "name":  "Thomas Moller",
+                                                           "area":  "HQ Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  27,
+                                                           "cost":  229.5,
+                                                           "hours":  8.5,
+                                                           "est":  false,
+                                                           "name":  "Sarai Egan",
+                                                           "area":  "HQ Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  25,
+                                                           "cost":  240.5,
+                                                           "hours":  9.62,
+                                                           "est":  false,
+                                                           "name":  "Maria Neider",
+                                                           "area":  "HQ FOH"
+                                                       },
+                                                       {
+                                                           "rate":  25,
+                                                           "cost":  152,
+                                                           "hours":  6.08,
+                                                           "est":  false,
+                                                           "name":  "Isabella Holmes (Izzy)",
+                                                           "area":  "HQ FOH"
+                                                       },
+                                                       {
+                                                           "rate":  24,
+                                                           "cost":  204.48,
+                                                           "hours":  8.52,
+                                                           "est":  false,
+                                                           "name":  "Adi",
+                                                           "area":  "HQ Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  24,
+                                                           "cost":  194.4,
+                                                           "hours":  8.1,
+                                                           "est":  false,
+                                                           "name":  "Mohd Fahmi (Jimmy SB)",
+                                                           "area":  "HQ Kitchen"
+                                                       }
+                                                   ]
+                                     },
+                           "c2_estimate":  2361.45,
+                           "variable_ideal":  2926.26,
+                           "revenue":  {
+                                           "cafe":  2204.4,
+                                           "wholesale":  3748.77,
+                                           "tvnz":  832.1,
+                                           "total":  8503.98,
+                                           "catering":  1718.71
+                                       },
+                           "surplus":  1698.55,
+                           "cogs":  {
+                                        "five_elements":  {
+                                                              "total":  356.71
+                                                          },
+                                        "mauri_anz":  {
+                                                          "total":  90.01
+                                                      },
+                                        "total_cogs":  1757.3,
+                                        "veggieman":  {
+                                                          "total":  53.61
+                                                      },
+                                        "mg_international":  {
+                                                                 "total":  93.38
+                                                             },
+                                        "goodman_fielder":  {
+                                                                "total":  312.01
+                                                            },
+                                        "gilmours":  {
+                                                         "total":  851.58
+                                                     }
+                                    },
+                           "label":  "Mon 13 Jul",
+                           "upcoming_order_refs":  {
+                                                       "gilmours":  {
+                                                                        "2026-07-14":  [
+                                                                                           {
+                                                                                               "ref":  "O-0005547310",
+                                                                                               "amount":  15.99
+                                                                                           },
+                                                                                           {
+                                                                                               "ref":  "O-0005547058",
+                                                                                               "amount":  1132.99
+                                                                                           },
+                                                                                           {
+                                                                                               "ref":  "O-0005545923",
+                                                                                               "amount":  416.99
+                                                                                           },
+                                                                                           {
+                                                                                               "ref":  "O-0005545385",
+                                                                                               "amount":  164.28
+                                                                                           },
+                                                                                           {
+                                                                                               "ref":  "O-0005545169",
+                                                                                               "amount":  130.87
+                                                                                           }
+                                                                                       ]
+                                                                    },
+                                                       "bidfood":  {
+
+                                                                   }
+                                                   },
+                           "cogs_budget_c3":  2991.45,
+                           "cogs_budget_c2":  2361.45,
+                           "prior_thu_cdiff":  516.12,
+                           "carry_forward":  0,
+                           "op_costs":  {
+                                            "rent":  576.34,
+                                            "merchant":  136.06,
+                                            "gst":  687.38,
+                                            "electricity_gas":  120,
+                                            "misc":  212.6,
+                                            "total":  2420.2,
+                                            "internal_cafes":  687.82
+                                        },
+                           "cdiff1":  -652.84,
+                           "cdiff_inherited":  516.12,
+                           "cdiff":  -220.19,
+                           "catering_actual":  1718.71,
+                           "cdiff2":  432.65
+                       }
+            },
+    "tue":  {
+                "vs":  {
+                           "wages":  {
+                                         "hours":  61.83,
+                                         "total":  1675.64,
+                                         "staff":  [
+                                                       {
+                                                           "rate":  27.5,
+                                                           "cost":  257.12,
+                                                           "hours":  9.35,
+                                                           "est":  false,
+                                                           "name":  "David Easthope",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  28,
+                                                           "cost":  245.84,
+                                                           "hours":  8.78,
+                                                           "est":  false,
+                                                           "name":  "Karol Cartagena",
+                                                           "area":  "FOH"
+                                                       },
+                                                       {
+                                                           "rate":  28,
+                                                           "cost":  228.2,
+                                                           "hours":  8.15,
+                                                           "est":  false,
+                                                           "name":  "Aleisha Yee",
+                                                           "area":  "FOH"
+                                                       },
+                                                       {
+                                                           "rate":  25,
+                                                           "cost":  202.5,
+                                                           "hours":  8.1,
+                                                           "est":  false,
+                                                           "name":  "Kaka",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  30,
+                                                           "cost":  231.9,
+                                                           "hours":  7.73,
+                                                           "est":  false,
+                                                           "name":  "Horacio Nicolas Soto",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  28.5,
+                                                           "cost":  212.32,
+                                                           "hours":  7.45,
+                                                           "est":  false,
+                                                           "name":  "Mana Cervela",
+                                                           "area":  "FOH"
+                                                       },
+                                                       {
+                                                           "rate":  24.5,
+                                                           "cost":  160.48,
+                                                           "hours":  6.55,
+                                                           "est":  false,
+                                                           "name":  "Klara Melody Keil",
+                                                           "area":  "FOH"
+                                                       },
+                                                       {
+                                                           "rate":  24,
+                                                           "cost":  137.28,
+                                                           "hours":  5.72,
+                                                           "est":  false,
+                                                           "name":  "Jimmy (VS)",
+                                                           "area":  "Kitchen"
+                                                       }
+                                                   ]
+                                     },
+                           "c2_estimate":  440.92,
+                           "revenue":  {
+                                           "pos":  2016.17,
+                                           "total":  4406.41,
+                                           "catering":  2390.24
+                                       },
+                           "variable_ideal":  787.54,
+                           "upcoming_order_refs":  {
+                                                       "bidfood":  {
+
+                                                                   },
+                                                       "gilmours":  {
+                                                                        "2026-07-15":  [
+                                                                                           {
+                                                                                               "ref":  "O-0005550501",
+                                                                                               "amount":  114.89
+                                                                                           },
+                                                                                           {
+                                                                                               "ref":  "O-0005550484",
+                                                                                               "amount":  49.66
+                                                                                           }
+                                                                                       ]
+                                                                    }
+                                                   },
+                           "surplus":  638.21,
+                           "cogs":  {
+                                        "karma_drinks":  {
+                                                             "total":  14.08
+                                                         },
+                                        "five_elements":  {
+                                                              "total":  245.73
+                                                          },
+                                        "goodman_fielder":  {
+                                                                "total":  122.21
+                                                            },
+                                        "laundrycorp":  {
+                                                            "total":  16.56
+                                                        },
+                                        "gilmours":  {
+                                                         "total":  651.2
+                                                     },
+                                        "total_cogs":  1049.78
+                                    },
+                           "cogs_budget_c2":  440.92,
+                           "label":  "Tue 14 Jul",
+                           "catering_booked_at_forecast":  {
+                                                               "c2":  1270.33,
+                                                               "c3":  1265.96
+                                                           },
+                           "cogs_budget_c3":  159.89,
+                           "carry_forward":  0,
+                           "op_costs":  {
+                                            "rent":  161.29,
+                                            "merchant":  70.5,
+                                            "gst":  365.06,
+                                            "royalty":  220.32,
+                                            "total":  1042.78,
+                                            "car_loan":  29.355,
+                                            "misc":  176.26,
+                                            "electricity":  20
+                                        },
+                           "cdiff1":  4117.23,
+                           "cdiff_inherited":  3854.99,
+                           "cdiff":  10942.55,
+                           "catering_actual":  2390.24,
+                           "cdiff2":  6825.32
+                       },
+                "vl":  {
+                           "cogs":  {
+                                        "total_cogs":  428.19,
+                                        "five_elements":  {
+                                                              "total":  154.29
+                                                          },
+                                        "laundrycorp":  {
+                                                            "total":  13.62
+                                                        },
+                                        "gilmours":  {
+                                                         "total":  260.28
+                                                     }
+                                    },
+                           "label":  "Tue 14 Jul",
+                           "surplus":  595.82,
+                           "wages":  {
+                                         "hours":  40.49,
+                                         "total":  1142.92,
+                                         "staff":  [
+                                                       {
+                                                           "rate":  27,
+                                                           "cost":  217.35,
+                                                           "hours":  8.05,
+                                                           "est":  false,
+                                                           "name":  "Rocio Maria Sanchez",
+                                                           "area":  "FOH"
+                                                       },
+                                                       {
+                                                           "rate":  28,
+                                                           "cost":  210,
+                                                           "hours":  7.5,
+                                                           "est":  false,
+                                                           "name":  "Carlos Araneda",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  27,
+                                                           "cost":  200.34,
+                                                           "hours":  7.42,
+                                                           "est":  false,
+                                                           "name":  "Sora Kim",
+                                                           "area":  "FOH"
+                                                       },
+                                                       {
+                                                           "rate":  29.66,
+                                                           "cost":  203.17,
+                                                           "hours":  6.85,
+                                                           "est":  false,
+                                                           "name":  "Ravi (Ravinder kaur)",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  33,
+                                                           "cost":  205.26,
+                                                           "hours":  6.22,
+                                                           "est":  false,
+                                                           "name":  "Franz Uyseco",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  24,
+                                                           "cost":  106.8,
+                                                           "hours":  4.45,
+                                                           "est":  false,
+                                                           "name":  "Nevaeh Paleaaesina",
+                                                           "area":  "FOH"
+                                                       }
+                                                   ]
+                                     },
+                           "op_costs":  {
+                                            "rent":  502.05,
+                                            "merchant":  53.61,
+                                            "gst":  276.35,
+                                            "royalty":  167.52,
+                                            "misc":  134.02,
+                                            "total":  1183.55,
+                                            "electricity":  50
+                                        },
+                           "revenue":  {
+                                           "cafe":  3350.48,
+                                           "total":  3350.48
+                                       },
+                           "upcoming_order_refs":  {
+                                                       "bidfood":  {
+
+                                                                   },
+                                                       "gilmours":  {
+
+                                                                    }
+                                                   }
+                       },
+                "sb":  {
+                           "wages":  {
+                                         "hours":  120.2,
+                                         "total":  3316.5,
+                                         "staff":  [
+                                                       {
+                                                           "rate":  25,
+                                                           "cost":  253.25,
+                                                           "hours":  10.13,
+                                                           "est":  false,
+                                                           "name":  "Maria Neider",
+                                                           "area":  "FOH"
+                                                       },
+                                                       {
+                                                           "rate":  27,
+                                                           "cost":  251.1,
+                                                           "hours":  9.3,
+                                                           "est":  false,
+                                                           "name":  "Sarai Egan",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  24,
+                                                           "cost":  222,
+                                                           "hours":  9.25,
+                                                           "est":  false,
+                                                           "name":  "Mohd Fahmi (Jimmy SB)",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  27.5,
+                                                           "cost":  246.12,
+                                                           "hours":  8.95,
+                                                           "est":  false,
+                                                           "name":  "Hannah Grace Davis",
+                                                           "area":  "TVNZ"
+                                                       },
+                                                       {
+                                                           "rate":  36,
+                                                           "cost":  308.52,
+                                                           "hours":  8.57,
+                                                           "est":  false,
+                                                           "name":  "Trimandeep Singh (Harry)",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  27,
+                                                           "cost":  230.85,
+                                                           "hours":  8.55,
+                                                           "est":  false,
+                                                           "name":  "Thomas Moller",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  30,
+                                                           "cost":  255,
+                                                           "hours":  8.5,
+                                                           "est":  false,
+                                                           "name":  "Dana Dewi",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  24,
+                                                           "cost":  199.2,
+                                                           "hours":  8.3,
+                                                           "est":  false,
+                                                           "name":  "Adi",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  24,
+                                                           "cost":  197.28,
+                                                           "hours":  8.22,
+                                                           "est":  false,
+                                                           "name":  "Heemin Lee",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  29.5,
+                                                           "cost":  235.41,
+                                                           "hours":  7.98,
+                                                           "est":  false,
+                                                           "name":  "Craig Feltis",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  34,
+                                                           "cost":  256.7,
+                                                           "hours":  7.55,
+                                                           "est":  false,
+                                                           "name":  "Kanika banth",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  27.5,
+                                                           "cost":  207.08,
+                                                           "hours":  7.53,
+                                                           "est":  false,
+                                                           "name":  "Jahnevah Numa",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  27,
+                                                           "cost":  198.99,
+                                                           "hours":  7.37,
+                                                           "est":  false,
+                                                           "name":  "Leo Grant",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  26.5,
+                                                           "cost":  159,
+                                                           "hours":  6,
+                                                           "est":  false,
+                                                           "name":  "Amelia Hamilton",
+                                                           "area":  "FOH"
+                                                       },
+                                                       {
+                                                           "rate":  24,
+                                                           "cost":  96,
+                                                           "hours":  4,
+                                                           "est":  false,
+                                                           "name":  "Tayla George",
+                                                           "area":  "TVNZ"
+                                                       }
+                                                   ]
+                                     },
+                           "c2_estimate":  1947.25,
+                           "revenue":  {
+                                           "cafe":  2700.1,
+                                           "wholesale":  2828,
+                                           "tvnz":  1003.4,
+                                           "total":  8956.64,
+                                           "catering":  2425.14
+                                       },
+                           "variable_ideal":  1741.57,
+                           "upcoming_order_refs":  {
+                                                       "bidfood":  {
+
+                                                                   },
+                                                       "gilmours":  {
+                                                                        "2026-07-15":  [
+                                                                                           {
+                                                                                               "ref":  "O-0005550281",
+                                                                                               "amount":  402.79
+                                                                                           },
+                                                                                           {
+                                                                                               "ref":  "O-0005549704",
+                                                                                               "amount":  886.68
+                                                                                           },
+                                                                                           {
+                                                                                               "ref":  "O-0005549299",
+                                                                                               "amount":  108.8
+                                                                                           },
+                                                                                           {
+                                                                                               "ref":  "O-0005548450",
+                                                                                               "amount":  138.66
+                                                                                           }
+                                                                                       ]
+                                                                    }
+                                                   },
+                           "surplus":  896.97,
+                           "cogs":  {
+                                        "total_cogs":  2268.07,
+                                        "mauri_anz":  {
+                                                          "total":  90.01
+                                                      },
+                                        "five_elements":  {
+                                                              "total":  356.71
+                                                          },
+                                        "veggieman":  {
+                                                          "total":  53.61
+                                                      },
+                                        "gilmours":  {
+                                                         "total":  1767.74
+                                                     }
+                                    },
+                           "cogs_budget_c2":  1947.25,
+                           "label":  "Tue 14 Jul",
+                           "catering_booked_at_forecast":  {
+                                                               "c2":  3569.66,
+                                                               "c3":  1486.23
+                                                           },
+                           "cogs_budget_c3":  2005.7,
+                           "carry_forward":  0,
+                           "op_costs":  {
+                                            "rent":  576.34,
+                                            "merchant":  143.31,
+                                            "gst":  671.52,
+                                            "electricity_gas":  120,
+                                            "misc":  223.92,
+                                            "total":  2475.1,
+                                            "internal_cafes":  740.01
+                                        },
+                           "cdiff1":  309.69,
+                           "cdiff_inherited":  -216.81,
+                           "cdiff":  89.5,
+                           "catering_actual":  2425.14,
+                           "cdiff2":  -220.19
+                       }
+            },
+    "thu":  {
+                "vs":  {
+                           "cdiff_inherited":  10942.55,
+                           "cogs_budget_c2":  754.72,
+                           "op_costs":  {
+                                            "rent":  149.82,
+                                            "total":  943.34,
+                                            "gst":  366.88,
+                                            "car_loan":  29.355,
+                                            "royalty":  177.96,
+                                            "merchant":  56.95,
+                                            "electricity":  20,
+                                            "misc":  142.37
+                                        },
+                           "catering_booked_at_forecast":  {
+                                                               "c2":  550.08,
+                                                               "c3":  0
+                                                           },
+                           "catering_actual":  1686.56,
+                           "wages":  {
+                                         "hours":  46.33,
+                                         "staff":  [
+                                                       {
+                                                           "name":  "Karol Cartagena",
+                                                           "est":  false,
+                                                           "area":  "FOH",
+                                                           "cost":  253.4,
+                                                           "rate":  28,
+                                                           "hours":  9.05
+                                                       },
+                                                       {
+                                                           "name":  "Aleisha Yee",
+                                                           "est":  false,
+                                                           "area":  "FOH",
+                                                           "cost":  241.36,
+                                                           "rate":  28,
+                                                           "hours":  8.62
+                                                       },
+                                                       {
+                                                           "name":  "Kaka",
+                                                           "est":  false,
+                                                           "area":  "Kitchen",
+                                                           "cost":  212.5,
+                                                           "rate":  25,
+                                                           "hours":  8.5
+                                                       },
+                                                       {
+                                                           "name":  "Mana Cervela",
+                                                           "est":  false,
+                                                           "area":  "FOH",
+                                                           "cost":  220.88,
+                                                           "rate":  28.5,
+                                                           "hours":  7.75
+                                                       },
+                                                       {
+                                                           "name":  "Klara Melody Keil",
+                                                           "est":  false,
+                                                           "area":  "FOH",
+                                                           "cost":  159.99,
+                                                           "rate":  24.5,
+                                                           "hours":  6.53
+                                                       },
+                                                       {
+                                                           "name":  "Jimmy (VS)",
+                                                           "est":  false,
+                                                           "area":  "Kitchen",
+                                                           "cost":  141.12,
+                                                           "rate":  24,
+                                                           "hours":  5.88
+                                                       }
+                                                   ],
+                                         "total":  1229.25
+                                     },
+                           "label":  "Thu 16 Jul",
+                           "surplus":  1110.33,
+                           "cogs":  {
+                                        "laundrycorp":  {
+                                                            "total":  16.56
+                                                        },
+                                        "five_elements":  {
+                                                              "total":  245.73
+                                                          },
+                                        "karma_drinks":  {
+                                                             "total":  14.08
+                                                         },
+                                        "total_cogs":  276.37
+                                    },
+                           "revenue":  {
+                                           "pos":  1872.73,
+                                           "total":  3559.29,
+                                           "catering":  1686.56
+                                       },
+                           "cdiff1":  10360.97,
+                           "weekend_cdiff_aggregate":  0,
+                           "cogs_budget_c3":  66.79,
+                           "cdiff2":  17569.97,
+                           "cdiff":  27930.94,
+                           "carry_forward":  0,
+                           "upcoming_order_refs":  {
+                                                       "bidfood":  {
+
+                                                                   },
+                                                       "gilmours":  {
+                                                                        "2026-07-17":  [
+                                                                                           {
+                                                                                               "ref":  "O-0005558243",
+                                                                                               "amount":  478.35
+                                                                                           }
+                                                                                       ]
+                                                                    }
+                                                   },
+                           "variable_ideal":  857.95,
+                           "c2_estimate":  754.72
+                       },
+                "vl":  {
+                           "upcoming_order_refs":  {
+                                                       "bidfood":  {
+
+                                                                   },
+                                                       "gilmours":  {
+
+                                                                    }
+                                                   },
+                           "label":  "Thu 16 Jul",
+                           "cogs":  {
+                                        "betscharts":  {
+                                                           "total":  74.34
+                                                       },
+                                        "total_cogs":  671.46,
+                                        "five_elements":  {
+                                                              "total":  154.29
+                                                          },
+                                        "laundrycorp":  {
+                                                            "total":  13.62
+                                                        },
+                                        "gilmours":  {
+                                                         "total":  429.21
+                                                     }
+                                    },
+                           "wages":  {
+                                         "hours":  36.86,
+                                         "staff":  [
+                                                       {
+                                                           "name":  "Eden Wharerau",
+                                                           "est":  false,
+                                                           "area":  "FOH",
+                                                           "cost":  227.61,
+                                                           "rate":  27,
+                                                           "hours":  8.43
+                                                       },
+                                                       {
+                                                           "name":  "Carlos Araneda",
+                                                           "est":  false,
+                                                           "area":  "Kitchen",
+                                                           "cost":  231.56,
+                                                           "rate":  28,
+                                                           "hours":  8.27
+                                                       },
+                                                       {
+                                                           "name":  "Ravi (Ravinder kaur)",
+                                                           "est":  false,
+                                                           "area":  "Kitchen",
+                                                           "cost":  223.93,
+                                                           "rate":  29.66,
+                                                           "hours":  7.55
+                                                       },
+                                                       {
+                                                           "name":  "Sora Kim",
+                                                           "est":  false,
+                                                           "area":  "FOH",
+                                                           "cost":  188.46,
+                                                           "rate":  27,
+                                                           "hours":  6.98
+                                                       },
+                                                       {
+                                                           "name":  "Maddi Roewen",
+                                                           "est":  false,
+                                                           "area":  "FOH",
+                                                           "cost":  140.75,
+                                                           "rate":  25,
+                                                           "hours":  5.63
+                                                       }
+                                                   ],
+                                         "total":  1012.31
+                                     },
+                           "revenue":  {
+                                           "cafe":  3960.25,
+                                           "total":  3960.25
+                                       },
+                           "op_costs":  {
+                                            "gst":  317,
+                                            "merchant":  63.36,
+                                            "total":  1288.83,
+                                            "misc":  158.41,
+                                            "royalty":  198.01,
+                                            "electricity":  50,
+                                            "rent":  502.05
+                                        },
+                           "surplus":  987.65
+                       },
+                "sb":  {
+                           "cdiff_inherited":  89.5,
+                           "cogs_budget_c2":  2298.72,
+                           "op_costs":  {
+                                            "gst":  736.27,
+                                            "merchant":  150.32,
+                                            "electricity_gas":  120,
+                                            "misc":  234.87,
+                                            "total":  2494.4,
+                                            "internal_cafes":  676.6,
+                                            "rent":  576.34
+                                        },
+                           "catering_booked_at_forecast":  {
+                                                               "c2":  869.51,
+                                                               "c3":  159.39
+                                                           },
+                           "catering_actual":  1577.84,
+                           "wages":  {
+                                         "hours":  117.14,
+                                         "staff":  [
+                                                       {
+                                                           "name":  "Jahnevah Numa",
+                                                           "est":  false,
+                                                           "area":  "Kitchen",
+                                                           "cost":  430.92,
+                                                           "rate":  27.5,
+                                                           "hours":  15.67
+                                                       },
+                                                       {
+                                                           "name":  "Sarai Egan",
+                                                           "est":  false,
+                                                           "area":  "Kitchen",
+                                                           "cost":  264.6,
+                                                           "rate":  27,
+                                                           "hours":  9.8
+                                                       },
+                                                       {
+                                                           "name":  "Maria Neider",
+                                                           "est":  false,
+                                                           "area":  "FOH",
+                                                           "cost":  240,
+                                                           "rate":  25,
+                                                           "hours":  9.6
+                                                       },
+                                                       {
+                                                           "name":  "Hannah Grace Davis",
+                                                           "est":  false,
+                                                           "area":  "TVNZ",
+                                                           "cost":  255.75,
+                                                           "rate":  27.5,
+                                                           "hours":  9.3
+                                                       },
+                                                       {
+                                                           "name":  "Adi",
+                                                           "est":  false,
+                                                           "area":  "Kitchen",
+                                                           "cost":  205.2,
+                                                           "rate":  24,
+                                                           "hours":  8.55
+                                                       },
+                                                       {
+                                                           "name":  "Kanika banth",
+                                                           "est":  false,
+                                                           "area":  "Kitchen",
+                                                           "cost":  273.7,
+                                                           "rate":  34,
+                                                           "hours":  8.05
+                                                       },
+                                                       {
+                                                           "name":  "Dana Dewi",
+                                                           "est":  false,
+                                                           "area":  "Kitchen",
+                                                           "cost":  237.9,
+                                                           "rate":  30,
+                                                           "hours":  7.93
+                                                       },
+                                                       {
+                                                           "name":  "Leo Grant",
+                                                           "est":  false,
+                                                           "area":  "Kitchen",
+                                                           "cost":  210.06,
+                                                           "rate":  27,
+                                                           "hours":  7.78
+                                                       },
+                                                       {
+                                                           "name":  "Isabella Holmes (Izzy)",
+                                                           "est":  false,
+                                                           "area":  "FOH",
+                                                           "cost":  193.75,
+                                                           "rate":  25,
+                                                           "hours":  7.75
+                                                       },
+                                                       {
+                                                           "name":  "Heemin Lee",
+                                                           "est":  false,
+                                                           "area":  "Kitchen",
+                                                           "cost":  267.12,
+                                                           "rate":  36,
+                                                           "hours":  7.42
+                                                       },
+                                                       {
+                                                           "name":  "Thomas Moller",
+                                                           "est":  false,
+                                                           "area":  "Kitchen",
+                                                           "cost":  196.29,
+                                                           "rate":  27,
+                                                           "hours":  7.27
+                                                       },
+                                                       {
+                                                           "name":  "Trimandeep Singh (Harry)",
+                                                           "est":  false,
+                                                           "area":  "Kitchen",
+                                                           "cost":  257.4,
+                                                           "rate":  36,
+                                                           "hours":  7.15
+                                                       },
+                                                       {
+                                                           "name":  "Craig Feltis",
+                                                           "est":  false,
+                                                           "area":  "Kitchen",
+                                                           "cost":  190.86,
+                                                           "rate":  29.5,
+                                                           "hours":  6.47
+                                                       },
+                                                       {
+                                                           "name":  "Tayla George",
+                                                           "est":  false,
+                                                           "area":  "TVNZ",
+                                                           "cost":  105.6,
+                                                           "rate":  24,
+                                                           "hours":  4.4
+                                                       }
+                                                   ],
+                                         "total":  3329.15
+                                     },
+                           "label":  "Thu 16 Jul",
+                           "surplus":  1309.02,
+                           "cogs":  {
+                                        "veggieman":  {
+                                                          "total":  107.22
+                                                      },
+                                        "mauri_anz":  {
+                                                          "total":  90.01
+                                                      },
+                                        "five_elements":  {
+                                                              "total":  356.71
+                                                          },
+                                        "bidfood":  {
+                                                        "total":  -201.24
+                                                    },
+                                        "gilmours":  {
+                                                         "total":  1802.81
+                                                     },
+                                        "mg_international":  {
+                                                                 "total":  106.72
+                                                             },
+                                        "total_cogs":  2262.23
+                                    },
+                           "revenue":  {
+                                           "cafe":  3157.99,
+                                           "wholesale":  3200.47,
+                                           "tvnz":  1458.5,
+                                           "total":  9394.8,
+                                           "catering":  1577.84
+                                       },
+                           "cdiff1":  -162.81,
+                           "weekend_cdiff_aggregate":  0,
+                           "cogs_budget_c3":  2448.7,
+                           "cdiff2":  366.92,
+                           "cdiff":  204.11,
+                           "carry_forward":  0,
+                           "upcoming_order_refs":  {
+                                                       "bidfood":  {
+
+                                                                   },
+                                                       "gilmours":  {
+                                                                        "2026-07-17":  [
+                                                                                           {
+                                                                                               "ref":  "O-0005557178",
+                                                                                               "amount":  350.5
+                                                                                           },
+                                                                                           {
+                                                                                               "ref":  "O-0005556516",
+                                                                                               "amount":  1091.59
+                                                                                           },
+                                                                                           {
+                                                                                               "ref":  "O-0005555670",
+                                                                                               "amount":  195.97
+                                                                                           }
+                                                                                       ]
+                                                                    }
+                                                   },
+                           "variable_ideal":  2514.54,
+                           "c2_estimate":  2298.72
+                       }
+            },
+    "wed":  {
+                "vs":  {
+                           "wages":  {
+                                         "hours":  59.37,
+                                         "total":  1606.06,
+                                         "staff":  [
+                                                       {
+                                                           "rate":  28,
+                                                           "cost":  255.36,
+                                                           "hours":  9.12,
+                                                           "est":  false,
+                                                           "name":  "Karol Cartagena",
+                                                           "area":  "FOH"
+                                                       },
+                                                       {
+                                                           "rate":  28,
+                                                           "cost":  242.76,
+                                                           "hours":  8.67,
+                                                           "est":  false,
+                                                           "name":  "Aleisha Yee",
+                                                           "area":  "FOH"
+                                                       },
+                                                       {
+                                                           "rate":  25,
+                                                           "cost":  214.5,
+                                                           "hours":  8.58,
+                                                           "est":  false,
+                                                           "name":  "Kaka",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  30,
+                                                           "cost":  240,
+                                                           "hours":  8,
+                                                           "est":  false,
+                                                           "name":  "Horacio Nicolas Soto",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  28.5,
+                                                           "cost":  206.06,
+                                                           "hours":  7.23,
+                                                           "est":  false,
+                                                           "name":  "Mana Cervela",
+                                                           "area":  "FOH"
+                                                       },
+                                                       {
+                                                           "rate":  24.5,
+                                                           "cost":  162.93,
+                                                           "hours":  6.65,
+                                                           "est":  false,
+                                                           "name":  "Klara Melody Keil",
+                                                           "area":  "FOH"
+                                                       },
+                                                       {
+                                                           "rate":  24,
+                                                           "cost":  146.4,
+                                                           "hours":  6.1,
+                                                           "est":  false,
+                                                           "name":  "Jimmy (VS)",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  27.5,
+                                                           "cost":  138.05,
+                                                           "hours":  5.02,
+                                                           "est":  false,
+                                                           "name":  "David Easthope",
+                                                           "area":  "Kitchen"
+                                                       }
+                                                   ]
+                                     },
+                           "c2_estimate":  267.51,
+                           "upcoming_order_refs":  {
+                                                       "gilmours":  {
+                                                                        "2026-07-16":  {
+
+                                                                                       }
+                                                                    },
+                                                       "bidfood":  {
+
+                                                                   }
+                                                   },
+                           "variable_ideal":  720.29,
+                           "revenue":  {
+                                           "pos":  1695.47,
+                                           "total":  2965.8,
+                                           "catering":  1270.33
+                                       },
+                           "surplus":  96.05,
+                           "cogs_budget_c2":  267.51,
+                           "cogs":  {
+                                        "karma_drinks":  {
+                                                             "total":  14.08
+                                                         },
+                                        "five_elements":  {
+                                                              "total":  245.73
+                                                          },
+                                        "goodman_fielder":  {
+                                                                "total":  168.46
+                                                            },
+                                        "laundrycorp":  {
+                                                            "total":  16.56
+                                                        },
+                                        "gilmours":  {
+                                                         "total":  49.66
+                                                     },
+                                        "total_cogs":  494.49
+                                    },
+                           "weekend_cdiff_aggregate":  0,
+                           "catering_booked_at_forecast":  {
+                                                               "c2":  1686.56,
+                                                               "c3":  550.08
+                                                           },
+                           "cogs_budget_c3":  27.5,
+                           "carry_forward":  0,
+                           "op_costs":  {
+                                            "misc":  118.63,
+                                            "rent":  135.64,
+                                            "merchant":  47.45,
+                                            "gst":  269.84,
+                                            "royalty":  148.29,
+                                            "car_loan":  29.355,
+                                            "total":  769.2,
+                                            "electricity":  20
+                                        },
+                           "label":  "Wed 15 Jul",
+                           "cdiff1":  6599.52,
+                           "cdiff_inherited":  6825.32,
+                           "cdiff":  16936.27,
+                           "catering_actual":  1270.33,
+                           "cdiff2":  10336.75
+                       },
+                "vl":  {
+                           "cogs":  {
+                                        "total_cogs":  332.94,
+                                        "goodman_fielder":  {
+                                                                "total":  165.03
+                                                            },
+                                        "five_elements":  {
+                                                              "total":  154.29
+                                                          },
+                                        "laundrycorp":  {
+                                                            "total":  13.62
+                                                        }
+                                    },
+                           "label":  "Wed 15 Jul",
+                           "surplus":  623.72,
+                           "wages":  {
+                                         "hours":  40.11,
+                                         "total":  1134.66,
+                                         "staff":  [
+                                                       {
+                                                           "rate":  27,
+                                                           "cost":  220.86,
+                                                           "hours":  8.18,
+                                                           "est":  false,
+                                                           "name":  "Eden Wharerau",
+                                                           "area":  "FOH"
+                                                       },
+                                                       {
+                                                           "rate":  28,
+                                                           "cost":  212.8,
+                                                           "hours":  7.6,
+                                                           "est":  false,
+                                                           "name":  "Carlos Araneda",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  27,
+                                                           "cost":  188.46,
+                                                           "hours":  6.98,
+                                                           "est":  false,
+                                                           "name":  "Sora Kim",
+                                                           "area":  "FOH"
+                                                       },
+                                                       {
+                                                           "rate":  29.66,
+                                                           "cost":  205.25,
+                                                           "hours":  6.92,
+                                                           "est":  false,
+                                                           "name":  "Ravi (Ravinder kaur)",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  33,
+                                                           "cost":  208.89,
+                                                           "hours":  6.33,
+                                                           "est":  false,
+                                                           "name":  "Franz Uyseco",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  24,
+                                                           "cost":  98.4,
+                                                           "hours":  4.1,
+                                                           "est":  false,
+                                                           "name":  "Nevaeh Paleaaesina",
+                                                           "area":  "FOH"
+                                                       }
+                                                   ]
+                                     },
+                           "op_costs":  {
+                                            "total":  1177.66,
+                                            "merchant":  52.3,
+                                            "gst":  279.1,
+                                            "rent":  502.05,
+                                            "royalty":  163.45,
+                                            "misc":  130.76,
+                                            "electricity":  50
+                                        },
+                           "revenue":  {
+                                           "cafe":  3268.98,
+                                           "total":  3268.98
+                                       },
+                           "upcoming_order_refs":  {
+                                                       "gilmours":  {
+                                                                        "2026-07-16":  {
+                                                                                           "ref":  "O-0005553153",
+                                                                                           "amount":  429.21
+                                                                                       }
+                                                                    },
+                                                       "bidfood":  {
+
+                                                                   }
+                                                   }
+                       },
+                "sb":  {
+                           "wages":  {
+                                         "hours":  119.49,
+                                         "total":  3393.18,
+                                         "staff":  [
+                                                       {
+                                                           "rate":  27,
+                                                           "cost":  291.06,
+                                                           "hours":  10.78,
+                                                           "est":  false,
+                                                           "name":  "Sarai Egan",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  25,
+                                                           "cost":  235.5,
+                                                           "hours":  9.42,
+                                                           "est":  false,
+                                                           "name":  "Maria Neider",
+                                                           "area":  "FOH"
+                                                       },
+                                                       {
+                                                           "rate":  27.5,
+                                                           "cost":  254.38,
+                                                           "hours":  9.25,
+                                                           "est":  false,
+                                                           "name":  "Hannah Grace Davis",
+                                                           "area":  "TVNZ"
+                                                       },
+                                                       {
+                                                           "rate":  27,
+                                                           "cost":  238.95,
+                                                           "hours":  8.85,
+                                                           "est":  false,
+                                                           "name":  "Thomas Moller",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  30,
+                                                           "cost":  256.5,
+                                                           "hours":  8.55,
+                                                           "est":  false,
+                                                           "name":  "Dana Dewi",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  24,
+                                                           "cost":  204.72,
+                                                           "hours":  8.53,
+                                                           "est":  false,
+                                                           "name":  "Adi",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  36,
+                                                           "cost":  302.4,
+                                                           "hours":  8.4,
+                                                           "est":  false,
+                                                           "name":  "Heemin Lee",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  34,
+                                                           "cost":  280.5,
+                                                           "hours":  8.25,
+                                                           "est":  false,
+                                                           "name":  "Kanika banth",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  27.5,
+                                                           "cost":  220.55,
+                                                           "hours":  8.02,
+                                                           "est":  false,
+                                                           "name":  "Jahnevah Numa",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  29.5,
+                                                           "cost":  235.41,
+                                                           "hours":  7.98,
+                                                           "est":  false,
+                                                           "name":  "Craig Feltis",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  36,
+                                                           "cost":  272.52,
+                                                           "hours":  7.57,
+                                                           "est":  false,
+                                                           "name":  "Trimandeep Singh (Harry)",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  27,
+                                                           "cost":  190.89,
+                                                           "hours":  7.07,
+                                                           "est":  false,
+                                                           "name":  "Leo Grant",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  24,
+                                                           "cost":  157.92,
+                                                           "hours":  6.58,
+                                                           "est":  false,
+                                                           "name":  "Mohd Fahmi (Jimmy SB)",
+                                                           "area":  "Kitchen"
+                                                       },
+                                                       {
+                                                           "rate":  25,
+                                                           "cost":  153,
+                                                           "hours":  6.12,
+                                                           "est":  false,
+                                                           "name":  "Isabella Holmes (Izzy)",
+                                                           "area":  "FOH"
+                                                       },
+                                                       {
+                                                           "rate":  24,
+                                                           "cost":  98.88,
+                                                           "hours":  4.12,
+                                                           "est":  false,
+                                                           "name":  "Tayla George",
+                                                           "area":  "TVNZ"
+                                                       }
+                                                   ]
+                                     },
+                           "c2_estimate":  2303.14,
+                           "upcoming_order_refs":  {
+                                                       "gilmours":  {
+                                                                        "2026-07-16":  [
+                                                                                           {
+                                                                                               "ref":  "O-0005553773",
+                                                                                               "amount":  183.17
+                                                                                           },
+                                                                                           {
+                                                                                               "ref":  "O-0005552927",
+                                                                                               "amount":  985.02
+                                                                                           },
+                                                                                           {
+                                                                                               "ref":  "O-0005552808",
+                                                                                               "amount":  497.75
+                                                                                           }
+                                                                                       ]
+                                                                    },
+                                                       "bidfood":  {
+
+                                                                   }
+                                                   },
+                           "variable_ideal":  2777.57,
+                           "revenue":  {
+                                           "cafe":  3161.5,
+                                           "wholesale":  3121.71,
+                                           "tvnz":  1145.7,
+                                           "total":  10998.57,
+                                           "catering":  3569.66
+                                       },
+                           "surplus":  2292.69,
+                           "cogs_budget_c2":  2303.14,
+                           "cogs":  {
+                                        "mauri_anz":  {
+                                                          "total":  90.01
+                                                      },
+                                        "total_cogs":  2910.98,
+                                        "five_elements":  {
+                                                              "total":  356.71
+                                                          },
+                                        "veggieman":  {
+                                                          "total":  53.61
+                                                      },
+                                        "goodman_fielder":  {
+                                                                "total":  234.2
+                                                            },
+                                        "gilmours":  {
+                                                         "total":  1677.67
+                                                     },
+                                        "produce_company":  {
+                                                                "total":  498.78
+                                                            }
+                                    },
+                           "weekend_cdiff_aggregate":  0,
+                           "catering_booked_at_forecast":  {
+                                                               "c2":  1577.84,
+                                                               "c3":  912.99
+                                                           },
+                           "cogs_budget_c3":  1906.07,
+                           "carry_forward":  0,
+                           "op_costs":  {
+                                            "total":  2401.72,
+                                            "merchant":  175.98,
+                                            "gst":  897.28,
+                                            "rent":  576.34,
+                                            "electricity_gas":  120,
+                                            "misc":  274.96,
+                                            "internal_cafes":  357.16
+                                        },
+                           "label":  "Wed 15 Jul",
+                           "cdiff1":  -86.78,
+                           "cdiff_inherited":  -220.19,
+                           "cdiff":  -51.14,
+                           "catering_actual":  3569.66,
+                           "cdiff2":  35.64
+                       }
+            }
+}
+;
+</script>
+<script>
+const INVOICE_LOG = {
+    "week_start":  "2026-07-13",
+    "active_spreads":  [
+                           {
+                               "ref":  "INV86506",
+                               "total":  140.76,
+                               "captured":  "2026-07-09",
+                               "spread_dates":  [
+                                                    "2026-07-09",
+                                                    "2026-07-10",
+                                                    "2026-07-13",
+                                                    "2026-07-14",
+                                                    "2026-07-15",
+                                                    "2026-07-16",
+                                                    "2026-07-17",
+                                                    "2026-07-20",
+                                                    "2026-07-21",
+                                                    "2026-07-22"
+                                                ],
+                               "daily_share":  14.08,
+                               "booked_dates":  [
+                                                    "2026-07-09",
+                                                    "2026-07-10",
+                                                    "2026-07-13",
+                                                    "2026-07-14",
+                                                    "2026-07-15",
+                                                    "2026-07-16"
+                                                ],
+                               "delivery_date":  "2026-07-09",
+                               "divisor":  10,
+                               "entity":  "vs",
+                               "supplier":  "Karma Drinks"
+                           },
+                           {
+                               "ref":  "66317",
+                               "total":  268.07,
+                               "captured":  "2026-07-13",
+                               "spread_dates":  [
+                                                    "2026-07-13",
+                                                    "2026-07-14",
+                                                    "2026-07-15",
+                                                    "2026-07-16",
+                                                    "2026-07-17"
+                                                ],
+                               "daily_share":  53.61,
+                               "booked_dates":  [
+                                                    "2026-07-13",
+                                                    "2026-07-14",
+                                                    "2026-07-15",
+                                                    "2026-07-16"
+                                                ],
+                               "delivery_date":  "2026-07-13",
+                               "divisor":  5,
+                               "entity":  "sb",
+                               "supplier":  "Veggieman"
+                           },
+                           {
+                               "ref":  "019010195",
+                               "total":  38.5,
+                               "captured":  "2026-07-13",
+                               "spread_dates":  [
+                                                    "2026-07-13",
+                                                    "2026-07-14",
+                                                    "2026-07-15",
+                                                    "2026-07-16",
+                                                    "2026-07-17"
+                                                ],
+                               "daily_share":  7.7,
+                               "booked_dates":  [
+                                                    "2026-07-13",
+                                                    "2026-07-14",
+                                                    "2026-07-15",
+                                                    "2026-07-16"
+                                                ],
+                               "delivery_date":  "2026-07-13",
+                               "divisor":  5,
+                               "entity":  "vs",
+                               "supplier":  "LaundryCorp"
+                           },
+                           {
+                               "ref":  "019010193",
+                               "total":  51.03,
+                               "captured":  "2026-07-13",
+                               "spread_dates":  [
+                                                    "2026-07-13",
+                                                    "2026-07-14",
+                                                    "2026-07-15",
+                                                    "2026-07-16",
+                                                    "2026-07-17",
+                                                    "2026-07-18",
+                                                    "2026-07-19"
+                                                ],
+                               "daily_share":  7.29,
+                               "booked_dates":  [
+                                                    "2026-07-13",
+                                                    "2026-07-14",
+                                                    "2026-07-15",
+                                                    "2026-07-16"
+                                                ],
+                               "delivery_date":  "2026-07-13",
+                               "divisor":  7,
+                               "entity":  "vl",
+                               "supplier":  "LaundryCorp"
+                           },
+                           {
+                               "ref":  "107082324",
+                               "total":  450.04,
+                               "captured":  "2026-07-15",
+                               "spread_dates":  [
+                                                    "2026-07-15",
+                                                    "2026-07-16",
+                                                    "2026-07-17",
+                                                    "2026-07-20",
+                                                    "2026-07-21"
+                                                ],
+                               "daily_share":  90.01,
+                               "booked_dates":  [
+                                                    "2026-07-15",
+                                                    "2026-07-16"
+                                                ],
+                               "delivery_date":  "2026-07-15",
+                               "divisor":  5,
+                               "entity":  "sb",
+                               "supplier":  "Mauri ANZ"
+                           },
+                           {
+                               "ref":  "019010259",
+                               "total":  44.28,
+                               "captured":  "2026-07-16",
+                               "spread_dates":  [
+                                                    "2026-07-16",
+                                                    "2026-07-17",
+                                                    "2026-07-20",
+                                                    "2026-07-21",
+                                                    "2026-07-22"
+                                                ],
+                               "daily_share":  8.86,
+                               "booked_dates":  [
+                                                    "2026-07-16"
+                                                ],
+                               "delivery_date":  "2026-07-16",
+                               "divisor":  5,
+                               "entity":  "vs",
+                               "supplier":  "LaundryCorp"
+                           },
+                           {
+                               "ref":  "66413",
+                               "total":  268.07,
+                               "captured":  "2026-07-16",
+                               "spread_dates":  [
+                                                    "2026-07-16",
+                                                    "2026-07-17",
+                                                    "2026-07-20",
+                                                    "2026-07-21",
+                                                    "2026-07-22"
+                                                ],
+                               "daily_share":  53.61,
+                               "booked_dates":  [
+                                                    "2026-07-16"
+                                                ],
+                               "delivery_date":  "2026-07-16",
+                               "divisor":  5,
+                               "entity":  "sb",
+                               "supplier":  "Veggieman"
+                           },
+                           {
+                               "ref":  "INV-00083501",
+                               "total":  533.6,
+                               "captured":  "2026-07-16",
+                               "spread_dates":  [
+                                                    "2026-07-16",
+                                                    "2026-07-17",
+                                                    "2026-07-20",
+                                                    "2026-07-21",
+                                                    "2026-07-22"
+                                                ],
+                               "daily_share":  106.72,
+                               "booked_dates":  [
+                                                    "2026-07-16"
+                                                ],
+                               "delivery_date":  "2026-07-16",
+                               "divisor":  5,
+                               "entity":  "sb",
+                               "supplier":  "MG International"
+                           },
+                           {
+                               "ref":  "F56143249",
+                               "total":  520.38,
+                               "captured":  "2026-07-16",
+                               "spread_dates":  [
+                                                    "2026-07-16",
+                                                    "2026-07-17",
+                                                    "2026-07-18",
+                                                    "2026-07-19",
+                                                    "2026-07-20",
+                                                    "2026-07-21",
+                                                    "2026-07-22"
+                                                ],
+                               "daily_share":  74.34,
+                               "booked_dates":  [
+                                                    "2026-07-16"
+                                                ],
+                               "delivery_date":  "2026-07-16",
+                               "divisor":  7,
+                               "entity":  "vl",
+                               "supplier":  "Betscharts"
+                           }
+                       ],
+    "entries":  [
+                    {
+                        "ref":  "4120208914",
+                        "note":  "PO David - reallocated to VS",
+                        "captured":  "2026-07-13",
+                        "date":  "2026-07-13",
+                        "entity":  "vs",
+                        "supplier":  "Gilmours",
+                        "amount":  256.61
+                    },
+                    {
+                        "ref":  "4120209119",
+                        "note":  "PO nicolas - reallocated to VS",
+                        "captured":  "2026-07-13",
+                        "date":  "2026-07-13",
+                        "entity":  "vs",
+                        "supplier":  "Gilmours",
+                        "amount":  72.77
+                    },
+                    {
+                        "ref":  "4120209282",
+                        "note":  "PO nicolas - reallocated to VS",
+                        "captured":  "2026-07-13",
+                        "date":  "2026-07-13",
+                        "entity":  "vs",
+                        "supplier":  "Gilmours",
+                        "amount":  766.39
+                    },
+                    {
+                        "ref":  "4120208823",
+                        "note":  "PO Thomas",
+                        "captured":  "2026-07-13",
+                        "date":  "2026-07-13",
+                        "entity":  "sb",
+                        "supplier":  "Gilmours",
+                        "amount":  208.04
+                    },
+                    {
+                        "ref":  "4120208858",
+                        "note":  "PO harry",
+                        "captured":  "2026-07-13",
+                        "date":  "2026-07-13",
+                        "entity":  "sb",
+                        "supplier":  "Gilmours",
+                        "amount":  48.29
+                    },
+                    {
+                        "ref":  "4120209207",
+                        "note":  "PO dana",
+                        "captured":  "2026-07-13",
+                        "date":  "2026-07-13",
+                        "entity":  "sb",
+                        "supplier":  "Gilmours",
+                        "amount":  595.25
+                    },
+                    {
+                        "ref":  "4120209093",
+                        "note":  "PO harneet - reallocated to VL",
+                        "captured":  "2026-07-13",
+                        "date":  "2026-07-13",
+                        "entity":  "vl",
+                        "supplier":  "Gilmours",
+                        "amount":  292.22
+                    },
+                    {
+                        "ref":  "9086327896",
+                        "captured":  "2026-07-13",
+                        "date":  "2026-07-13",
+                        "entity":  "sb",
+                        "supplier":  "Goodman Fielder",
+                        "amount":  84.98
+                    },
+                    {
+                        "ref":  "9086327858",
+                        "captured":  "2026-07-13",
+                        "date":  "2026-07-13",
+                        "entity":  "sb",
+                        "supplier":  "Goodman Fielder",
+                        "amount":  227.03
+                    },
+                    {
+                        "ref":  "9086329728",
+                        "captured":  "2026-07-13",
+                        "date":  "2026-07-13",
+                        "entity":  "vl",
+                        "supplier":  "Goodman Fielder",
+                        "amount":  81.52
+                    },
+                    {
+                        "ref":  "66317",
+                        "captured":  "2026-07-13",
+                        "date":  "2026-07-13",
+                        "entity":  "sb",
+                        "supplier":  "Veggieman",
+                        "amount":  268.07
+                    },
+                    {
+                        "ref":  "019010195",
+                        "captured":  "2026-07-13",
+                        "date":  "2026-07-13",
+                        "entity":  "vs",
+                        "supplier":  "LaundryCorp",
+                        "amount":  38.5
+                    },
+                    {
+                        "ref":  "019010193",
+                        "captured":  "2026-07-13",
+                        "date":  "2026-07-13",
+                        "entity":  "vl",
+                        "supplier":  "LaundryCorp",
+                        "amount":  51.03
+                    },
+                    {
+                        "ref":  "FE #11629 wk 13 Jul",
+                        "captured":  "2026-07-13",
+                        "date":  "2026-07-13",
+                        "entity":  "vs",
+                        "supplier":  "Five Elements",
+                        "amount":  1228.65
+                    },
+                    {
+                        "ref":  "FE #11627 wk 13 Jul",
+                        "captured":  "2026-07-13",
+                        "date":  "2026-07-13",
+                        "entity":  "sb",
+                        "supplier":  "Five Elements",
+                        "amount":  1783.54
+                    },
+                    {
+                        "ref":  "FE #11625 wk 13 Jul",
+                        "captured":  "2026-07-13",
+                        "date":  "2026-07-13",
+                        "entity":  "vl",
+                        "supplier":  "Five Elements",
+                        "amount":  1080
+                    },
+                    {
+                        "ref":  "4120220577",
+                        "note":  "PO David - reallocated to VS",
+                        "captured":  "2026-07-14",
+                        "date":  "2026-07-14",
+                        "entity":  "vs",
+                        "supplier":  "Gilmours",
+                        "amount":  224.73
+                    },
+                    {
+                        "ref":  "4120220623",
+                        "note":  "PO ScratchReplaceVI - reallocated to VS",
+                        "captured":  "2026-07-14",
+                        "date":  "2026-07-14",
+                        "entity":  "vs",
+                        "supplier":  "Gilmours",
+                        "amount":  51.93
+                    },
+                    {
+                        "ref":  "4120220862",
+                        "note":  "PO nicolas - reallocated to VS",
+                        "captured":  "2026-07-14",
+                        "date":  "2026-07-14",
+                        "entity":  "vs",
+                        "supplier":  "Gilmours",
+                        "amount":  374.54
+                    },
+                    {
+                        "ref":  "4120229970",
+                        "note":  "PO ReplaceVICst - reallocated to VS",
+                        "captured":  "2026-07-14",
+                        "date":  "2026-07-14",
+                        "entity":  "vs",
+                        "supplier":  "Gilmours",
+                        "amount":  0
+                    },
+                    {
+                        "ref":  "4120220838",
+                        "note":  "PO harneet - reallocated to VL",
+                        "captured":  "2026-07-14",
+                        "date":  "2026-07-14",
+                        "entity":  "vl",
+                        "supplier":  "Gilmours",
+                        "amount":  260.28
+                    },
+                    {
+                        "ref":  "4120220202",
+                        "note":  "PO harry",
+                        "captured":  "2026-07-14",
+                        "date":  "2026-07-14",
+                        "entity":  "sb",
+                        "supplier":  "Gilmours",
+                        "amount":  70.44
+                    },
+                    {
+                        "ref":  "4120220368",
+                        "note":  "PO FOH scratch HQ",
+                        "captured":  "2026-07-14",
+                        "date":  "2026-07-14",
+                        "entity":  "sb",
+                        "supplier":  "Gilmours",
+                        "amount":  130.87
+                    },
+                    {
+                        "ref":  "4120220383",
+                        "note":  "PO Heemin",
+                        "captured":  "2026-07-14",
+                        "date":  "2026-07-14",
+                        "entity":  "sb",
+                        "supplier":  "Gilmours",
+                        "amount":  215.9
+                    },
+                    {
+                        "ref":  "4120220578",
+                        "note":  "PO Jimmy",
+                        "captured":  "2026-07-14",
+                        "date":  "2026-07-14",
+                        "entity":  "sb",
+                        "supplier":  "Gilmours",
+                        "amount":  15.99
+                    },
+                    {
+                        "ref":  "4120220585",
+                        "note":  "PO dana",
+                        "captured":  "2026-07-14",
+                        "date":  "2026-07-14",
+                        "entity":  "sb",
+                        "supplier":  "Gilmours",
+                        "amount":  1132.19
+                    },
+                    {
+                        "ref":  "4120220841",
+                        "note":  "PO Thomas",
+                        "captured":  "2026-07-14",
+                        "date":  "2026-07-14",
+                        "entity":  "sb",
+                        "supplier":  "Gilmours",
+                        "amount":  202.35
+                    },
+                    {
+                        "ref":  "9086329622",
+                        "note":  "Invoice dated 13 Jul - captured 14 Jul (late capture); not in prior INVOICE_LOG",
+                        "captured":  "2026-07-14",
+                        "date":  "2026-07-13",
+                        "entity":  "vs",
+                        "supplier":  "Goodman Fielder",
+                        "amount":  122.21
+                    },
+                    {
+                        "ref":  "4120233228",
+                        "note":  "PO David - reallocated to VS",
+                        "captured":  "2026-07-15",
+                        "date":  "2026-07-15",
+                        "entity":  "vs",
+                        "supplier":  "Gilmours",
+                        "amount":  49.66
+                    },
+                    {
+                        "ref":  "4120232915",
+                        "note":  "PO harry",
+                        "captured":  "2026-07-15",
+                        "date":  "2026-07-15",
+                        "entity":  "sb",
+                        "supplier":  "Gilmours",
+                        "amount":  138.66
+                    },
+                    {
+                        "ref":  "4120232926",
+                        "note":  "PO Nevah CATERING F - stays SB (rest)",
+                        "captured":  "2026-07-15",
+                        "date":  "2026-07-15",
+                        "entity":  "sb",
+                        "supplier":  "Gilmours",
+                        "amount":  119.52
+                    },
+                    {
+                        "ref":  "4120233139",
+                        "note":  "PO Thomas",
+                        "captured":  "2026-07-15",
+                        "date":  "2026-07-15",
+                        "entity":  "sb",
+                        "supplier":  "Gilmours",
+                        "amount":  108.8
+                    },
+                    {
+                        "ref":  "4120233264",
+                        "note":  "PO dana",
+                        "captured":  "2026-07-15",
+                        "date":  "2026-07-15",
+                        "entity":  "sb",
+                        "supplier":  "Gilmours",
+                        "amount":  409.63
+                    },
+                    {
+                        "ref":  "4120233573",
+                        "note":  "PO kanika",
+                        "captured":  "2026-07-15",
+                        "date":  "2026-07-15",
+                        "entity":  "sb",
+                        "supplier":  "Gilmours",
+                        "amount":  901.06
+                    },
+                    {
+                        "ref":  "9086365525",
+                        "note":  "milk/almond - main supplier on delivery",
+                        "captured":  "2026-07-15",
+                        "date":  "2026-07-15",
+                        "entity":  "vs",
+                        "supplier":  "Goodman Fielder",
+                        "amount":  168.46
+                    },
+                    {
+                        "ref":  "9086363281",
+                        "note":  "milk/cream/butter - main supplier on delivery",
+                        "captured":  "2026-07-15",
+                        "date":  "2026-07-15",
+                        "entity":  "vl",
+                        "supplier":  "Goodman Fielder",
+                        "amount":  165.03
+                    },
+                    {
+                        "ref":  "9086362071",
+                        "note":  "TVNZ milk (payer Scratch Bakers) - main supplier",
+                        "captured":  "2026-07-15",
+                        "date":  "2026-07-15",
+                        "entity":  "sb",
+                        "supplier":  "Goodman Fielder",
+                        "amount":  67.23
+                    },
+                    {
+                        "ref":  "9086363514",
+                        "note":  "main milk/cream - main supplier",
+                        "captured":  "2026-07-15",
+                        "date":  "2026-07-15",
+                        "entity":  "sb",
+                        "supplier":  "Goodman Fielder",
+                        "amount":  166.97
+                    },
+                    {
+                        "ref":  "3422746",
+                        "note":  "main supplier on delivery",
+                        "captured":  "2026-07-15",
+                        "date":  "2026-07-15",
+                        "entity":  "sb",
+                        "supplier":  "The Produce Company",
+                        "amount":  23.67
+                    },
+                    {
+                        "ref":  "3422969",
+                        "note":  "main supplier on delivery",
+                        "captured":  "2026-07-15",
+                        "date":  "2026-07-15",
+                        "entity":  "sb",
+                        "supplier":  "The Produce Company",
+                        "amount":  192.64
+                    },
+                    {
+                        "ref":  "3422513",
+                        "note":  "main supplier on delivery",
+                        "captured":  "2026-07-15",
+                        "date":  "2026-07-15",
+                        "entity":  "sb",
+                        "supplier":  "The Produce Company",
+                        "amount":  36.51
+                    },
+                    {
+                        "ref":  "3422514",
+                        "note":  "main supplier on delivery",
+                        "captured":  "2026-07-15",
+                        "date":  "2026-07-15",
+                        "entity":  "sb",
+                        "supplier":  "The Produce Company",
+                        "amount":  229.91
+                    },
+                    {
+                        "ref":  "3422512",
+                        "note":  "main supplier on delivery",
+                        "captured":  "2026-07-15",
+                        "date":  "2026-07-15",
+                        "entity":  "sb",
+                        "supplier":  "The Produce Company",
+                        "amount":  16.05
+                    },
+                    {
+                        "ref":  "107082324",
+                        "note":  "weekly div5 spread starts today",
+                        "captured":  "2026-07-15",
+                        "date":  "2026-07-15",
+                        "entity":  "sb",
+                        "supplier":  "Mauri ANZ",
+                        "amount":  450.04
+                    },
+                    {
+                        "entity":  "sb",
+                        "note":  "PO harry",
+                        "date":  "2026-07-16",
+                        "supplier":  "Gilmours",
+                        "ref":  "4120244535",
+                        "amount":  136.87,
+                        "captured":  "2026-07-16"
+                    },
+                    {
+                        "entity":  "sb",
+                        "note":  "PO kanika",
+                        "date":  "2026-07-16",
+                        "supplier":  "Gilmours",
+                        "ref":  "4120244587",
+                        "amount":  985.02,
+                        "captured":  "2026-07-16"
+                    },
+                    {
+                        "entity":  "sb",
+                        "note":  "PO Thomas",
+                        "date":  "2026-07-16",
+                        "supplier":  "Gilmours",
+                        "ref":  "4120244680",
+                        "amount":  497.75,
+                        "captured":  "2026-07-16"
+                    },
+                    {
+                        "entity":  "sb",
+                        "note":  "PO dana",
+                        "date":  "2026-07-16",
+                        "supplier":  "Gilmours",
+                        "ref":  "4120244835",
+                        "amount":  183.17,
+                        "captured":  "2026-07-16"
+                    },
+                    {
+                        "entity":  "vl",
+                        "note":  "PO harneet - reallocated to VL",
+                        "date":  "2026-07-16",
+                        "supplier":  "Gilmours",
+                        "ref":  "4120244721",
+                        "amount":  429.21,
+                        "captured":  "2026-07-16"
+                    },
+                    {
+                        "entity":  "sb",
+                        "note":  "CREDIT NOTE - June 2026 customer rebate; Hubdoc only (Bidfood invoice file empty); dated 15 Jul captured 16 Jul",
+                        "date":  "2026-07-15",
+                        "supplier":  "Bidfood",
+                        "ref":  "821665761",
+                        "amount":  -201.24,
+                        "captured":  "2026-07-16"
+                    },
+                    {
+                        "entity":  "vs",
+                        "note":  "weekly div5 spread starts today",
+                        "date":  "2026-07-16",
+                        "supplier":  "LaundryCorp",
+                        "ref":  "019010259",
+                        "amount":  44.28,
+                        "captured":  "2026-07-16"
+                    },
+                    {
+                        "entity":  "sb",
+                        "note":  "SECOND Veggieman invoice this week - overlaps 66317 spread; each spreads div5 independently",
+                        "date":  "2026-07-16",
+                        "supplier":  "Veggieman",
+                        "ref":  "66413",
+                        "amount":  268.07,
+                        "captured":  "2026-07-16"
+                    },
+                    {
+                        "entity":  "sb",
+                        "note":  "frozen egg pulp; weekly div5 spread starts today",
+                        "date":  "2026-07-16",
+                        "supplier":  "MG International",
+                        "ref":  "INV-00083501",
+                        "amount":  533.6,
+                        "captured":  "2026-07-16"
+                    },
+                    {
+                        "entity":  "vl",
+                        "note":  "Fresho indicative order total (not a tax invoice) - weekly div7 spread starts today",
+                        "date":  "2026-07-16",
+                        "supplier":  "Betscharts",
+                        "ref":  "F56143249",
+                        "amount":  520.38,
+                        "captured":  "2026-07-16"
+                    }
+                ],
+    "prior_week_adjustments":  {
+
+                               }
+}
+;
+</script>
+</body>
+</html>
