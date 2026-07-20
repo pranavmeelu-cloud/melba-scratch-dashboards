@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Vulcan Lane &#8211; 20 July 2026 &#8211; Team Dashboard</title>
+<style>
+:root{--bg:#0f1419;--card:#1a1f2e;--card-2:#232938;--ink:#e6edf3;--muted:#7d8ba1;--border:#2a3547;--green:#4ade80;--red:#f87171;--amber:#fbbf24;--blue:#60a5fa;--purple:#a78bfa;--orange:#f97316;--teal:#34d399;--fuchsia:#e879f9}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:20px;line-height:1.5}
+.container{max-width:1200px;margin:0 auto}
+h1{font-size:1.6rem;font-weight:700;margin-bottom:6px}
+h2{font-size:1.1rem;font-weight:600;margin:24px 0 10px}
+.pill{display:inline-block;font-size:.7rem;font-weight:600;padding:3px 9px;border-radius:99px;background:var(--card-2);color:var(--muted);margin-left:8px;text-transform:uppercase;letter-spacing:.05em}
+.pill.team{background:#0d261a;color:#86efac}
+.subtitle{color:var(--muted);font-size:.9rem;margin-bottom:18px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px}
+.kpi .l{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:6px}
+.kpi .v{font-size:1.5rem;font-weight:700}.kpi .s{font-size:.72rem;color:var(--muted);margin-top:2px}
+.sc{border-radius:8px;padding:18px;margin-bottom:24px}
+.sc.green{border:1px solid var(--green);background:linear-gradient(135deg,#0d261a,#1a1f2e)}
+.sc.deepgreen{border:1px solid var(--green);background:linear-gradient(135deg,#0a2e18,#1a1f2e)}
+.sc.amber{border:1px solid var(--amber);background:linear-gradient(135deg,#262010,#1a1f2e)}
+.sc.orange{border:1px solid var(--orange);background:linear-gradient(135deg,#261a08,#1a1f2e)}
+.sc.red{border:1px solid var(--red);background:linear-gradient(135deg,#261010,#1a1f2e)}
+.sc .sl{font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:6px}
+.sc .sval{font-size:2.2rem;font-weight:700;margin-bottom:4px}.sc .sn{font-size:.78rem;color:var(--muted)}
+.barrow{display:grid;grid-template-columns:220px 1fr 90px 80px;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid #1f2738;font-size:.85rem}
+.barrow .nm{color:var(--ink)}
+.barrow .bar{height:18px;background:var(--card-2);border-radius:4px;position:relative;overflow:hidden}
+.barrow .barfill{height:100%;border-radius:4px}
+.barrow .amt{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.barrow .wtd{text-align:right;color:var(--muted);font-size:.78rem;font-variant-numeric:tabular-nums}
+.barhdr{display:grid;grid-template-columns:220px 1fr 90px 80px;gap:10px;font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding-bottom:6px;border-bottom:1px solid #2a3547;margin-bottom:2px}
+.barhdr div:nth-child(3),.barhdr div:nth-child(4){text-align:right}
+.note{font-size:.72rem;color:var(--muted);font-style:italic;margin-top:6px}
+.commentary{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;margin-top:12px;font-size:.86rem;color:#cbd5e1;line-height:1.6}
+.commentary b{color:var(--amber)}
+table th{font-weight:600}
+</style></head><body>
+<div class="container"><h1>Vulcan Lane <span class="pill">All $ incl GST</span> <span class="pill team">Team View</span></h1><div class="subtitle">Monday 20 July 2026 &#183; Week 4 of July</div><div class="kpis"><div class="kpi"><div class="l">Total Revenue</div><div class="v">$2,979.21</div></div><div class="kpi"><div class="l">Total COGS</div><div class="v">$588.82</div></div><div class="kpi"><div class="l">Wages</div><div class="v">$877.80</div><div class="s">30.95 h &#183; 4 staff</div></div><div class="kpi"><div class="l">Remaining Op Costs</div><div class="v">$1,079.18</div></div></div><div class="sc orange"><div class="sl">Daily Result</div><div class="sval">14.6%</div><div class="sn">of revenue &#183; Target &#8805; 20% &#8212; 5.5pp below target</div><div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)"><div style="font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:10px">Today vs budget</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div><div style="font-size:11px;color:var(--muted);margin-bottom:3px">COGS vs budget</div><div style="font-size:1.15rem;font-weight:700;color:#4ade80">&#8722;$155.98</div><div style="font-size:10px;color:var(--muted)">below COGS budget today</div></div><div><div style="font-size:11px;color:var(--muted);margin-bottom:3px">Wages vs target</div><div style="font-size:1.15rem;font-weight:700;color:#4ade80">&#8722;$167.36</div><div style="font-size:10px;color:var(--muted)">below wages target</div></div></div></div></div><h2>Revenue Breakdown</h2><div class="barhdr"><div>Stream</div><div></div><div>Mon 20 Jul</div><div>WTD</div></div><div class="barrow"><div class="nm">Cafe</div><div class="bar"><div class="barfill" style="width:100%;background:#4ade80"></div></div><div class="amt">$2,979.21</div><div class="wtd">$2,979.21</div></div><h2>COGS Breakdown</h2><div class="barhdr"><div>Supplier</div><div></div><div>Mon 20 Jul</div><div>WTD</div></div><div class="barrow"><div class="nm">Gilmours</div><div class="bar"><div class="barfill" style="width:100%;background:#fbbf24"></div></div><div class="amt">$276.55</div><div class="wtd">$276.55</div></div><div class="note" style="border-left:3px solid #fbbf24;padding-left:10px">1 invoice (20 Jul): <b>4120288711</b> &#183; PO harneet &#183; $276.55. Main supplier &#8212; booked in full on the delivery date, no spreading.</div><div class="barrow"><div class="nm">Five Elements</div><div class="bar"><div class="barfill" style="width:81%;background:#fbbf24"></div></div><div class="amt">$224.31</div><div class="wtd">$224.31</div></div><div class="note" style="border-left:3px solid #60a5fa;padding-left:10px">Weekly &#247; 7 &#183; $1,570.18 (#11647 wk 20 Jul) &#247; 7 = $224.31/day &#183; Day 1 of 7</div><div class="barrow"><div class="nm">Betscharts</div><div class="bar"><div class="barfill" style="width:27%;background:#fbbf24"></div></div><div class="amt">$74.34</div><div class="wtd">$74.34</div></div><div class="note" style="border-left:3px solid #60a5fa;padding-left:10px">Weekly &#247; 7 &#183; $520.38 (F56143249) &#247; 7 = $74.34/day &#183; Day 5 of 7</div><div class="barrow"><div class="nm">LaundryCorp</div><div class="bar"><div class="barfill" style="width:5%;background:#fbbf24"></div></div><div class="amt">$13.62</div><div class="wtd">$13.62</div></div><div class="note" style="border-left:3px solid #60a5fa;padding-left:10px">Weekly &#247; 7 &#183; two invoices spread independently: 019010296 $44.28 &#247; 7 = $6.33/day (Day 4 of 7) + 019010336 $51.03 &#247; 7 = $7.29/day (Day 1 of 7) &#183; combined $13.62/day</div><div class="note">Main suppliers $276.55 + Spread suppliers $312.27 = $588.82 total COGS today</div><h2>Wages</h2><div class="barhdr"><div>Employee</div><div></div><div>Mon 20 Jul</div><div>Hours</div></div><div class="barrow"><div class="nm">Rocio Maria Sanchez &#183; 8.52h</div><div class="bar"><div class="barfill" style="width:100%;background:#60a5fa"></div></div><div class="amt">8.52h</div><div class="wtd">8.52h</div></div><div class="barrow"><div class="nm">Franz Uyseco &#183; 7.60h</div><div class="bar"><div class="barfill" style="width:89%;background:#4ade80"></div></div><div class="amt">7.60h</div><div class="wtd">7.60h</div></div><div class="barrow"><div class="nm">harmony lai &#183; 7.58h</div><div class="bar"><div class="barfill" style="width:89%;background:#fbbf24"></div></div><div class="amt">7.58h</div><div class="wtd">7.58h</div></div><div class="barrow"><div class="nm">Ravi (Ravinder kaur) &#183; 7.25h</div><div class="bar"><div class="barfill" style="width:85%;background:#4ade80"></div></div><div class="amt">7.25h</div><div class="wtd">7.25h</div></div><div class="note">Hours shown per employee. FOH blue, Kitchen green, TVNZ purple. A shift logged as 1.00h is read as 8.00h (still on shift).</div><h2>Commentary</h2><div class="commentary">Monday took <b>$2,979.21</b> on caf&eacute; trade. Food cost $588.82 &#8212; well under the 25% benchmark &#8212; a $276.55 Gilmours delivery plus weekly spread shares. Wages ran $877.80 across 31.0 hours, $167 under last Monday. A solid start to the week at 14.6% margin. Tomorrow's confirmed Gilmours order is $265.75 (O-0005568258).</div><h2>Forward Forecast</h2><div style="display:grid;grid-template-columns:1fr 1fr;gap:14px"><div style="background:var(--card);border:1px solid #2a3547;border-radius:8px;padding:14px"><div style="font-size:.72rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:8px">Tomorrow &#183; Benchmark budget &#183; Tuesday 21 Jul</div><div style="display:flex;justify-content:space-between;font-size:.8rem;padding:2px 0"><span style="color:var(--muted)">Cafe</span><span>$3,350.48</span></div><div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border)"><div style="font-size:.72rem;color:var(--muted)">Variable COGS budget</div><div style="font-size:1.3rem;font-weight:700;color:#fbbf24">$525.35</div><div style="font-size:.68rem;color:var(--muted);margin-top:4px">Caf&eacute; &times; 25% less committed spread shares &#183; Five Elements $224.31 &#183; Betscharts $74.34 &#183; LaundryCorp $13.62 = $312.27 (deducted)</div><div style="font-size:.72rem;color:#60a5fa;margin-top:6px">Wages budget $1,142.92</div></div><div style="background:rgba(96,165,250,.05);border:1px solid rgba(96,165,250,.2);border-radius:8px;padding:12px;margin-top:12px"><div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:8px">Best Fit Hours</div><table style="width:100%;border-collapse:collapse;font-size:.82rem"><thead><tr style="color:var(--muted);font-size:.7rem;text-transform:uppercase"><th style="text-align:left;padding:4px 0">Employee</th><th style="text-align:left">Area</th><th style="text-align:right">Target hrs</th></tr></thead><tbody><tr><td>Franz Uyseco</td><td>Kitchen</td><td style="text-align:right">6.22</td></tr><tr><td>Ravi (Ravinder kaur)</td><td>Kitchen</td><td style="text-align:right">6.85</td></tr><tr><td>Carlos Araneda</td><td>Kitchen</td><td style="text-align:right">7.50</td></tr><tr><td>Rocio Maria Sanchez</td><td>FOH</td><td style="text-align:right">8.05</td></tr><tr><td>Sora Kim</td><td>FOH</td><td style="text-align:right">7.42</td></tr><tr><td>Nevaeh Paleaaesina</td><td>FOH</td><td style="text-align:right">4.45</td></tr></tbody></table><div style="font-size:.7rem;color:var(--muted);margin-top:8px">40.49 total hours &#183; full-time staff at minimum 7h</div></div></div><div style="background:var(--card);border:1px solid #2a3547;border-radius:8px;padding:14px"><div style="font-size:.72rem;text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-bottom:8px">Benchmark budget &#183; Wednesday 22 Jul</div><div style="display:flex;justify-content:space-between;font-size:.8rem;padding:2px 0"><span style="color:var(--muted)">Cafe</span><span>$3,268.98</span></div><div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border)"><div style="font-size:.72rem;color:var(--muted)">Variable COGS budget</div><div style="font-size:1.3rem;font-weight:700;color:#fbbf24">$504.98</div><div style="font-size:.68rem;color:var(--muted);margin-top:4px">Caf&eacute; &times; 25% less committed spread shares &#183; Five Elements $224.31 &#183; Betscharts $74.34 &#183; LaundryCorp $13.62 = $312.27 (deducted)</div><div style="font-size:.72rem;color:#60a5fa;margin-top:6px">Wages budget $1,134.66</div></div><div style="background:rgba(96,165,250,.05);border:1px solid rgba(96,165,250,.2);border-radius:8px;padding:12px;margin-top:12px"><div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:8px">Best Fit Hours</div><table style="width:100%;border-collapse:collapse;font-size:.82rem"><thead><tr style="color:var(--muted);font-size:.7rem;text-transform:uppercase"><th style="text-align:left;padding:4px 0">Employee</th><th style="text-align:left">Area</th><th style="text-align:right">Target hrs</th></tr></thead><tbody><tr><td>Franz Uyseco</td><td>Kitchen</td><td style="text-align:right">6.33</td></tr><tr><td>Ravi (Ravinder kaur)</td><td>Kitchen</td><td style="text-align:right">6.92</td></tr><tr><td>Carlos Araneda</td><td>Kitchen</td><td style="text-align:right">7.60</td></tr><tr><td>Eden Wharerau</td><td>FOH</td><td style="text-align:right">8.18</td></tr><tr><td>Sora Kim</td><td>FOH</td><td style="text-align:right">6.98</td></tr><tr><td>Nevaeh Paleaaesina</td><td>FOH</td><td style="text-align:right">4.10</td></tr></tbody></table><div style="font-size:.7rem;color:var(--muted);margin-top:8px">40.11 total hours &#183; full-time staff at minimum 7h</div></div></div></div></div>
+<script>
+const FORECAST_BASE = {
+    "last_week":  {
+                      "mon":  {
+                                  "vs":  {
+                                             "cafe":  1604.22,
+                                             "catering":  427.96
+                                         },
+                                  "vl":  {
+                                             "cafe":  2801.9
+                                         },
+                                  "sb":  {
+                                             "cafe":  2204.4,
+                                             "wholesale":  3748.77,
+                                             "tvnz":  832.1,
+                                             "catering":  1718.71
+                                         }
+                              },
+                      "wed":  {
+                                  "vs":  {
+                                             "cafe":  1695.47,
+                                             "catering":  1270.33
+                                         },
+                                  "vl":  {
+                                             "cafe":  3268.98
+                                         },
+                                  "sb":  {
+                                             "cafe":  3161.5,
+                                             "wholesale":  3121.71,
+                                             "tvnz":  1145.7,
+                                             "catering":  3569.66
+                                         }
+                              },
+                      "sat":  {
+                                  "vs":  {
+                                             "cafe":  0,
+                                             "catering":  550.08
+                                         },
+                                  "vl":  {
+                                             "cafe":  5978.94
+                                         },
+                                  "sb":  {
+                                             "cafe":  0,
+                                             "wholesale":  2269.83,
+                                             "tvnz":  0,
+                                             "catering":  0
+                                         }
+                              },
+                      "thu":  {
+                                  "vs":  {
+                                             "cafe":  1872.73,
+                                             "catering":  1686.56
+                                         },
+                                  "vl":  {
+                                             "cafe":  3960.25
+                                         },
+                                  "sb":  {
+                                             "cafe":  3157.99,
+                                             "wholesale":  3200.47,
+                                             "tvnz":  1458.5,
+                                             "catering":  1577.84
+                                         }
+                              },
+                      "tue":  {
+                                  "vs":  {
+                                             "cafe":  2016.17,
+                                             "catering":  2390.24
+                                         },
+                                  "vl":  {
+                                             "cafe":  3350.48
+                                         },
+                                  "sb":  {
+                                             "cafe":  2700.1,
+                                             "wholesale":  2828,
+                                             "tvnz":  1003.4,
+                                             "catering":  2425.14
+                                         }
+                              },
+                      "sun":  {
+                                  "vs":  {
+                                             "cafe":  0,
+                                             "catering":  0
+                                         },
+                                  "vl":  {
+                                             "cafe":  5777.66
+                                         },
+                                  "sb":  {
+                                             "cafe":  0,
+                                             "wholesale":  0,
+                                             "tvnz":  0,
+                                             "catering":  0
+                                         }
+                              },
+                      "fri":  {
+                                  "vs":  {
+                                             "cafe":  1604.3,
+                                             "catering":  0
+                                         },
+                                  "vl":  {
+                                             "cafe":  3400.22
+                                         },
+                                  "sb":  {
+                                             "cafe":  2764.09,
+                                             "wholesale":  2466.59,
+                                             "tvnz":  578,
+                                             "catering":  869.51
+                                         }
+                              }
+                  },
+    "last_week_wages":  {
+                            "mon":  {
+                                        "vs":  1479.86,
+                                        "vl":  1045.16,
+                                        "sb":  2627.93
+                                    },
+                            "wed":  {
+                                        "vs":  1606.06,
+                                        "vl":  1134.66,
+                                        "sb":  3393.18
+                                    },
+                            "sat":  {
+                                        "vs":  0,
+                                        "vl":  1127.75,
+                                        "sb":  229.32
+                                    },
+                            "thu":  {
+                                        "vs":  1229.25,
+                                        "vl":  1012.31,
+                                        "sb":  3329.15
+                                    },
+                            "tue":  {
+                                        "vs":  1675.64,
+                                        "vl":  1142.92,
+                                        "sb":  3316.5
+                                    },
+                            "sun":  {
+                                        "vs":  116.05,
+                                        "vl":  1380.22,
+                                        "sb":  410.52
+                                    },
+                            "fri":  {
+                                        "vs":  1116.52,
+                                        "vl":  1180.68,
+                                        "sb":  2747.66
+                                    }
+                        },
+    "cogs_benchmarks":  {
+                            "vs":  {
+                                       "cafe":  0.26,
+                                       "catering":  0.22
+                                   },
+                            "vl":  {
+                                       "cafe":  0.25
+                                   },
+                            "sb":  {
+                                       "cafe":  0.25,
+                                       "wholesale":  0.35,
+                                       "tvnz":  0.22,
+                                       "catering":  0.18
+                                   },
+                            "qs":  {
+                                       "cafe":  0.19
+                                   }
+                        }
+};
+</script>
+</body></html>
