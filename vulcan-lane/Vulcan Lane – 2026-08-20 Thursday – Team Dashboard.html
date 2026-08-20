@@ -1,0 +1,84 @@
+﻿<title>Vulcan Lane – Team Dashboard</title>
+<style>:root{--bg:#0f1419;--card:#1a1f2e;--card-2:#232938;--tx:#e6edf3;--muted:#8b98a5;--bd:#2a3547;
+--gr:#4ade80;--rd:#f87171;--am:#fbbf24;--bl:#60a5fa;--pu:#a78bfa;--or:#f97316;--te:#34d399;--fu:#e879f9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;padding:18px;line-height:1.45}
+h1{font-size:1.5rem;margin:0 0 6px}h2{font-size:1.05rem;margin:26px 0 10px;letter-spacing:.01em}
+.sub{color:var(--muted);font-size:.85rem;margin-bottom:16px}
+.pill{display:inline-block;padding:2px 9px;border-radius:99px;font-size:.7rem;font-weight:600;background:var(--card-2);color:var(--muted);margin-left:7px;vertical-align:middle}
+.tabs{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 18px}
+.tabs button{background:var(--card);border:1px solid var(--bd);color:var(--muted);padding:7px 15px;border-radius:8px;cursor:pointer;font-size:.85rem;font-weight:600}
+.tabs button.on{background:var(--card-2);color:var(--tx);border-color:var(--bl)}
+.dtabs{display:flex;flex-wrap:wrap;gap:5px;margin:0 0 16px}
+.dtabs button{background:transparent;border:1px solid var(--bd);color:var(--muted);padding:5px 12px;border-radius:6px;cursor:pointer;font-size:.78rem}
+.dtabs button.on{background:var(--bl);color:#0b1220;border-color:var(--bl);font-weight:700}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:11px;margin-bottom:14px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:11px;padding:13px 15px}
+.kl{font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:5px}
+.kv{font-size:1.42rem;font-weight:700}.kn{font-size:.7rem;color:var(--muted);margin-top:3px}
+.scard{border-radius:12px;padding:16px 18px;margin:14px 0 6px;border:1px solid var(--bd)}
+.sval{font-size:2rem;font-weight:800;line-height:1.1}
+.sn{font-size:.78rem;color:var(--muted);margin-top:4px}
+.sec{background:var(--card);border:1px solid var(--bd);border-radius:11px;padding:15px 17px;margin-bottom:14px}
+.barrow{display:grid;grid-template-columns:1fr 62px 96px 96px;gap:9px;align-items:center;padding:5px 0;font-size:.82rem}
+.nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bwrap{background:var(--card-2);border-radius:4px;height:8px;overflow:hidden;margin-top:4px}
+.bar{height:100%;border-radius:4px}
+.r{text-align:right;font-variant-numeric:tabular-nums}
+.hdrow{display:grid;grid-template-columns:1fr 62px 96px 96px;gap:9px;font-size:.66rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);border-bottom:1px solid var(--bd);padding-bottom:5px;margin-bottom:6px}
+.note{background:rgba(251,191,36,.09);border-left:3px solid var(--am);padding:8px 11px;border-radius:0 6px 6px 0;font-size:.75rem;color:#e8d9a8;margin:7px 0}
+.note.red{background:rgba(248,113,113,.09);border-left-color:var(--rd);color:#f0c4c4}
+.note.blue{background:rgba(96,165,250,.08);border-left-color:var(--bl);color:#bcd6f5}
+.inv{background:rgba(251,191,36,.06);border-left:2px solid rgba(251,191,36,.5);padding:5px 10px;margin:3px 0 9px;font-size:.7rem;color:var(--muted);border-radius:0 4px 4px 0}
+.cal{background:rgba(96,165,250,.06);border-left:2px solid rgba(96,165,250,.5);padding:5px 10px;margin:3px 0 9px;font-size:.7rem;color:var(--muted);border-radius:0 4px 4px 0}
+.foot{font-size:.72rem;color:var(--muted);border-top:1px solid var(--bd);padding-top:9px;margin-top:10px}
+.comm{font-size:.83rem;color:#c9d4df}.comm p{margin:0 0 9px}
+.hide{display:none}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+th,td{padding:8px 9px;text-align:left;border-bottom:1px solid var(--bd)}
+th{font-size:.66rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600}
+td.r,th.r{text-align:right;font-variant-numeric:tabular-nums}
+.mp{display:inline-block;padding:2px 9px;border-radius:99px;font-size:.72rem;font-weight:700}
+.fc{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:12px}</style>
+<h1>Vulcan Lane<span class="pill">All $ incl GST</span><span class="pill">Team View</span></h1>
+<div class="sub">Thursday 20 August 2026</div>
+<div class="kpis">
+<div class="kpi"><div class="kl">Total Revenue</div><div class="kv">$2,158.35</div></div>
+<div class="kpi"><div class="kl">Total COGS</div><div class="kv" style="color:var(--am)">$1,886.85</div></div>
+<div class="kpi"><div class="kl">Wages</div><div class="kv" style="color:var(--bl)">$1,131.21</div><div class="kn">40.74h · 6 staff</div></div>
+<div class="kpi"><div class="kl">Operating Costs</div><div class="kv">$725.42</div></div></div>
+<div class="scard" style="border-color:#f87171;background:linear-gradient(135deg,#261010,#1a1f2e)">
+<div class="kl">Daily Result</div><div class="sval" style="color:#f87171">−73.44%</div><div class="sn">of revenue · Target ≥20% — 93.4pp below target</div>
+<div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)">
+<div style="font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:10px">Today vs budget</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+<div><div style="font-size:11px;color:var(--muted);margin-bottom:3px">COGS vs budget</div>
+<div style="font-size:1.15rem;font-weight:700;color:#f87171">+$1,886.85</div>
+<div style="font-size:10px;color:var(--muted)">above COGS budget today</div></div>
+<div><div style="font-size:11px;color:var(--muted);margin-bottom:3px">Wages vs target</div>
+<div style="font-size:1.15rem;font-weight:700;color:#f87171">+$8.37</div>
+<div style="font-size:10px;color:var(--muted)">above wages target</div></div></div></div></div>
+<div class="note">⚠ <b>Coffee invoices caught up today.</b> This week's Five Elements invoice was not in Monday to Wednesday's numbers and came through today, so today carries four days of coffee cost at once. It makes today's result look worse than the day actually was — the week total is right.</div>
+<div class="sec"><h2>Revenue Breakdown</h2><div class="hdrow"><div>Stream</div><div class="r">%</div><div class="r">Thu</div><div class="r">WTD</div></div><div class="barrow"><div><div class="nm">Cafe</div><div class="bwrap"><div class="bar" style="width:100%;background:#60a5fa"></div></div></div><div class="r" style="color:var(--muted);font-size:.72rem">100%</div><div class="r">$2,158.35</div><div class="r" style="color:var(--muted)">$9,441.59</div></div>
+</div>
+<div class="sec"><h2>COGS Breakdown</h2><div class="hdrow"><div>Supplier</div><div class="r">%</div><div class="r">Thu</div><div class="r">WTD</div></div><div class="barrow"><div><div class="nm">Five Elements</div><div class="bwrap"><div class="bar" style="width:100%;background:#a78bfa"></div></div></div><div class="r" style="color:var(--muted);font-size:.72rem">46.9%</div><div class="r">$885.13</div><div class="r" style="color:var(--muted)">$885.13</div></div>
+<div class="cal">Weekly ÷ 7 · $1,548.97 ÷ 7 = $221.28/day · LATE CAPTURE: invoice dated Sun 16 Aug, captured today · 3 missed days (Mon-Wed) + today = 4 shares booked ($885.13)</div>
+<div class="barrow"><div><div class="nm">Gilmours</div><div class="bwrap"><div class="bar" style="width:92.4%;background:#60a5fa"></div></div></div><div class="r" style="color:var(--muted);font-size:.72rem">43.4%</div><div class="r">$818.29</div><div class="r" style="color:var(--muted)">$1,654.84</div></div>
+<div class="inv">4120649618 · PO Harneet · 2026-08-20 · $818.29</div>
+<div class="barrow"><div><div class="nm">Betscharts</div><div class="bwrap"><div class="bar" style="width:15%;background:#e879f9"></div></div></div><div class="r" style="color:var(--muted);font-size:.72rem">7%</div><div class="r">$132.96</div><div class="r" style="color:var(--muted)">$340.26</div></div>
+<div class="cal">Weekly ÷ 7 · F57357038 $483.70 ÷ 7 = $69.10/day (day 7 of 7, final) + NEW F57600911 $447.01 ÷ 7 = $63.86/day (day 1 of 7) · combined $132.96 · new order is an indicative Fresho total, not yet invoiced</div>
+<div class="barrow"><div><div class="nm">Homegrown Juice</div><div class="bwrap"><div class="bar" style="width:4.2%;background:#f87171"></div></div></div><div class="r" style="color:var(--muted);font-size:.72rem">2%</div><div class="r">$36.85</div><div class="r" style="color:var(--muted)">$36.85</div></div>
+<div class="cal">Weekly ÷ 7 · $128.96 (573028089) ÷ 7 = $18.42/day · invoice dated Wed 19 Aug, captured today · 1 missed day + today = 2 shares ($36.85)</div>
+<div class="barrow"><div><div class="nm">LaundryCorp</div><div class="bwrap"><div class="bar" style="width:1.5%;background:#34d399"></div></div></div><div class="r" style="color:var(--muted);font-size:.72rem">0.7%</div><div class="r">$13.62</div><div class="r" style="color:var(--muted)">$48.15</div></div>
+<div class="cal">Weekly ÷ 7 · 2 invoices: 019010931 $51.03 ÷ 7 = $7.29/day (day 4 of 7) + 019010958 $44.28 ÷ 7 = $6.33/day (day 3 of 7) · combined $13.62/day</div>
+<div class="foot">Main suppliers $818.29 + Spread suppliers $1,068.56 = $1,886.85 total COGS today</div></div>
+<div class="sec"><h2>Wages · 6 Staff · 40.74h · $1,131.21</h2><div class="hdrow"><div>Employee</div><div class="r">Area</div><div class="r">Hours</div><div class="r">WTD hrs</div></div><div class="barrow"><div><div class="nm">Ryotaro Onishi · 7.75h</div><div class="bwrap"><div class="bar" style="width:775%;background:#60a5fa"></div></div></div><div class="r" style="color:var(--muted);font-size:.72rem">FOH</div><div class="r">7.75h</div><div class="r" style="color:var(--muted)">24.34h</div></div>
+<div class="barrow"><div><div class="nm">Carlos Araneda · 7.5h</div><div class="bwrap"><div class="bar" style="width:750%;background:#4ade80"></div></div></div><div class="r" style="color:var(--muted);font-size:.72rem">Kitchen</div><div class="r">7.5h</div><div class="r" style="color:var(--muted)">23.78h</div></div>
+<div class="barrow"><div><div class="nm">Sora Kim · 6.92h</div><div class="bwrap"><div class="bar" style="width:692%;background:#60a5fa"></div></div></div><div class="r" style="color:var(--muted);font-size:.72rem">FOH</div><div class="r">6.92h</div><div class="r" style="color:var(--muted)">18.92h</div></div>
+<div class="barrow"><div><div class="nm">Ravi · 6.67h</div><div class="bwrap"><div class="bar" style="width:667%;background:#4ade80"></div></div></div><div class="r" style="color:var(--muted);font-size:.72rem">Kitchen</div><div class="r">6.67h</div><div class="r" style="color:var(--muted)">27.64h</div></div>
+<div class="barrow"><div><div class="nm">Franz Uyseco · 6.63h</div><div class="bwrap"><div class="bar" style="width:663%;background:#4ade80"></div></div></div><div class="r" style="color:var(--muted);font-size:.72rem">Kitchen</div><div class="r">6.63h</div><div class="r" style="color:var(--muted)">6.63h</div></div>
+<div class="barrow"><div><div class="nm">Maddi Roewen · 5.27h</div><div class="bwrap"><div class="bar" style="width:527%;background:#60a5fa"></div></div></div><div class="r" style="color:var(--muted);font-size:.72rem">FOH</div><div class="r">5.27h</div><div class="r" style="color:var(--muted)">5.27h</div></div>
+<div class="foot">Hours from Deputy timesheets · a recorded total of 1.00h means the shift was still open and is counted as 8.00h</div></div>
+<div class="sec"><h2>Commentary</h2><div class="comm"><p><b>Thu 20 Aug.</b> Revenue $2,158.35 with COGS $1,886.85 and 40.74h of labour. Daily result −73.44%.</p><p>The coffee invoice catch-up described above accounts for a large part of today's cost. Setting that aside, the day's own trading cost is much closer to normal.</p><p>Today included a $818.29 Gilmours delivery plus the coffee catch-up. Friday's Gilmours order is already placed at $525.33.</p></div></div>
+<h2>Forward Forecast</h2><div class="fc"><div class="sec" style="border-color:rgba(251,191,36,.4)"><div style="font-size:.95rem;font-weight:700;margin-bottom:3px">Friday 21 August</div><div style="font-size:.72rem;color:var(--muted);margin-bottom:10px">Cafe $3,297.07</div><div class="kl">Tomorrow · Benchmark budget</div><div style="font-size:1.5rem;font-weight:800;color:var(--am)">$507.09</div><div style="font-size:.68rem;color:var(--muted);margin-top:6px">Benchmark $824.27 less committed supplier shares $317.18. Gilmours order already placed for Friday: $525.33.</div><div style="margin-top:12px"><div class="kl">Wages budget</div><div style="font-size:1.15rem;font-weight:700;color:var(--bl)">$1,184.10</div></div><div style="margin-top:14px;background:rgba(96,165,250,.05);border:1px solid rgba(96,165,250,.2);border-radius:8px;padding:11px 13px"><div class="kl" style="margin-bottom:7px">Best Fit Hours</div><table><thead><tr><th>Employee</th><th>Area</th><th class="r">Target hrs</th></tr></thead><tbody><tr><td>Franz Uyseco</td><td>Kitchen</td><td class="r">6.63</td></tr><tr><td>Ravi</td><td>Kitchen</td><td class="r">6.67</td></tr><tr><td>Carlos Araneda</td><td>Kitchen</td><td class="r">7.5</td></tr><tr><td>Sora Kim</td><td>FOH</td><td class="r">6.92</td></tr><tr><td>Maddi Roewen</td><td>FOH</td><td class="r">5.27</td></tr><tr><td>Ryotaro Onishi</td><td>FOH</td><td class="r">7.75</td></tr></tbody></table><div style="font-size:.68rem;color:var(--muted);margin-top:7px">40.74 total hours · full-time staff at minimum 7h</div></div></div><div class="sec" style="border-color:rgba(251,191,36,.4)"><div style="font-size:.95rem;font-weight:700;margin-bottom:3px">Monday 24 August</div><div style="font-size:.72rem;color:var(--muted);margin-bottom:10px">Cafe $2,301.70</div><div class="kl">Benchmark budget · Monday</div><div style="font-size:1.5rem;font-weight:800;color:var(--am)">$486.81</div><div style="font-size:.68rem;color:var(--muted);margin-top:6px">Benchmark $575.42 less committed supplier shares $88.61.</div><div style="margin-top:12px"><div class="kl">Wages budget</div><div style="font-size:1.15rem;font-weight:700;color:var(--bl)">$938.48</div></div><div style="margin-top:14px;background:rgba(96,165,250,.05);border:1px solid rgba(96,165,250,.2);border-radius:8px;padding:11px 13px"><div class="kl" style="margin-bottom:7px">Best Fit Hours</div><table><thead><tr><th>Employee</th><th>Area</th><th class="r">Target hrs</th></tr></thead><tbody><tr><td>Franz Uyseco</td><td>Kitchen</td><td class="r">6.63</td></tr><tr><td>Ravi</td><td>Kitchen</td><td class="r">6.67</td></tr><tr><td>Carlos Araneda</td><td>Kitchen</td><td class="r">7.5</td></tr><tr><td>Sora Kim</td><td>FOH</td><td class="r">6.92</td></tr><tr><td>Maddi Roewen</td><td>FOH</td><td class="r">5.27</td></tr><tr><td>Ryotaro Onishi</td><td>FOH</td><td class="r">7.75</td></tr></tbody></table><div style="font-size:.68rem;color:var(--muted);margin-top:7px">40.74 total hours · full-time staff at minimum 7h</div></div></div></div>
+<script>const FORECAST_BASE = {"last_week":{"mon":{"vs":{"cafe":1631.4,"catering":1823.19},"vl":{"cafe":2301.7},"sb":{"tvnz":843.4,"wholesale":3465.8,"cafe":1990.5,"catering":1472.4}},"wed":{"vs":{"cafe":2466.15,"catering":3379.62},"vl":{"cafe":3547.98},"sb":{"tvnz":1168.5,"wholesale":3042.58,"cafe":3052.36,"catering":1977.2}},"sat":{"vl":{"cafe":4216.5},"sb":{"wholesale":2510.75}},"sun":{"vl":{"cafe":3550.76},"sb":{"wholesale":514.58}},"thu":{"vs":{"cafe":2322.76,"catering":5323.45},"vl":{"cafe":2895.84},"sb":{"tvnz":1015.6,"wholesale":3538.43,"cafe":2894.2,"catering":2404.16}},"tue":{"vs":{"cafe":2131.4,"catering":2775.9},"vl":{"cafe":2997.05},"sb":{"tvnz":983.7,"wholesale":3192.13,"cafe":2694.2,"catering":2924.6}},"fri":{"vs":{"cafe":1427.8,"catering":1636.58},"vl":{"cafe":3297.07},"sb":{"tvnz":777.2,"wholesale":3027.65,"cafe":3001.8,"catering":1571.19}}},"last_week_wages":{"mon":{"vs":1428.13,"vl":938.48,"sb":3181.44},"wed":{"vs":1713.68,"vl":845.52,"sb":3467.06},"sat":{"vs":0,"vl":1081.16,"sb":183.69},"sun":{"vs":160.05,"vl":1333.56,"sb":598.32},"thu":{"vs":1588.18,"vl":1122.84,"sb":3476.43},"tue":{"vs":1628.04,"vl":1161.51,"sb":3447.8},"fri":{"vs":908.18,"vl":1184.1,"sb":2992.64}},"cogs_benchmarks":{"vs":{"cafe":0.26,"catering":0.22},"sb":{"tvnz":0.22,"wholesale":0.35,"cafe":0.25,"catering":0.18},"vl":{"cafe":0.25},"qs":{"cafe":0.19}}};</script>
