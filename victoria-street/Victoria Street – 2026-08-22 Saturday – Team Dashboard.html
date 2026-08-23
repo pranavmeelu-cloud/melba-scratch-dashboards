@@ -1,0 +1,64 @@
+﻿<title>Victoria Street – Team Dashboard</title>
+<style>:root{--bg:#0f1419;--card:#1a1f2e;--card-2:#232938;--tx:#e6edf3;--muted:#8b98a5;--bd:#2a3547;
+--gr:#4ade80;--rd:#f87171;--am:#fbbf24;--bl:#60a5fa;--pu:#a78bfa;--or:#f97316;--te:#34d399;--fu:#e879f9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;padding:18px;line-height:1.45}
+h1{font-size:1.5rem;margin:0 0 6px}h2{font-size:1.05rem;margin:26px 0 10px;letter-spacing:.01em}
+.sub{color:var(--muted);font-size:.85rem;margin-bottom:16px}
+.pill{display:inline-block;padding:2px 9px;border-radius:99px;font-size:.7rem;font-weight:600;background:var(--card-2);color:var(--muted);margin-left:7px;vertical-align:middle}
+.tabs{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 18px}
+.tabs button{background:var(--card);border:1px solid var(--bd);color:var(--muted);padding:7px 15px;border-radius:8px;cursor:pointer;font-size:.85rem;font-weight:600}
+.tabs button.on{background:var(--card-2);color:var(--tx);border-color:var(--bl)}
+.dtabs{display:flex;flex-wrap:wrap;gap:5px;margin:0 0 16px}
+.dtabs button{background:transparent;border:1px solid var(--bd);color:var(--muted);padding:5px 12px;border-radius:6px;cursor:pointer;font-size:.78rem}
+.dtabs button.on{background:var(--bl);color:#0b1220;border-color:var(--bl);font-weight:700}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:11px;margin-bottom:14px}
+.kpi{background:var(--card);border:1px solid var(--bd);border-radius:11px;padding:13px 15px}
+.kl{font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:5px}
+.kv{font-size:1.42rem;font-weight:700}.kn{font-size:.7rem;color:var(--muted);margin-top:3px}
+.scard{border-radius:12px;padding:16px 18px;margin:14px 0 6px;border:1px solid var(--bd)}
+.sval{font-size:2rem;font-weight:800;line-height:1.1}
+.sn{font-size:.78rem;color:var(--muted);margin-top:4px}
+.sec{background:var(--card);border:1px solid var(--bd);border-radius:11px;padding:15px 17px;margin-bottom:14px}
+.barrow{display:grid;grid-template-columns:1fr 62px 96px 96px;gap:9px;align-items:center;padding:5px 0;font-size:.82rem}
+.nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bwrap{background:var(--card-2);border-radius:4px;height:8px;overflow:hidden;margin-top:4px}
+.bar{height:100%;border-radius:4px}
+.r{text-align:right;font-variant-numeric:tabular-nums}
+.hdrow{display:grid;grid-template-columns:1fr 62px 96px 96px;gap:9px;font-size:.66rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);border-bottom:1px solid var(--bd);padding-bottom:5px;margin-bottom:6px}
+.note{background:rgba(251,191,36,.09);border-left:3px solid var(--am);padding:8px 11px;border-radius:0 6px 6px 0;font-size:.75rem;color:#e8d9a8;margin:7px 0}
+.note.red{background:rgba(248,113,113,.09);border-left-color:var(--rd);color:#f0c4c4}
+.note.blue{background:rgba(96,165,250,.08);border-left-color:var(--bl);color:#bcd6f5}
+.inv{background:rgba(251,191,36,.06);border-left:2px solid rgba(251,191,36,.5);padding:5px 10px;margin:3px 0 9px;font-size:.7rem;color:var(--muted);border-radius:0 4px 4px 0}
+.cal{background:rgba(96,165,250,.06);border-left:2px solid rgba(96,165,250,.5);padding:5px 10px;margin:3px 0 9px;font-size:.7rem;color:var(--muted);border-radius:0 4px 4px 0}
+.foot{font-size:.72rem;color:var(--muted);border-top:1px solid var(--bd);padding-top:9px;margin-top:10px}
+.comm{font-size:.83rem;color:#c9d4df}.comm p{margin:0 0 9px}
+.hide{display:none}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+th,td{padding:8px 9px;text-align:left;border-bottom:1px solid var(--bd)}
+th{font-size:.66rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600}
+td.r,th.r{text-align:right;font-variant-numeric:tabular-nums}
+.mp{display:inline-block;padding:2px 9px;border-radius:99px;font-size:.72rem;font-weight:700}
+.fc{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:12px}</style>
+<h1>Victoria Street<span class="pill">All $ incl GST</span><span class="pill">Team View</span></h1>
+<div class="sub">Saturday 22 August 2026</div>
+<div class="note red">⚠ <b>Provisional — some figures are estimates.</b> Tonight's data feed brought through the till and catering numbers only. <b>Sales figures are real.</b> Supplier costs and hours have been estimated from the confirmed orders on file and from last Saturday's roster, so the COGS and wages figures below will move once the real files come through. Budgets for the days ahead are unaffected.</div>
+<div class="kpis">
+<div class="kpi"><div class="kl">Total Revenue</div><div class="kv">$0.00</div></div>
+<div class="kpi"><div class="kl">Total COGS</div><div class="kv" style="color:var(--am)">$509.05</div><div class="kn">estimated</div></div>
+<div class="kpi"><div class="kl">Wages</div><div class="kv" style="color:var(--bl)">$0.00</div><div class="kn">0h · 0 staff · estimated</div></div>
+<div class="kpi"><div class="kl">Operating Costs</div><div class="kv">−$17.05</div></div></div>
+<div class="scard" style="border-color:#f97316;background:linear-gradient(135deg,#261a08,#1a1f2e)">
+<div class="kl">Daily Result</div><div class="sval" style="color:#f97316">Closed</div>
+<div class="sn">No trading today — closed on weekends. Next trade Monday.</div></div>
+<div class="sec"><h2>Revenue Breakdown</h2><div class="hdrow"><div>Stream</div><div class="r">%</div><div class="r">Sat</div><div class="r">WTD</div></div><div class="barrow"><div><div class="nm">Catering</div><div class="bwrap"><div class="bar" style="width:0%;background:#a78bfa"></div></div></div><div class="r" style="color:var(--muted);font-size:.72rem">0%</div><div class="r">$0.00</div><div class="r" style="color:var(--muted)">$6,984.31</div></div>
+<div class="barrow"><div><div class="nm">POS</div><div class="bwrap"><div class="bar" style="width:0%;background:#60a5fa"></div></div></div><div class="r" style="color:var(--muted);font-size:.72rem">0%</div><div class="r">$0.00</div><div class="r" style="color:var(--muted)">$897.70</div></div>
+</div>
+<div class="sec"><h2>COGS Breakdown</h2><div class="hdrow"><div>Supplier</div><div class="r">%</div><div class="r">Sat</div><div class="r">WTD</div></div><div class="barrow"><div><div class="nm">Gilmours</div><div class="bwrap"><div class="bar" style="width:100%;background:#60a5fa"></div></div></div><div class="r" style="color:var(--muted);font-size:.72rem">100%</div><div class="r">$509.05</div><div class="r" style="color:var(--muted)">$3,217.26</div></div>
+<div class="inv">O-0005661975 · PO confirmed fwd order · 2026-08-22 · $509.05</div>
+<div class="note red">⚠ ⚠ ESTIMATED — no COGS file synced tonight. Booked from the confirmed forward order O-0005661975 (delivery date 22/08) carried in Friday's order book. Not an invoice.</div>
+<div class="foot">Main suppliers $509.05 + Spread suppliers $0.00 = $509.05 total COGS today</div></div>
+<div class="sec"><h2>Wages · 0 Staff · 0h · $0.00</h2><div class="hdrow"><div>Employee</div><div class="r">Area</div><div class="r">Hours</div><div class="r">WTD hrs</div></div><div class="foot">⚠ <b>Estimated</b> — the Deputy export for today has not come through, so hours are shown from last Saturday's roster and will be corrected once it arrives.</div></div>
+<div class="sec"><h2>Commentary</h2><div class="comm"><p><b>Sat 22 Aug.</b> Closed — no sales and no hours. Cost for the day $492.00.</p><p><b>Closed, as every Saturday.</b> No sales and no one rostered. The cost showing today is a Gilmours delivery that was booked in for Saturday plus the fixed daily charges, so the site runs a small deficit — that is normal for a closed day and nothing to act on.</p><p>Tuesday's budget below uses the plain benchmark while the sales baseline is being re-checked.</p></div></div>
+<h2>Forward Forecast</h2><div class="fc"><div class="sec" style="border-color:rgba(251,191,36,.4)"><div style="font-size:.95rem;font-weight:700;margin-bottom:3px">Monday 24 August</div><div style="font-size:.72rem;color:var(--muted);margin-bottom:10px">Cafe $1,631.40 (last week) · Catering $5,464.03 (booked)</div><div class="kl">Expected COGS — Monday</div><div style="font-size:1.5rem;font-weight:800;color:var(--am)">$26.46</div><div class="note" style="margin-top:8px">⚠ Only part of Monday's ordering is placed yet — the rest goes in on Sunday. This figure will rise as those orders land, so treat it as a floor, not a forecast.</div><div style="font-size:.68rem;color:var(--muted);margin-top:6px">Includes committed supplier daily shares $26.46 — these arrive automatically, nothing to order.</div><div style="margin-top:12px"><div class="kl">Wages budget</div><div style="font-size:1.15rem;font-weight:700;color:var(--bl)">$1,428.13</div></div><div style="margin-top:14px;background:rgba(96,165,250,.05);border:1px solid rgba(96,165,250,.2);border-radius:8px;padding:11px 13px"><div class="kl" style="margin-bottom:7px">Best Fit Hours</div><table><thead><tr><th>Employee</th><th>Area</th><th class="r">Target hrs</th></tr></thead><tbody><tr><td>Horacio Nicolas Soto</td><td>Kitchen</td><td class="r">10.98</td></tr><tr><td>Aleisha Yee</td><td>FOH</td><td class="r">7.65</td></tr></tbody></table><div style="font-size:.68rem;color:var(--muted);margin-top:7px">18.63 total hours · full-time staff at minimum 7h</div></div></div><div class="sec" style="border-color:rgba(251,191,36,.4)"><div style="font-size:.95rem;font-weight:700;margin-bottom:3px">Tuesday 25 August</div><div style="font-size:.72rem;color:var(--muted);margin-bottom:10px">Cafe $2,131.40 (last week) · Catering $1,818.49 (booked +8%)</div><div class="kl">Benchmark budget · Tuesday</div><div style="font-size:1.5rem;font-weight:800;color:var(--am)">$706.81</div><div class="note" style="margin-top:8px">⚠ Using the plain benchmark this week. The over/under-spend adjustment is being held back while the cafe sales baseline is re-checked — it would otherwise show a much larger figure than the kitchen can sensibly order to.</div><div style="font-size:.68rem;color:var(--muted);margin-top:6px">Benchmark $715.67 less committed supplier shares $8.86.</div><div style="margin-top:12px"><div class="kl">Wages budget</div><div style="font-size:1.15rem;font-weight:700;color:var(--bl)">$1,628.04</div></div><div style="margin-top:14px;background:rgba(96,165,250,.05);border:1px solid rgba(96,165,250,.2);border-radius:8px;padding:11px 13px"><div class="kl" style="margin-bottom:7px">Best Fit Hours</div><table><thead><tr><th>Employee</th><th>Area</th><th class="r">Target hrs</th></tr></thead><tbody><tr><td>Horacio Nicolas Soto</td><td>Kitchen</td><td class="r">10.98</td></tr><tr><td>Aleisha Yee</td><td>FOH</td><td class="r">7.65</td></tr></tbody></table><div style="font-size:.68rem;color:var(--muted);margin-top:7px">18.63 total hours · full-time staff at minimum 7h</div></div></div></div>
+<script>const FORECAST_BASE = {"last_week":{"mon":{"vs":{"cafe":1631.4,"catering":1823.19},"vl":{"cafe":2301.7},"sb":{"tvnz":843.4,"wholesale":3465.8,"cafe":1990.5,"catering":1472.4}},"wed":{"vs":{"cafe":2466.15,"catering":3379.62},"vl":{"cafe":3547.98},"sb":{"tvnz":1168.5,"wholesale":3042.58,"cafe":3052.36,"catering":1977.2}},"sat":{"vl":{"cafe":4216.5},"sb":{"wholesale":2510.75}},"sun":{"vl":{"cafe":3550.76},"sb":{"wholesale":514.58}},"thu":{"vs":{"cafe":2322.76,"catering":5323.45},"vl":{"cafe":2895.84},"sb":{"tvnz":1015.6,"wholesale":3538.43,"cafe":2894.2,"catering":2404.16}},"tue":{"vs":{"cafe":2131.4,"catering":2775.9},"vl":{"cafe":2997.05},"sb":{"tvnz":983.7,"wholesale":3192.13,"cafe":2694.2,"catering":2924.6}},"fri":{"vs":{"cafe":1427.8,"catering":1636.58},"vl":{"cafe":3297.07},"sb":{"tvnz":777.2,"wholesale":3027.65,"cafe":3001.8,"catering":1571.19}}},"last_week_wages":{"mon":{"vs":1428.13,"vl":938.48,"sb":3181.44},"wed":{"vs":1713.68,"vl":845.52,"sb":3467.06},"sat":{"vs":0,"vl":1081.16,"sb":183.69},"sun":{"vs":160.05,"vl":1333.56,"sb":598.32},"thu":{"vs":1588.18,"vl":1122.84,"sb":3476.43},"tue":{"vs":1628.04,"vl":1161.51,"sb":3447.8},"fri":{"vs":908.18,"vl":1184.1,"sb":2992.64}},"cogs_benchmarks":{"vs":{"cafe":0.26,"catering":0.22},"sb":{"tvnz":0.22,"wholesale":0.35,"cafe":0.25,"catering":0.18},"vl":{"cafe":0.25},"qs":{"cafe":0.19}}};</script>
